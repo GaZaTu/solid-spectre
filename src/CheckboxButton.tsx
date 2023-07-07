@@ -22,6 +22,7 @@ type Props = {
   oninput?: ComponentProps<typeof Button>["onclick"]
   onclick?: ComponentProps<typeof Button>["onclick"]
   reversed?: boolean
+  useColor?: boolean
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -80,21 +81,24 @@ function IconCheckbox(props: Props & ComponentProps<typeof Button>) {
   }
 
   const label = createMemo(() => {
+    const arg = fml.children
     const raw = formGroup.label()
     const str = formGroup.labelAsString()
-    return raw ?? str
+    return arg ?? raw ?? str
   })
 
   return (
-    <Button type="button" color="transparent" action={!label()} circle={!label()} {...__props} onclick={handleClick}>
-      <Show when={props.indeterminate} fallback={
-        <Show when={(checked() && !props.reversed) || (!checked() && props.reversed)} fallback={
-          ((fml.ifFalse ?? <Defaults.IfFalse />))
+    <Button type="button" color={props.useColor ? (checked() ? "primary" : "gray") : "transparent"} action={!label()} circle={!label()} {...__props} onclick={handleClick}>
+      <Show when={!props.useColor}>
+        <Show when={props.indeterminate} fallback={
+          <Show when={(checked() && !props.reversed) || (!checked() && props.reversed)} fallback={
+            ((fml.ifFalse ?? <Defaults.IfFalse />))
+          }>
+            {(fml.ifTrue ?? <Defaults.IfTrue />)}
+          </Show>
         }>
-          {(fml.ifTrue ?? <Defaults.IfTrue />)}
+          {(fml.ifIndeterminate ?? <Defaults.IfIndeterminate />)}
         </Show>
-      }>
-        {(fml.ifIndeterminate ?? <Defaults.IfIndeterminate />)}
       </Show>
       <Show when={label()} fallback={fml.children}>
         <span>{label()}</span>
