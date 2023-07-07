@@ -66,10 +66,14 @@ const pushWarning = (message: any) => {
 const pushError = (error: any, onclose?: (() => void) | unknown) => {
   console.error(error)
 
-  if (import.meta.env.PROD) {
-    error = error?.message ?? String(error)
+  if (error instanceof Error) {
+    if (import.meta.env.PROD) {
+      error = error?.message ?? String(error)
+    } else {
+      error = error ? `${error.name ?? "Error"}: ${error.message}\n\t${error.stack?.replaceAll("\n", "\n\t")}` : String(error)
+    }
   } else {
-    error = error ? `${error.name ?? "Error"}: ${error.message}\n\t${error.stack?.replaceAll("\n", "\n\t")}` : String(error)
+    error = String(error)
   }
 
   error = (

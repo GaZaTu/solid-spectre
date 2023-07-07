@@ -84,7 +84,7 @@ function FormGroup(props: Props & ComponentProps<"div">) {
 
   const context: ComponentProps<typeof FormGroupContext.Provider>["value"] = {
     label: () => {
-      return _props.label
+      return _props.label as any
     },
     labelAsString: () => {
       if (typeof _props.label === "string") {

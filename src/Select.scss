@@ -10,7 +10,7 @@
   height: $control-height-md;
   line-height: $line-height;
   outline: none;
-  padding: $control-padding-y $control-padding-x;
+  padding: $control-padding-y-md $control-padding-x-md;
   vertical-align: middle;
   width: 100%;
   background: $body-bg;
@@ -43,7 +43,7 @@
   &[size],
   &[multiple] {
     height: auto;
-    padding: $control-padding-y $control-padding-x;
+    padding: $control-padding-y-md $control-padding-x-md;
 
     option {
       padding: $unit-h $unit-1;
@@ -51,7 +51,7 @@
   }
   &:not([multiple]):not([size]) {
     background: $body-bg url("data:image/svg+xml;charset=utf8,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%204%205'%3E%3Cpath%20fill='%23667189'%20d='M2%200L0%202h4zm0%205L0%203h4z'/%3E%3C/svg%3E") no-repeat right .35rem center / .4rem .5rem;
-    padding-right: $control-icon-size + $control-padding-x;
+    padding-right: $control-icon-size + $control-padding-x-md;
   }
 
   &.form-inline {

@@ -1,7 +1,6 @@
 import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import NavItem from "./Nav.Item"
-import "./Nav.scss"
+import "./OffCanvas.scss"
 import createHTMLMemoHook from "./util/createHTMLMemoHook"
 
 type Props = {
@@ -11,24 +10,25 @@ const createProps = createHTMLMemoHook((props: Props) => {
   return {
     get class() {
       return classnames({
-        "nav": true,
+        "off-canvas-content": true,
       })
     },
   }
 })
 
-function Nav(props: Props & ComponentProps<"ul">) {
+function OffCanvasContent(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
   return (
-    <ul {..._props}>
-      {fml.children}
-    </ul>
+    <>
+      <div {..._props}>
+        {fml.children}
+      </div>
+    </>
   )
 }
 
-export default Object.assign(Nav, {
+export default Object.assign(OffCanvasContent, {
   createProps,
-  Item: NavItem,
 })

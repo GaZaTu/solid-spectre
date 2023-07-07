@@ -21,7 +21,9 @@ type Props = {
   id?: string
   ifEmpty?: string | null
 
-  multiline?: boolean
+  multiline?: boolean | "expandable"
+
+  onTextChange?: (text: string | null) => unknown
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -75,7 +77,7 @@ function Input(props: Props & ComponentProps<"input">) {
     return value
   })
 
-  const handleInput = (ev: InputEvent & { currentTarget: HTMLInputElement | HTMLTextAreaElement }) => {
+  const handleInput = (ev: InputEvent & { currentTarget: HTMLInputElement | HTMLTextAreaElement | HTMLDivElement }) => {
     (_props.oninput as any)?.(ev)
 
     if (ev.cancelBubble) {
@@ -97,10 +99,18 @@ function Input(props: Props & ComponentProps<"input">) {
       return
     }
 
-    let value = ev.currentTarget.value as string | null
+    let value: string | null = (() => {
+      if (ev.currentTarget instanceof HTMLDivElement) {
+        return ev.currentTarget.innerText
+      } else {
+        return ev.currentTarget.value
+      }
+    })()
     if (value === "" && _props.ifEmpty !== undefined) {
       value = _props.ifEmpty
     }
+
+    (_props.onTextChange)?.(value)
 
     form.setValue(_props.name, value)
   }
@@ -123,7 +133,11 @@ function Input(props: Props & ComponentProps<"input">) {
     <Show when={_props.multiline} fallback={
       <input value={value()} oninput={handleInput} onblur={handleBlur} placeholder={formGroup.labelAsString() ?? _props.placeholder} {..._props} />
     }>
-      <textarea value={value()} oninput={handleInput} onblur={handleBlur} placeholder={formGroup.labelAsString() ?? _props.placeholder} {..._props as {}} />
+      <Show when={_props.multiline === "expandable"} fallback={
+        <textarea value={value()} oninput={handleInput} onblur={handleBlur} placeholder={formGroup.labelAsString() ?? _props.placeholder} {..._props as {}} />
+      }>
+        <div innerText={value()} oninput={handleInput} onblur={handleBlur} contenteditable {..._props as {}} />
+      </Show>
     </Show>
   )
 

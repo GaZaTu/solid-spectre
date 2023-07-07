@@ -9,6 +9,7 @@ type Props = {
   size?: ThemeBreakpoint
   marginY?: boolean
   flex?: boolean
+  grow?: boolean
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -20,6 +21,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
         [`grid-${props.size}`]: !!props.size,
         "container-with-y-margin": props.marginY,
         "container-flex": props.flex,
+        "container-grow": props.grow,
       })
     },
   }

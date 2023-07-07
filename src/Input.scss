@@ -63,6 +63,12 @@ textarea.form-input {
   }
 }
 
+// Form element: div[contenteditable]
+div.form-input {
+  height: auto;
+  min-height: calc($line-height * 2);
+}
+
 // validation based on :placeholder-shown (Edge doesn't support it yet)
 .form-input {
   &:not(:placeholder-shown) {
