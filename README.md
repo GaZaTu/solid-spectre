@@ -4,8 +4,6 @@
 
 # solid-spectre
 
-[![pnpm](https://img.shields.io/badge/maintained%20with-pnpm-cc00ff.svg?style=for-the-badge&logo=pnpm)](https://pnpm.io/)
-
 Solid.js components styled with Spectre.css
 
 ## Quick start
@@ -13,15 +11,11 @@ Solid.js components styled with Spectre.css
 Install it:
 
 ```bash
-npm i solid-spectre
-# or
-yarn add solid-spectre
-# or
-pnpm add solid-spectre
+npm i @gazatu/solid-spectre
 ```
 
 Use it:
 
 ```tsx
-import solid-spectre from 'solid-spectre'
+import {} from "solid-spectre"
 ```

@@ -46,3 +46,12 @@ a {
     color: $link;
   }
 }
+
+noscript,
+.noscript {
+  padding: var(--unit-4);
+  background: var(--warning);
+  color: var(--warning-text);
+  font-weight: bold;
+  text-align: center;
+}

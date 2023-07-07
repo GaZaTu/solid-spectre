@@ -1,8 +1,8 @@
-import { defineConfig } from 'tsup-preset-solid'
+import { defineConfig } from "tsup-preset-solid"
 
 export default defineConfig(
   {
-    entry: 'src/index.tsx',
+    entry: "src/index.tsx",
     devEntry: true,
   },
   {
