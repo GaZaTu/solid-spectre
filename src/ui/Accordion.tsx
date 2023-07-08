@@ -3,8 +3,8 @@ import { ComponentProps, JSX, splitProps } from "solid-js"
 import AccordionRadioGroup from "./Accordion.RadioGroup"
 import "./Accordion.css"
 import Icon from "./Icon"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
-import { float, marginR } from "./util/position"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { float, marginR } from "../util/position"
 
 type Props = {
   header?: JSX.Element

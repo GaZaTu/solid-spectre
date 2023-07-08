@@ -3,7 +3,7 @@ import { ComponentProps, splitProps } from "solid-js"
 import TabsItem from "./Tabs.Item"
 import TabsRadioGroup from "./Tabs.RadioGroup"
 import "./Tabs.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
 }

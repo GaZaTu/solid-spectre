@@ -2,7 +2,7 @@ import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import CarouselButton from "./Carousel.Button"
 import "./Carousel.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
 }

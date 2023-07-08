@@ -2,7 +2,7 @@ import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import Icon from "./Icon"
 import "./Tile.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   iconSrc?: ComponentProps<typeof Icon>["src"]

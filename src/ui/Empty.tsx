@@ -4,7 +4,7 @@ import EmptyAction from "./Empty.Action"
 import EmptyHeader from "./Empty.Header"
 import EmptyIcon from "./Empty.Icon"
 import "./Empty.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
 }

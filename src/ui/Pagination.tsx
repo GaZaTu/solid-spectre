@@ -3,7 +3,7 @@ import { ComponentProps, createMemo, For } from "solid-js"
 import Icon from "./Icon"
 import PaginationItem from "./Pagination.Item"
 import "./Pagination.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   firstIndex?: 0 | 1

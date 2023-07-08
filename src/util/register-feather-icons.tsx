@@ -1,9 +1,9 @@
 import FeatherIconProvider from "./FeatherIconProvider"
-import CheckboxButton from "./ui/CheckboxButton"
-import Icon, { IconContext } from "./ui/Icon"
-import iconCheckSquare from "./icons/iconCheckSquare"
-import iconMinusSquare from "./icons/iconMinusSquare"
-import iconSquare from "./icons/iconSquare"
+import CheckboxButton from "../ui/CheckboxButton"
+import Icon, { IconContext } from "../ui/Icon"
+import iconCheckSquare from "../icons/iconCheckSquare"
+import iconMinusSquare from "../icons/iconMinusSquare"
+import iconSquare from "../icons/iconSquare"
 
 const registerFeatherIcons = () => {
   IconContext.Provider = FeatherIconProvider

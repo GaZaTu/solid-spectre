@@ -5,9 +5,9 @@ import FormGroupContext from "./Form.Group.Context"
 import Icon from "./Icon"
 import InputGroup from "./Input.Group"
 import "./Input.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
-import "./util/form-mixins/input-select.css"
-import { ThemeSize } from "./util/theming"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import "../util/form-mixins/input-select.css"
+import { ThemeSize } from "../util/theming"
 
 type Props = {
   size?: ThemeSize

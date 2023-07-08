@@ -2,8 +2,8 @@ import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import ColumnRow from "./Column.Row"
 import "./Column.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
-import { ThemeBreakpoint } from "./util/theming"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { ThemeBreakpoint } from "../util/theming"
 
 type Props = {
   offset?: "ml" | "mr" | "mx"

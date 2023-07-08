@@ -2,7 +2,7 @@ import classnames from "classnames"
 import { Component, ComponentProps, splitProps } from "solid-js"
 import "./Dropdown.css"
 import Menu from "./Menu"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   right?: boolean

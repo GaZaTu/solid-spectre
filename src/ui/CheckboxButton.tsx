@@ -4,7 +4,7 @@ import Button from "./Button"
 import "./CheckboxButton.css"
 import FormContext from "./Form.Context"
 import FormGroupContext from "./Form.Group.Context"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 const Defaults = {
   IfTrue: (() => undefined) as Component,

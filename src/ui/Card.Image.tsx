@@ -2,7 +2,7 @@ import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Card.css"
 import Img from "./Img"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   src?: string

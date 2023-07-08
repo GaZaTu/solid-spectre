@@ -1,8 +1,8 @@
 import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Divider.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
-import { text } from "./util/text"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { text } from "../util/text"
 
 type Props = {
   vertical?: boolean

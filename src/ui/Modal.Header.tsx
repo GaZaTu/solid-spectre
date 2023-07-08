@@ -3,8 +3,8 @@ import { ComponentProps, splitProps, useContext } from "solid-js"
 import Button from "./Button"
 import ModalContext from "./Modal.Context"
 import "./Modal.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
-import { float } from "./util/position"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { float } from "../util/position"
 
 type Props = {
 }

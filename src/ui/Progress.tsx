@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Progress.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   fixedTop?: boolean

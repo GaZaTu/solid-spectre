@@ -4,7 +4,7 @@ import CardBody from "./Card.Body"
 import CardFooter from "./Card.Footer"
 import CardImage from "./Card.Image"
 import "./Panel.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
 }

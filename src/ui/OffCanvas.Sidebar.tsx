@@ -5,7 +5,7 @@ import Column from "./Column"
 import Icon from "./Icon"
 import "./OffCanvas.css"
 import Section from "./Section"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   right?: boolean

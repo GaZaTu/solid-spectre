@@ -1,10 +1,10 @@
 import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Radio.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
-import "./util/form-mixins/checkbox-radio.css"
-import "./util/form-mixins/checkbox-radio-switch.css"
-import { ThemeSize } from "./util/theming"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import "../util/form-mixins/checkbox-radio.css"
+import "../util/form-mixins/checkbox-radio-switch.css"
+import { ThemeSize } from "../util/theming"
 
 type Props = {
   size?: ThemeSize

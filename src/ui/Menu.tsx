@@ -2,7 +2,7 @@ import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import MenuItem from "./Menu.Item"
 import "./Menu.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   transparent?: boolean

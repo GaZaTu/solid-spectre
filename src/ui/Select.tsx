@@ -1,9 +1,9 @@
 import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Select.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
-import "./util/form-mixins/input-select.css"
-import { ThemeSize } from "./util/theming"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import "../util/form-mixins/input-select.css"
+import { ThemeSize } from "../util/theming"
 
 type Props = {
   size?: ThemeSize

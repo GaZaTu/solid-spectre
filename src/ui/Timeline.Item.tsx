@@ -2,7 +2,7 @@ import classnames from "classnames"
 import { ComponentProps, JSX, splitProps } from "solid-js"
 import A from "./A"
 import "./Timeline.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   icon?: JSX.Element

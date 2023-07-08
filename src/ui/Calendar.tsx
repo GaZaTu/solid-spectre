@@ -7,7 +7,7 @@ import CalendarDateItem from "./Calendar.DateItem"
 import CalendarHeader from "./Calendar.Header"
 import CalendarNavbar from "./Calendar.Navbar"
 import "./Calendar.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
 }

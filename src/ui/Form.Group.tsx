@@ -4,8 +4,8 @@ import Column from "./Column"
 import FormContext from "./Form.Context"
 import FormGroupContext from "./Form.Group.Context"
 import "./Form.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
-import { ThemeSize } from "./util/theming"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { ThemeSize } from "../util/theming"
 
 type Props = {
   size?: ThemeSize

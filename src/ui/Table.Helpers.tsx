@@ -5,7 +5,7 @@ import A from "./A"
 import Button from "./Button"
 import CheckboxButton from "./CheckboxButton"
 import Icon from "./Icon"
-import { centerChildren, centerSelf } from "./util/position"
+import { centerChildren, centerSelf } from "../util/position"
 
 const tableDateCell = (...[locales, options]: Parameters<typeof Intl.DateTimeFormat>): ColumnDefTemplate<CellContext<any, any>> => {
   const dateFormat = new Intl.DateTimeFormat(locales, {

@@ -5,7 +5,7 @@ import NavbarBurger from "./Navbar.Burger"
 import NavbarDropdown from "./Navbar.Dropdown"
 import "./Navbar.css"
 import NavbarSection from "./Navbar.Section"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   size?: "sm" | "lg"

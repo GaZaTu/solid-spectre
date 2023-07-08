@@ -3,7 +3,7 @@ import { ComponentProps, createMemo, createRenderEffect, useContext } from "soli
 import FormContext from "./Form.Context"
 import FormGroupContext from "./Form.Group.Context"
 import "./Slider.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
 }

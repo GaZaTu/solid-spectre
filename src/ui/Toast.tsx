@@ -1,8 +1,8 @@
 import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Toast.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
-import { ThemeColor } from "./util/theming"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { ThemeColor } from "../util/theming"
 
 type Props = {
   color?: ThemeColor

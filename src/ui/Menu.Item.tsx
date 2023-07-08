@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import { ComponentProps, JSX, splitProps } from "solid-js"
 import "./Menu.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   active?: boolean

@@ -5,7 +5,7 @@ import Icon from "./Icon"
 import Toast from "./Toast"
 import "./Toaster.css"
 import { ToasterStore, useToaster } from "./Toaster.Store"
-import { marginR } from "./util/position"
+import { marginR } from "../util/position"
 
 const notifications = new ToasterStore<Partial<ComponentProps<typeof ToastWithAnimation>>>()
 
@@ -67,7 +67,7 @@ const pushError = (error: any, onclose?: (() => void) | unknown) => {
   console.error(error)
 
   if (error instanceof Error) {
-    if (import.meta.env.PROD) {
+    if ((import.meta as any)?.env?.PROD) {
       error = error?.message ?? String(error)
     } else {
       error = error ? `${error.name ?? "Error"}: ${error.message}\n\t${error.stack?.replaceAll("\n", "\n\t")}` : String(error)

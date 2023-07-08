@@ -9,8 +9,8 @@ import LoadingPlaceholder from "./LoadingPlaceholder"
 import Pagination from "./Pagination"
 import TableRow from "./Table.Row"
 import "./Table.css"
-import { loading } from "./util/loading"
-import { marginY } from "./util/position"
+import { loading } from "../util/loading"
+import { marginY } from "../util/position"
 
 declare module "@tanstack/solid-table" {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

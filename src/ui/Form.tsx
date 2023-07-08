@@ -4,7 +4,7 @@ import { ComponentProps, splitProps } from "solid-js"
 import FormContext from "./Form.Context"
 import FormGroup from "./Form.Group"
 import "./Label.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Obj = Record<string, any>
 

@@ -9,7 +9,7 @@ import FormContext from "./Form.Context"
 import FormGroupContext from "./Form.Group.Context"
 import Input from "./Input"
 import Menu from "./Menu"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 interface CreateOptionsConfig {
   key?: string

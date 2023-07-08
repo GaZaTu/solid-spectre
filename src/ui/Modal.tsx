@@ -6,8 +6,8 @@ import ModalContext from "./Modal.Context"
 import ModalFooter from "./Modal.Footer"
 import ModalHeader from "./Modal.Header"
 import "./Modal.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
-import { ThemeSize } from "./util/theming"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { ThemeSize } from "../util/theming"
 
 type Props = {
   size?: ThemeSize

@@ -3,7 +3,7 @@ import { ComponentProps, splitProps } from "solid-js"
 import Button from "./Button"
 import "./Carousel.css"
 import Icon from "./Icon"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   prev?: boolean

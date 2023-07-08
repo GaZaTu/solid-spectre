@@ -3,9 +3,9 @@ import { ComponentProps, splitProps } from "solid-js"
 import A from "./A"
 import ButtonGroup from "./Button.Group"
 import "./Button.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
-import { loading } from "./util/loading"
-import { ThemeColor, ThemeSize } from "./util/theming"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { loading } from "../util/loading"
+import { ThemeColor, ThemeSize } from "../util/theming"
 
 type Props = {
   size?: ThemeSize

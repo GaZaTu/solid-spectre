@@ -1,7 +1,7 @@
 import classnames from "classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Img.css"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   responsive?: boolean

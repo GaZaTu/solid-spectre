@@ -1,8 +1,8 @@
 import classnames from "classnames"
 import { ComponentProps, For, splitProps } from "solid-js"
 import "./Breadcrumbs.css"
-import childrenArray from "./util/childrenArray"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import childrenArray from "../util/childrenArray"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
 }

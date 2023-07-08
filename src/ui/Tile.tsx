@@ -6,7 +6,7 @@ import TileIcon from "./Tile.Icon"
 import "./Tile.css"
 import TileSubtitle from "./Tile.Subtitle"
 import TileTitle from "./Tile.Title"
-import createHTMLMemoHook from "./util/createHTMLMemoHook"
+import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   compact?: boolean

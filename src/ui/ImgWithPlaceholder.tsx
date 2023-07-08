@@ -3,7 +3,7 @@ import { ComponentProps, createEffect, createSignal, Show, splitProps } from "so
 import Icon from "./Icon"
 import Img from "./Img"
 import LoadingPlaceholder from "./LoadingPlaceholder"
-import readFile from "./util/readFile"
+import readFile from "../util/readFile"
 
 type Props = {
   useFetch?: boolean
