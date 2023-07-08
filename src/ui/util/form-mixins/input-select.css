@@ -1,0 +1,38 @@
+.has-success .form-input,
+.has-success .form-select,
+.form-input.is-success,
+.form-select.is-success {
+  background: rgba(var(--success--rgb-triplet));
+  border-color: var(--success);
+}
+
+.has-success .form-input:focus,
+.has-success .form-select:focus,
+.form-input.is-success:focus,
+.form-select.is-success:focus {
+  box-shadow: 0 0 0 0.1rem rgba(var(--success--rgb-triplet));
+}
+
+.has-error .form-input,
+.has-error .form-select,
+.form-input.is-error,
+.form-select.is-error {
+  background: rgba(var(--failure--rgb-triplet));
+  border-color: var(--failure);
+}
+
+.has-error .form-input:focus,
+.has-error .form-select:focus,
+.form-input.is-error:focus,
+.form-select.is-error:focus {
+  box-shadow: 0 0 0 0.1rem rgba(var(--failure--rgb-triplet));
+}
+
+.form-input:disabled,
+.form-select:disabled,
+.form-input.disabled,
+.form-select.disabled {
+  background-color: var(--body-bg-monochrome);
+  cursor: not-allowed;
+  opacity: 0.5;
+}

@@ -1,0 +1,58 @@
+.form-group:not(:last-child) {
+  margin-bottom: var(--layout-spacing-md);
+}
+
+.form-label {
+  display: block;
+  line-height: var(--line-height);
+  padding: var(--control-padding-y-md)var(--border-width-md) 0;
+}
+
+.form-label.label-sm,
+.form-group-sm .form-label {
+  font-size: var(--font-size-sm);
+  padding: var(--control-padding-y-sm)var(--border-width-md) 0;
+}
+
+.form-label.label-lg,
+.form-group-lg .form-label {
+  font-size: var(--font-size-lg);
+  padding: var(--control-padding-y-lg)var(--border-width-md) 0;
+}
+
+.form-input-hint {
+  display: block;
+  color: var(--body-fg-monochrome);
+  font-size: var(--font-size-sm);
+}
+
+.form-input-hint:first-of-type {
+  margin-top: var(--unit-1);
+}
+
+.form-input-hint:last-of-type {
+  margin-bottom: var(--unit-1);
+}
+
+.has-error .form-input-hint:first-of-type,
+.is-error+.form-input-hint:first-of-type {
+  color: var(--failure);
+}
+
+fieldset {
+  margin-bottom: var(--layout-spacing-lg);
+}
+
+legend {
+  font-size: var(--font-size-lg);
+  font-weight: 500;
+  margin-bottom: var(--layout-spacing-lg);
+}
+
+.form-group-required .form-label::after,
+.form-group-required .form-checkbox::after,
+.form-group-required .form-checkbox-button::after {
+  content: "*";
+  color: var(--failure);
+  margin-left: 0.2rem;
+}

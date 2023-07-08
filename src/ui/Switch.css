@@ -1,0 +1,44 @@
+.form-switch {
+  padding-left: calc(var(--unit-8) + var(--control-padding-x-md)) !important;
+}
+
+.form-switch .form-icon {
+  background: var(--body-bg-monochrome);
+  background-clip: padding-box;
+  border-color: var(--body-bg-monochrome);
+  border-radius: calc(var(--unit-2) + var(--border-width-md));
+  height: calc(var(--unit-4) + var(--border-width-md * 2));
+  left: 0;
+  top: calc((var(--control-height-sm) - var(--unit-4)) / 2 - var(--border-width-md));
+  width: var(--unit-8);
+}
+
+.form-switch .form-icon::before {
+  background: gray;
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: var(--unit-4);
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: background 0.2s, border 0.2s, box-shadow 0.2s, color 0.2s, left 0.2s;
+  width: var(--unit-4);
+}
+
+.form-switch input:checked+.form-icon::before {
+  left: 14px;
+}
+
+.form-switch input:active+.form-icon::before {
+  background: var(--body-bg);
+}
+
+.form-switch.form-inline {
+  display: inline-block;
+}
+
+.form-switch input:disabled+.form-icon::before,
+.form-switch input.disabled+.form-icon::before {
+  background: var(--body-bg);
+}

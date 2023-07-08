@@ -1,0 +1,56 @@
+.steps {
+  display: flex;
+  flex-wrap: nowrap;
+  list-style: none;
+  margin: var(--unit-1) 0;
+  width: 100%;
+}
+
+.steps .steps-item {
+  flex: 1 1 0;
+  margin-top: 0;
+  min-height: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.steps .steps-item:not(:first-child)::before {
+  background: var(--primary);
+  content: "";
+  height: 2px;
+  left: -50%;
+  position: absolute;
+  top: 9px;
+  width: 100%;
+}
+
+.steps .steps-item a {
+  color: var(--primary);
+  display: inline-block;
+  padding: 20px 10px 0;
+  text-decoration: none;
+}
+
+.steps .steps-item a::before {
+  background: var(--primary);
+  border: var(--border-width-lg) solid var(--primary-text);
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: var(--unit-3);
+  left: 50%;
+  position: absolute;
+  top: var(--unit-1);
+  transform: translateX(-50%);
+  width: var(--unit-3);
+  z-index: var(--zindex-0);
+}
+
+.steps .steps-item.active a::before {
+  background: var(--primary-text);
+  border: var(--border-width-lg) solid var(--primary);
+}
+
+.steps .steps-item.active~.step-item {
+  opacity: 0.5;
+}

@@ -1,0 +1,20 @@
+.form-radio .form-icon {
+  border-color: var(--body-bg-monochrome);
+  border-radius: 50%;
+}
+
+.form-radio input:checked+.form-icon::before {
+  background: var(--body-bg-monochrome);
+  border-radius: 50%;
+  content: "";
+  height: 6px;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+}
+
+.form-radio.form-inline {
+  display: inline-block;
+}

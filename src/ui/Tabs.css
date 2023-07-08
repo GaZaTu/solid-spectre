@@ -1,0 +1,61 @@
+.tabs {
+  align-items: center;
+  border-bottom: var(--border-width-md) solid lightgray;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: var(--unit-1) 0 calc(var(--unit-1) - var(--border-width-md)) 0;
+}
+
+.tabs .tabs-item {
+  margin-top: 0;
+}
+
+.tabs .tabs-item a {
+  border-bottom: var(--border-width-lg) solid transparent;
+  color: inherit;
+  display: block;
+  margin: 0 var(--unit-2) 0 0;
+  padding: var(--unit-2) var(--unit-1) calc(var(--unit-2) - var(--border-width-lg)) var(--unit-1);
+  text-decoration: none;
+}
+
+.tabs .tabs-item a:focus,
+.tabs .tabs-item a:hover {
+  color: var(--link);
+}
+
+.tabs .tabs-item.active a,
+.tabs .tabs-item a.active {
+  border-bottom-color: var(--primary);
+  color: var(--link);
+}
+
+.tabs .tabs-item.tabs-action {
+  flex: 1 0 auto;
+  text-align: right;
+}
+
+.tabs .tabs-item .btn-clear {
+  margin-top: calc(var(--unit-1) * -1);
+}
+
+.tabs.tabs-block .tabs-item {
+  flex: 1 0 0;
+  text-align: center;
+}
+
+.tabs.tabs-block .tabs-item a {
+  margin: 0;
+}
+
+.tabs.tabs-block .tabs-item .badge[data-badge]::after {
+  position: absolute;
+  right: var(--unit-h);
+  top: var(--unit-h);
+  transform: translate(0, 0);
+}
+
+.tabs:not(.tab-block) .badge {
+  padding-right: 0;
+}

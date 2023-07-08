@@ -1,0 +1,26 @@
+.breadcrumbs {
+  list-style: none;
+  margin: var(--unit-1) 0;
+  padding: var(--unit-1) 0;
+}
+
+.breadcrumbs .breadcrumb-item {
+  color: var(--gray);
+  display: inline-block;
+  margin: 0;
+  padding: var(--unit-1) 0;
+}
+
+.breadcrumbs .breadcrumb-item:not(:last-child) {
+  margin-right: var(--unit-1);
+}
+
+.breadcrumbs .breadcrumb-item:not(:last-child) a {
+  color: var(--gray);
+}
+
+.breadcrumbs .breadcrumb-item:not(:first-child)::before {
+  color: var(--gray);
+  content: "/";
+  padding-right: var(--unit-2);
+}

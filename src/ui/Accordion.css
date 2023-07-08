@@ -1,0 +1,29 @@
+.accordion input:checked~.accordion-header>.icon:first-child,
+.accordion[open] .accordion-header>.icon:first-child {
+  transform: rotate(90deg);
+}
+
+.accordion input:checked~.accordion-body,
+.accordion[open] .accordion-body {
+  max-height: 50rem;
+}
+
+.accordion .accordion-header {
+  display: block;
+  padding: var(--unit-1) var(--unit-2);
+}
+
+.accordion .accordion-header .icon {
+  transition: transform 0.25s;
+}
+
+.accordion .accordion-body {
+  margin-bottom: var(--layout-spacing-md);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s;
+}
+
+summary.accordion-header::-webkit-details-marker {
+  display: none;
+}

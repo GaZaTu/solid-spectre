@@ -1,0 +1,32 @@
+.chip {
+  align-items: center;
+  background: var(--body-bg-monochrome);
+  border-radius: 5rem;
+  display: inline-flex;
+  font-size: 90%;
+  height: var(--unit-6);
+  line-height: var(--unit-4);
+  margin: var(--unit-h);
+  max-width: var(--control-width-sm);
+  overflow: hidden;
+  padding: var(--unit-1) var(--unit-2);
+  text-decoration: none;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.chip.active {
+  background: var(--primary);
+  color: var(--primary-text);
+}
+
+.chip .avatar {
+  margin-left: calc(var(--unit-2) * -1);
+  margin-right: var(--unit-1);
+}
+
+.chip .btn-clear {
+  border-radius: 50%;
+  transform: scale(0.75);
+}

@@ -1,0 +1,31 @@
+@keyframes toaster-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(calc(var(--unit-8)));
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toaster {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding-right: var(--unit-2);
+  overflow: hidden;
+  z-index: var(--zindex-5);
+}
+
+.toaster .toast {
+  margin: var(--unit-2);
+  min-width: 12rem;
+  animation: toaster-slide-up 0.15s ease 1;
+}
+
+.toaster .code {
+  max-height: 33vh;
+  overflow: auto;
+}

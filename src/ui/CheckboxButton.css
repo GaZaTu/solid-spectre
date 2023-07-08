@@ -1,0 +1,4 @@
+.has-error .form-checkbox-button>i,
+.form-checkbox-button.is-error>i {
+  color: var(--failure) !important;
+}

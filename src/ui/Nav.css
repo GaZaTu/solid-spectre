@@ -1,0 +1,36 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: var(--unit-1) 0;
+}
+
+.nav .nav-item a {
+  color: var(--body-fg-monochrome);
+  padding: var(--unit-1) var(--unit-2);
+  text-decoration: none;
+}
+
+.nav .nav-item a:focus,
+.nav .nav-item a:hover {
+  color: var(--primary);
+}
+
+.nav .nav-item.active>a {
+  color: var(--body-fg);
+  font-weight: bold;
+}
+
+.nav .nav-item.active>a:focus,
+.nav .nav-item.active>a:hover {
+  color: var(--primary);
+}
+
+.nav a>.nav-item {
+  margin-top: 0;
+}
+
+.nav .nav {
+  margin-bottom: var(--unit-2);
+  margin-left: var(--unit-4);
+}

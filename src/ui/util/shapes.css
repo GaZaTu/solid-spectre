@@ -1,0 +1,20 @@
+.s-rounded-xs {
+  border-radius: var(--border-radius-xs) !important;
+}
+
+.s-rounded-sm {
+  border-radius: var(--border-radius-sm) !important;
+}
+
+.s-rounded-md {
+  border-radius: var(--border-radius-md) !important;
+}
+
+.s-rounded-lg {
+  border-radius: var(--border-radius-lg) !important;
+}
+
+.s-rounded-xl,
+.s-circle {
+  border-radius: 50% !important;
+}

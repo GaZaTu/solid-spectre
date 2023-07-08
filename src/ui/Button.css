@@ -1,0 +1,420 @@
+.btn {
+  appearance: none;
+  background: var(--body-bg-monochrome);
+  border: var(--border-width-md) solid var(--primary);
+  border-radius: var(--control-border-radius);
+  color: var(--body-fg);
+  cursor: pointer;
+  display: inline-block;
+  font-size: var(--font-size-md);
+  height: var(--control-height-md);
+  line-height: var(--line-height);
+  outline: none;
+  padding: var(--control-padding-y-md) var(--control-padding-x-md);
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, border 0.2s, box-shadow 0.2s, color 0.2s;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.1rem rgba(var(--primary));
+}
+
+.btn:focus,
+.btn:hover {
+  background: rgba(var(--primary--rgb-triplet));
+  border-color: var(--primary-monochrome);
+  color: var(--body-fg);
+  text-decoration: none;
+}
+
+.btn:active,
+.btn.btn-active {
+  background: var(--primary-monochrome);
+  border-color: var(--primary-monochrome);
+  color: var(--primary-text);
+  text-decoration: none;
+}
+
+.btn:active.loading::after,
+.btn.btn-active.loading::after {
+  border-bottom-color: var(--primary-text);
+  border-left-color: var(--primary-text);
+}
+
+.btn[disabled],
+.btn:disabled,
+.btn.disabled {
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.btn.btn-gray {
+  color: var(--body-fg);
+}
+
+.btn.btn-primary {
+  background: rgb(var(--primary--rgb-triplet));
+  border-color: var(--primary-monochrome);
+  color: var(--primary-text);
+}
+
+.btn.btn-primary:focus {
+  box-shadow: 0 0 0 0.1rem rgba(var(--primary--rgb-triplet));
+}
+
+.btn.btn-primary:focus,
+.btn.btn-primary:hover {
+  background: var(--primary-monochrome);
+  border-color: var(--primary-monochrome);
+  color: var(--primary-text);
+}
+
+.btn.btn-primary:active,
+.btn.btn-primary.btn-active {
+  background: var(--primary-monochrome);
+  border-color: var(--primary-monochrome);
+  color: var(--primary-text);
+}
+
+.btn.btn-primary.loading::after {
+  border-bottom-color: var(--primary-text);
+  border-left-color: var(--primary-text);
+}
+
+.btn.btn-primary.btn-outlined {
+  background: transparent;
+  border-color: rgb(var(--primary--rgb-triplet));
+  color: rgb(var(--primary--rgb-triplet));
+  font-weight: bold;
+}
+
+.btn.btn-primary.btn-outlined:focus {
+  box-shadow: 0 0 0 0.1rem rgba(var(--primary--rgb-triplet));
+}
+
+.btn.btn-primary.btn-outlined:focus,
+.btn.btn-primary.btn-outlined:hover {
+  background: rgb(var(--primary--rgb-triplet));
+  border-color: var(--primary-monochrome);
+  color: var(--primary-text);
+}
+
+.btn.btn-primary.btn-outlined:active,
+.btn.btn-primary.btn-outlined.btn-active {
+  background: rgb(var(--primary--rgb-triplet));
+  border-color: var(--primary-monochrome);
+  color: var(--primary-text);
+}
+
+.btn.btn-primary.btn-outlined.loading::after {
+  border-bottom-color: rgb(var(--primary--rgb-triplet));
+  border-left-color: rgb(var(--primary--rgb-triplet));
+}
+
+.btn.btn-success {
+  background: rgb(var(--success--rgb-triplet));
+  border-color: var(--success-monochrome);
+  color: var(--success-text);
+}
+
+.btn.btn-success:focus {
+  box-shadow: 0 0 0 0.1rem rgba(var(--success--rgb-triplet));
+}
+
+.btn.btn-success:focus,
+.btn.btn-success:hover {
+  background: var(--success-monochrome);
+  border-color: var(--success-monochrome);
+  color: var(--success-text);
+}
+
+.btn.btn-success:active,
+.btn.btn-success.btn-active {
+  background: var(--success-monochrome);
+  border-color: var(--success-monochrome);
+  color: var(--success-text);
+}
+
+.btn.btn-success.loading::after {
+  border-bottom-color: var(--success-text);
+  border-left-color: var(--success-text);
+}
+
+.btn.btn-success.btn-outlined {
+  background: transparent;
+  border-color: rgb(var(--success--rgb-triplet));
+  color: rgb(var(--success--rgb-triplet));
+  font-weight: bold;
+}
+
+.btn.btn-success.btn-outlined:focus {
+  box-shadow: 0 0 0 0.1rem rgba(var(--success--rgb-triplet));
+}
+
+.btn.btn-success.btn-outlined:focus,
+.btn.btn-success.btn-outlined:hover {
+  background: rgb(var(--success--rgb-triplet));
+  border-color: var(--success-monochrome);
+  color: var(--success-text);
+}
+
+.btn.btn-success.btn-outlined:active,
+.btn.btn-success.btn-outlined.btn-active {
+  background: rgb(var(--success--rgb-triplet));
+  border-color: var(--success-monochrome);
+  color: var(--success-text);
+}
+
+.btn.btn-success.btn-outlined.loading::after {
+  border-bottom-color: rgb(var(--success--rgb-triplet));
+  border-left-color: rgb(var(--success--rgb-triplet));
+}
+
+.btn.btn-warning {
+  background: rgb(var(--warning--rgb-triplet));
+  border-color: var(--warning-monochrome);
+  color: var(--warning-text);
+}
+
+.btn.btn-warning:focus {
+  box-shadow: 0 0 0 0.1rem rgba(var(--warning--rgb-triplet));
+}
+
+.btn.btn-warning:focus,
+.btn.btn-warning:hover {
+  background: var(--warning-monochrome);
+  border-color: var(--warning-monochrome);
+  color: var(--warning-text);
+}
+
+.btn.btn-warning:active,
+.btn.btn-warning.btn-active {
+  background: var(--warning-monochrome);
+  border-color: var(--warning-monochrome);
+  color: var(--warning-text);
+}
+
+.btn.btn-warning.loading::after {
+  border-bottom-color: var(--warning-text);
+  border-left-color: var(--warning-text);
+}
+
+.btn.btn-warning.btn-outlined {
+  background: transparent;
+  border-color: rgb(var(--warning--rgb-triplet));
+  color: rgb(var(--warning--rgb-triplet));
+  font-weight: bold;
+}
+
+.btn.btn-warning.btn-outlined:focus {
+  box-shadow: 0 0 0 0.1rem rgba(var(--warning--rgb-triplet));
+}
+
+.btn.btn-warning.btn-outlined:focus,
+.btn.btn-warning.btn-outlined:hover {
+  background: rgb(var(--warning--rgb-triplet));
+  border-color: var(--warning-monochrome);
+  color: var(--warning-text);
+}
+
+.btn.btn-warning.btn-outlined:active,
+.btn.btn-warning.btn-outlined.btn-active {
+  background: rgb(var(--warning--rgb-triplet));
+  border-color: var(--warning-monochrome);
+  color: var(--warning-text);
+}
+
+.btn.btn-warning.btn-outlined.loading::after {
+  border-bottom-color: rgb(var(--warning--rgb-triplet));
+  border-left-color: rgb(var(--warning--rgb-triplet));
+}
+
+.btn.btn-failure {
+  background: rgb(var(--failure--rgb-triplet));
+  border-color: var(--failure-monochrome);
+  color: var(--failure-text);
+}
+
+.btn.btn-failure:focus {
+  box-shadow: 0 0 0 0.1rem rgba(var(--failure--rgb-triplet));
+}
+
+.btn.btn-failure:focus,
+.btn.btn-failure:hover {
+  background: var(--failure-monochrome);
+  border-color: var(--failure-monochrome);
+  color: var(--failure-text);
+}
+
+.btn.btn-failure:active,
+.btn.btn-failure.btn-active {
+  background: var(--failure-monochrome);
+  border-color: var(--failure-monochrome);
+  color: var(--failure-text);
+}
+
+.btn.btn-failure.loading::after {
+  border-bottom-color: var(--failure-text);
+  border-left-color: var(--failure-text);
+}
+
+.btn.btn-failure.btn-outlined {
+  background: transparent;
+  border-color: rgb(var(--failure--rgb-triplet));
+  color: rgb(var(--failure--rgb-triplet));
+  font-weight: bold;
+}
+
+.btn.btn-failure.btn-outlined:focus {
+  box-shadow: 0 0 0 0.1rem rgba(var(--failure--rgb-triplet));
+}
+
+.btn.btn-failure.btn-outlined:focus,
+.btn.btn-failure.btn-outlined:hover {
+  background: rgb(var(--failure--rgb-triplet));
+  border-color: var(--failure-monochrome);
+  color: var(--failure-text);
+}
+
+.btn.btn-failure.btn-outlined:active,
+.btn.btn-failure.btn-outlined.btn-active {
+  background: rgb(var(--failure--rgb-triplet));
+  border-color: var(--failure-monochrome);
+  color: var(--failure-text);
+}
+
+.btn.btn-failure.btn-outlined.loading::after {
+  border-bottom-color: rgb(var(--failure--rgb-triplet));
+  border-left-color: rgb(var(--failure--rgb-triplet));
+}
+
+.btn.btn-transparent {
+  background: transparent;
+  border-color: transparent;
+  color: var(--body-fg);
+}
+
+.btn.btn-transparent:hover,
+.btn.btn-transparent:active,
+.btn.btn-transparent.btn-active {
+  background-color: var(--body-bg-monochrome);
+}
+
+.btn.btn-link {
+  background: transparent;
+  border-color: transparent;
+  color: var(--link);
+}
+
+.btn.btn-link:hover,
+.btn.btn-link:active,
+.btn.btn-link.btn-active {
+  color: var(--link-monochrome);
+}
+
+.btn.btn-sm,
+.btn-group-sm .btn {
+  font-size: var(--font-size-sm);
+  height: var(--control-height-sm);
+  padding: var(--control-padding-y-sm) var(--control-padding-x-sm);
+}
+
+.btn.btn-lg,
+.btn-group-lg .btn {
+  font-size: var(--font-size-lg);
+  height: var(--control-height-lg);
+  padding: var(--control-padding-y-lg) var(--control-padding-x-lg);
+}
+
+.btn.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn.btn-action {
+  width: var(--control-height-md);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn.btn-action.btn-sm {
+  width: var(--control-height-sm);
+}
+
+.btn.btn-action.btn-lg {
+  width: var(--control-height-lg);
+}
+
+.btn.btn-clear {
+  background: transparent;
+  border: 0;
+  color: currentColor;
+  height: var(--unit-5);
+  line-height: var(--unit-4);
+  margin-left: var(--unit-1);
+  margin-right: -2px;
+  opacity: 1;
+  padding: var(--unit-h);
+  text-decoration: none;
+  width: var(--unit-5);
+}
+
+.btn.btn-clear:focus,
+.btn.btn-clear:hover {
+  background: rgba(var(--body-bg--rgb-triplet));
+  opacity: 0.95;
+}
+
+.btn.btn-clear::before {
+  content: "\2715";
+}
+
+.btn.btn-round,
+.btn-group-round .btn {
+  border-radius: var(--unit-5);
+  padding-left: var(--unit-5);
+  padding-right: var(--unit-5);
+}
+
+.btn.btn-circle {
+  border-radius: 50%;
+}
+
+.btn-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.btn-group .btn {
+  flex: 1 0 auto;
+}
+
+.btn-group .btn:first-child:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  margin-left: calc(var(--border-width-md) * -1);
+}
+
+.btn-group .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  margin-left: calc(var(--border-width-md) * -1);
+}
+
+.btn-group .btn:last-child:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  margin-left: calc(var(--border-width-md) * -1);
+}
+
+.btn-group.btn-group-block {
+  display: flex;
+}
+
+.btn-group.btn-group-block .btn {
+  flex: 1 0 0;
+}

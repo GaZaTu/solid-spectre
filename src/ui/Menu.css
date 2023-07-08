@@ -1,0 +1,91 @@
+.menu {
+  box-shadow: 0 var(--unit-h) calc((var(--unit-o) + var(--unit-o)) * 2) rgba(var(--body-fg-monochrome--rgb-triplet));
+  background: var(--body-bg);
+  border-radius: var(--control-border-radius);
+  list-style: none;
+  margin: 0;
+  min-width: var(--control-width-xs);
+  padding: var(--unit-2) 0;
+  transform: translateY(var(--layout-spacing-sm));
+  z-index: var(--zindex-3);
+}
+
+.menu.menu-nav {
+  background: transparent;
+  box-shadow: none;
+}
+
+.menu .menu-item {
+  margin-top: 0;
+  padding: 0 var(--unit-4);
+  position: relative;
+  text-decoration: none;
+}
+
+.menu .menu-item>a {
+  border-radius: var(--control-border-radius);
+  color: inherit;
+  display: block;
+  margin: 0 calc(var(--unit-4) * -1);
+  padding: var(--unit-1) var(--unit-4);
+  text-decoration: none;
+}
+
+.menu .menu-item>a:focus,
+.menu .menu-item>a:hover,
+.menu .menu-item>a.focused,
+.menu-item.focused .menu .menu-item>a {
+  background: rgba(var(--body-bg-monochrome--rgb-triplet));
+}
+
+.menu .menu-item>a:active,
+.menu .menu-item>a.active,
+.menu-item.active .menu .menu-item>a {
+  background: rgba(var(--primary--rgb-triplet));
+}
+
+.menu .menu-item>a[disabled],
+.menu .menu-item>a:disabled,
+.menu .menu-item>a.disabled,
+.menu-item.disabled .menu .menu-item>a {
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.menu .menu-item.menu-item.focused>a {
+  background: rgba(var(--body-bg-monochrome--rgb-triplet));
+}
+
+.menu .menu-item.menu-item.active>a {
+  background: rgba(var(--primary--rgb-triplet));
+}
+
+.menu .menu-item.menu-item.disabled>a {
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.menu .menu-item .form-checkbox,
+.menu .menu-item .form-radio,
+.menu .menu-item .form-switch {
+  margin: var(--unit-h) 0;
+}
+
+.menu .menu-item+.menu-item {
+  margin-top: var(--unit-1);
+}
+
+.menu .menu-badge {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.menu .menu-badge .label {
+  margin-right: var(--unit-2);
+}

@@ -1,0 +1,81 @@
+.input-group {
+  display: flex;
+}
+
+.input-group .input-group-addon {
+  background: var(--body-bg);
+  border: var(--border-width-md) solid gray;
+  border-radius: var(--control-border-radius);
+  line-height: var(--line-height);
+  padding: var(--control-padding-y-md) var(--control-padding-x-md);
+  white-space: nowrap;
+}
+
+.input-group .input-group-addon.addon-sm,
+.input-group-sm .input-group .input-group-addon {
+  font-size: var(--font-size-sm);
+  padding: var(--control-padding-y-sm) var(--control-padding-x-sm);
+}
+
+.input-group .input-group-addon.addon-lg,
+.input-group-lg .input-group .input-group-addon {
+  font-size: var(--font-size-lg);
+  padding: var(--control-padding-y-lg) var(--control-padding-x-lg);
+}
+
+.input-group .input-group-addon .form-checkbox {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: calc(var(--control-padding-y-md) * -1);
+  margin-bottom: calc(var(--control-padding-y-md) * -1);
+}
+
+.input-group .form-input,
+.input-group .form-select {
+  flex: 1 1 auto;
+  width: 1%;
+}
+
+.input-group .btn {
+  z-index: var(--zindex-0);
+}
+
+.input-group .form-input:first-child:not(:last-child),
+.input-group .form-select:first-child:not(:last-child),
+.input-group .input-group-addon:first-child:not(:last-child),
+.input-group .btn:first-child:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.input-group .form-input:not(:first-child):not(:last-child),
+.input-group .form-select:not(:first-child):not(:last-child),
+.input-group .input-group-addon:not(:first-child):not(:last-child),
+.input-group .btn:not(:first-child):not(:last-child) {
+  border-radius: 0;
+  margin-left: calc(var(--border-width-md) * -1);
+}
+
+.input-group .form-input:last-child:not(:first-child),
+.input-group .form-select:last-child:not(:first-child),
+.input-group .input-group-addon:last-child:not(:first-child),
+.input-group .btn:last-child:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  margin-left: calc(var(--border-width-md) * -1);
+}
+
+.input-group .form-input:focus,
+.input-group .form-select:focus,
+.input-group .input-group-addon:focus,
+.input-group .btn:focus {
+  z-index: var(--zindex-0)1;
+}
+
+.input-group .form-select {
+  width: auto;
+}
+
+.input-group.input-inline {
+  display: inline-flex;
+}

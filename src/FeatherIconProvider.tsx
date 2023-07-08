@@ -13,8 +13,8 @@ import iconInfo from "./icons/iconInfo"
 import iconMenu from "./icons/iconMenu"
 import iconSearch from "./icons/iconSearch"
 import iconX from "./icons/iconX"
-import createHTMLMemoHook from "./components/util/createHTMLMemoHook"
-import "./FeatherIconProvider.scss"
+import createHTMLMemoHook from "./ui/util/createHTMLMemoHook"
+import "./FeatherIconProvider.css"
 
 type Props =  ComponentProps<"i"> & {
   src?: string

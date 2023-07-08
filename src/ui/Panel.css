@@ -1,0 +1,22 @@
+.panel {
+  border: var(--border-width-md) solid lightgray;
+  border-radius: var(--border-radius-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.panel .panel-header,
+.panel .panel-footer {
+  flex: 0 0 auto;
+  padding: var(--layout-spacing-lg);
+}
+
+.panel .panel-nav {
+  flex: 0 0 auto;
+}
+
+.panel .panel-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0 var(--layout-spacing-lg);
+}

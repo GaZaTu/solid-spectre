@@ -1,0 +1,43 @@
+html {
+  --border-radius-xs: 0;
+  --border-radius-sm: 0;
+  --border-radius-md: 0;
+  --border-radius-lg: 0;
+  --border-radius-xl: 50%;
+}
+
+html .btn.btn-circle {
+  border-radius: unset;
+}
+
+html .menu {
+  border: 1px solid gray;
+}
+
+html .form-input,
+html .form-input:focus,
+html .form-select,
+html .form-select:focus,
+html .btn:not(.btn-transparent):not(.btn-link),
+html .chip,
+html .menu,
+html .avatar {
+  border-radius: unset;
+  box-shadow: 2px 2px 0px 0px gray;
+}
+
+html .form-autocomplete .form-input:not(.form-autocomplete-input),
+html .form-autocomplete .form-input:not(.form-autocomplete-input):focus {
+  box-shadow: unset;
+}
+
+html .form-switch>.form-icon,
+html .form-switch>.form-icon:before {
+  border-radius: unset;
+}
+
+@media (max-width: 840px) {
+  html .navbar.navbar-responsive .menu {
+    box-shadow: unset;
+  }
+}

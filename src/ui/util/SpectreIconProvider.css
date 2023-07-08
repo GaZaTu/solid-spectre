@@ -1,0 +1,96 @@
+.spectre-icon {
+  box-sizing: border-box;
+  display: inline-block;
+  font-size: inherit;
+  font-style: normal;
+  height: 1em;
+  position: relative;
+  text-indent: -9999px;
+  vertical-align: middle;
+  width: 1em;
+}
+
+.spectre-icon::before,
+.spectre-icon::after {
+  content: "";
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.spectre-icon.icon-2x {
+  font-size: 1.6rem;
+}
+
+.spectre-icon.icon-3x {
+  font-size: 2.4rem;
+}
+
+.spectre-icon.icon-4x {
+  font-size: 3.2rem;
+}
+
+.accordion .spectre-icon,
+.btn .spectre-icon,
+.toast .spectre-icon,
+.menu .spectre-icon {
+  vertical-align: -10%;
+}
+
+.accordion .spectre-icon:first-child,
+.btn .spectre-icon:first-child,
+.toast .spectre-icon:first-child,
+.menu .spectre-icon:first-child {
+  margin-right: var(--unit-2);
+}
+
+.accordion .spectre-icon:last-child,
+.btn .spectre-icon:last-child,
+.toast .spectre-icon:last-child,
+.menu .spectre-icon:last-child {
+  margin-left: var(--unit-2);
+}
+
+.btn-lg .spectre-icon {
+  vertical-align: -15%;
+}
+
+.has-icon-left,
+.has-icon-right {
+  display: flex;
+  position: relative;
+}
+
+.has-icon-left.form-inline,
+.has-icon-right.form-inline {
+  display: inline-block;
+}
+
+.has-icon-left .spectre-icon,
+.has-icon-right .spectre-icon {
+  height: var(--control-icon-size);
+  margin: 0 var(--control-padding-y-md);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--control-icon-size);
+  z-index: var(--zindex-0)1;
+}
+
+.has-icon-left .spectre-icon:not(.is-right) {
+  left: calc(var(--border-width-md) * 6);
+}
+
+.has-icon-left .form-input {
+  padding-left: calc(var(--control-icon-size) + var(--control-padding-y-md) * 3);
+}
+
+.has-icon-right .spectre-icon:not(.is-left) {
+  right: calc(var(--border-width-md) * 6);
+}
+
+.has-icon-right .form-input {
+  padding-right: calc(var(--control-icon-size) + var(--control-padding-y-md) * 3);
+}

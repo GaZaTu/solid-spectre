@@ -1,0 +1,68 @@
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.table.table-striped tbody tr:nth-of-type(odd) {
+  background: rgba(var(--body-bg-monochrome--rgb-triplet));
+}
+
+.table tbody tr.active,
+.table.table-striped tbody tr.active {
+  background: var(--body-bg-monochrome);
+}
+
+.table.table-hover:not(.table-loading) tbody tr {
+  cursor: pointer;
+}
+
+.table.table-hover:not(.table-loading) tbody tr:hover {
+  background: rgba(var(--body-bg-monochrome--rgb-triplet));
+}
+
+.table td,
+.table th {
+  border-bottom: var(--border-width-md) solid rgba(var(--body-fg-monochrome--rgb-triplet));
+  padding: var(--unit-3) var(--unit-2);
+}
+
+.table th {
+  border-bottom-width: var(--border-width-lg);
+}
+
+.table th.th-clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.table.table-loading td {
+  border-color: transparent;
+}
+
+.table-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-container.sticky .table-toolbar,
+.table-container.sticky .table-pagination {
+  background: rgba(var(--body-bg--rgb-triplet));
+  position: sticky;
+  z-index: 1;
+}
+
+.table-container.sticky .table-toolbar {
+  top: 0;
+}
+
+.table-container.sticky .table-pagination {
+  bottom: 0;
+}
+
+.table-scroll-container {
+  flex-grow: 1;
+  overflow-x: auto;
+}

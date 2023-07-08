@@ -1,0 +1,47 @@
+.form-checkbox .form-icon {
+  border-color: rgba(var(--body-fg--rgb-triplet));
+  border-radius: var(--border-radius-xs);
+}
+
+.form-checkbox input:checked+.form-icon::before {
+  background-clip: padding-box;
+  border: var(--border-width-lg) solid var(--primary-text);
+  border-left-width: 0;
+  border-top-width: 0;
+  content: "";
+  height: 9px;
+  left: 50%;
+  margin-left: -3px;
+  margin-top: -6px;
+  position: absolute;
+  top: 50%;
+  transform: rotate(45deg);
+  width: 6px;
+}
+
+.form-checkbox input:indeterminate+.form-icon {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+.form-checkbox input:indeterminate+.form-icon::before {
+  background: var(--primary-text);
+  content: "";
+  height: 2px;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -1px;
+  position: absolute;
+  top: 50%;
+  width: 10px;
+}
+
+.form-checkbox.form-inline {
+  display: inline-block;
+}
+
+.has-error .form-checkbox input:indeterminate+.form-icon,
+.form-checkbox.is-error input:indeterminate+.form-icon {
+  background: var(--failure);
+  border-color: var(--failure);
+}

@@ -1,0 +1,60 @@
+.progress {
+  appearance: none;
+  background: var(--body-bg-monochrome);
+  border: 0;
+  border-radius: var(--control-border-radius);
+  color: var(--primary);
+  height: var(--unit-1);
+  position: relative;
+  width: 100%;
+}
+
+.progress::-webkit-progress-bar {
+  background: transparent;
+  border-radius: var(--control-border-radius);
+}
+
+.progress::-webkit-progress-value {
+  background: var(--primary);
+  border-radius: var(--control-border-radius);
+}
+
+.progress::-moz-progress-bar {
+  background: var(--primary);
+  border-radius: var(--control-border-radius);
+}
+
+.progress:indeterminate {
+  animation: progress-indeterminate 1.5s linear infinite;
+  background: var(--body-bg-monochrome) linear-gradient(to right, var(--primary) 30%, var(--body-bg-monochrome) 30%) top left / 150% 150% no-repeat;
+}
+
+.progress:indeterminate::-moz-progress-bar {
+  background: transparent;
+}
+
+.progress.progress-fixed-top {
+  position: fixed;
+  top: 0;
+  height: 2px;
+  z-index: 44;
+  border-radius: 0;
+}
+
+.progress.progress-fixed-top:indeterminate {
+  background: transparent linear-gradient(to right, var(--primary) 30%, transparent 30%) top left / 150% 150% no-repeat;
+}
+
+.progress.progress-fixed-top[value] {
+  height: 4px;
+}
+
+@keyframes progress-indeterminate {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}

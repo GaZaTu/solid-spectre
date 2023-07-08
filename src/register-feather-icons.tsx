@@ -1,6 +1,6 @@
 import FeatherIconProvider from "./FeatherIconProvider"
-import CheckboxButton from "./components/CheckboxButton"
-import Icon, { IconContext } from "./components/Icon"
+import CheckboxButton from "./ui/CheckboxButton"
+import Icon, { IconContext } from "./ui/Icon"
 import iconCheckSquare from "./icons/iconCheckSquare"
 import iconMinusSquare from "./icons/iconMinusSquare"
 import iconSquare from "./icons/iconSquare"

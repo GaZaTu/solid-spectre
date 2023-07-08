@@ -1,0 +1,71 @@
+.accordion .spectre-icon>svg,
+.btn .spectre-icon>svg,
+.toast .spectre-icon>svg,
+.menu .spectre-icon>svg {
+  vertical-align: -28%;
+}
+
+.accordion .spectre-icon:first-child:not(:last-child),
+.btn .spectre-icon:first-child:not(:last-child),
+.toast .spectre-icon:first-child:not(:last-child),
+.menu .spectre-icon:first-child:not(:last-child) {
+  margin-right: var(--unit-2);
+}
+
+.accordion .spectre-icon:last-child:not(:first-child),
+.btn .spectre-icon:last-child:not(:first-child),
+.toast .spectre-icon:last-child:not(:first-child),
+.menu .spectre-icon:last-child:not(:first-child) {
+  margin-left: var(--unit-2);
+}
+
+.btn-lg .spectre-icon>svg {
+  vertical-align: -18%;
+}
+
+.spectre-icon>svg {
+  display: inline-block;
+  vertical-align: middle;
+  width: var(--feather-size, 22px);
+  height: var(--feather-size, 22px);
+  stroke-width: var(--feather-weight, 2px);
+  fill: var(--feather-fill, none);
+}
+
+.has-icon-left,
+.has-icon-right {
+  display: flex;
+  position: relative;
+}
+
+.has-icon-left.form-inline,
+.has-icon-right.form-inline {
+  display: inline-block;
+}
+
+.has-icon-left .spectre-icon,
+.has-icon-right .spectre-icon {
+  height: var(--control-icon-size);
+  margin: 0 var(--control-padding-y-sm);
+  position: absolute;
+  top: 15%;
+  width: var(--control-icon-size);
+  z-index: var(--zindex-0)1;
+  --feather-size: 18px;
+}
+
+.has-icon-left .spectre-icon:not(.is-right) {
+  left: calc(var(--border-width-md) * 6);
+}
+
+.has-icon-left .form-input {
+  padding-left: calc(var(--control-icon-size) + var(--control-padding-y-md) * 3);
+}
+
+.has-icon-right .spectre-icon:not(.is-left) {
+  right: calc(var(--border-width-md) * 6);
+}
+
+.has-icon-right .form-input {
+  padding-right: calc(var(--control-icon-size) + var(--control-padding-y-md) * 3);
+}

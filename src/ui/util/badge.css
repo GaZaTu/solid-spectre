@@ -1,0 +1,57 @@
+.badge,
+[data-has-badge] {
+  position: relative;
+  white-space: nowrap;
+}
+
+.badge[data-badge]::after,
+[data-has-badge][data-badge]::after,
+.badge:not([data-badge])::after,
+[data-has-badge]:not([data-badge])::after {
+  background: var(--primary);
+  background-clip: padding-box;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 0.1rem var(--body-bg-monochrome);
+  color: var(--primary-text);
+  content: attr(data-badge);
+  display: inline-block;
+  transform: translate(-0.05rem, -0.5rem);
+}
+
+.badge[data-badge]::after,
+[data-has-badge][data-badge]::after {
+  font-size: var(--font-size-sm);
+  height: 0.9rem;
+  line-height: 1;
+  min-width: 0.9rem;
+  padding: 0.1rem 0.2rem;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.badge:not([data-badge])::after,
+[data-has-badge]:not([data-badge])::after,
+.badge[data-badge=""]::after,
+[data-has-badge][data-badge=""]::after {
+  height: 6px;
+  min-width: 6px;
+  padding: 0;
+  width: 6px;
+}
+
+.badge.btn::after,
+[data-has-badge].btn::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.badge.avatar::after,
+[data-has-badge].avatar::after {
+  position: absolute;
+  top: 14.64%;
+  right: 14.64%;
+  transform: translate(50%, -50%);
+  z-index: var(--zindex-1);
+}

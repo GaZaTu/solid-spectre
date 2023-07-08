@@ -1,5 +1,7 @@
-import { mkdir, readdir, rm, writeFile } from "node:fs/promises"
+import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises"
 import { fileURLToPath } from "node:url"
+
+const INLINE = process.argv.includes("inline")
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url))
 
@@ -23,7 +25,17 @@ for (const iconFile of await readdir(iconsDir)) {
   const iconJSName = `icon${convertDashCaseToPascalCase(iconName)}`
   const iconJSFileName = `${iconJSName}.ts`
 
-  const code = `import ${iconJSName} from "${iconImportPath}?raw"\nexport default ${iconJSName}\n`
+  const iconCode = await (async () => {
+    if (INLINE) {
+      const iconFilePath = `${iconsDir}/${iconFile}`
+      const iconAsString = await readFile(iconFilePath, { encoding: "utf-8" })
 
+      return `const ${iconJSName} = \`${iconAsString}\` as string`
+    } else {
+      return `import ${iconJSName} from "${iconImportPath}?raw"`
+    }
+  })()
+
+  const code = `${iconCode}\nexport default ${iconJSName}\n`
   await writeFile(`${targetDir}/${iconJSFileName}`, code)
 }

@@ -1,0 +1,56 @@
+.form-autocomplete {
+  position: relative;
+}
+
+.form-autocomplete .form-autocomplete-input {
+  align-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  min-height: var(--control-height-md);
+  padding: var(--unit-h);
+  padding-top: var(--unit-1);
+}
+
+.form-autocomplete .form-autocomplete-input.is-focused {
+  box-shadow: 0 0 0 0.1rem rgba(var(--primary--rgb-triplet));
+  border-color: var(--primary);
+}
+
+.form-autocomplete .form-autocomplete-input .form-input {
+  border-color: transparent;
+  box-shadow: none;
+  display: inline-block;
+  flex: 1 0 auto;
+  height: var(--unit-6);
+  line-height: var(--unit-4);
+  margin: var(--unit-h);
+  width: auto;
+  border: 0;
+  margin-left: 0;
+  padding: calc(var(--control-padding-y-md) - var(--unit-h)) calc(var(--control-padding-x-md) - var(--unit-h));
+}
+
+.form-autocomplete .form-autocomplete-input .form-input:focus-visible {
+  outline: unset;
+}
+
+.form-autocomplete .menu {
+  left: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+}
+
+.has-error .form-autocomplete .form-autocomplete-input {
+  border-color: var(--failure);
+}
+
+.has-error .form-autocomplete .form-autocomplete-input.is-focused {
+  box-shadow: 0 0 0 0.1rem rgba(var(--failure--rgb-triplet));
+}
+
+.has-error .form-autocomplete .form-autocomplete-input .form-input {
+  background-color: unset;
+  box-shadow: unset;
+}

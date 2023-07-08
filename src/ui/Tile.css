@@ -1,0 +1,59 @@
+.tile {
+  align-content: space-between;
+  align-items: flex-start;
+  display: flex;
+}
+
+.tile .tile-icon,
+.tile .tile-action {
+  flex: 0 0 auto;
+}
+
+.tile .tile-body {
+  flex: 1 1 auto;
+}
+
+.tile .tile-body:not(:first-child) {
+  padding-left: var(--unit-2);
+}
+
+.tile .tile-body:not(:last-child) {
+  padding-right: var(--unit-2);
+}
+
+.tile .tile-title,
+.tile .tile-subtitle {
+  line-height: var(--line-height);
+}
+
+.tile.tile-centered {
+  align-items: center;
+}
+
+.tile.tile-centered .tile-body {
+  overflow: hidden;
+}
+
+.tile.tile-centered .tile-title,
+.tile.tile-centered .tile-subtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+
+.tile .tile-icon>.tile-icon-box {
+  align-content: space-around;
+  align-items: center;
+  background: var(--primary);
+  border-radius: var(--control-border-radius);
+  color: var(--primary-text);
+  display: flex;
+  font-size: var(--line-height);
+  height: var(--unit-10);
+  width: var(--unit-10);
+}
+
+.tile .tile-icon>.tile-icon-box>.icon {
+  margin: auto;
+}

@@ -1,0 +1,89 @@
+.tooltip,
+[data-has-tooltip] {
+  position: relative;
+}
+
+.tooltip::after,
+[data-has-tooltip]::after {
+  background: rgba(var(--body-bg-monochrome--rgb-triplet));
+  border-radius: var(--control-border-radius);
+  bottom: 100%;
+  color: var(--body-fg);
+  content: attr(data-tooltip);
+  display: block;
+  font-size: var(--font-size-sm);
+  left: 50%;
+  max-width: var(--control-width-sm);
+  opacity: 0;
+  overflow: hidden;
+  padding: var(--unit-1) var(--unit-2);
+  pointer-events: none;
+  position: absolute;
+  text-overflow: ellipsis;
+  transform: translate(-50%, var(--unit-2));
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: pre;
+  z-index: var(--zindex-3);
+}
+
+.tooltip:hover::after,
+[data-has-tooltip]:hover::after {
+  opacity: 1;
+  transform: translate(-50%, calc(var(--unit-1) * -1));
+}
+
+.tooltip[disabled],
+[data-has-tooltip][disabled],
+.tooltip.disabled,
+[data-has-tooltip].disabled {
+  pointer-events: auto;
+}
+
+.tooltip.tooltip-right::after,
+[data-has-tooltip].tooltip-right::after,
+.tooltip[data-has-tooltip-right]::after,
+[data-has-tooltip][data-has-tooltip-right]::after {
+  bottom: 50%;
+  left: 100%;
+  transform: translate(calc(var(--unit-1) * -1), 50%);
+}
+
+.tooltip.tooltip-right:hover::after,
+[data-has-tooltip].tooltip-right:hover::after,
+.tooltip[data-has-tooltip-right]:hover::after,
+[data-has-tooltip][data-has-tooltip-right]:hover::after {
+  transform: translate(var(--unit-1), 50%);
+}
+
+.tooltip.tooltip-bottom::after,
+[data-has-tooltip].tooltip-bottom::after,
+.tooltip[data-has-tooltip-bottom]::after,
+[data-has-tooltip][data-has-tooltip-bottom]::after {
+  bottom: auto;
+  top: 100%;
+  transform: translate(-50%, calc(var(--unit-2) * -1));
+}
+
+.tooltip.tooltip-bottom:hover::after,
+[data-has-tooltip].tooltip-bottom:hover::after,
+.tooltip[data-has-tooltip-bottom]:hover::after,
+[data-has-tooltip][data-has-tooltip-bottom]:hover::after {
+  transform: translate(-50%, var(--unit-1));
+}
+
+.tooltip.tooltip-left::after,
+[data-has-tooltip].tooltip-left::after,
+.tooltip[data-has-tooltip-left]::after,
+[data-has-tooltip][data-has-tooltip-left]::after {
+  bottom: 50%;
+  left: auto;
+  right: 100%;
+  transform: translate(var(--unit-2), 50%);
+}
+
+.tooltip.tooltip-left:hover::after,
+[data-has-tooltip].tooltip-left:hover::after,
+.tooltip[data-has-tooltip-left]:hover::after,
+[data-has-tooltip][data-has-tooltip-left]:hover::after {
+  transform: translate(calc(var(--unit-1) * -1), 50%);
+}

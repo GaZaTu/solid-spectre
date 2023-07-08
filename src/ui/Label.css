@@ -1,0 +1,39 @@
+.label {
+  border-radius: var(--control-border-radius);
+  line-height: 1.25;
+  padding: 0.1rem 0.2rem;
+  background: var(--body-bg-monochrome);
+  color: var(--body-fg);
+  display: inline-block;
+}
+
+.label.label-rounded {
+  border-radius: 5rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+
+.label.label-primary {
+  background: var(--primary);
+  color: var(--primary-text);
+}
+
+.label.label-secondary {
+  background: var(--secondary);
+  color: var(--secondary-text);
+}
+
+.label.label-success {
+  background: var(--success);
+  color: var(--success-text);
+}
+
+.label.label-warning {
+  background: var(--warning);
+  color: var(--warning-text);
+}
+
+.label.label-failure {
+  background: var(--failure);
+  color: var(--failure-text);
+}

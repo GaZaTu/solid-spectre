@@ -1,0 +1,21 @@
+.empty {
+  background: var(--body-bg);
+  border-radius: var(--control-border-radius);
+  color: var(--body-fg);
+  text-align: center;
+  padding: var(--unit-16) var(--unit-8);
+}
+
+.empty .empty-icon {
+  margin-bottom: var(--layout-spacing-lg);
+}
+
+.empty .empty-title,
+.empty .empty-subtitle,
+.empty .empty-header {
+  margin: var(--layout-spacing-md) auto;
+}
+
+.empty .empty-action {
+  margin-top: var(--layout-spacing-lg);
+}
