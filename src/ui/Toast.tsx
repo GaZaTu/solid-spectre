@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Toast.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeColor } from "../util/theming"
 
 type Props = {
@@ -19,7 +19,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Toast(props: Props & ComponentProps<"div">) {
+function Toast_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -30,6 +30,6 @@ function Toast(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Toast, {
+export const Toast = Object.assign(Toast_, {
   createProps,
 })

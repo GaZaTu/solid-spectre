@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Navbar.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -16,7 +16,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function NavbarBrand(props: Props & ComponentProps<"span">) {
+function NavbarBrand_(props: Props & ComponentProps<"span">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -34,6 +34,6 @@ function NavbarBrand(props: Props & ComponentProps<"span">) {
   )
 }
 
-export default Object.assign(NavbarBrand, {
+export const NavbarBrand = Object.assign(NavbarBrand_, {
   createProps,
 })

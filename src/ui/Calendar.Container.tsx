@@ -1,7 +1,8 @@
-import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+// css
 import "./Calendar.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -16,7 +17,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function CalendarContainer(props: Props & ComponentProps<"div">) {
+function CalendarContainer_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -27,6 +28,6 @@ function CalendarContainer(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(CalendarContainer, {
+export const CalendarContainer = Object.assign(CalendarContainer_, {
   createProps,
 })

@@ -1,8 +1,8 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import InputGroupAddon from "./Input.Group.Addon"
+import { InputGroupAddon } from "./Input.Group.Addon"
 import "./Input.Group.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize } from "../util/theming"
 
 type Props = {
@@ -20,7 +20,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function InputGroup(props: Props & ComponentProps<"div">) {
+function InputGroup_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -31,7 +31,7 @@ function InputGroup(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(InputGroup, {
+export const InputGroup = Object.assign(InputGroup_, {
   createProps,
   Addon: InputGroupAddon,
 })

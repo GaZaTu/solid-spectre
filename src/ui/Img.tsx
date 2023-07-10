@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Img.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   responsive?: boolean
@@ -19,7 +19,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Img(props: Props & ComponentProps<"img">) {
+function Img_(props: Props & ComponentProps<"img">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -30,6 +30,6 @@ function Img(props: Props & ComponentProps<"img">) {
   )
 }
 
-export default Object.assign(Img, {
+export const Img = Object.assign(Img_, {
   createProps,
 })

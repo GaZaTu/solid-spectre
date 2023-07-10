@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Steps.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   active?: boolean
@@ -18,7 +18,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function StepsItem(props: Props & ComponentProps<"li">) {
+function StepsItem_(props: Props & ComponentProps<"li">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -29,6 +29,6 @@ function StepsItem(props: Props & ComponentProps<"li">) {
   )
 }
 
-export default Object.assign(StepsItem, {
+export const StepsItem = Object.assign(StepsItem_, {
   createProps,
 })

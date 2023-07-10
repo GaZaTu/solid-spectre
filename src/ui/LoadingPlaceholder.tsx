@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./LoadingPlaceholder.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   inline?: boolean
@@ -23,7 +23,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function LoadingPlaceholder(props: Props & ComponentProps<"div">) {
+function LoadingPlaceholder_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -40,6 +40,6 @@ function LoadingPlaceholder(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(LoadingPlaceholder, {
+export const LoadingPlaceholder = Object.assign(LoadingPlaceholder_, {
   createProps,
 })

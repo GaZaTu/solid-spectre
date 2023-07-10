@@ -1,9 +1,9 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import TabsItem from "./Tabs.Item"
-import TabsRadioGroup from "./Tabs.RadioGroup"
+import { TabsItem } from "./Tabs.Item"
+import { TabsRadioGroup } from "./Tabs.RadioGroup"
 import "./Tabs.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -18,7 +18,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Steps(props: Props & ComponentProps<"ul">) {
+function Steps_(props: Props & ComponentProps<"ul">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -29,7 +29,7 @@ function Steps(props: Props & ComponentProps<"ul">) {
   )
 }
 
-export default Object.assign(Steps, {
+export const Steps = Object.assign(Steps_, {
   createProps,
   Item: TabsItem,
   RadioGroup: TabsRadioGroup,

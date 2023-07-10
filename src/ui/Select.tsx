@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Select.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import "../util/input-select.css"
 import { ThemeSize } from "../util/theming"
 
@@ -22,7 +22,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Select(props: Props & ComponentProps<"select">) {
+function Select_(props: Props & ComponentProps<"select">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -33,5 +33,5 @@ function Select(props: Props & ComponentProps<"select">) {
   )
 }
 
-export default Object.assign(Select, {
+export const Select = Object.assign(Select_, {
 })

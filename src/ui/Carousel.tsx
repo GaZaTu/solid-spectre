@@ -1,8 +1,8 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import CarouselButton from "./Carousel.Button"
+import { CarouselButton } from "./Carousel.Button"
 import "./Carousel.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -17,7 +17,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Carousel(props: Props & ComponentProps<"div">) {
+function Carousel_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -32,7 +32,7 @@ function Carousel(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Carousel, {
+export const Carousel = Object.assign(Carousel_, {
   createProps,
   Button: CarouselButton,
 })

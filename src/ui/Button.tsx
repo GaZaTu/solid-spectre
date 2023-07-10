@@ -1,11 +1,12 @@
-import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import A from "./A"
-import ButtonGroup from "./Button.Group"
-import "./Button.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { loading } from "../util/loading"
 import { ThemeColor, ThemeSize } from "../util/theming"
+import { A } from "./A"
+import { ButtonGroup } from "./Button.Group"
+// css
+import "./Button.css"
 
 type Props = {
   size?: ThemeSize
@@ -47,7 +48,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Button(props: Props & ComponentProps<"button">) {
+function Button_(props: Props & ComponentProps<"button">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -58,7 +59,7 @@ function Button(props: Props & ComponentProps<"button">) {
   )
 }
 
-function ButtonAnchor(props: Props & ComponentProps<typeof A>) {
+function ButtonAnchor_(props: Props & ComponentProps<typeof A>) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props, { color: "link" })
 
@@ -69,7 +70,7 @@ function ButtonAnchor(props: Props & ComponentProps<typeof A>) {
   )
 }
 
-function ButtonLabel(props: Props & ComponentProps<"label">) {
+function ButtonLabel_(props: Props & ComponentProps<"label">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -80,7 +81,7 @@ function ButtonLabel(props: Props & ComponentProps<"label">) {
   )
 }
 
-function ButtonFileInput(props: Props & ComponentProps<"label"> & { onFilesChange: (files: FileList | null) => unknown, accept?: string, multiple?: boolean }) {
+function ButtonFileInput_(props: Props & ComponentProps<"label"> & { onFilesChange: (files: FileList | null) => unknown, accept?: string, multiple?: boolean }) {
   const [fml] = splitProps(props, ["children", "id"])
   const [_props] = createProps(props)
 
@@ -99,10 +100,10 @@ function ButtonFileInput(props: Props & ComponentProps<"label"> & { onFilesChang
   )
 }
 
-export default Object.assign(Button, {
+export const Button = Object.assign(Button_, {
   createProps,
   Group: ButtonGroup,
-  A: ButtonAnchor,
-  Label: ButtonLabel,
-  FileInput: ButtonFileInput,
+  A: ButtonAnchor_,
+  Label: ButtonLabel_,
+  FileInput: ButtonFileInput_,
 })

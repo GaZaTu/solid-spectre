@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Img.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -16,7 +16,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function FigureCaption(props: Props & ComponentProps<"figcaption">) {
+function FigureCaption_(props: Props & ComponentProps<"figcaption">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -27,6 +27,6 @@ function FigureCaption(props: Props & ComponentProps<"figcaption">) {
   )
 }
 
-export default Object.assign(FigureCaption, {
+export const FigureCaption = Object.assign(FigureCaption_, {
   createProps,
 })

@@ -1,20 +1,20 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import A from "./A"
-import ModalBody from "./Modal.Body"
-import ModalContext from "./Modal.Context"
-import ModalFooter from "./Modal.Footer"
-import ModalHeader from "./Modal.Header"
+import { A_ } from "./A"
+import { ModalBody } from "./Modal.Body"
+import { ModalContext } from "./Modal.Context"
+import { ModalFooter } from "./Modal.Footer"
+import { ModalHeader } from "./Modal.Header"
 import "./Modal.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize } from "../util/theming"
 
 type Props = {
   size?: ThemeSize
   active?: boolean
 
-  onclose?: ComponentProps<typeof A>["onclick"]
-  oncloseHref?: ComponentProps<typeof A>["href"]
+  onclose?: ComponentProps<typeof A_>["onclick"]
+  oncloseHref?: ComponentProps<typeof A_>["href"]
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -29,7 +29,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Modal(props: Props & ComponentProps<"div">) {
+function Modal_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
   const [outerProps, innerProps] = splitProps(_props, ["class"])
@@ -42,7 +42,7 @@ function Modal(props: Props & ComponentProps<"div">) {
 
   return (
     <div {...outerProps}>
-      <A class="modal-overlay" href={props.oncloseHref} onclick={props.onclose} />
+      <A_ class="modal-overlay" href={props.oncloseHref} onclick={props.onclose} />
       <div class="modal-container" {...innerProps}>
         <ModalContext.Provider value={context}>
           {fml.children}
@@ -52,7 +52,7 @@ function Modal(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Modal, {
+export const Modal = Object.assign(Modal_, {
   createProps,
   Context: ModalContext,
   Body: ModalBody,

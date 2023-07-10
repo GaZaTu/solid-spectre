@@ -1,11 +1,11 @@
-import FeatherIconProvider from "./FeatherIconProvider"
-import CheckboxButton from "../ui/CheckboxButton"
+import { FeatherIconProvider } from "./FeatherIconProvider"
+import { CheckboxButton } from "../ui/CheckboxButton"
 import Icon, { IconContext } from "../ui/Icon"
-import iconCheckSquare from "../icons/iconCheckSquare"
-import iconMinusSquare from "../icons/iconMinusSquare"
-import iconSquare from "../icons/iconSquare"
+import { iconCheckSquare } from "../icons/iconCheckSquare"
+import { iconMinusSquare } from "../icons/iconMinusSquare"
+import { iconSquare } from "../icons/iconSquare"
 
-const registerFeatherIcons = () => {
+export const registerFeatherIcons = () => {
   IconContext.Provider = FeatherIconProvider
   IconContext.iconArrowLeft = FeatherIconProvider.iconArrowLeft
   IconContext.iconArrowRight = FeatherIconProvider.iconArrowRight
@@ -21,5 +21,3 @@ const registerFeatherIcons = () => {
   CheckboxButton.Defaults.IfFalse = () => <Icon src={iconSquare} color="var(--body-fg-monochrome)" />
   CheckboxButton.Defaults.IfIndeterminate = () => <Icon src={iconMinusSquare} color="var(--success)" />
 }
-
-export default registerFeatherIcons

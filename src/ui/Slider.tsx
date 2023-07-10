@@ -1,9 +1,9 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, createMemo, createRenderEffect, useContext } from "solid-js"
-import FormContext from "./Form.Context"
-import FormGroupContext from "./Form.Group.Context"
+import { FormContext } from "./Form.Context"
+import { FormGroupContext } from "./Form.Group.Context"
 import "./Slider.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -18,7 +18,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Slider(props: Props & ComponentProps<"input">) {
+function Slider_(props: Props & ComponentProps<"input">) {
   const [inputProps] = createProps(props)
 
   const form = useContext(FormContext)
@@ -75,5 +75,5 @@ function Slider(props: Props & ComponentProps<"input">) {
   )
 }
 
-export default Object.assign(Slider, {
+export const Slider = Object.assign(Slider_, {
 })

@@ -1,10 +1,10 @@
 import { createForm } from "@felte/solid"
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import FormContext from "./Form.Context"
-import FormGroup from "./Form.Group"
+import { FormContext } from "./Form.Context"
+import { FormGroup } from "./Form.Group"
 import "./Label.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Obj = Record<string, any>
 
@@ -38,7 +38,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Form(props: Props & ComponentProps<"form">) {
+function Form_(props: Props & ComponentProps<"form">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props, {
     onKeyDown: ev => {
@@ -78,7 +78,7 @@ function Form(props: Props & ComponentProps<"form">) {
   )
 }
 
-export default Object.assign(Form, {
+export const Form = Object.assign(Form_, {
   createProps,
   createContext,
   Context: FormContext,

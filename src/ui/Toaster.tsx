@@ -1,8 +1,8 @@
 import { ComponentProps, createEffect, For, JSX, Show, splitProps } from "solid-js"
-import Button from "./Button"
-import Code from "./Code"
-import Icon from "./Icon"
-import Toast from "./Toast"
+import { Button } from "./Button"
+import { Code } from "./Code"
+import { Icon } from "./Icon"
+import { Toast } from "./Toast"
 import "./Toaster.css"
 import { ToasterStore, useToaster } from "./Toaster.Store"
 import { marginR } from "../util/position"
@@ -114,7 +114,7 @@ function tryFunc<R>(func: () => R): R {
   }
 }
 
-function Toaster(props: {}) {
+function Toaster_(props: {}) {
   const notifs = useToaster(notifications)
 
   return (
@@ -128,7 +128,7 @@ function Toaster(props: {}) {
   )
 }
 
-export default Object.assign(Toaster, {
+export const Toaster = Object.assign(Toaster_, {
   notifications,
   push: pushNotification,
   remove: removeNotification,
@@ -147,7 +147,7 @@ type ToastWithAnimationProps = {
   onclose?: () => void
 }
 
-function ToastWithAnimation(props: ToastWithAnimationProps & ComponentProps<typeof Toast>) {
+function ToastWithAnimation_(props: ToastWithAnimationProps & ComponentProps<typeof Toast>) {
   const [localProps, toastProps] = splitProps(props, [
     "closable",
     "timeout",

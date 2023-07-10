@@ -42,10 +42,8 @@ const useNavigate: UseNavigate = () => {
   return undefined
 }
 
-const AnchorContext = {
+export const AnchorContext = {
   useLocation,
   useNavigate,
   activeClass: "active",
 }
-
-export default AnchorContext

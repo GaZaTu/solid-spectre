@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Tile.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -16,7 +16,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function TileAction(props: Props & ComponentProps<"section">) {
+function TileAction_(props: Props & ComponentProps<"section">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -27,6 +27,6 @@ function TileAction(props: Props & ComponentProps<"section">) {
   )
 }
 
-export default Object.assign(TileAction, {
+export const TileAction = Object.assign(TileAction_, {
   createProps,
 })

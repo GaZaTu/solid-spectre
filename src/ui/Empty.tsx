@@ -1,10 +1,10 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import EmptyAction from "./Empty.Action"
-import EmptyHeader from "./Empty.Header"
-import EmptyIcon from "./Empty.Icon"
+import { EmptyAction } from "./Empty.Action"
+import { EmptyHeader } from "./Empty.Header"
+import { EmptyIcon } from "./Empty.Icon"
 import "./Empty.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -19,7 +19,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Empty(props: Props & ComponentProps<"div">) {
+function Empty_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -30,7 +30,7 @@ function Empty(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Empty, {
+export const Empty = Object.assign(Empty_, {
   createProps,
   Action: EmptyAction,
   Header: EmptyHeader,

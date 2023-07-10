@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Progress.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   fixedTop?: boolean
@@ -18,7 +18,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Progress(props: Props & ComponentProps<"progress">) {
+function Progress_(props: Props & ComponentProps<"progress">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -29,6 +29,6 @@ function Progress(props: Props & ComponentProps<"progress">) {
   )
 }
 
-export default Object.assign(Progress, {
+export const Progress = Object.assign(Progress_, {
   createProps,
 })

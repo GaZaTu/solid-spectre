@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Divider.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { text } from "../util/text"
 
 type Props = {
@@ -23,7 +23,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Divider(props: Props & ComponentProps<"div">) {
+function Divider_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -34,6 +34,6 @@ function Divider(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Divider, {
+export const Divider = Object.assign(Divider_, {
   createProps,
 })

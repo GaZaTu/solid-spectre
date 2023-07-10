@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Radio.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import "../util/checkbox-radio.css"
 import "../util/checkbox-radio-switch.css"
 import { ThemeSize } from "../util/theming"
@@ -23,7 +23,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Radio(props: Props & ComponentProps<"input">) {
+function Radio_(props: Props & ComponentProps<"input">) {
   const [containerProps, inputProps] = splitProps(props, [
     "children",
     "class",
@@ -45,5 +45,5 @@ function Radio(props: Props & ComponentProps<"input">) {
   )
 }
 
-export default Object.assign(Radio, {
+export const Radio = Object.assign(Radio_, {
 })

@@ -1,12 +1,12 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import TileAction from "./Tile.Action"
-import TileBody from "./Tile.Body"
-import TileIcon from "./Tile.Icon"
+import { TileAction } from "./Tile.Action"
+import { TileBody } from "./Tile.Body"
+import { TileIcon } from "./Tile.Icon"
 import "./Tile.css"
-import TileSubtitle from "./Tile.Subtitle"
-import TileTitle from "./Tile.Title"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { TileSubtitle } from "./Tile.Subtitle"
+import { TileTitle } from "./Tile.Title"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   compact?: boolean
@@ -23,7 +23,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Tile(props: Props & ComponentProps<"div">) {
+function Tile_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -34,7 +34,7 @@ function Tile(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Tile, {
+export const Tile = Object.assign(Tile_, {
   createProps,
   Action: TileAction,
   Body: TileBody,

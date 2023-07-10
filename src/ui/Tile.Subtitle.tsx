@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Tile.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -16,7 +16,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function TileSubtitle(props: Props & ComponentProps<"p">) {
+function TileSubtitle_(props: Props & ComponentProps<"p">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -27,6 +27,6 @@ function TileSubtitle(props: Props & ComponentProps<"p">) {
   )
 }
 
-export default Object.assign(TileSubtitle, {
+export const TileSubtitle = Object.assign(TileSubtitle_, {
   createProps,
 })

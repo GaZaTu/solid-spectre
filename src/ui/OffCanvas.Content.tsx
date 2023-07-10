@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./OffCanvas.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -16,7 +16,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function OffCanvasContent(props: Props & ComponentProps<"div">) {
+function OffCanvasContent_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -29,6 +29,6 @@ function OffCanvasContent(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(OffCanvasContent, {
+export const OffCanvasContent = Object.assign(OffCanvasContent_, {
   createProps,
 })

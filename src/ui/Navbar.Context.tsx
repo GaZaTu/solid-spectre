@@ -6,5 +6,5 @@ const NavbarContext = createContext({
   setExpanded: ((v: boolean) => { console.log("NO") }) as Setter<boolean>,
 })
 
-export default Object.assign(NavbarContext, {
+export const NavbarContext = Object.assign(NavbarContext_, {
 })

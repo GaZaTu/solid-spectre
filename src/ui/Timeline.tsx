@@ -1,8 +1,8 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import TimelineItem from "./Timeline.Item"
+import { TimelineItem } from "./Timeline.Item"
 import "./Timeline.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -17,7 +17,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Timeline(props: Props & ComponentProps<"div">) {
+function Timeline_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -28,7 +28,7 @@ function Timeline(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Timeline, {
+export const Timeline = Object.assign(Timeline_, {
   createProps,
   Item: TimelineItem,
 })

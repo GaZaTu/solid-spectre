@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Modal.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -16,7 +16,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function ModalFooter(props: Props & ComponentProps<"section">) {
+function ModalFooter_(props: Props & ComponentProps<"section">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -27,6 +27,6 @@ function ModalFooter(props: Props & ComponentProps<"section">) {
   )
 }
 
-export default Object.assign(ModalFooter, {
+export const ModalFooter = Object.assign(ModalFooter_, {
   createProps,
 })

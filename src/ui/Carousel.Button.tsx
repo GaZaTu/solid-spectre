@@ -1,9 +1,9 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import Button from "./Button"
+import { Button } from "./Button"
 import "./Carousel.css"
-import Icon from "./Icon"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { Icon } from "./Icon"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   prev?: boolean
@@ -21,7 +21,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function CarouselButton(props: Props & ComponentProps<typeof Button>) {
+function CarouselButton_(props: Props & ComponentProps<typeof Button>) {
   // eslint-disable-next-line no-empty-pattern
   const [] = splitProps(props, ["children"])
   const [_props] = createProps(props)
@@ -33,7 +33,7 @@ function CarouselButton(props: Props & ComponentProps<typeof Button>) {
   )
 }
 
-function CarouselButtonA(props: Props & ComponentProps<typeof Button.A>) {
+function CarouselButtonA_(props: Props & ComponentProps<typeof Button.A>) {
   // eslint-disable-next-line no-empty-pattern
   const [] = splitProps(props, ["children"])
   const [_props] = createProps(props)
@@ -45,7 +45,7 @@ function CarouselButtonA(props: Props & ComponentProps<typeof Button.A>) {
   )
 }
 
-export default Object.assign(CarouselButton, {
+export const CarouselButton = Object.assign(CarouselButton_, {
   createProps,
   A: CarouselButtonA,
 })

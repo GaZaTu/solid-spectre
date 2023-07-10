@@ -1,11 +1,11 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, createMemo, createRenderEffect, Show, splitProps, useContext } from "solid-js"
-import FormContext from "./Form.Context"
-import FormGroupContext from "./Form.Group.Context"
-import Icon from "./Icon"
-import InputGroup from "./Input.Group"
+import { FormContext } from "./Form.Context"
+import { FormGroupContext } from "./Form.Group.Context"
+import { Icon } from "./Icon"
+import { InputGroup } from "./Input.Group"
 import "./Input.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import "../util/input-select.css"
 import { ThemeSize } from "../util/theming"
 
@@ -44,7 +44,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Input(props: Props & ComponentProps<"input">) {
+function Input_(props: Props & ComponentProps<"input">) {
   const [fml, __props] = splitProps(props, ["children", "iconSrcLeft", "iconSrcRight"])
   const [_props] = createProps(__props)
 
@@ -162,6 +162,6 @@ function Input(props: Props & ComponentProps<"input">) {
   )
 }
 
-export default Object.assign(Input, {
+export const Input = Object.assign(Input_, {
   Group: InputGroup,
 })

@@ -1,7 +1,8 @@
-import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+// css
 import "./Calendar.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   isToday?: boolean
@@ -18,7 +19,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function CalendarDateItem(props: Props & ComponentProps<"button">) {
+function CalendarDateItem_(props: Props & ComponentProps<"button">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -29,6 +30,6 @@ function CalendarDateItem(props: Props & ComponentProps<"button">) {
   )
 }
 
-export default Object.assign(CalendarDateItem, {
+export const CalendarDateItem = Object.assign(CalendarDateItem_, {
   createProps,
 })

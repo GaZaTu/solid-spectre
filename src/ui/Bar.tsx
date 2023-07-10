@@ -1,8 +1,9 @@
-import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { BarSection } from "./Bar.Section"
+// css
 import "./Bar.css"
-import BarSection from "./Bar.Section"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 // TODO: https://picturepan2.github.io/spectre/components/bars.html#bars-slider
 
@@ -23,7 +24,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Bar(props: Props & ComponentProps<"div">) {
+function Bar_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -34,7 +35,7 @@ function Bar(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Bar, {
+export const Bar = Object.assign(Bar_, {
   createProps,
   Section: BarSection,
 })

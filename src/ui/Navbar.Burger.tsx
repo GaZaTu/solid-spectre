@@ -1,9 +1,9 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, createMemo } from "solid-js"
-import Button from "./Button"
-import Icon from "./Icon"
+import { Button } from "./Button"
+import { Icon } from "./Icon"
 import "./Navbar.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   expanded?: boolean
@@ -19,7 +19,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function NavbarBurger(props: Props & ComponentProps<typeof Button>) {
+function NavbarBurger_(props: Props & ComponentProps<typeof Button>) {
   const [_props] = createProps(props)
 
   const icon = createMemo(() => {
@@ -33,5 +33,5 @@ function NavbarBurger(props: Props & ComponentProps<typeof Button>) {
   )
 }
 
-export default Object.assign(NavbarBurger, {
+export const NavbarBurger = Object.assign(NavbarBurger_, {
 })

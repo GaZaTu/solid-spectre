@@ -1,11 +1,12 @@
-import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import CardBody from "./Card.Body"
-import CardFooter from "./Card.Footer"
-import CardHeader from "./Card.Header"
-import CardImage from "./Card.Image"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { CardBody } from "./Card.Body"
+import { CardFooter } from "./Card.Footer"
+import { CardHeader } from "./Card.Header"
+import { CardImage } from "./Card.Image"
+// css
 import "./Card.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -20,7 +21,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Card(props: Props & ComponentProps<"div">) {
+function Card_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -31,7 +32,7 @@ function Card(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Card, {
+export const Card = Object.assign(Card_, {
   createProps,
   Body: CardBody,
   Header: CardHeader,

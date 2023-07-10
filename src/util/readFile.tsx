@@ -11,7 +11,7 @@ interface ReadFileOpts<How extends keyof ResultMap> {
   onprogress?: FileReader["onprogress"]
 }
 
-const readFile = <How extends keyof ResultMap = "readAsText">(file: File | Blob, { how, encoding, onprogress }: ReadFileOpts<How> = { how: "readAsText" as any }) => {
+export const readFile = <How extends keyof ResultMap = "readAsText">(file: File | Blob, { how, encoding, onprogress }: ReadFileOpts<How> = { how: "readAsText" as any }) => {
   return new Promise<ResultMap[How]>((resolve, reject) => {
     const fr = new FileReader()
 
@@ -22,5 +22,3 @@ const readFile = <How extends keyof ResultMap = "readAsText">(file: File | Blob,
     fr[how](file, encoding)
   })
 }
-
-export default readFile

@@ -2,7 +2,7 @@ type Value = string | number | boolean | undefined | null
 type Argument = Value | Record<string, unknown> | Argument[]
 
 // stolen from https://github.com/JedWatson/classnames
-const classnames = (...args: Argument[]): string => {
+export const classnames = (...args: Argument[]): string => {
   const classes = [] as any[]
 
   for (const arg of args) {
@@ -42,5 +42,3 @@ const classnames = (...args: Argument[]): string => {
 
   return classes.join(" ")
 }
-
-export default classnames

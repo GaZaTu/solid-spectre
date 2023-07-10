@@ -1,15 +1,16 @@
 import { createOptions as _createOptions, createSelect } from "@thisbeyond/solid-select"
-import classnames from "../util/classnames"
-import { ComponentProps, createEffect, createMemo, createRenderEffect, createSignal, For, JSX, JSXElement, mergeProps, on, Show, splitProps, useContext } from "solid-js"
-import A from "./A"
+import { ComponentProps, For, JSX, JSXElement, Show, createEffect, createMemo, createRenderEffect, createSignal, mergeProps, on, splitProps, useContext } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { A } from "./A"
+import { Button } from "./Button"
+import { Chip } from "./Chip"
+import { FormContext } from "./Form.Context"
+import { FormGroupContext } from "./Form.Group.Context"
+import { Input } from "./Input"
+import { Menu } from "./Menu"
+// css
 import "./Autocomplete.css"
-import Button from "./Button"
-import Chip from "./Chip"
-import FormContext from "./Form.Context"
-import FormGroupContext from "./Form.Group.Context"
-import Input from "./Input"
-import Menu from "./Menu"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 interface CreateOptionsConfig {
   key?: string
@@ -77,7 +78,7 @@ const createProps = createHTMLMemoHook((props: Props<any, any>) => {
   }
 })
 
-function Autocomplete<V, O>(props: Props<V, O> & Omit<ComponentProps<"div">, "onChange" | "onFocus" | "onBlur">) {
+function Autocomplete_<V, O>(props: Props<V, O> & Omit<ComponentProps<"div">, "onChange" | "onFocus" | "onBlur">) {
   const [_props] = createProps(props, {
     format: v => JSON.stringify(v),
   })
@@ -243,7 +244,7 @@ function Autocomplete<V, O>(props: Props<V, O> & Omit<ComponentProps<"div">, "on
   )
 }
 
-export default Object.assign(Autocomplete, {
+export const Autocomplete = Object.assign(Autocomplete_, {
   createOptions,
 })
 

@@ -1,9 +1,9 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, createMemo, createRenderEffect, Show, splitProps, useContext } from "solid-js"
 import "./Checkbox.css"
-import FormContext from "./Form.Context.jsx"
-import FormGroupContext from "./Form.Group.Context"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { FormContext } from "./Form.Context.jsx"
+import { FormGroupContext } from "./Form.Group.Context"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import "../util/checkbox-radio-switch.css"
 import "../util/checkbox-radio.css"
 import { ThemeSize } from "../util/theming"
@@ -27,7 +27,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Checkbox(props: Props & ComponentProps<"input">) {
+function Checkbox_(props: Props & ComponentProps<"input">) {
   const [containerProps, inputProps] = splitProps(props, [
     "children",
     "class",
@@ -101,5 +101,5 @@ function Checkbox(props: Props & ComponentProps<"input">) {
   )
 }
 
-export default Object.assign(Checkbox, {
+export const Checkbox = Object.assign(Checkbox_, {
 })

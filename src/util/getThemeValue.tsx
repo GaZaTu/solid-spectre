@@ -1,4 +1,4 @@
-const getThemeValue = (variableName: string, defaultValue?: string) => {
+export const getThemeValue = (variableName: string, defaultValue?: string) => {
   if (typeof window === "undefined") {
     return defaultValue
   }
@@ -8,5 +8,3 @@ const getThemeValue = (variableName: string, defaultValue?: string) => {
 
   return value
 }
-
-export default getThemeValue

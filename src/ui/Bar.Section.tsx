@@ -1,8 +1,9 @@
-import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import "./Bar.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { text } from "../util/text"
+// CSS
+import "./Bar.css"
 
 type Props = {
   percent?: number
@@ -21,7 +22,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function BarSection(props: Props & ComponentProps<"span">) {
+function BarSection_(props: Props & ComponentProps<"span">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -48,6 +49,6 @@ function BarSection(props: Props & ComponentProps<"span">) {
   )
 }
 
-export default Object.assign(BarSection, {
+export const BarSection = Object.assign(BarSection_, {
   createProps,
 })

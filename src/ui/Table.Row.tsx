@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Table.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   active?: boolean
@@ -17,7 +17,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function TableRow(props: Props & ComponentProps<"tr">) {
+function TableRow_(props: Props & ComponentProps<"tr">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -28,6 +28,6 @@ function TableRow(props: Props & ComponentProps<"tr">) {
   )
 }
 
-export default Object.assign(TableRow, {
+export const TableRow = Object.assign(TableRow_, {
   createProps,
 })

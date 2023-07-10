@@ -1,10 +1,10 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { Accessor, ComponentProps, createMemo, createSignal, JSX, Show, splitProps, useContext } from "solid-js"
-import Column from "./Column"
-import FormContext from "./Form.Context"
-import FormGroupContext from "./Form.Group.Context"
+import { Column } from "./Column"
+import { FormContext } from "./Form.Context"
+import { FormGroupContext } from "./Form.Group.Context"
 import "./Form.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize } from "../util/theming"
 
 type Props = {
@@ -32,7 +32,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function FormGroup(props: Props & ComponentProps<"div">) {
+function FormGroup_(props: Props & ComponentProps<"div">) {
   const [labelHidden, setLabelHidden] = createSignal(false)
   const [inputId, setInputId] = createSignal<string>()
   const [inputName, setInputName] = createSignal<string>()
@@ -161,7 +161,7 @@ function FormGroup(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(FormGroup, {
+export const FormGroup = Object.assign(FormGroup_, {
   createProps,
   FormGroupContext,
 })

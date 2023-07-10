@@ -1,8 +1,8 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { Component, ComponentProps, splitProps } from "solid-js"
 import "./Dropdown.css"
-import Menu from "./Menu"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { Menu } from "./Menu"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   right?: boolean
@@ -25,7 +25,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Dropdown(props: Props & ComponentProps<"div">) {
+function Dropdown_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -44,7 +44,7 @@ function Dropdown(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Dropdown, {
+export const Dropdown = Object.assign(Dropdown_, {
   createProps,
   Menu: Menu,
 })

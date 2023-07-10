@@ -1,6 +1,6 @@
 import { createContext } from "solid-js"
 
-const FormContext = createContext({
+export const FormContext = createContext({
   getValue: ((name: string) => undefined as any),
   getError: ((name: string) => undefined as any),
   setValue: ((name: string, value: any) => undefined as void),
@@ -8,7 +8,4 @@ const FormContext = createContext({
   isRequired: ((name: string) => false as boolean),
 
   horizontal: false as boolean,
-})
-
-export default Object.assign(FormContext, {
 })

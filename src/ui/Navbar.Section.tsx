@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Navbar.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   // center?: boolean
@@ -18,7 +18,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function NavbarSection(props: Props & ComponentProps<"section">) {
+function NavbarSection_(props: Props & ComponentProps<"section">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -29,6 +29,6 @@ function NavbarSection(props: Props & ComponentProps<"section">) {
   )
 }
 
-export default Object.assign(NavbarSection, {
+export const NavbarSection = Object.assign(NavbarSection_, {
   createProps,
 })

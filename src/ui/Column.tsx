@@ -1,8 +1,8 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import ColumnRow from "./Column.Row"
+import { ColumnRow } from "./Column.Row"
 import "./Column.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeBreakpoint } from "../util/theming"
 
 type Props = {
@@ -26,7 +26,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Column(props: Props & ComponentProps<"div">) {
+function Column_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -37,7 +37,7 @@ function Column(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Column, {
+export const Column = Object.assign(Column_, {
   createProps,
   Row: ColumnRow,
 })

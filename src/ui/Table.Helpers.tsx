@@ -1,10 +1,10 @@
 import { CellContext, ColumnDef, ColumnDefTemplate, OnChangeFn, Row, TableState } from "@tanstack/solid-table"
 import { ComponentProps, createEffect } from "solid-js"
 import { createStore, SetStoreFunction } from "solid-js/store"
-import A from "./A"
-import Button from "./Button"
-import CheckboxButton from "./CheckboxButton"
-import Icon from "./Icon"
+import { A_ } from "./A"
+import { Button } from "./Button"
+import { CheckboxButton } from "./CheckboxButton"
+import { Icon } from "./Icon"
 import { centerChildren, centerSelf } from "../util/position"
 
 const tableDateCell = (...[locales, options]: Parameters<typeof Intl.DateTimeFormat>): ColumnDefTemplate<CellContext<any, any>> => {
@@ -83,8 +83,8 @@ const tableOnSortingChange = tableOnAnyStateChange("sorting")
 const tableOnGlobalFilterChange = tableOnAnyStateChange("globalFilter")
 
 const createTableState = (defaults: Partial<TableState>, options?: { useSearchParams?: boolean }) => {
-  const location = A.Context.useLocation()
-  const navigate = A.Context.useNavigate()
+  const location = A_.Context.useLocation()
+  const navigate = A_.Context.useNavigate()
 
   const getSearchParam = <T extends {}>(key: string, def: string, type: (str: string) => T): T => {
     if (!options?.useSearchParams) {

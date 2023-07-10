@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Label.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeColor } from "../util/theming"
 
 type Props = {
@@ -21,7 +21,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Label(props: Props & ComponentProps<"span">) {
+function Label_(props: Props & ComponentProps<"span">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -32,6 +32,6 @@ function Label(props: Props & ComponentProps<"span">) {
   )
 }
 
-export default Object.assign(Label, {
+export const Label = Object.assign(Label_, {
   createProps,
 })

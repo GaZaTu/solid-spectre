@@ -1,8 +1,8 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import A from "./A"
+import { A_ } from "./A"
 import "./Pagination.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   page?: number
@@ -11,8 +11,8 @@ type Props = {
   active?: boolean
   disabled?: boolean
 
-  queryParams?: ComponentProps<typeof A>["params"]
-  onclick?: ComponentProps<typeof A>["onclick"]
+  queryParams?: ComponentProps<typeof A_>["params"]
+  onclick?: ComponentProps<typeof A_>["onclick"]
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -29,7 +29,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function PaginationItem(props: Props & Omit<ComponentProps<"li">, "onclick">) {
+function PaginationItem_(props: Props & Omit<ComponentProps<"li">, "onclick">) {
   const [fml] = splitProps(props, ["children", "onclick", "queryParams"])
   const [_props] = createProps(props)
 
@@ -40,7 +40,7 @@ function PaginationItem(props: Props & Omit<ComponentProps<"li">, "onclick">) {
   return (
     <li {..._props} onclick={onclick}>
       {(fml.queryParams || fml.onclick) && (
-        <A href={fml.queryParams ? "" : undefined} params={fml.queryParams} keepExistingParams replace onclick={fml.onclick} tabIndex={props.disabled ? -1 : undefined} data-page={props.page}>{fml.children}</A>
+        <A_ href={fml.queryParams ? "" : undefined} params={fml.queryParams} keepExistingParams replace onclick={fml.onclick} tabIndex={props.disabled ? -1 : undefined} data-page={props.page}>{fml.children}</A_>
       )}
       {(!fml.queryParams && !fml.onclick) && (
         <span>{fml.children}</span>
@@ -49,6 +49,6 @@ function PaginationItem(props: Props & Omit<ComponentProps<"li">, "onclick">) {
   )
 }
 
-export default Object.assign(PaginationItem, {
+export const PaginationItem = Object.assign(PaginationItem_, {
   createProps,
 })

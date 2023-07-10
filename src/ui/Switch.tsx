@@ -1,8 +1,8 @@
 import { ComponentProps, createRenderEffect, Show, splitProps, useContext } from "solid-js"
-import classnames from "../util/classnames"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize } from "../util/theming"
-import FormGroupContext from "./Form.Group.Context"
+import { FormGroupContext } from "./Form.Group.Context"
 // styles
 import "../util/checkbox-radio-switch.css"
 import "./Switch.css"
@@ -24,7 +24,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Switch(props: Props & ComponentProps<"input">) {
+function Switch_(props: Props & ComponentProps<"input">) {
   const [containerProps, inputProps] = splitProps(props, [
     "children",
     "class",
@@ -56,5 +56,5 @@ function Switch(props: Props & ComponentProps<"input">) {
   )
 }
 
-export default Object.assign(Switch, {
+export const Switch = Object.assign(Switch_, {
 })

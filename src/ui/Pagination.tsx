@@ -1,9 +1,9 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, createMemo, For } from "solid-js"
-import Icon from "./Icon"
-import PaginationItem from "./Pagination.Item"
+import { Icon } from "./Icon"
+import { PaginationItem } from "./Pagination.Item"
 import "./Pagination.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   firstIndex?: 0 | 1
@@ -30,7 +30,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Pagination(props: Props & ComponentProps<"nav">) {
+function Pagination_(props: Props & ComponentProps<"nav">) {
   const [_props] = createProps(props)
 
   const pages = createMemo(() => {
@@ -135,7 +135,7 @@ function Pagination(props: Props & ComponentProps<"nav">) {
   )
 }
 
-export default Object.assign(Pagination, {
+export const Pagination = Object.assign(Pagination_, {
   createProps,
   Item: PaginationItem,
 })

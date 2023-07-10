@@ -1,14 +1,14 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-// import iconArrowDown from "../icons/iconArrowDown"
-// import iconArrowLeft from "../icons/iconArrowLeft"
-// import iconArrowRight from "../icons/iconArrowRight"
-// import iconCross from "../icons/iconCross"
-// import iconMenu from "../icons/iconMenu"
-// import iconOpen from "../icons/iconOpen"
-// import iconPhoto from "../icons/iconPhoto"
-// import iconSearch from "../icons/iconSearch"
-import createHTMLMemoHook from "./createHTMLMemoHook"
+// import { iconArrowDown } from "../icons/iconArrowDown"
+// import { iconArrowLeft } from "../icons/iconArrowLeft"
+// import { iconArrowRight } from "../icons/iconArrowRight"
+// import { iconCross } from "../icons/iconCross"
+// import { iconMenu } from "../icons/iconMenu"
+// import { iconOpen } from "../icons/iconOpen"
+// import { iconPhoto } from "../icons/iconPhoto"
+// import { iconSearch } from "../icons/iconSearch"
+import { createHTMLMemoHook } from "./createHTMLMemoHook"
 import "./SpectreIconProvider.css"
 
 type Props = ComponentProps<"i"> & {
@@ -50,7 +50,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Icon(props: Props) {
+function Icon_(props: Props) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -61,7 +61,7 @@ function Icon(props: Props) {
   )
 }
 
-export default Object.assign(Icon, {
+export const Icon = Object.assign(Icon_, {
   createProps,
   // iconArrowDown: iconArrowDown,
   // iconArrowRight: iconArrowRight,

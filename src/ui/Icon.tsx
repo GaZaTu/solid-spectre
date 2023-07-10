@@ -25,7 +25,7 @@ type Props = ComponentProps<"i"> & {
   fill?: string
 }
 
-function Icon(props: Props) {
+function Icon_(props: Props) {
   const [fml] = splitProps(props, ["children"])
 
   return (
@@ -35,6 +35,6 @@ function Icon(props: Props) {
   )
 }
 
-export default Object.assign(Icon, {
+export const Icon = Object.assign(Icon_, {
   Context: IconContext,
 })

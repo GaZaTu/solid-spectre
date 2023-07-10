@@ -1,9 +1,9 @@
 import { ComponentProps, splitProps } from "solid-js"
-import Button from "./Button"
-import Dropdown from "./Dropdown"
-import Icon from "./Icon"
+import { Button } from "./Button"
+import { Dropdown } from "./Dropdown"
+import { Icon } from "./Icon"
 import "./Navbar.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   matchHref?: string
@@ -13,7 +13,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   return {}
 })
 
-function NavbarDropdown(props: Props & ComponentProps<typeof Dropdown>) {
+function NavbarDropdown_(props: Props & ComponentProps<typeof Dropdown>) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -34,6 +34,6 @@ function NavbarDropdown(props: Props & ComponentProps<typeof Dropdown>) {
   )
 }
 
-export default Object.assign(NavbarDropdown, {
+export const NavbarDropdown = Object.assign(NavbarDropdown_, {
   createProps,
 })

@@ -1,8 +1,9 @@
-import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { Img } from "./Img"
+// css
 import "./Card.css"
-import Img from "./Img"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
   src?: string
@@ -19,7 +20,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function CardImage(props: Props & ComponentProps<"section">) {
+function CardImage_(props: Props & ComponentProps<"section">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -33,6 +34,6 @@ function CardImage(props: Props & ComponentProps<"section">) {
   )
 }
 
-export default Object.assign(CardImage, {
+export const CardImage = Object.assign(CardImage_, {
   createProps,
 })

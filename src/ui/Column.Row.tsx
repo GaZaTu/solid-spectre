@@ -1,7 +1,7 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import "./Column.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   gaps?: "sm" | "md" | "none"
@@ -19,7 +19,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function ColumnRow(props: Props & ComponentProps<"div">) {
+function ColumnRow_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -30,6 +30,6 @@ function ColumnRow(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(ColumnRow, {
+export const ColumnRow = Object.assign(ColumnRow_, {
   createProps,
 })

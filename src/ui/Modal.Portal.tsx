@@ -1,6 +1,6 @@
 import { Component, For, JSX } from "solid-js"
-import Button from "./Button"
-import Modal from "./Modal"
+import { Button } from "./Button"
+import { Modal } from "./Modal"
 import { ModalStore, useModals } from "./Modal.Store"
 
 export type ModalProps<T = any> = {
@@ -52,7 +52,7 @@ const confirm = (message: JSX.Element) => {
   ))
 }
 
-function ModalPortal(props: {}) {
+function ModalPortal_(props: {}) {
   const notifs = useModals(modals)
 
   return (
@@ -66,7 +66,7 @@ function ModalPortal(props: {}) {
   )
 }
 
-export default Object.assign(ModalPortal, {
+export const ModalPortal = Object.assign(ModalPortal_, {
   modals,
   push,
   confirm,

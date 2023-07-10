@@ -29,6 +29,6 @@ const Provider = (props: ProviderProps) => {
   )
 }
 
-export default Object.assign(TabsRadioGroup, {
+export const TabsRadioGroup = Object.assign(TabsRadioGroup_, {
   Provider,
 })

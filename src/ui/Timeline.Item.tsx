@@ -1,8 +1,8 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, JSX, splitProps } from "solid-js"
-import A from "./A"
+import { A_ } from "./A"
 import "./Timeline.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   icon?: JSX.Element
@@ -18,16 +18,16 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function TimelineItem(props: Props & ComponentProps<"div">) {
+function TimelineItem_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
   return (
     <div {..._props}>
       <div class="timeline-left">
-        <A class="timeline-icon" href={_props.id ? `#${_props.id}` : undefined}>
+        <A_ class="timeline-icon" href={_props.id ? `#${_props.id}` : undefined}>
           {_props.icon ?? ""}
-        </A>
+        </A_>
       </div>
       <div class="timeline-content">
         {fml.children}
@@ -36,6 +36,6 @@ function TimelineItem(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(TimelineItem, {
+export const TimelineItem = Object.assign(TimelineItem_, {
   createProps,
 })

@@ -1,7 +1,8 @@
-import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+// css
 import "./Card.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -16,7 +17,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function CardHeader(props: Props & ComponentProps<"section">) {
+function CardHeader_(props: Props & ComponentProps<"section">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -27,6 +28,6 @@ function CardHeader(props: Props & ComponentProps<"section">) {
   )
 }
 
-export default Object.assign(CardHeader, {
+export const CardHeader = Object.assign(CardHeader_, {
   createProps,
 })

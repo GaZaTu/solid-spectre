@@ -1,7 +1,7 @@
 import { Accessor, createEffect, onCleanup } from "solid-js"
 import { createStore } from "solid-js/store"
 import { isServer } from "solid-js/web"
-import Progress from "./Progress"
+import { Progress } from "./Progress"
 
 const globalProgressStateDefaults = {
   visible: isServer as boolean,
@@ -37,4 +37,4 @@ function GlobalProgress() {
   )
 }
 
-export default Object.assign(GlobalProgress, {})
+export const GlobalProgress = Object.assign(GlobalProgress_, {})

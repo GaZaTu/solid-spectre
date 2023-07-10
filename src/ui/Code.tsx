@@ -1,8 +1,8 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import { Dynamic } from "solid-js/web"
 import "./Code.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   snippet?: boolean
@@ -20,7 +20,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Code(props: Props & ComponentProps<"code" | "pre">) {
+function Code_(props: Props & ComponentProps<"code" | "pre">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -31,6 +31,6 @@ function Code(props: Props & ComponentProps<"code" | "pre">) {
   )
 }
 
-export default Object.assign(Code, {
+export const Code = Object.assign(Code_, {
   createProps,
 })

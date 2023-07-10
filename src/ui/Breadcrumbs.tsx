@@ -1,8 +1,9 @@
-import classnames from "../util/classnames"
 import { ComponentProps, For, splitProps } from "solid-js"
+import { childrenArray } from "../util/childrenArray"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+// css
 import "./Breadcrumbs.css"
-import childrenArray from "../util/childrenArray"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -17,7 +18,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Breadcrumbs(props: Props & ComponentProps<"ul">) {
+function Breadcrumbs_(props: Props & ComponentProps<"ul">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -34,6 +35,6 @@ function Breadcrumbs(props: Props & ComponentProps<"ul">) {
   )
 }
 
-export default Object.assign(Breadcrumbs, {
+export const Breadcrumbs = Object.assign(Breadcrumbs_, {
   createProps,
 })

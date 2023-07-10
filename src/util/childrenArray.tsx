@@ -1,6 +1,6 @@
 import { Accessor, children, createMemo, JSX } from "solid-js"
 
-const childrenArray = (fn: Accessor<JSX.Element>) => {
+export const childrenArray = (fn: Accessor<JSX.Element>) => {
   const resolvedChildren = children(fn)
   const resolvedChildrenArray = createMemo(() => {
     let children = resolvedChildren()
@@ -13,5 +13,3 @@ const childrenArray = (fn: Accessor<JSX.Element>) => {
 
   return resolvedChildrenArray
 }
-
-export default childrenArray

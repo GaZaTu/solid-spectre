@@ -1,10 +1,10 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, JSX, splitProps } from "solid-js"
-import CardBody from "./Card.Body"
-import CardFooter from "./Card.Footer"
-import CardImage from "./Card.Image"
+import { CardBody } from "./Card.Body"
+import { CardFooter } from "./Card.Footer"
+import { CardImage } from "./Card.Image"
 import "./Popover.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   direction?: "bottom" | "top" | "left" | "right"
@@ -23,7 +23,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Popover(props: Props & ComponentProps<"div">) {
+function Popover_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -37,7 +37,7 @@ function Popover(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Popover, {
+export const Popover = Object.assign(Popover_, {
   createProps,
   Body: CardBody,
   Footer: CardFooter,

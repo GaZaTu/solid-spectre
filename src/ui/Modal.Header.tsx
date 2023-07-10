@@ -1,9 +1,9 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps, useContext } from "solid-js"
-import Button from "./Button"
-import ModalContext from "./Modal.Context"
+import { Button } from "./Button"
+import { ModalContext } from "./Modal.Context"
 import "./Modal.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { float } from "../util/position"
 
 type Props = {
@@ -19,7 +19,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function ModalHeader(props: Props & ComponentProps<"section">) {
+function ModalHeader_(props: Props & ComponentProps<"section">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -36,6 +36,6 @@ function ModalHeader(props: Props & ComponentProps<"section">) {
   )
 }
 
-export default Object.assign(ModalHeader, {
+export const ModalHeader = Object.assign(ModalHeader_, {
   createProps,
 })

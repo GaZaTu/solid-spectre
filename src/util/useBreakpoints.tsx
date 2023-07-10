@@ -1,5 +1,5 @@
 import { createBreakpoints } from "@solid-primitives/media"
-import getThemeValue from "./getThemeValue"
+import { getThemeValue } from "./getThemeValue"
 import { ThemeBreakpoint } from "./theming"
 
 const windowMatchesBreakpoint = <K extends ThemeBreakpoint>(key: K) => {
@@ -8,7 +8,7 @@ const windowMatchesBreakpoint = <K extends ThemeBreakpoint>(key: K) => {
   } as { [key in K]: string }
 }
 
-const useBreakpoints = () => {
+export const useBreakpoints = () => {
   const breakpoints = {
     ...windowMatchesBreakpoint("xs"),
     ...windowMatchesBreakpoint("sm"),
@@ -34,5 +34,3 @@ const useBreakpoints = () => {
 
   return matches
 }
-
-export default useBreakpoints

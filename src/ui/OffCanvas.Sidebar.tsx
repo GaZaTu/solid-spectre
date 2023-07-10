@@ -1,11 +1,11 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, JSX, Show, createUniqueId, splitProps } from "solid-js"
-import Button from "./Button"
-import Column from "./Column"
-import Icon from "./Icon"
+import { Button } from "./Button"
+import { Column } from "./Column"
+import { Icon } from "./Icon"
 import "./OffCanvas.css"
-import Section from "./Section"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { Section } from "./Section"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   right?: boolean
@@ -30,7 +30,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function OffCanvasSidebar(props: Props & ComponentProps<"div">) {
+function OffCanvasSidebar_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children", "toggle", "sidebarTitle", "contentTitle"])
   const [_props] = createProps(props)
   const id = createUniqueId()
@@ -66,6 +66,6 @@ function OffCanvasSidebar(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(OffCanvasSidebar, {
+export const OffCanvasSidebar = Object.assign(OffCanvasSidebar_, {
   createProps,
 })

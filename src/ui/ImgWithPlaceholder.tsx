@@ -1,9 +1,9 @@
 import { createVisibilityObserver } from "@solid-primitives/intersection-observer"
 import { ComponentProps, createEffect, createSignal, Show, splitProps } from "solid-js"
-import Icon from "./Icon"
-import Img from "./Img"
-import LoadingPlaceholder from "./LoadingPlaceholder"
-import readFile from "../util/readFile"
+import { Icon } from "./Icon"
+import { Img } from "./Img"
+import { LoadingPlaceholder } from "./LoadingPlaceholder"
+import { readFile } from "../util/readFile"
 
 type Props = {
   useFetch?: boolean
@@ -72,5 +72,5 @@ function ImgWithPlaceholder(_props: Props & ComponentProps<typeof Img>) {
   )
 }
 
-export default Object.assign(ImgWithPlaceholder, {
+export const ImgWithPlaceholder = Object.assign(ImgWithPlaceholder_, {
 })

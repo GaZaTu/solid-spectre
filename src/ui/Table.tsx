@@ -1,13 +1,13 @@
 import { createDebouncedMemo } from "@solid-primitives/memo"
 import { createSolidTable, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, Row, RowData, Table as TableActions, TableOptions, TableState as _TableState } from "@tanstack/solid-table"
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, createEffect, createSignal, For, JSX, mergeProps, Show, splitProps } from "solid-js"
-import Column from "./Column"
-import Icon from "./Icon"
-import Input from "./Input"
-import LoadingPlaceholder from "./LoadingPlaceholder"
-import Pagination from "./Pagination"
-import TableRow from "./Table.Row"
+import { Column } from "./Column"
+import { Icon } from "./Icon"
+import { Input } from "./Input"
+import { LoadingPlaceholder } from "./LoadingPlaceholder"
+import { Pagination } from "./Pagination"
+import { TableRow } from "./Table.Row"
 import "./Table.css"
 import { loading } from "../util/loading"
 import { marginY } from "../util/position"
@@ -68,7 +68,7 @@ const createTableClassName = (props: Props) => {
   })
 }
 
-function Table(props: Props & ComponentProps<"div">) {
+function Table_(props: Props & ComponentProps<"div">) {
   const [tableProps, __, containerProps] = splitProps(props, [
     "striped",
     "scrollable",
@@ -211,7 +211,7 @@ function Table(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(Table, {
+export const Table = Object.assign(Table_, {
   createContext,
   Row: TableRow,
 })

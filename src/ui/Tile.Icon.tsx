@@ -1,8 +1,8 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import Icon from "./Icon"
+import { Icon } from "./Icon"
 import "./Tile.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   iconSrc?: ComponentProps<typeof Icon>["src"]
@@ -18,7 +18,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function TileIcon(props: Props & ComponentProps<"section">) {
+function TileIcon_(props: Props & ComponentProps<"section">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -34,6 +34,6 @@ function TileIcon(props: Props & ComponentProps<"section">) {
   )
 }
 
-export default Object.assign(TileIcon, {
+export const TileIcon = Object.assign(TileIcon_, {
   createProps,
 })

@@ -1,10 +1,11 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, JSX, splitProps } from "solid-js"
-import AccordionRadioGroup from "./Accordion.RadioGroup"
-import "./Accordion.css"
-import Icon from "./Icon"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { AccordionRadioGroup } from "./Accordion.RadioGroup"
+import { Icon } from "./Icon"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { float, marginR } from "../util/position"
+// css
+import "./Accordion.css"
 
 type Props = {
   header?: JSX.Element
@@ -23,7 +24,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Accordion(props: Props & ComponentProps<"details">) {
+function Accordion_(props: Props & ComponentProps<"details">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -45,7 +46,7 @@ function Accordion(props: Props & ComponentProps<"details">) {
   )
 }
 
-export default Object.assign(Accordion, {
+export const Accordion = Object.assign(Accordion_, {
   createProps,
   RadioGroup: AccordionRadioGroup,
 })

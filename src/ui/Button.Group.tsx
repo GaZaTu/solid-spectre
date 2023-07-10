@@ -1,8 +1,9 @@
-import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import "./Button.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize } from "../util/theming"
+// css
+import "./Button.css"
 
 type Props = {
   size?: ThemeSize
@@ -23,7 +24,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function ButtonGroup(props: Props & ComponentProps<"div">) {
+function ButtonGroup_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -34,6 +35,6 @@ function ButtonGroup(props: Props & ComponentProps<"div">) {
   )
 }
 
-export default Object.assign(ButtonGroup, {
+export const ButtonGroup = Object.assign(ButtonGroup_, {
   createProps,
 })

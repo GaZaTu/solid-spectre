@@ -1,8 +1,8 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import MenuItem from "./Menu.Item"
+import { MenuItem } from "./Menu.Item"
 import "./Menu.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   transparent?: boolean
@@ -19,7 +19,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Menu(props: Props & ComponentProps<"ul">) {
+function Menu_(props: Props & ComponentProps<"ul">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -30,7 +30,7 @@ function Menu(props: Props & ComponentProps<"ul">) {
   )
 }
 
-export default Object.assign(Menu, {
+export const Menu = Object.assign(Menu_, {
   createProps,
   Item: MenuItem,
 })

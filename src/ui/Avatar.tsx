@@ -1,8 +1,9 @@
-import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import "./Avatar.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize2 } from "../util/theming"
+// css
+import "./Avatar.css"
 
 type Props = {
   size?: ThemeSize2 | "btn"
@@ -25,7 +26,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Avatar(props: Props & ComponentProps<"figure">) {
+function Avatar_(props: Props & ComponentProps<"figure">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -45,6 +46,6 @@ function Avatar(props: Props & ComponentProps<"figure">) {
   )
 }
 
-export default Object.assign(Avatar, {
+export const Avatar = Object.assign(Avatar_, {
   createProps,
 })

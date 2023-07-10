@@ -1,8 +1,8 @@
-import classnames from "../util/classnames"
+import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
-import NavItem from "./Nav.Item"
+import { NavItem } from "./Nav.Item"
 import "./Nav.css"
-import createHTMLMemoHook from "../util/createHTMLMemoHook"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }
@@ -17,7 +17,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Nav(props: Props & ComponentProps<"ul">) {
+function Nav_(props: Props & ComponentProps<"ul">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -28,7 +28,7 @@ function Nav(props: Props & ComponentProps<"ul">) {
   )
 }
 
-export default Object.assign(Nav, {
+export const Nav = Object.assign(Nav_, {
   createProps,
   Item: NavItem,
 })

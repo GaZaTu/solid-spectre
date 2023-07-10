@@ -31,13 +31,13 @@ for (const iconFile of await readdir(iconsDir)) {
       const iconFilePath = `${iconsDir}/${iconFile}`
       const iconAsString = await readFile(iconFilePath, { encoding: "utf-8" })
 
-      return `const ${iconJSName} = \`${iconAsString}\` as string`
+      return `export const ${iconJSName} = \`${iconAsString}\` as string`
     } else {
-      return `import ${iconJSName} from "${iconImportPath}?raw"`
+      return `export ${iconJSName} from "${iconImportPath}?raw"`
     }
   })()
-  const exportCode = `export default ${iconJSName}`
+  // const exportCode = `export { ${iconJSName} }`
 
-  const code = `${eslintCode}\n${iconCode}\n${exportCode}\n`
+  const code = `${eslintCode}\n${iconCode}\n`
   await writeFile(`${targetDir}/${iconJSFileName}`, code)
 }

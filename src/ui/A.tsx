@@ -1,8 +1,8 @@
 import { combineProps } from "@solid-primitives/props"
-import classnames from "../util/classnames"
 import { ComponentProps, createMemo, createRenderEffect, splitProps } from "solid-js"
 import { createStore } from "solid-js/store"
-import AnchorContext, { Location } from "./A.Context"
+import { classnames } from "../util/classnames"
+import { AnchorContext, Location } from "./A.Context"
 
 const scrollHistory = {
   data: new Map<string | number, number>(), // TODO: use sessionStorage instead
@@ -233,7 +233,7 @@ const createProps = (_props: Props) => {
   return [combinedProps, children] as const
 }
 
-function A(props: Props) {
+function A_(props: Props) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -244,7 +244,7 @@ function A(props: Props) {
   )
 }
 
-export default Object.assign(A, {
+export const A = Object.assign(A_, {
   createProps,
   scrollHistory,
   Context: AnchorContext,
