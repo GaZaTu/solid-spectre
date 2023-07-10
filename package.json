@@ -1,6 +1,6 @@
 {
   "version": "0.0.0",
-  "name": "solid-spectre",
+  "name": "@gazatu/solid-spectre",
   "description": "Solid.js components styled with Spectre.css",
   "license": "MIT",
   "author": "GaZaTu",
