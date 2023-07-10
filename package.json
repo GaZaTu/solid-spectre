@@ -1,5 +1,5 @@
 {
-  "version": "0.0.0",
+  "version": "0.0.1",
   "name": "@gazatu/solid-spectre",
   "description": "Solid.js components styled with Spectre.css",
   "license": "MIT",
@@ -64,7 +64,7 @@
     },
     "./icons/*": {
       "types": "./dist/icons/*.d.ts",
-      "import": "./dist/icons/*.jsx"
+      "import": "./dist/icons/*.js"
     }
   },
   "typesVersions": {
