@@ -25,6 +25,7 @@ for (const iconFile of await readdir(iconsDir)) {
   const iconJSName = `icon${convertDashCaseToPascalCase(iconName)}`
   const iconJSFileName = `${iconJSName}.ts`
 
+  const eslintCode = "/* eslint-disable */"
   const iconCode = await (async () => {
     if (INLINE) {
       const iconFilePath = `${iconsDir}/${iconFile}`
@@ -35,7 +36,8 @@ for (const iconFile of await readdir(iconsDir)) {
       return `import ${iconJSName} from "${iconImportPath}?raw"`
     }
   })()
+  const exportCode = `export default ${iconJSName}`
 
-  const code = `${iconCode}\nexport default ${iconJSName}\n`
+  const code = `${eslintCode}\n${iconCode}\n${exportCode}\n`
   await writeFile(`${targetDir}/${iconJSFileName}`, code)
 }
