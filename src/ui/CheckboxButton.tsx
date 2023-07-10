@@ -1,4 +1,4 @@
-import classNames from "classnames"
+import classnames from "../util/classnames"
 import { Component, ComponentProps, createMemo, createRenderEffect, JSX, Show, splitProps, useContext } from "solid-js"
 import Button from "./Button"
 import "./CheckboxButton.css"
@@ -28,7 +28,7 @@ type Props = {
 const createProps = createHTMLMemoHook((props: Props) => {
   return {
     get class() {
-      return classNames({
+      return classnames({
         "form-checkbox-button": true,
       })
     },

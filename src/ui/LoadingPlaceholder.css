@@ -10,7 +10,7 @@
 
 .loading-placeholder {
   margin: 0;
-  background-color: rgba(var(--body-bg-monochrome--rgb-triplet));
+  background-color: rgba(var(--body-bg-monochrome--rgb-triplet), .2);
   border-radius: var(--control-border-radius);
 }
 
@@ -24,8 +24,8 @@
   animation-iteration-count: infinite;
   animation-name: placeHolderShimmer;
   animation-timing-function: linear;
-  background: rgba(var(--body-bg-monochrome--rgb-triplet));
-  background: linear-gradient(to right, rgba(var(--body-bg-monochrome--rgb-triplet)) 10%, rgba(var(--body-bg-monochrome--rgb-triplet)) 18%, rgba(var(--body-bg-monochrome--rgb-triplet)) 33%);
+  background: rgba(var(--body-bg-monochrome--rgb-triplet), .5);
+  background: linear-gradient(to right, rgba(var(--body-bg-monochrome--rgb-triplet), .2) 10%, rgba(var(--body-bg-monochrome--rgb-triplet), .8) 18%, rgba(var(--body-bg-monochrome--rgb-triplet), .2) 33%);
   background-size: 100em 104px;
   height: 100%;
   position: relative;
@@ -36,5 +36,5 @@
 .loading-placeholder-gradient .spectre-icon {
   margin-left: auto;
   margin-right: auto;
-  color: rgba(var(--body-fg-monochrome--rgb-triplet));
+  color: rgba(var(--body-fg-monochrome--rgb-triplet), .5);
 }

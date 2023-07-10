@@ -2,7 +2,7 @@
 .has-success .form-select,
 .form-input.is-success,
 .form-select.is-success {
-  background: rgba(var(--success--rgb-triplet));
+  background: rgba(var(--success--rgb-triplet), .3);
   border-color: var(--success);
 }
 
@@ -10,14 +10,14 @@
 .has-success .form-select:focus,
 .form-input.is-success:focus,
 .form-select.is-success:focus {
-  box-shadow: 0 0 0 0.1rem rgba(var(--success--rgb-triplet));
+  box-shadow: 0 0 0 0.1rem rgba(var(--success--rgb-triplet)), .2;
 }
 
 .has-error .form-input,
 .has-error .form-select,
 .form-input.is-error,
 .form-select.is-error {
-  background: rgba(var(--failure--rgb-triplet));
+  background: rgba(var(--failure--rgb-triplet), .3);
   border-color: var(--failure);
 }
 
@@ -25,7 +25,7 @@
 .has-error .form-select:focus,
 .form-input.is-error:focus,
 .form-select.is-error:focus {
-  box-shadow: 0 0 0 0.1rem rgba(var(--failure--rgb-triplet));
+  box-shadow: 0 0 0 0.1rem rgba(var(--failure--rgb-triplet), .2);
 }
 
 .form-input:disabled,

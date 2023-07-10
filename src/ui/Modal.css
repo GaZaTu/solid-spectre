@@ -33,7 +33,7 @@
 
 .modal:target .modal-overlay,
 .modal.active .modal-overlay {
-  background: rgba(var(--body-bg--rgb-triplet));
+  background: rgba(var(--body-bg--rgb-triplet), .75);
   bottom: 0;
   cursor: default;
   display: block;
@@ -64,7 +64,7 @@
 }
 
 .modal-container {
-  box-shadow: 0 var(--unit-1) calc(var(--unit-1) + var(--unit-o) * 2) rgba(var(--body-fg-monochrome--rgb-triplet));
+  box-shadow: 0 var(--unit-1) calc(var(--unit-1) + var(--unit-o) * 2) rgba(var(--body-fg-monochrome--rgb-triplet), .3);
   background: var(--body-bg);
   border-radius: var(--control-border-radius);
   display: flex;

@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import A from "./A"
 import "./Pagination.css"

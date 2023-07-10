@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import MenuItem from "./Menu.Item"
 import "./Menu.css"

@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, JSX, splitProps } from "solid-js"
 import AccordionRadioGroup from "./Accordion.RadioGroup"
 import "./Accordion.css"

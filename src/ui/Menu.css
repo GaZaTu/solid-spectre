@@ -1,5 +1,5 @@
 .menu {
-  box-shadow: 0 var(--unit-h) calc((var(--unit-o) + var(--unit-o)) * 2) rgba(var(--body-fg-monochrome--rgb-triplet));
+  box-shadow: 0 var(--unit-h) calc((var(--unit-o) + var(--unit-o)) * 2) rgba(var(--body-fg-monochrome--rgb-triplet), .2);
   background: var(--body-bg);
   border-radius: var(--control-border-radius);
   list-style: none;
@@ -35,13 +35,13 @@
 .menu .menu-item>a:hover,
 .menu .menu-item>a.focused,
 .menu-item.focused .menu .menu-item>a {
-  background: rgba(var(--body-bg-monochrome--rgb-triplet));
+  background: rgba(var(--body-bg-monochrome--rgb-triplet), .69);
 }
 
 .menu .menu-item>a:active,
 .menu .menu-item>a.active,
 .menu-item.active .menu .menu-item>a {
-  background: rgba(var(--primary--rgb-triplet));
+  background: rgba(var(--primary--rgb-triplet), .2);
 }
 
 .menu .menu-item>a[disabled],
@@ -54,11 +54,11 @@
 }
 
 .menu .menu-item.menu-item.focused>a {
-  background: rgba(var(--body-bg-monochrome--rgb-triplet));
+  background: rgba(var(--body-bg-monochrome--rgb-triplet), .69);
 }
 
 .menu .menu-item.menu-item.active>a {
-  background: rgba(var(--primary--rgb-triplet));
+  background: rgba(var(--primary--rgb-triplet), .2);
 }
 
 .menu .menu-item.menu-item.disabled>a {

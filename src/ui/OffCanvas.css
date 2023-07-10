@@ -47,7 +47,7 @@
 }
 
 .off-canvas .off-canvas-overlay {
-  background: rgba(var(--body-bg--rgb-triplet));
+  background: rgba(var(--body-bg--rgb-triplet), .5);
   border-color: transparent;
   border-radius: 0;
   bottom: 0;

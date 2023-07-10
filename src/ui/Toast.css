@@ -1,5 +1,5 @@
 .toast {
-  background: rgba(var(--gray--rgb-triplet));
+  background: rgba(var(--gray--rgb-triplet), .95);
   border-color: rgb(var(--gray--rgb-triplet));
   border-left-width: 6px;
   border-left-color: rgb(var(--body-bg-monochrome--rgb-triplet));
@@ -16,7 +16,7 @@
 }
 
 .toast.toast-primary {
-  background: rgba(var(--primary--rgb-triplet));
+  background: rgba(var(--primary--rgb-triplet), .95);
   border-color: rgb(var(--primary--rgb-triplet));
   border-left-width: 6px;
   border-left-color: rgb(var(--primary-monochrome--rgb-triplet));
@@ -28,7 +28,7 @@
 }
 
 .toast.toast-success {
-  background: rgba(var(--success--rgb-triplet));
+  background: rgba(var(--success--rgb-triplet), .95);
   border-color: rgb(var(--success--rgb-triplet));
   border-left-width: 6px;
   border-left-color: rgb(var(--success-monochrome--rgb-triplet));
@@ -40,7 +40,7 @@
 }
 
 .toast.toast-warning {
-  background: rgba(var(--warning--rgb-triplet));
+  background: rgba(var(--warning--rgb-triplet), .95);
   border-color: rgb(var(--warning--rgb-triplet));
   border-left-width: 6px;
   border-left-color: rgb(var(--warning-monochrome--rgb-triplet));
@@ -52,7 +52,7 @@
 }
 
 .toast.toast-failure {
-  background: rgba(var(--failure--rgb-triplet));
+  background: rgba(var(--failure--rgb-triplet), .95);
   border-color: rgb(var(--failure--rgb-triplet));
   border-left-width: 6px;
   border-left-color: rgb(var(--failure-monochrome--rgb-triplet));

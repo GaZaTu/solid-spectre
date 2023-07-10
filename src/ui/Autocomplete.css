@@ -13,7 +13,7 @@
 }
 
 .form-autocomplete .form-autocomplete-input.is-focused {
-  box-shadow: 0 0 0 0.1rem rgba(var(--primary--rgb-triplet));
+  box-shadow: 0 0 0 0.1rem rgba(var(--primary--rgb-triplet), .2);
   border-color: var(--primary);
 }
 
@@ -47,7 +47,7 @@
 }
 
 .has-error .form-autocomplete .form-autocomplete-input.is-focused {
-  box-shadow: 0 0 0 0.1rem rgba(var(--failure--rgb-triplet));
+  box-shadow: 0 0 0 0.1rem rgba(var(--failure--rgb-triplet), .2);
 }
 
 .has-error .form-autocomplete .form-autocomplete-input .form-input {

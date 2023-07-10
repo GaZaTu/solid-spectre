@@ -1,5 +1,5 @@
 import { combineProps } from "@solid-primitives/props"
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, createMemo, createRenderEffect, splitProps } from "solid-js"
 import { createStore } from "solid-js/store"
 import AnchorContext, { Location } from "./A.Context"

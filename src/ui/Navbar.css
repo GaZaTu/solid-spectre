@@ -71,7 +71,7 @@
 .navbar .navbar-section>.btn-link:hover,
 .navbar .navbar-section .column>.btn-link:hover,
 .navbar .navbar-section .dropdown>.btn-link:hover {
-  background: rgba(var(--body-bg-monochrome--rgb-triplet));
+  background: rgba(var(--body-bg-monochrome--rgb-triplet), .69);
   color: var(--body-fg);
 }
 

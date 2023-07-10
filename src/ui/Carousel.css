@@ -41,8 +41,8 @@
 
 .carousel .carousel-container .item-prev,
 .carousel .carousel-container .item-next {
-  background: rgba(var(--body-fg--rgb-triplet));
-  border-color: rgba(var(--body-fg--rgb-triplet));
+  background: rgba(var(--body-fg--rgb-triplet), .25);
+  border-color: rgba(var(--body-fg--rgb-triplet), .5);
   color: var(--body-fg);
   opacity: 0;
   position: absolute;
@@ -72,7 +72,7 @@
 }
 
 .carousel .carousel-nav .nav-item {
-  color: rgba(var(--body-fg--rgb-triplet));
+  color: rgba(var(--body-fg--rgb-triplet), .5);
   display: block;
   flex: 1 0 auto;
   height: var(--unit-8);

@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, splitProps, useContext } from "solid-js"
 import Button from "./Button"
 import ModalContext from "./Modal.Context"

@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import CalendarBody from "./Calendar.Body"
 import CalendarContainer from "./Calendar.Container"

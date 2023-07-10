@@ -28,7 +28,7 @@ a {
 }
 
 a:focus {
-  box-shadow: 0 0 0 0.1rem rgba(var(--link-monochrome--rgb-triplet));
+  box-shadow: 0 0 0 0.1rem rgba(var(--link-monochrome--rgb-triplet), .2);
 }
 
 a:focus,

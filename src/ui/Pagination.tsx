@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, createMemo, For } from "solid-js"
 import Icon from "./Icon"
 import PaginationItem from "./Pagination.Item"

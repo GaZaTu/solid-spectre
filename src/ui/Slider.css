@@ -7,7 +7,7 @@
 }
 
 .slider:focus {
-  box-shadow: 0 0 0 0.1rem rgba(var(--primary--rgb-triplet));
+  box-shadow: 0 0 0 0.1rem rgba(var(--primary--rgb-triplet), .2);
   outline: none;
 }
 

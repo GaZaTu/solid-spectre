@@ -5,7 +5,7 @@
 }
 
 .timeline .timeline-item::before {
-  background: rgba(var(--body-fg--rgb-triplet));
+  background: rgba(var(--body-fg--rgb-triplet), .5);
   content: "";
   height: 100%;
   left: 11px;

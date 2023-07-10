@@ -1,5 +1,5 @@
 .form-checkbox .form-icon {
-  border-color: rgba(var(--body-fg--rgb-triplet));
+  border-color: rgba(var(--body-fg--rgb-triplet), .69);
   border-radius: var(--border-radius-xs);
 }
 

@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
 import TabsItem from "./Tabs.Item"
 import TabsRadioGroup from "./Tabs.RadioGroup"

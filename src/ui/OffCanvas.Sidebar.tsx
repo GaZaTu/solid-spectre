@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, JSX, Show, createUniqueId, splitProps } from "solid-js"
 import Button from "./Button"
 import Column from "./Column"

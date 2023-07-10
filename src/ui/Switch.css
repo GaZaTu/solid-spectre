@@ -7,7 +7,7 @@
   background-clip: padding-box;
   border-color: var(--body-bg-monochrome);
   border-radius: calc(var(--unit-2) + var(--border-width-md));
-  height: calc(var(--unit-4) + var(--border-width-md * 2));
+  height: calc(var(--unit-4) + var(--border-width-md) * 2);
   left: 0;
   top: calc((var(--control-height-sm) - var(--unit-4)) / 2 - var(--border-width-md));
   width: var(--unit-8);

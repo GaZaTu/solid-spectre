@@ -6,13 +6,6 @@ declare global {
       DEV: boolean
     }
   }
-  namespace NodeJS {
-    interface ProcessEnv {
-      NODE_ENV: "production" | "development"
-      PROD: boolean
-      DEV: boolean
-    }
-  }
 }
 
 export {}

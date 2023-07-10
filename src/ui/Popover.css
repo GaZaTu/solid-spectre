@@ -53,6 +53,6 @@
 }
 
 .popover .card {
-  box-shadow: 0 var(--unit-h) calc((var(--unit-o) + var(--unit-o)) * 2) rgba(var(--body-fg-monochrome--rgb-triplet));
+  box-shadow: 0 var(--unit-h) calc((var(--unit-o) + var(--unit-o)) * 2) rgba(var(--body-fg-monochrome--rgb-triplet), .3);
   border: 0;
 }

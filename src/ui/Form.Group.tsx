@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { Accessor, ComponentProps, createMemo, createSignal, JSX, Show, splitProps, useContext } from "solid-js"
 import Column from "./Column"
 import FormContext from "./Form.Context"

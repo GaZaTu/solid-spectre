@@ -1,6 +1,6 @@
 import { createDebouncedMemo } from "@solid-primitives/memo"
 import { createSolidTable, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, Row, RowData, Table as TableActions, TableOptions, TableState as _TableState } from "@tanstack/solid-table"
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, createEffect, createSignal, For, JSX, mergeProps, Show, splitProps } from "solid-js"
 import Column from "./Column"
 import Icon from "./Icon"

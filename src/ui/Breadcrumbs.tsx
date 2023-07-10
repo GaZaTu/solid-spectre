@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, For, splitProps } from "solid-js"
 import "./Breadcrumbs.css"
 import childrenArray from "../util/childrenArray"

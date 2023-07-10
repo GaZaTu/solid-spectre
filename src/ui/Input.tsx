@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, createMemo, createRenderEffect, Show, splitProps, useContext } from "solid-js"
 import FormContext from "./Form.Context"
 import FormGroupContext from "./Form.Group.Context"
@@ -6,7 +6,7 @@ import Icon from "./Icon"
 import InputGroup from "./Input.Group"
 import "./Input.css"
 import createHTMLMemoHook from "../util/createHTMLMemoHook"
-import "../util/form-mixins/input-select.css"
+import "../util/input-select.css"
 import { ThemeSize } from "../util/theming"
 
 type Props = {

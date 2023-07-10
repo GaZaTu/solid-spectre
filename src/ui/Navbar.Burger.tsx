@@ -1,4 +1,4 @@
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, createMemo } from "solid-js"
 import Button from "./Button"
 import Icon from "./Icon"

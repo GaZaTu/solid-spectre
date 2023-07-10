@@ -1,5 +1,5 @@
 import { createOptions as _createOptions, createSelect } from "@thisbeyond/solid-select"
-import classnames from "classnames"
+import classnames from "../util/classnames"
 import { ComponentProps, createEffect, createMemo, createRenderEffect, createSignal, For, JSX, JSXElement, mergeProps, on, Show, splitProps, useContext } from "solid-js"
 import A from "./A"
 import "./Autocomplete.css"
