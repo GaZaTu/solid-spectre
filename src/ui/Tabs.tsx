@@ -1,9 +1,11 @@
-import { classnames } from "../util/classnames"
+// css
+import "./Tabs.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { TabsItem } from "./Tabs.Item"
 import { TabsRadioGroup } from "./Tabs.RadioGroup"
-import "./Tabs.css"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }

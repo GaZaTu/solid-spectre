@@ -1,8 +1,10 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, splitProps } from "solid-js"
-import { FigureCaption } from "./Figure.Caption"
+// css
 import "./Img.css"
+// js
+import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { FigureCaption } from "./Figure.Caption"
 
 type Props = {
 }

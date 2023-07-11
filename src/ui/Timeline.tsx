@@ -1,8 +1,10 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, splitProps } from "solid-js"
-import { TimelineItem } from "./Timeline.Item"
+// css
 import "./Timeline.css"
+// js
+import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { TimelineItem } from "./Timeline.Item"
 
 type Props = {
 }

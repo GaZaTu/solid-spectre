@@ -1,15 +1,9 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, splitProps } from "solid-js"
-// import { iconArrowDown } from "../icons/iconArrowDown"
-// import { iconArrowLeft } from "../icons/iconArrowLeft"
-// import { iconArrowRight } from "../icons/iconArrowRight"
-// import { iconCross } from "../icons/iconCross"
-// import { iconMenu } from "../icons/iconMenu"
-// import { iconOpen } from "../icons/iconOpen"
-// import { iconPhoto } from "../icons/iconPhoto"
-// import { iconSearch } from "../icons/iconSearch"
-import { createHTMLMemoHook } from "./createHTMLMemoHook"
+// css
 import "./SpectreIconProvider.css"
+// js
+import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "./classnames"
+import { createHTMLMemoHook } from "./createHTMLMemoHook"
 
 type Props = ComponentProps<"i"> & {
   src?: string
@@ -50,7 +44,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Icon_(props: Props) {
+function SpectreIconProvider_(props: Props) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
@@ -61,14 +55,9 @@ function Icon_(props: Props) {
   )
 }
 
-export const Icon = Object.assign(Icon_, {
+export const SpectreIconProvider = Object.assign(SpectreIconProvider_, {
   createProps,
-  // iconArrowDown: iconArrowDown,
-  // iconArrowRight: iconArrowRight,
-  // iconArrowLeft: iconArrowLeft,
-  // iconPhoto: iconPhoto,
-  // iconCross: iconCross,
-  // iconMenu: iconMenu,
-  // iconOpen: iconOpen,
-  // iconSearch: iconSearch,
+  register: () => {
+    // not implemented anymore
+  },
 })

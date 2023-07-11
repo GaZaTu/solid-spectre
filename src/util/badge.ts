@@ -1,3 +1,4 @@
+// css
 import "./badge.css"
 
 export const badge = (text?: string | number | true) => {

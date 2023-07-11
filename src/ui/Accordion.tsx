@@ -1,11 +1,12 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, JSX, splitProps } from "solid-js"
-import { AccordionRadioGroup } from "./Accordion.RadioGroup"
-import { Icon } from "./Icon"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
-import { float, marginR } from "../util/position"
 // css
 import "./Accordion.css"
+// js
+import { ComponentProps, JSX, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { float, marginR } from "../util/position"
+import { AccordionRadioGroup } from "./Accordion.RadioGroup"
+import { Icon } from "./Icon"
 
 type Props = {
   header?: JSX.Element

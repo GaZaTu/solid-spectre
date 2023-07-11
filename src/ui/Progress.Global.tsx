@@ -26,12 +26,12 @@ const createGlobalProgressStateEffect = (getVisible: Accessor<boolean>) => {
 }
 
 export {
+  createGlobalProgressStateEffect,
   globalProgressState,
   setGlobalProgressState,
-  createGlobalProgressStateEffect,
 }
 
-function GlobalProgress() {
+function GlobalProgress_() {
   return (
     <Progress fixedTop value={globalProgressState.value} max={globalProgressState.max} style={{ display: globalProgressState.visible ? "block" : "none" }} />
   )

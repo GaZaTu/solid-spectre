@@ -1,8 +1,11 @@
-import { classnames } from "../util/classnames"
+// css
+import "./FeatherIconProvider.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
 import { iconAlertCircle } from "../icons/iconAlertCircle"
 import { iconAlertTriangle } from "../icons/iconAlertTriangle"
 import { iconCheckCircle } from "../icons/iconCheckCircle"
+import { iconCheckSquare } from "../icons/iconCheckSquare"
 import { iconChevronDown } from "../icons/iconChevronDown"
 import { iconChevronLeft } from "../icons/iconChevronLeft"
 import { iconChevronRight } from "../icons/iconChevronRight"
@@ -11,10 +14,14 @@ import { iconExternalLink } from "../icons/iconExternalLink"
 import { iconImage } from "../icons/iconImage"
 import { iconInfo } from "../icons/iconInfo"
 import { iconMenu } from "../icons/iconMenu"
+import { iconMinusSquare } from "../icons/iconMinusSquare"
 import { iconSearch } from "../icons/iconSearch"
+import { iconSquare } from "../icons/iconSquare"
 import { iconX } from "../icons/iconX"
+import { CheckboxButton } from "../ui/CheckboxButton"
+import { Icon, IconContext } from "../ui/Icon"
+import { classnames } from "./classnames"
 import { createHTMLMemoHook } from "./createHTMLMemoHook"
-import "./FeatherIconProvider.css"
 
 type Props =  ComponentProps<"i"> & {
   src?: string
@@ -71,7 +78,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Icon_(props: Props) {
+function FeatherIconProvider_(props: Props) {
   const [fml, _props] = splitProps(props, ["src"])
   const [__props] = createProps(_props)
 
@@ -81,19 +88,26 @@ function Icon_(props: Props) {
   )
 }
 
-export const Icon = Object.assign(Icon_, {
+export const FeatherIconProvider = Object.assign(FeatherIconProvider_, {
   createProps,
-  iconArrowLeft: iconChevronLeft,
-  iconArrowRight: iconChevronRight,
-  iconArrowUp: iconChevronUp,
-  iconArrowDown: iconChevronDown,
-  iconPhoto: iconImage,
-  iconCross: iconX,
-  iconMenu: iconMenu,
-  iconOpen: iconExternalLink,
-  iconSearch: iconSearch,
-  iconInfo: iconInfo,
-  iconCheckCircle: iconCheckCircle,
-  iconAlertTriangle: iconAlertTriangle,
-  iconAlertCircle: iconAlertCircle,
+  register: () => {
+    IconContext.Provider = FeatherIconProvider
+    IconContext.iconArrowLeft = iconChevronLeft
+    IconContext.iconArrowRight = iconChevronRight
+    IconContext.iconArrowUp = iconChevronUp
+    IconContext.iconArrowDown = iconChevronDown
+    IconContext.iconPhoto = iconImage
+    IconContext.iconCross = iconX
+    IconContext.iconMenu = iconMenu
+    IconContext.iconOpen = iconExternalLink
+    IconContext.iconSearch = iconSearch
+    IconContext.iconInfo = iconInfo
+    IconContext.iconCheckCircle = iconCheckCircle
+    IconContext.iconAlertTriangle = iconAlertTriangle
+    IconContext.iconAlertCircle = iconAlertCircle
+
+    CheckboxButton.Defaults.IfTrue = () => <Icon src={iconCheckSquare} color="var(--success)" />
+    CheckboxButton.Defaults.IfFalse = () => <Icon src={iconSquare} color="var(--body-fg-monochrome)" />
+    CheckboxButton.Defaults.IfIndeterminate = () => <Icon src={iconMinusSquare} color="var(--success)" />
+  },
 })

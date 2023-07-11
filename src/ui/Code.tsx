@@ -1,7 +1,9 @@
-import { classnames } from "../util/classnames"
+// css
+import "./Code.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
 import { Dynamic } from "solid-js/web"
-import "./Code.css"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {

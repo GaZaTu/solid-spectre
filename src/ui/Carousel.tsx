@@ -1,8 +1,10 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, splitProps } from "solid-js"
-import { CarouselButton } from "./Carousel.Button"
+// css
 import "./Carousel.css"
+// js
+import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { CarouselButton } from "./Carousel.Button"
 
 type Props = {
 }

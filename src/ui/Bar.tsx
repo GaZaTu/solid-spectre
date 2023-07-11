@@ -1,9 +1,10 @@
+// css
+import "./Bar.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { BarSection } from "./Bar.Section"
-// css
-import "./Bar.css"
 
 // TODO: https://picturepan2.github.io/spectre/components/bars.html#bars-slider
 

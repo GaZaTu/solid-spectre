@@ -6,7 +6,8 @@
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
     "package.json": "package-lock.json",
-    "*.tsx": "${capture}.css, ${capture}.scss, ${capture}.*.tsx"
+    "*.tsx": "${capture}.css, ${capture}.scss, ${capture}.*.tsx",
+    "*.ts": "${capture}.css, ${capture}.scss, ${capture}.*.ts"
   },
   "javascript.preferences.quoteStyle": "double",
   "typescript.preferences.quoteStyle": "double",

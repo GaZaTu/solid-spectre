@@ -1,3 +1,6 @@
+// css
+import "./Card.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
@@ -5,8 +8,6 @@ import { CardBody } from "./Card.Body"
 import { CardFooter } from "./Card.Footer"
 import { CardHeader } from "./Card.Header"
 import { CardImage } from "./Card.Image"
-// css
-import "./Card.css"
 
 type Props = {
 }

@@ -1,8 +1,10 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, splitProps } from "solid-js"
-import "./Select.css"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+// css
 import "../util/input-select.css"
+import "./Select.css"
+// js
+import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize } from "../util/theming"
 
 type Props = {

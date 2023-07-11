@@ -1,3 +1,6 @@
+// css
+import "./Calendar.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
@@ -7,8 +10,6 @@ import { CalendarDate } from "./Calendar.Date"
 import { CalendarDateItem } from "./Calendar.DateItem"
 import { CalendarHeader } from "./Calendar.Header"
 import { CalendarNavbar } from "./Calendar.Navbar"
-// css
-import "./Calendar.css"
 
 type Props = {
 }

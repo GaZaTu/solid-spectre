@@ -1,9 +1,11 @@
-import { classnames } from "../util/classnames"
+// css
+import "./Slider.css"
+// js
 import { ComponentProps, createMemo, createRenderEffect, useContext } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { FormContext } from "./Form.Context"
 import { FormGroupContext } from "./Form.Group.Context"
-import "./Slider.css"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }

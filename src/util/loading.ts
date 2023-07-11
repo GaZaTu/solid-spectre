@@ -1,4 +1,6 @@
+// css
 import "./loading.css"
+// js
 import { createUtility } from "./theming"
 
 export const loading = createUtility((size: "sm" | "lg" | undefined) => {

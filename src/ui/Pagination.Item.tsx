@@ -1,8 +1,10 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, splitProps } from "solid-js"
-import { A_ } from "./A"
+// css
 import "./Pagination.css"
+// js
+import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { A } from "./A"
 
 type Props = {
   page?: number
@@ -11,8 +13,8 @@ type Props = {
   active?: boolean
   disabled?: boolean
 
-  queryParams?: ComponentProps<typeof A_>["params"]
-  onclick?: ComponentProps<typeof A_>["onclick"]
+  queryParams?: ComponentProps<typeof A>["params"]
+  onclick?: ComponentProps<typeof A>["onclick"]
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -40,7 +42,7 @@ function PaginationItem_(props: Props & Omit<ComponentProps<"li">, "onclick">) {
   return (
     <li {..._props} onclick={onclick}>
       {(fml.queryParams || fml.onclick) && (
-        <A_ href={fml.queryParams ? "" : undefined} params={fml.queryParams} keepExistingParams replace onclick={fml.onclick} tabIndex={props.disabled ? -1 : undefined} data-page={props.page}>{fml.children}</A_>
+        <A href={fml.queryParams ? "" : undefined} params={fml.queryParams} keepExistingParams replace onclick={fml.onclick} tabIndex={props.disabled ? -1 : undefined} data-page={props.page}>{fml.children}</A>
       )}
       {(!fml.queryParams && !fml.onclick) && (
         <span>{fml.children}</span>

@@ -1,5 +1,7 @@
-import { createUtility, ThemeColor } from "./theming"
+// css
 import "./colors.css"
+// js
+import { createUtility, ThemeColor } from "./theming"
 
 export const fgColor = createUtility((color: ThemeColor | undefined) => {
   return color ? `text-${color}` : undefined

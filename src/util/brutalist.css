@@ -11,7 +11,12 @@ html .btn.btn-circle {
 }
 
 html .menu {
-  border: 1px solid gray;
+  border: var(--border-width-md) solid gray;
+}
+
+
+html .navbar .menu {
+  border: unset;
 }
 
 html .form-input,
@@ -38,6 +43,7 @@ html .form-switch>.form-icon:before {
 
 @media (max-width: 840px) {
   html .navbar.navbar-responsive .menu {
+    border: unset;
     box-shadow: unset;
   }
 }

@@ -1,4 +1,6 @@
+// css
 import "./text.css"
+// js
 import { createUtility } from "./theming"
 
 type Option = "left" | "center" | "right" | "justify" | "lowercase" | "uppercase" | "capitalize" | "smallcaps" | "normal" | "bold" | "italic" | "muted" | "large" | "small" | "tiny" | "ellipsis" | "clip" | "break"

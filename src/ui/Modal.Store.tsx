@@ -1,5 +1,3 @@
-// https://github.com/lxsmnsyc/solid-headless/blob/main/packages/solid-headless/src/components/toast/ToasterStore.ts
-
 import { createEffect, createSignal, onCleanup } from "solid-js"
 
 export interface ModalData<T> {

@@ -1,9 +1,11 @@
+// css
+import "./Navbar.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { Button } from "./Button"
 import { Dropdown } from "./Dropdown"
 import { Icon } from "./Icon"
-import "./Navbar.css"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   matchHref?: string

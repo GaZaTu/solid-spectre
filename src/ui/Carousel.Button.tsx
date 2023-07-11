@@ -1,9 +1,11 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, splitProps } from "solid-js"
-import { Button } from "./Button"
+// css
 import "./Carousel.css"
-import { Icon } from "./Icon"
+// js
+import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { Button } from "./Button"
+import { Icon } from "./Icon"
 
 type Props = {
   prev?: boolean
@@ -47,5 +49,5 @@ function CarouselButtonA_(props: Props & ComponentProps<typeof Button.A>) {
 
 export const CarouselButton = Object.assign(CarouselButton_, {
   createProps,
-  A: CarouselButtonA,
+  A: CarouselButtonA_,
 })

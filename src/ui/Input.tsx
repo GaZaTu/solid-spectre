@@ -1,13 +1,15 @@
-import { classnames } from "../util/classnames"
+// css
+import "../util/input-select.css"
+import "./Input.css"
+// js
 import { ComponentProps, createMemo, createRenderEffect, Show, splitProps, useContext } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { ThemeSize } from "../util/theming"
 import { FormContext } from "./Form.Context"
 import { FormGroupContext } from "./Form.Group.Context"
 import { Icon } from "./Icon"
 import { InputGroup } from "./Input.Group"
-import "./Input.css"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
-import "../util/input-select.css"
-import { ThemeSize } from "../util/theming"
 
 type Props = {
   size?: ThemeSize

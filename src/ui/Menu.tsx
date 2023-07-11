@@ -1,8 +1,10 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, splitProps } from "solid-js"
-import { MenuItem } from "./Menu.Item"
+// css
 import "./Menu.css"
+// js
+import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { MenuItem } from "./Menu.Item"
 
 type Props = {
   transparent?: boolean

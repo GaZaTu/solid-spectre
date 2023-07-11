@@ -1,15 +1,18 @@
+// css
+import "./ImgWithPlaceholder.css"
+// js
 import { createVisibilityObserver } from "@solid-primitives/intersection-observer"
 import { ComponentProps, createEffect, createSignal, Show, splitProps } from "solid-js"
+import { readFile } from "../util/readFile"
 import { Icon } from "./Icon"
 import { Img } from "./Img"
 import { LoadingPlaceholder } from "./LoadingPlaceholder"
-import { readFile } from "../util/readFile"
 
 type Props = {
   useFetch?: boolean
 }
 
-function ImgWithPlaceholder(_props: Props & ComponentProps<typeof Img>) {
+function ImgWithPlaceholder_(_props: Props & ComponentProps<typeof Img>) {
   const [fml, props] = splitProps(_props, ["src", "useFetch"])
 
   const [placeholder, setPlaceholder] = createSignal<HTMLElement>()

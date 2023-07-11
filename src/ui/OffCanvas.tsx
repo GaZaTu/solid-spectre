@@ -1,9 +1,11 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, splitProps } from "solid-js"
+// css
 import "./OffCanvas.css"
+// js
+import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
-import { OffCanvasSidebar } from "./OffCanvas.Sidebar"
 import { OffCanvasContent } from "./OffCanvas.Content"
+import { OffCanvasSidebar } from "./OffCanvas.Sidebar"
 
 type Props = {
   showlg?: boolean

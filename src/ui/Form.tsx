@@ -1,10 +1,12 @@
+// css
+import "./Form.css"
+// js
 import { createForm } from "@felte/solid"
-import { classnames } from "../util/classnames"
 import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { FormContext } from "./Form.Context"
 import { FormGroup } from "./Form.Group"
-import "./Label.css"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Obj = Record<string, any>
 

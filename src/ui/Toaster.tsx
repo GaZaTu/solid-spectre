@@ -1,15 +1,17 @@
+// css
+import "./Toaster.css"
+// js
 import { ComponentProps, createEffect, For, JSX, Show, splitProps } from "solid-js"
+import { marginR } from "../util/position"
 import { Button } from "./Button"
 import { Code } from "./Code"
 import { Icon } from "./Icon"
 import { Toast } from "./Toast"
-import "./Toaster.css"
 import { ToasterStore, useToaster } from "./Toaster.Store"
-import { marginR } from "../util/position"
 
-const notifications = new ToasterStore<Partial<ComponentProps<typeof ToastWithAnimation>>>()
+const notifications = new ToasterStore<Partial<ComponentProps<typeof ToastWithAnimation_>>>()
 
-const pushNotification = (props: Partial<ComponentProps<typeof ToastWithAnimation>>) => {
+const pushNotification = (props: Partial<ComponentProps<typeof ToastWithAnimation_>>) => {
   return notifications.create({
     timeout: 15000,
     closable: true,
@@ -121,7 +123,7 @@ function Toaster_(props: {}) {
     <div class="toaster">
       <For each={notifs()}>
         {item => (
-          <ToastWithAnimation {...item.data} id={item.id} />
+          <ToastWithAnimation_ {...item.data} id={item.id} />
         )}
       </For>
     </div>

@@ -1,10 +1,12 @@
-import { classnames } from "../util/classnames"
+// css
+import "./Popover.css"
+// js
 import { ComponentProps, JSX, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { CardBody } from "./Card.Body"
 import { CardFooter } from "./Card.Footer"
 import { CardImage } from "./Card.Image"
-import "./Popover.css"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   direction?: "bottom" | "top" | "left" | "right"

@@ -1,20 +1,22 @@
-import { classnames } from "../util/classnames"
+// css
+import "./Modal.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
-import { A_ } from "./A"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { ThemeSize } from "../util/theming"
+import { A } from "./A"
 import { ModalBody } from "./Modal.Body"
 import { ModalContext } from "./Modal.Context"
 import { ModalFooter } from "./Modal.Footer"
 import { ModalHeader } from "./Modal.Header"
-import "./Modal.css"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
-import { ThemeSize } from "../util/theming"
 
 type Props = {
   size?: ThemeSize
   active?: boolean
 
-  onclose?: ComponentProps<typeof A_>["onclick"]
-  oncloseHref?: ComponentProps<typeof A_>["href"]
+  onclose?: ComponentProps<typeof A>["onclick"]
+  oncloseHref?: ComponentProps<typeof A>["href"]
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -42,7 +44,7 @@ function Modal_(props: Props & ComponentProps<"div">) {
 
   return (
     <div {...outerProps}>
-      <A_ class="modal-overlay" href={props.oncloseHref} onclick={props.onclose} />
+      <A class="modal-overlay" href={props.oncloseHref} onclick={props.onclose} />
       <div class="modal-container" {...innerProps}>
         <ModalContext.Provider value={context}>
           {fml.children}

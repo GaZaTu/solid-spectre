@@ -1,3 +1,4 @@
+// css
 import "./tooltip.css"
 
 export const tooltip = (text?: string, direction: "top" | "bottom" | "left" | "right" = "top") => {

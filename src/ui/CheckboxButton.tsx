@@ -1,10 +1,12 @@
-import { classnames } from "../util/classnames"
-import { Component, ComponentProps, createMemo, createRenderEffect, JSX, Show, splitProps, useContext } from "solid-js"
-import { Button } from "./Button"
+// css
 import "./CheckboxButton.css"
+// js
+import { Component, ComponentProps, createMemo, createRenderEffect, JSX, Show, splitProps, useContext } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { Button } from "./Button"
 import { FormContext } from "./Form.Context"
 import { FormGroupContext } from "./Form.Group.Context"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 const Defaults = {
   IfTrue: (() => undefined) as Component,
@@ -35,7 +37,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function IconCheckbox_(props: Props & ComponentProps<typeof Button>) {
+function CheckboxButton_(props: Props & ComponentProps<typeof Button>) {
   const [fml, _props] = splitProps(props, ["children", "ifTrue", "ifFalse", "ifIndeterminate", "onblur", "oninput", "onclick"])
 
   const [__props] = createProps(_props)
@@ -107,6 +109,6 @@ function IconCheckbox_(props: Props & ComponentProps<typeof Button>) {
   )
 }
 
-export const IconCheckbox = Object.assign(IconCheckbox_, {
+export const CheckboxButton = Object.assign(CheckboxButton_, {
   Defaults,
 })

@@ -1,11 +1,13 @@
-import { classnames } from "../util/classnames"
+// css
+import "./Navbar.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { NavbarBrand } from "./Navbar.Brand"
 import { NavbarBurger } from "./Navbar.Burger"
 import { NavbarDropdown } from "./Navbar.Dropdown"
-import "./Navbar.css"
 import { NavbarSection } from "./Navbar.Section"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   size?: "sm" | "lg"
@@ -75,7 +77,7 @@ function NavbarFooter_(props: Props & ComponentProps<"footer">) {
 
 export const Navbar = Object.assign(Navbar_, {
   createProps,
-  AsFooter: NavbarFooter,
+  AsFooter: NavbarFooter_,
   Section: NavbarSection,
   Brand: NavbarBrand,
   Dropdown: NavbarDropdown,

@@ -37,4 +37,7 @@ function Icon_(props: Props) {
 
 export const Icon = Object.assign(Icon_, {
   Context: IconContext,
+  registerProvider: (Provider: { register: () => unknown }) => {
+    Provider.register()
+  },
 })

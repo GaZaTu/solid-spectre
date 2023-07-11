@@ -1,6 +1,3 @@
-// this code was inspired by
-// https://github.com/lxsmnsyc/solid-headless/blob/main/packages/solid-headless/src/components/toast/ToasterStore.ts
-
 import { createEffect, createSignal, onCleanup } from "solid-js"
 
 export interface ToastData<T> {
@@ -10,6 +7,8 @@ export interface ToastData<T> {
 
 export type ToasterListener<T> = (queue: ToastData<T>[]) => void
 
+// this code was inspired by
+// https://github.com/lxsmnsyc/solid-headless/blob/main/packages/solid-headless/src/components/toast/ToasterStore.ts
 export class ToasterStore<T> {
   private static toasterId = 0
 

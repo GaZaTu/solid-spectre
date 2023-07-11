@@ -16,7 +16,7 @@
 }
 
 .divider {
-  border-top: var(--border-width-md) solid lightgray;
+  border-top: var(--border-width-md) solid gray;
   height: var(--border-width-md);
   margin: var(--unit-2) 0;
   width: 100%;
@@ -40,7 +40,7 @@
 }
 
 .divider-vert::before {
-  border-left: var(--border-width-md) solid lightgray;
+  border-left: var(--border-width-md) solid gray;
   bottom: var(--unit-2);
   content: "";
   display: block;

@@ -1,10 +1,12 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, splitProps, useContext } from "solid-js"
-import { Button } from "./Button"
-import { ModalContext } from "./Modal.Context"
+// css
 import "./Modal.css"
+// js
+import { ComponentProps, splitProps, useContext } from "solid-js"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { float } from "../util/position"
+import { Button } from "./Button"
+import { ModalContext } from "./Modal.Context"
 
 type Props = {
 }

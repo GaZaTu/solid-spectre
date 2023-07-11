@@ -1,11 +1,13 @@
-import { classnames } from "../util/classnames"
+// css
+import "./Form.css"
+// js
 import { Accessor, ComponentProps, createMemo, createSignal, JSX, Show, splitProps, useContext } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { ThemeSize } from "../util/theming"
 import { Column } from "./Column"
 import { FormContext } from "./Form.Context"
 import { FormGroupContext } from "./Form.Group.Context"
-import "./Form.css"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
-import { ThemeSize } from "../util/theming"
 
 type Props = {
   size?: ThemeSize

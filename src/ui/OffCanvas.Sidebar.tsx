@@ -1,11 +1,13 @@
-import { classnames } from "../util/classnames"
+// css
+import "./OffCanvas.css"
+// js
 import { ComponentProps, JSX, Show, createUniqueId, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { Button } from "./Button"
 import { Column } from "./Column"
 import { Icon } from "./Icon"
-import "./OffCanvas.css"
 import { Section } from "./Section"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   right?: boolean

@@ -1,6 +1,8 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, JSX, splitProps } from "solid-js"
+// css
 import "./Menu.css"
+// js
+import { ComponentProps, JSX, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {

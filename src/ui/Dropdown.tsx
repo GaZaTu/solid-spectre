@@ -1,8 +1,10 @@
-import { classnames } from "../util/classnames"
-import { Component, ComponentProps, splitProps } from "solid-js"
+// css
 import "./Dropdown.css"
-import { Menu } from "./Menu"
+// js
+import { Component, ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { Menu } from "./Menu"
 
 type Props = {
   right?: boolean

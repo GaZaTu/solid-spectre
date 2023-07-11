@@ -1,12 +1,14 @@
-import { classnames } from "../util/classnames"
+// css
+import "./Tile.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { TileAction } from "./Tile.Action"
 import { TileBody } from "./Tile.Body"
 import { TileIcon } from "./Tile.Icon"
-import "./Tile.css"
 import { TileSubtitle } from "./Tile.Subtitle"
 import { TileTitle } from "./Tile.Title"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   compact?: boolean

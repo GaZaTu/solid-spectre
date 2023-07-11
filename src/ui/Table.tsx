@@ -1,16 +1,18 @@
+// css
+import "./Table.css"
+// js
 import { createDebouncedMemo } from "@solid-primitives/memo"
-import { createSolidTable, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel, Row, RowData, Table as TableActions, TableOptions, TableState as _TableState } from "@tanstack/solid-table"
+import { Row, RowData, Table as TableActions, TableOptions, TableState as _TableState, createSolidTable, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, getSortedRowModel } from "@tanstack/solid-table"
+import { ComponentProps, For, JSX, Show, createEffect, createSignal, mergeProps, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
-import { ComponentProps, createEffect, createSignal, For, JSX, mergeProps, Show, splitProps } from "solid-js"
+import { loading } from "../util/loading"
+import { marginY } from "../util/position"
 import { Column } from "./Column"
 import { Icon } from "./Icon"
 import { Input } from "./Input"
 import { LoadingPlaceholder } from "./LoadingPlaceholder"
 import { Pagination } from "./Pagination"
 import { TableRow } from "./Table.Row"
-import "./Table.css"
-import { loading } from "../util/loading"
-import { marginY } from "../util/position"
 
 declare module "@tanstack/solid-table" {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

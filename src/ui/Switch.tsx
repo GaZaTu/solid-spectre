@@ -1,11 +1,12 @@
+// css
+import "../util/checkbox-radio-switch.css"
+import "./Switch.css"
+// js
 import { ComponentProps, createRenderEffect, Show, splitProps, useContext } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize } from "../util/theming"
 import { FormGroupContext } from "./Form.Group.Context"
-// styles
-import "../util/checkbox-radio-switch.css"
-import "./Switch.css"
 
 type Props = {
   size?: ThemeSize

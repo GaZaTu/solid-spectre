@@ -1,9 +1,10 @@
+// css
+import "./Avatar.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize2 } from "../util/theming"
-// css
-import "./Avatar.css"
 
 type Props = {
   size?: ThemeSize2 | "btn"

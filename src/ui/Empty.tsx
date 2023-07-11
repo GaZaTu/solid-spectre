@@ -1,10 +1,12 @@
-import { classnames } from "../util/classnames"
+// css
+import "./Empty.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { EmptyAction } from "./Empty.Action"
 import { EmptyHeader } from "./Empty.Header"
 import { EmptyIcon } from "./Empty.Icon"
-import "./Empty.css"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
 }

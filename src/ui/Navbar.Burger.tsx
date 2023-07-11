@@ -1,9 +1,11 @@
-import { classnames } from "../util/classnames"
+// css
+import "./Navbar.css"
+// js
 import { ComponentProps, createMemo } from "solid-js"
+import { classnames } from "../util/classnames"
+import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { Button } from "./Button"
 import { Icon } from "./Icon"
-import "./Navbar.css"
-import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   expanded?: boolean

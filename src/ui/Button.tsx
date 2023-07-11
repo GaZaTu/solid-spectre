@@ -1,3 +1,6 @@
+// css
+import "./Button.css"
+// js
 import { ComponentProps, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
@@ -5,8 +8,6 @@ import { loading } from "../util/loading"
 import { ThemeColor, ThemeSize } from "../util/theming"
 import { A } from "./A"
 import { ButtonGroup } from "./Button.Group"
-// css
-import "./Button.css"
 
 type Props = {
   size?: ThemeSize

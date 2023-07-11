@@ -1,8 +1,10 @@
-import { classnames } from "../util/classnames"
-import { ComponentProps, splitProps } from "solid-js"
+// css
 import "./Section.css"
+// js
+import { ComponentProps, splitProps } from "solid-js"
+import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
-import { createUtility, ThemeBreakpoint } from "../util/theming"
+import { ThemeBreakpoint, createUtility } from "../util/theming"
 
 type Props = {
   left?: boolean

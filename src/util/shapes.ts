@@ -1,4 +1,6 @@
+// css
 import "./shapes.css"
+// js
 import { createUtility, ThemeSize2 } from "./theming"
 
 export const rounded = createUtility((size: ThemeSize2 | undefined) => {
