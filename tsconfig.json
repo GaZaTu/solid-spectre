@@ -26,6 +26,6 @@
     "jsxImportSource": "solid-js",
     "types": []
   },
-  "include": ["src"],
+  "include": ["src", ".storybook/stories"],
   "exclude": ["node_modules", "dist", "dev"]
 }
