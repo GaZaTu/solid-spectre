@@ -13,6 +13,10 @@ await $`npm run tsc`
 const jsFiles = await glob("dist/**/*.{jsx,js}")
 jsFiles.sort()
 for (const jsFile of jsFiles) {
+  if (jsFile.includes("storybook")) {
+    continue
+  }
+
   const name = jsFile.replace(/\.(jsx|js)/, "")
 
   packageJson.exports[name.replace("dist/", "./")] = {
