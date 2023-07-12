@@ -1,5 +1,5 @@
 // css
-import "../util/input-select.css"
+import "../css/input-select.css"
 import "./Select.css"
 // js
 import { ComponentProps, splitProps } from "solid-js"

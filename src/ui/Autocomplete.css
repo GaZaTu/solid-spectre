@@ -42,7 +42,7 @@
   width: 100%;
 }
 
-.has-error .form-autocomplete .form-autocomplete-input {
+.has-error .form-autocomplete .form-autocomplete-input:not(.is-focused) {
   border-color: var(--failure);
 }
 

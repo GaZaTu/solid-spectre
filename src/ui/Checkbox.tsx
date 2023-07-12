@@ -1,13 +1,13 @@
 // css
-import "../util/checkbox-radio-switch.css"
-import "../util/checkbox-radio.css"
+import "../css/checkbox-radio-switch.css"
+import "../css/checkbox-radio.css"
 import "./Checkbox.css"
 // js
 import { ComponentProps, createMemo, createRenderEffect, Show, splitProps, useContext } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize } from "../util/theming"
-import { FormContext } from "./Form.Context.jsx"
+import { FormContext } from "./Form.Context"
 import { FormGroupContext } from "./Form.Group.Context"
 
 type Props = {

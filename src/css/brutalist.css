@@ -26,7 +26,17 @@ html .form-select:focus,
 html .btn:not(.btn-transparent):not(.btn-link),
 html .chip,
 html .menu,
-html .avatar {
+html .avatar,
+html .has-success .form-input:focus,
+html .has-success .form-select:focus,
+html .form-input.is-success:focus,
+html .form-select.is-success:focus,
+html .has-error .form-input:focus,
+html .has-error .form-select:focus,
+html .form-input.is-error:focus,
+html .form-select.is-error:focus,
+html .form-autocomplete .form-autocomplete-input.is-focused,
+html .has-error .form-autocomplete .form-autocomplete-input.is-focused {
   border-radius: unset;
   box-shadow: 2px 2px 0px 0px gray;
 }

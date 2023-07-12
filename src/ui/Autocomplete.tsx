@@ -1,4 +1,4 @@
-import { createOptions as _createOptions, createSelect } from "@thisbeyond/solid-select"
+import { createOptions as _createOptions, createSelect } from "@gazatu/solid-select"
 import { ComponentProps, For, JSX, JSXElement, Show, createEffect, createMemo, createRenderEffect, createSignal, mergeProps, on, splitProps, useContext } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"

@@ -1,6 +1,6 @@
 // css
-import "../util/checkbox-radio-switch.css"
-import "../util/checkbox-radio.css"
+import "../css/checkbox-radio-switch.css"
+import "../css/checkbox-radio.css"
 import "./Radio.css"
 // js
 import { ComponentProps, splitProps } from "solid-js"

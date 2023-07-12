@@ -1,7 +1,7 @@
 // css
 import "./Timeline.css"
 // js
-import { ComponentProps, JSX, splitProps } from "solid-js"
+import { ComponentProps, JSX, Show, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { A } from "./A"
@@ -28,7 +28,9 @@ function TimelineItem_(props: Props & ComponentProps<"div">) {
     <div {..._props}>
       <div class="timeline-left">
         <A class="timeline-icon" href={_props.id ? `#${_props.id}` : undefined}>
-          {_props.icon ?? ""}
+          <Show when={_props.icon} fallback={""}>
+            {_props.icon}
+          </Show>
         </A>
       </div>
       <div class="timeline-content">

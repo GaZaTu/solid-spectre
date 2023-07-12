@@ -1,6 +1,6 @@
 {
   "name": "@gazatu/solid-spectre",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Solid.js components styled with Spectre.css",
   "license": "MIT",
   "author": "GaZaTu",
@@ -20,7 +20,7 @@
   "sideEffects": false,
   "type": "module",
   "scripts": {
-    "tsc": "tsc",
+    "tsup": "tsup",
     "build": "node build.js",
     "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
@@ -37,7 +37,7 @@
     "@solid-primitives/props": "^3.1.6",
     "@solid-primitives/storage": "^2.0.0",
     "@tanstack/solid-table": "^8.9.3",
-    "@thisbeyond/solid-select": "^0.13.0",
+    "@gazatu/solid-select": "^0.13.1",
     "modern-normalize": "^2.0.0"
   },
   "devDependencies": {
@@ -46,8 +46,11 @@
     "@storybook/addon-links": "^7.0.26",
     "@storybook/blocks": "^7.0.26",
     "@storybook/testing-library": "^0.0.14-next.2",
+    "@types/node": "^16.18.38",
     "@typescript-eslint/eslint-plugin": "^5.40.0",
     "@typescript-eslint/parser": "^5.40.0",
+    "esbuild": "^0.18.11",
+    "esbuild-plugin-solid": "^0.5.0",
     "eslint": "^8.25.0",
     "eslint-plugin-solid": "^0.7.3",
     "eslint-plugin-storybook": "^0.6.12",
@@ -57,1656 +60,2882 @@
     "storybook": "^7.0.26",
     "storybook-solidjs": "^1.0.0-beta.2",
     "storybook-solidjs-vite": "^1.0.0-beta.2",
+    "tsup": "^6.7.0",
     "typescript": "^5.1.6",
     "vite": "^4.4.2",
     "vite-plugin-solid": "^2.7.0",
     "zx": "^7.2.3"
   },
   "exports": {
-    "./icons/iconActivity": {
-      "types": "./dist/icons/iconActivity.d.ts",
-      "default": "./dist/icons/iconActivity.js"
-    },
-    "./icons/iconAirplay": {
-      "types": "./dist/icons/iconAirplay.d.ts",
-      "default": "./dist/icons/iconAirplay.js"
-    },
-    "./icons/iconAlertCircle": {
-      "types": "./dist/icons/iconAlertCircle.d.ts",
-      "default": "./dist/icons/iconAlertCircle.js"
-    },
-    "./icons/iconAlertOctagon": {
-      "types": "./dist/icons/iconAlertOctagon.d.ts",
-      "default": "./dist/icons/iconAlertOctagon.js"
-    },
-    "./icons/iconAlertTriangle": {
-      "types": "./dist/icons/iconAlertTriangle.d.ts",
-      "default": "./dist/icons/iconAlertTriangle.js"
-    },
-    "./icons/iconAlignCenter": {
-      "types": "./dist/icons/iconAlignCenter.d.ts",
-      "default": "./dist/icons/iconAlignCenter.js"
-    },
-    "./icons/iconAlignJustify": {
-      "types": "./dist/icons/iconAlignJustify.d.ts",
-      "default": "./dist/icons/iconAlignJustify.js"
-    },
-    "./icons/iconAlignLeft": {
-      "types": "./dist/icons/iconAlignLeft.d.ts",
-      "default": "./dist/icons/iconAlignLeft.js"
-    },
-    "./icons/iconAlignRight": {
-      "types": "./dist/icons/iconAlignRight.d.ts",
-      "default": "./dist/icons/iconAlignRight.js"
-    },
-    "./icons/iconAnchor": {
-      "types": "./dist/icons/iconAnchor.d.ts",
-      "default": "./dist/icons/iconAnchor.js"
-    },
-    "./icons/iconAperture": {
-      "types": "./dist/icons/iconAperture.d.ts",
-      "default": "./dist/icons/iconAperture.js"
-    },
-    "./icons/iconArchive": {
-      "types": "./dist/icons/iconArchive.d.ts",
-      "default": "./dist/icons/iconArchive.js"
-    },
-    "./icons/iconArrowDown": {
-      "types": "./dist/icons/iconArrowDown.d.ts",
-      "default": "./dist/icons/iconArrowDown.js"
-    },
-    "./icons/iconArrowDownCircle": {
-      "types": "./dist/icons/iconArrowDownCircle.d.ts",
-      "default": "./dist/icons/iconArrowDownCircle.js"
-    },
-    "./icons/iconArrowDownLeft": {
-      "types": "./dist/icons/iconArrowDownLeft.d.ts",
-      "default": "./dist/icons/iconArrowDownLeft.js"
-    },
-    "./icons/iconArrowDownRight": {
-      "types": "./dist/icons/iconArrowDownRight.d.ts",
-      "default": "./dist/icons/iconArrowDownRight.js"
-    },
-    "./icons/iconArrowLeft": {
-      "types": "./dist/icons/iconArrowLeft.d.ts",
-      "default": "./dist/icons/iconArrowLeft.js"
-    },
-    "./icons/iconArrowLeftCircle": {
-      "types": "./dist/icons/iconArrowLeftCircle.d.ts",
-      "default": "./dist/icons/iconArrowLeftCircle.js"
-    },
-    "./icons/iconArrowRight": {
-      "types": "./dist/icons/iconArrowRight.d.ts",
-      "default": "./dist/icons/iconArrowRight.js"
-    },
-    "./icons/iconArrowRightCircle": {
-      "types": "./dist/icons/iconArrowRightCircle.d.ts",
-      "default": "./dist/icons/iconArrowRightCircle.js"
-    },
-    "./icons/iconArrowUp": {
-      "types": "./dist/icons/iconArrowUp.d.ts",
-      "default": "./dist/icons/iconArrowUp.js"
-    },
-    "./icons/iconArrowUpCircle": {
-      "types": "./dist/icons/iconArrowUpCircle.d.ts",
-      "default": "./dist/icons/iconArrowUpCircle.js"
-    },
-    "./icons/iconArrowUpLeft": {
-      "types": "./dist/icons/iconArrowUpLeft.d.ts",
-      "default": "./dist/icons/iconArrowUpLeft.js"
-    },
-    "./icons/iconArrowUpRight": {
-      "types": "./dist/icons/iconArrowUpRight.d.ts",
-      "default": "./dist/icons/iconArrowUpRight.js"
-    },
-    "./icons/iconAtSign": {
-      "types": "./dist/icons/iconAtSign.d.ts",
-      "default": "./dist/icons/iconAtSign.js"
-    },
-    "./icons/iconAward": {
-      "types": "./dist/icons/iconAward.d.ts",
-      "default": "./dist/icons/iconAward.js"
-    },
-    "./icons/iconBarChart": {
-      "types": "./dist/icons/iconBarChart.d.ts",
-      "default": "./dist/icons/iconBarChart.js"
-    },
-    "./icons/iconBarChart2": {
-      "types": "./dist/icons/iconBarChart2.d.ts",
-      "default": "./dist/icons/iconBarChart2.js"
-    },
-    "./icons/iconBattery": {
-      "types": "./dist/icons/iconBattery.d.ts",
-      "default": "./dist/icons/iconBattery.js"
-    },
-    "./icons/iconBatteryCharging": {
-      "types": "./dist/icons/iconBatteryCharging.d.ts",
-      "default": "./dist/icons/iconBatteryCharging.js"
-    },
-    "./icons/iconBell": {
-      "types": "./dist/icons/iconBell.d.ts",
-      "default": "./dist/icons/iconBell.js"
-    },
-    "./icons/iconBellOff": {
-      "types": "./dist/icons/iconBellOff.d.ts",
-      "default": "./dist/icons/iconBellOff.js"
-    },
-    "./icons/iconBluetooth": {
-      "types": "./dist/icons/iconBluetooth.d.ts",
-      "default": "./dist/icons/iconBluetooth.js"
-    },
-    "./icons/iconBold": {
-      "types": "./dist/icons/iconBold.d.ts",
-      "default": "./dist/icons/iconBold.js"
-    },
-    "./icons/iconBook": {
-      "types": "./dist/icons/iconBook.d.ts",
-      "default": "./dist/icons/iconBook.js"
-    },
-    "./icons/iconBookOpen": {
-      "types": "./dist/icons/iconBookOpen.d.ts",
-      "default": "./dist/icons/iconBookOpen.js"
-    },
-    "./icons/iconBookmark": {
-      "types": "./dist/icons/iconBookmark.d.ts",
-      "default": "./dist/icons/iconBookmark.js"
-    },
-    "./icons/iconBox": {
-      "types": "./dist/icons/iconBox.d.ts",
-      "default": "./dist/icons/iconBox.js"
-    },
-    "./icons/iconBriefcase": {
-      "types": "./dist/icons/iconBriefcase.d.ts",
-      "default": "./dist/icons/iconBriefcase.js"
-    },
-    "./icons/iconCalendar": {
-      "types": "./dist/icons/iconCalendar.d.ts",
-      "default": "./dist/icons/iconCalendar.js"
-    },
-    "./icons/iconCamera": {
-      "types": "./dist/icons/iconCamera.d.ts",
-      "default": "./dist/icons/iconCamera.js"
-    },
-    "./icons/iconCameraOff": {
-      "types": "./dist/icons/iconCameraOff.d.ts",
-      "default": "./dist/icons/iconCameraOff.js"
-    },
-    "./icons/iconCast": {
-      "types": "./dist/icons/iconCast.d.ts",
-      "default": "./dist/icons/iconCast.js"
-    },
-    "./icons/iconCheck": {
-      "types": "./dist/icons/iconCheck.d.ts",
-      "default": "./dist/icons/iconCheck.js"
-    },
-    "./icons/iconCheckCircle": {
-      "types": "./dist/icons/iconCheckCircle.d.ts",
-      "default": "./dist/icons/iconCheckCircle.js"
-    },
-    "./icons/iconCheckSquare": {
-      "types": "./dist/icons/iconCheckSquare.d.ts",
-      "default": "./dist/icons/iconCheckSquare.js"
-    },
-    "./icons/iconChevronDown": {
-      "types": "./dist/icons/iconChevronDown.d.ts",
-      "default": "./dist/icons/iconChevronDown.js"
-    },
-    "./icons/iconChevronLeft": {
-      "types": "./dist/icons/iconChevronLeft.d.ts",
-      "default": "./dist/icons/iconChevronLeft.js"
-    },
-    "./icons/iconChevronRight": {
-      "types": "./dist/icons/iconChevronRight.d.ts",
-      "default": "./dist/icons/iconChevronRight.js"
-    },
-    "./icons/iconChevronUp": {
-      "types": "./dist/icons/iconChevronUp.d.ts",
-      "default": "./dist/icons/iconChevronUp.js"
-    },
-    "./icons/iconChevronsDown": {
-      "types": "./dist/icons/iconChevronsDown.d.ts",
-      "default": "./dist/icons/iconChevronsDown.js"
-    },
-    "./icons/iconChevronsLeft": {
-      "types": "./dist/icons/iconChevronsLeft.d.ts",
-      "default": "./dist/icons/iconChevronsLeft.js"
-    },
-    "./icons/iconChevronsRight": {
-      "types": "./dist/icons/iconChevronsRight.d.ts",
-      "default": "./dist/icons/iconChevronsRight.js"
-    },
-    "./icons/iconChevronsUp": {
-      "types": "./dist/icons/iconChevronsUp.d.ts",
-      "default": "./dist/icons/iconChevronsUp.js"
-    },
-    "./icons/iconChrome": {
-      "types": "./dist/icons/iconChrome.d.ts",
-      "default": "./dist/icons/iconChrome.js"
-    },
-    "./icons/iconCircle": {
-      "types": "./dist/icons/iconCircle.d.ts",
-      "default": "./dist/icons/iconCircle.js"
-    },
-    "./icons/iconClipboard": {
-      "types": "./dist/icons/iconClipboard.d.ts",
-      "default": "./dist/icons/iconClipboard.js"
-    },
-    "./icons/iconClock": {
-      "types": "./dist/icons/iconClock.d.ts",
-      "default": "./dist/icons/iconClock.js"
-    },
-    "./icons/iconCloud": {
-      "types": "./dist/icons/iconCloud.d.ts",
-      "default": "./dist/icons/iconCloud.js"
-    },
-    "./icons/iconCloudDrizzle": {
-      "types": "./dist/icons/iconCloudDrizzle.d.ts",
-      "default": "./dist/icons/iconCloudDrizzle.js"
-    },
-    "./icons/iconCloudLightning": {
-      "types": "./dist/icons/iconCloudLightning.d.ts",
-      "default": "./dist/icons/iconCloudLightning.js"
-    },
-    "./icons/iconCloudOff": {
-      "types": "./dist/icons/iconCloudOff.d.ts",
-      "default": "./dist/icons/iconCloudOff.js"
-    },
-    "./icons/iconCloudRain": {
-      "types": "./dist/icons/iconCloudRain.d.ts",
-      "default": "./dist/icons/iconCloudRain.js"
-    },
-    "./icons/iconCloudSnow": {
-      "types": "./dist/icons/iconCloudSnow.d.ts",
-      "default": "./dist/icons/iconCloudSnow.js"
-    },
-    "./icons/iconCode": {
-      "types": "./dist/icons/iconCode.d.ts",
-      "default": "./dist/icons/iconCode.js"
-    },
-    "./icons/iconCodepen": {
-      "types": "./dist/icons/iconCodepen.d.ts",
-      "default": "./dist/icons/iconCodepen.js"
-    },
-    "./icons/iconCodesandbox": {
-      "types": "./dist/icons/iconCodesandbox.d.ts",
-      "default": "./dist/icons/iconCodesandbox.js"
-    },
-    "./icons/iconCoffee": {
-      "types": "./dist/icons/iconCoffee.d.ts",
-      "default": "./dist/icons/iconCoffee.js"
-    },
-    "./icons/iconColumns": {
-      "types": "./dist/icons/iconColumns.d.ts",
-      "default": "./dist/icons/iconColumns.js"
-    },
-    "./icons/iconCommand": {
-      "types": "./dist/icons/iconCommand.d.ts",
-      "default": "./dist/icons/iconCommand.js"
-    },
-    "./icons/iconCompass": {
-      "types": "./dist/icons/iconCompass.d.ts",
-      "default": "./dist/icons/iconCompass.js"
-    },
-    "./icons/iconCopy": {
-      "types": "./dist/icons/iconCopy.d.ts",
-      "default": "./dist/icons/iconCopy.js"
-    },
-    "./icons/iconCornerDownLeft": {
-      "types": "./dist/icons/iconCornerDownLeft.d.ts",
-      "default": "./dist/icons/iconCornerDownLeft.js"
-    },
-    "./icons/iconCornerDownRight": {
-      "types": "./dist/icons/iconCornerDownRight.d.ts",
-      "default": "./dist/icons/iconCornerDownRight.js"
-    },
-    "./icons/iconCornerLeftDown": {
-      "types": "./dist/icons/iconCornerLeftDown.d.ts",
-      "default": "./dist/icons/iconCornerLeftDown.js"
-    },
-    "./icons/iconCornerLeftUp": {
-      "types": "./dist/icons/iconCornerLeftUp.d.ts",
-      "default": "./dist/icons/iconCornerLeftUp.js"
-    },
-    "./icons/iconCornerRightDown": {
-      "types": "./dist/icons/iconCornerRightDown.d.ts",
-      "default": "./dist/icons/iconCornerRightDown.js"
-    },
-    "./icons/iconCornerRightUp": {
-      "types": "./dist/icons/iconCornerRightUp.d.ts",
-      "default": "./dist/icons/iconCornerRightUp.js"
-    },
-    "./icons/iconCornerUpLeft": {
-      "types": "./dist/icons/iconCornerUpLeft.d.ts",
-      "default": "./dist/icons/iconCornerUpLeft.js"
-    },
-    "./icons/iconCornerUpRight": {
-      "types": "./dist/icons/iconCornerUpRight.d.ts",
-      "default": "./dist/icons/iconCornerUpRight.js"
-    },
-    "./icons/iconCpu": {
-      "types": "./dist/icons/iconCpu.d.ts",
-      "default": "./dist/icons/iconCpu.js"
-    },
-    "./icons/iconCreditCard": {
-      "types": "./dist/icons/iconCreditCard.d.ts",
-      "default": "./dist/icons/iconCreditCard.js"
-    },
-    "./icons/iconCrop": {
-      "types": "./dist/icons/iconCrop.d.ts",
-      "default": "./dist/icons/iconCrop.js"
-    },
-    "./icons/iconCrosshair": {
-      "types": "./dist/icons/iconCrosshair.d.ts",
-      "default": "./dist/icons/iconCrosshair.js"
-    },
-    "./icons/iconDatabase": {
-      "types": "./dist/icons/iconDatabase.d.ts",
-      "default": "./dist/icons/iconDatabase.js"
-    },
-    "./icons/iconDelete": {
-      "types": "./dist/icons/iconDelete.d.ts",
-      "default": "./dist/icons/iconDelete.js"
-    },
-    "./icons/iconDisc": {
-      "types": "./dist/icons/iconDisc.d.ts",
-      "default": "./dist/icons/iconDisc.js"
-    },
-    "./icons/iconDivide": {
-      "types": "./dist/icons/iconDivide.d.ts",
-      "default": "./dist/icons/iconDivide.js"
-    },
-    "./icons/iconDivideCircle": {
-      "types": "./dist/icons/iconDivideCircle.d.ts",
-      "default": "./dist/icons/iconDivideCircle.js"
-    },
-    "./icons/iconDivideSquare": {
-      "types": "./dist/icons/iconDivideSquare.d.ts",
-      "default": "./dist/icons/iconDivideSquare.js"
-    },
-    "./icons/iconDollarSign": {
-      "types": "./dist/icons/iconDollarSign.d.ts",
-      "default": "./dist/icons/iconDollarSign.js"
-    },
-    "./icons/iconDownload": {
-      "types": "./dist/icons/iconDownload.d.ts",
-      "default": "./dist/icons/iconDownload.js"
-    },
-    "./icons/iconDownloadCloud": {
-      "types": "./dist/icons/iconDownloadCloud.d.ts",
-      "default": "./dist/icons/iconDownloadCloud.js"
-    },
-    "./icons/iconDribbble": {
-      "types": "./dist/icons/iconDribbble.d.ts",
-      "default": "./dist/icons/iconDribbble.js"
-    },
-    "./icons/iconDroplet": {
-      "types": "./dist/icons/iconDroplet.d.ts",
-      "default": "./dist/icons/iconDroplet.js"
-    },
-    "./icons/iconEdit": {
-      "types": "./dist/icons/iconEdit.d.ts",
-      "default": "./dist/icons/iconEdit.js"
-    },
-    "./icons/iconEdit2": {
-      "types": "./dist/icons/iconEdit2.d.ts",
-      "default": "./dist/icons/iconEdit2.js"
-    },
-    "./icons/iconEdit3": {
-      "types": "./dist/icons/iconEdit3.d.ts",
-      "default": "./dist/icons/iconEdit3.js"
-    },
-    "./icons/iconExternalLink": {
-      "types": "./dist/icons/iconExternalLink.d.ts",
-      "default": "./dist/icons/iconExternalLink.js"
-    },
-    "./icons/iconEye": {
-      "types": "./dist/icons/iconEye.d.ts",
-      "default": "./dist/icons/iconEye.js"
-    },
-    "./icons/iconEyeOff": {
-      "types": "./dist/icons/iconEyeOff.d.ts",
-      "default": "./dist/icons/iconEyeOff.js"
-    },
-    "./icons/iconFacebook": {
-      "types": "./dist/icons/iconFacebook.d.ts",
-      "default": "./dist/icons/iconFacebook.js"
-    },
-    "./icons/iconFastForward": {
-      "types": "./dist/icons/iconFastForward.d.ts",
-      "default": "./dist/icons/iconFastForward.js"
-    },
-    "./icons/iconFeather": {
-      "types": "./dist/icons/iconFeather.d.ts",
-      "default": "./dist/icons/iconFeather.js"
-    },
-    "./icons/iconFigma": {
-      "types": "./dist/icons/iconFigma.d.ts",
-      "default": "./dist/icons/iconFigma.js"
-    },
-    "./icons/iconFile": {
-      "types": "./dist/icons/iconFile.d.ts",
-      "default": "./dist/icons/iconFile.js"
-    },
-    "./icons/iconFileMinus": {
-      "types": "./dist/icons/iconFileMinus.d.ts",
-      "default": "./dist/icons/iconFileMinus.js"
-    },
-    "./icons/iconFilePlus": {
-      "types": "./dist/icons/iconFilePlus.d.ts",
-      "default": "./dist/icons/iconFilePlus.js"
-    },
-    "./icons/iconFileText": {
-      "types": "./dist/icons/iconFileText.d.ts",
-      "default": "./dist/icons/iconFileText.js"
-    },
-    "./icons/iconFilm": {
-      "types": "./dist/icons/iconFilm.d.ts",
-      "default": "./dist/icons/iconFilm.js"
-    },
-    "./icons/iconFilter": {
-      "types": "./dist/icons/iconFilter.d.ts",
-      "default": "./dist/icons/iconFilter.js"
-    },
-    "./icons/iconFlag": {
-      "types": "./dist/icons/iconFlag.d.ts",
-      "default": "./dist/icons/iconFlag.js"
-    },
-    "./icons/iconFolder": {
-      "types": "./dist/icons/iconFolder.d.ts",
-      "default": "./dist/icons/iconFolder.js"
-    },
-    "./icons/iconFolderMinus": {
-      "types": "./dist/icons/iconFolderMinus.d.ts",
-      "default": "./dist/icons/iconFolderMinus.js"
-    },
-    "./icons/iconFolderPlus": {
-      "types": "./dist/icons/iconFolderPlus.d.ts",
-      "default": "./dist/icons/iconFolderPlus.js"
-    },
-    "./icons/iconFramer": {
-      "types": "./dist/icons/iconFramer.d.ts",
-      "default": "./dist/icons/iconFramer.js"
-    },
-    "./icons/iconFrown": {
-      "types": "./dist/icons/iconFrown.d.ts",
-      "default": "./dist/icons/iconFrown.js"
-    },
-    "./icons/iconGift": {
-      "types": "./dist/icons/iconGift.d.ts",
-      "default": "./dist/icons/iconGift.js"
-    },
-    "./icons/iconGitBranch": {
-      "types": "./dist/icons/iconGitBranch.d.ts",
-      "default": "./dist/icons/iconGitBranch.js"
-    },
-    "./icons/iconGitCommit": {
-      "types": "./dist/icons/iconGitCommit.d.ts",
-      "default": "./dist/icons/iconGitCommit.js"
-    },
-    "./icons/iconGitMerge": {
-      "types": "./dist/icons/iconGitMerge.d.ts",
-      "default": "./dist/icons/iconGitMerge.js"
-    },
-    "./icons/iconGitPullRequest": {
-      "types": "./dist/icons/iconGitPullRequest.d.ts",
-      "default": "./dist/icons/iconGitPullRequest.js"
-    },
-    "./icons/iconGithub": {
-      "types": "./dist/icons/iconGithub.d.ts",
-      "default": "./dist/icons/iconGithub.js"
-    },
-    "./icons/iconGitlab": {
-      "types": "./dist/icons/iconGitlab.d.ts",
-      "default": "./dist/icons/iconGitlab.js"
-    },
-    "./icons/iconGlobe": {
-      "types": "./dist/icons/iconGlobe.d.ts",
-      "default": "./dist/icons/iconGlobe.js"
-    },
-    "./icons/iconGrid": {
-      "types": "./dist/icons/iconGrid.d.ts",
-      "default": "./dist/icons/iconGrid.js"
-    },
-    "./icons/iconHardDrive": {
-      "types": "./dist/icons/iconHardDrive.d.ts",
-      "default": "./dist/icons/iconHardDrive.js"
-    },
-    "./icons/iconHash": {
-      "types": "./dist/icons/iconHash.d.ts",
-      "default": "./dist/icons/iconHash.js"
-    },
-    "./icons/iconHeadphones": {
-      "types": "./dist/icons/iconHeadphones.d.ts",
-      "default": "./dist/icons/iconHeadphones.js"
-    },
-    "./icons/iconHeart": {
-      "types": "./dist/icons/iconHeart.d.ts",
-      "default": "./dist/icons/iconHeart.js"
-    },
-    "./icons/iconHelpCircle": {
-      "types": "./dist/icons/iconHelpCircle.d.ts",
-      "default": "./dist/icons/iconHelpCircle.js"
-    },
-    "./icons/iconHexagon": {
-      "types": "./dist/icons/iconHexagon.d.ts",
-      "default": "./dist/icons/iconHexagon.js"
-    },
-    "./icons/iconHome": {
-      "types": "./dist/icons/iconHome.d.ts",
-      "default": "./dist/icons/iconHome.js"
-    },
-    "./icons/iconImage": {
-      "types": "./dist/icons/iconImage.d.ts",
-      "default": "./dist/icons/iconImage.js"
-    },
-    "./icons/iconInbox": {
-      "types": "./dist/icons/iconInbox.d.ts",
-      "default": "./dist/icons/iconInbox.js"
-    },
-    "./icons/iconInfo": {
-      "types": "./dist/icons/iconInfo.d.ts",
-      "default": "./dist/icons/iconInfo.js"
-    },
-    "./icons/iconInstagram": {
-      "types": "./dist/icons/iconInstagram.d.ts",
-      "default": "./dist/icons/iconInstagram.js"
-    },
-    "./icons/iconItalic": {
-      "types": "./dist/icons/iconItalic.d.ts",
-      "default": "./dist/icons/iconItalic.js"
-    },
-    "./icons/iconKey": {
-      "types": "./dist/icons/iconKey.d.ts",
-      "default": "./dist/icons/iconKey.js"
-    },
-    "./icons/iconLayers": {
-      "types": "./dist/icons/iconLayers.d.ts",
-      "default": "./dist/icons/iconLayers.js"
-    },
-    "./icons/iconLayout": {
-      "types": "./dist/icons/iconLayout.d.ts",
-      "default": "./dist/icons/iconLayout.js"
-    },
-    "./icons/iconLifeBuoy": {
-      "types": "./dist/icons/iconLifeBuoy.d.ts",
-      "default": "./dist/icons/iconLifeBuoy.js"
-    },
-    "./icons/iconLink": {
-      "types": "./dist/icons/iconLink.d.ts",
-      "default": "./dist/icons/iconLink.js"
-    },
-    "./icons/iconLink2": {
-      "types": "./dist/icons/iconLink2.d.ts",
-      "default": "./dist/icons/iconLink2.js"
-    },
-    "./icons/iconLinkedin": {
-      "types": "./dist/icons/iconLinkedin.d.ts",
-      "default": "./dist/icons/iconLinkedin.js"
-    },
-    "./icons/iconList": {
-      "types": "./dist/icons/iconList.d.ts",
-      "default": "./dist/icons/iconList.js"
-    },
-    "./icons/iconLoader": {
-      "types": "./dist/icons/iconLoader.d.ts",
-      "default": "./dist/icons/iconLoader.js"
-    },
-    "./icons/iconLock": {
-      "types": "./dist/icons/iconLock.d.ts",
-      "default": "./dist/icons/iconLock.js"
-    },
-    "./icons/iconLogIn": {
-      "types": "./dist/icons/iconLogIn.d.ts",
-      "default": "./dist/icons/iconLogIn.js"
-    },
-    "./icons/iconLogOut": {
-      "types": "./dist/icons/iconLogOut.d.ts",
-      "default": "./dist/icons/iconLogOut.js"
-    },
-    "./icons/iconMail": {
-      "types": "./dist/icons/iconMail.d.ts",
-      "default": "./dist/icons/iconMail.js"
-    },
-    "./icons/iconMap": {
-      "types": "./dist/icons/iconMap.d.ts",
-      "default": "./dist/icons/iconMap.js"
-    },
-    "./icons/iconMapPin": {
-      "types": "./dist/icons/iconMapPin.d.ts",
-      "default": "./dist/icons/iconMapPin.js"
-    },
-    "./icons/iconMaximize": {
-      "types": "./dist/icons/iconMaximize.d.ts",
-      "default": "./dist/icons/iconMaximize.js"
-    },
-    "./icons/iconMaximize2": {
-      "types": "./dist/icons/iconMaximize2.d.ts",
-      "default": "./dist/icons/iconMaximize2.js"
-    },
-    "./icons/iconMeh": {
-      "types": "./dist/icons/iconMeh.d.ts",
-      "default": "./dist/icons/iconMeh.js"
-    },
-    "./icons/iconMenu": {
-      "types": "./dist/icons/iconMenu.d.ts",
-      "default": "./dist/icons/iconMenu.js"
-    },
-    "./icons/iconMessageCircle": {
-      "types": "./dist/icons/iconMessageCircle.d.ts",
-      "default": "./dist/icons/iconMessageCircle.js"
-    },
-    "./icons/iconMessageSquare": {
-      "types": "./dist/icons/iconMessageSquare.d.ts",
-      "default": "./dist/icons/iconMessageSquare.js"
-    },
-    "./icons/iconMic": {
-      "types": "./dist/icons/iconMic.d.ts",
-      "default": "./dist/icons/iconMic.js"
-    },
-    "./icons/iconMicOff": {
-      "types": "./dist/icons/iconMicOff.d.ts",
-      "default": "./dist/icons/iconMicOff.js"
-    },
-    "./icons/iconMinimize": {
-      "types": "./dist/icons/iconMinimize.d.ts",
-      "default": "./dist/icons/iconMinimize.js"
-    },
-    "./icons/iconMinimize2": {
-      "types": "./dist/icons/iconMinimize2.d.ts",
-      "default": "./dist/icons/iconMinimize2.js"
-    },
-    "./icons/iconMinus": {
-      "types": "./dist/icons/iconMinus.d.ts",
-      "default": "./dist/icons/iconMinus.js"
-    },
-    "./icons/iconMinusCircle": {
-      "types": "./dist/icons/iconMinusCircle.d.ts",
-      "default": "./dist/icons/iconMinusCircle.js"
-    },
-    "./icons/iconMinusSquare": {
-      "types": "./dist/icons/iconMinusSquare.d.ts",
-      "default": "./dist/icons/iconMinusSquare.js"
-    },
-    "./icons/iconMonitor": {
-      "types": "./dist/icons/iconMonitor.d.ts",
-      "default": "./dist/icons/iconMonitor.js"
-    },
-    "./icons/iconMoon": {
-      "types": "./dist/icons/iconMoon.d.ts",
-      "default": "./dist/icons/iconMoon.js"
-    },
-    "./icons/iconMoreHorizontal": {
-      "types": "./dist/icons/iconMoreHorizontal.d.ts",
-      "default": "./dist/icons/iconMoreHorizontal.js"
-    },
-    "./icons/iconMoreVertical": {
-      "types": "./dist/icons/iconMoreVertical.d.ts",
-      "default": "./dist/icons/iconMoreVertical.js"
-    },
-    "./icons/iconMousePointer": {
-      "types": "./dist/icons/iconMousePointer.d.ts",
-      "default": "./dist/icons/iconMousePointer.js"
-    },
-    "./icons/iconMove": {
-      "types": "./dist/icons/iconMove.d.ts",
-      "default": "./dist/icons/iconMove.js"
-    },
-    "./icons/iconMusic": {
-      "types": "./dist/icons/iconMusic.d.ts",
-      "default": "./dist/icons/iconMusic.js"
-    },
-    "./icons/iconNavigation": {
-      "types": "./dist/icons/iconNavigation.d.ts",
-      "default": "./dist/icons/iconNavigation.js"
-    },
-    "./icons/iconNavigation2": {
-      "types": "./dist/icons/iconNavigation2.d.ts",
-      "default": "./dist/icons/iconNavigation2.js"
-    },
-    "./icons/iconOctagon": {
-      "types": "./dist/icons/iconOctagon.d.ts",
-      "default": "./dist/icons/iconOctagon.js"
-    },
-    "./icons/iconPackage": {
-      "types": "./dist/icons/iconPackage.d.ts",
-      "default": "./dist/icons/iconPackage.js"
-    },
-    "./icons/iconPaperclip": {
-      "types": "./dist/icons/iconPaperclip.d.ts",
-      "default": "./dist/icons/iconPaperclip.js"
-    },
-    "./icons/iconPause": {
-      "types": "./dist/icons/iconPause.d.ts",
-      "default": "./dist/icons/iconPause.js"
-    },
-    "./icons/iconPauseCircle": {
-      "types": "./dist/icons/iconPauseCircle.d.ts",
-      "default": "./dist/icons/iconPauseCircle.js"
-    },
-    "./icons/iconPenTool": {
-      "types": "./dist/icons/iconPenTool.d.ts",
-      "default": "./dist/icons/iconPenTool.js"
-    },
-    "./icons/iconPercent": {
-      "types": "./dist/icons/iconPercent.d.ts",
-      "default": "./dist/icons/iconPercent.js"
-    },
-    "./icons/iconPhone": {
-      "types": "./dist/icons/iconPhone.d.ts",
-      "default": "./dist/icons/iconPhone.js"
-    },
-    "./icons/iconPhoneCall": {
-      "types": "./dist/icons/iconPhoneCall.d.ts",
-      "default": "./dist/icons/iconPhoneCall.js"
-    },
-    "./icons/iconPhoneForwarded": {
-      "types": "./dist/icons/iconPhoneForwarded.d.ts",
-      "default": "./dist/icons/iconPhoneForwarded.js"
-    },
-    "./icons/iconPhoneIncoming": {
-      "types": "./dist/icons/iconPhoneIncoming.d.ts",
-      "default": "./dist/icons/iconPhoneIncoming.js"
-    },
-    "./icons/iconPhoneMissed": {
-      "types": "./dist/icons/iconPhoneMissed.d.ts",
-      "default": "./dist/icons/iconPhoneMissed.js"
-    },
-    "./icons/iconPhoneOff": {
-      "types": "./dist/icons/iconPhoneOff.d.ts",
-      "default": "./dist/icons/iconPhoneOff.js"
-    },
-    "./icons/iconPhoneOutgoing": {
-      "types": "./dist/icons/iconPhoneOutgoing.d.ts",
-      "default": "./dist/icons/iconPhoneOutgoing.js"
-    },
-    "./icons/iconPieChart": {
-      "types": "./dist/icons/iconPieChart.d.ts",
-      "default": "./dist/icons/iconPieChart.js"
-    },
-    "./icons/iconPlay": {
-      "types": "./dist/icons/iconPlay.d.ts",
-      "default": "./dist/icons/iconPlay.js"
-    },
-    "./icons/iconPlayCircle": {
-      "types": "./dist/icons/iconPlayCircle.d.ts",
-      "default": "./dist/icons/iconPlayCircle.js"
-    },
-    "./icons/iconPlus": {
-      "types": "./dist/icons/iconPlus.d.ts",
-      "default": "./dist/icons/iconPlus.js"
-    },
-    "./icons/iconPlusCircle": {
-      "types": "./dist/icons/iconPlusCircle.d.ts",
-      "default": "./dist/icons/iconPlusCircle.js"
-    },
-    "./icons/iconPlusSquare": {
-      "types": "./dist/icons/iconPlusSquare.d.ts",
-      "default": "./dist/icons/iconPlusSquare.js"
-    },
-    "./icons/iconPocket": {
-      "types": "./dist/icons/iconPocket.d.ts",
-      "default": "./dist/icons/iconPocket.js"
-    },
-    "./icons/iconPower": {
-      "types": "./dist/icons/iconPower.d.ts",
-      "default": "./dist/icons/iconPower.js"
-    },
-    "./icons/iconPrinter": {
-      "types": "./dist/icons/iconPrinter.d.ts",
-      "default": "./dist/icons/iconPrinter.js"
-    },
-    "./icons/iconRadio": {
-      "types": "./dist/icons/iconRadio.d.ts",
-      "default": "./dist/icons/iconRadio.js"
-    },
-    "./icons/iconRefreshCcw": {
-      "types": "./dist/icons/iconRefreshCcw.d.ts",
-      "default": "./dist/icons/iconRefreshCcw.js"
-    },
-    "./icons/iconRefreshCw": {
-      "types": "./dist/icons/iconRefreshCw.d.ts",
-      "default": "./dist/icons/iconRefreshCw.js"
-    },
-    "./icons/iconRepeat": {
-      "types": "./dist/icons/iconRepeat.d.ts",
-      "default": "./dist/icons/iconRepeat.js"
-    },
-    "./icons/iconRewind": {
-      "types": "./dist/icons/iconRewind.d.ts",
-      "default": "./dist/icons/iconRewind.js"
-    },
-    "./icons/iconRotateCcw": {
-      "types": "./dist/icons/iconRotateCcw.d.ts",
-      "default": "./dist/icons/iconRotateCcw.js"
-    },
-    "./icons/iconRotateCw": {
-      "types": "./dist/icons/iconRotateCw.d.ts",
-      "default": "./dist/icons/iconRotateCw.js"
-    },
-    "./icons/iconRss": {
-      "types": "./dist/icons/iconRss.d.ts",
-      "default": "./dist/icons/iconRss.js"
-    },
-    "./icons/iconSave": {
-      "types": "./dist/icons/iconSave.d.ts",
-      "default": "./dist/icons/iconSave.js"
-    },
-    "./icons/iconScissors": {
-      "types": "./dist/icons/iconScissors.d.ts",
-      "default": "./dist/icons/iconScissors.js"
-    },
-    "./icons/iconSearch": {
-      "types": "./dist/icons/iconSearch.d.ts",
-      "default": "./dist/icons/iconSearch.js"
-    },
-    "./icons/iconSend": {
-      "types": "./dist/icons/iconSend.d.ts",
-      "default": "./dist/icons/iconSend.js"
-    },
-    "./icons/iconServer": {
-      "types": "./dist/icons/iconServer.d.ts",
-      "default": "./dist/icons/iconServer.js"
-    },
-    "./icons/iconSettings": {
-      "types": "./dist/icons/iconSettings.d.ts",
-      "default": "./dist/icons/iconSettings.js"
-    },
-    "./icons/iconShare": {
-      "types": "./dist/icons/iconShare.d.ts",
-      "default": "./dist/icons/iconShare.js"
-    },
-    "./icons/iconShare2": {
-      "types": "./dist/icons/iconShare2.d.ts",
-      "default": "./dist/icons/iconShare2.js"
-    },
-    "./icons/iconShield": {
-      "types": "./dist/icons/iconShield.d.ts",
-      "default": "./dist/icons/iconShield.js"
-    },
-    "./icons/iconShieldOff": {
-      "types": "./dist/icons/iconShieldOff.d.ts",
-      "default": "./dist/icons/iconShieldOff.js"
-    },
-    "./icons/iconShoppingBag": {
-      "types": "./dist/icons/iconShoppingBag.d.ts",
-      "default": "./dist/icons/iconShoppingBag.js"
-    },
-    "./icons/iconShoppingCart": {
-      "types": "./dist/icons/iconShoppingCart.d.ts",
-      "default": "./dist/icons/iconShoppingCart.js"
-    },
-    "./icons/iconShuffle": {
-      "types": "./dist/icons/iconShuffle.d.ts",
-      "default": "./dist/icons/iconShuffle.js"
-    },
-    "./icons/iconSidebar": {
-      "types": "./dist/icons/iconSidebar.d.ts",
-      "default": "./dist/icons/iconSidebar.js"
-    },
-    "./icons/iconSkipBack": {
-      "types": "./dist/icons/iconSkipBack.d.ts",
-      "default": "./dist/icons/iconSkipBack.js"
-    },
-    "./icons/iconSkipForward": {
-      "types": "./dist/icons/iconSkipForward.d.ts",
-      "default": "./dist/icons/iconSkipForward.js"
-    },
-    "./icons/iconSlack": {
-      "types": "./dist/icons/iconSlack.d.ts",
-      "default": "./dist/icons/iconSlack.js"
-    },
-    "./icons/iconSlash": {
-      "types": "./dist/icons/iconSlash.d.ts",
-      "default": "./dist/icons/iconSlash.js"
-    },
-    "./icons/iconSliders": {
-      "types": "./dist/icons/iconSliders.d.ts",
-      "default": "./dist/icons/iconSliders.js"
-    },
-    "./icons/iconSmartphone": {
-      "types": "./dist/icons/iconSmartphone.d.ts",
-      "default": "./dist/icons/iconSmartphone.js"
-    },
-    "./icons/iconSmile": {
-      "types": "./dist/icons/iconSmile.d.ts",
-      "default": "./dist/icons/iconSmile.js"
-    },
-    "./icons/iconSpeaker": {
-      "types": "./dist/icons/iconSpeaker.d.ts",
-      "default": "./dist/icons/iconSpeaker.js"
-    },
-    "./icons/iconSquare": {
-      "types": "./dist/icons/iconSquare.d.ts",
-      "default": "./dist/icons/iconSquare.js"
-    },
-    "./icons/iconStar": {
-      "types": "./dist/icons/iconStar.d.ts",
-      "default": "./dist/icons/iconStar.js"
-    },
-    "./icons/iconStopCircle": {
-      "types": "./dist/icons/iconStopCircle.d.ts",
-      "default": "./dist/icons/iconStopCircle.js"
-    },
-    "./icons/iconSun": {
-      "types": "./dist/icons/iconSun.d.ts",
-      "default": "./dist/icons/iconSun.js"
-    },
-    "./icons/iconSunrise": {
-      "types": "./dist/icons/iconSunrise.d.ts",
-      "default": "./dist/icons/iconSunrise.js"
-    },
-    "./icons/iconSunset": {
-      "types": "./dist/icons/iconSunset.d.ts",
-      "default": "./dist/icons/iconSunset.js"
-    },
-    "./icons/iconTable": {
-      "types": "./dist/icons/iconTable.d.ts",
-      "default": "./dist/icons/iconTable.js"
-    },
-    "./icons/iconTablet": {
-      "types": "./dist/icons/iconTablet.d.ts",
-      "default": "./dist/icons/iconTablet.js"
-    },
-    "./icons/iconTag": {
-      "types": "./dist/icons/iconTag.d.ts",
-      "default": "./dist/icons/iconTag.js"
-    },
-    "./icons/iconTarget": {
-      "types": "./dist/icons/iconTarget.d.ts",
-      "default": "./dist/icons/iconTarget.js"
-    },
-    "./icons/iconTerminal": {
-      "types": "./dist/icons/iconTerminal.d.ts",
-      "default": "./dist/icons/iconTerminal.js"
-    },
-    "./icons/iconThermometer": {
-      "types": "./dist/icons/iconThermometer.d.ts",
-      "default": "./dist/icons/iconThermometer.js"
-    },
-    "./icons/iconThumbsDown": {
-      "types": "./dist/icons/iconThumbsDown.d.ts",
-      "default": "./dist/icons/iconThumbsDown.js"
-    },
-    "./icons/iconThumbsUp": {
-      "types": "./dist/icons/iconThumbsUp.d.ts",
-      "default": "./dist/icons/iconThumbsUp.js"
-    },
-    "./icons/iconToggleLeft": {
-      "types": "./dist/icons/iconToggleLeft.d.ts",
-      "default": "./dist/icons/iconToggleLeft.js"
-    },
-    "./icons/iconToggleRight": {
-      "types": "./dist/icons/iconToggleRight.d.ts",
-      "default": "./dist/icons/iconToggleRight.js"
-    },
-    "./icons/iconTool": {
-      "types": "./dist/icons/iconTool.d.ts",
-      "default": "./dist/icons/iconTool.js"
-    },
-    "./icons/iconTrash": {
-      "types": "./dist/icons/iconTrash.d.ts",
-      "default": "./dist/icons/iconTrash.js"
-    },
-    "./icons/iconTrash2": {
-      "types": "./dist/icons/iconTrash2.d.ts",
-      "default": "./dist/icons/iconTrash2.js"
-    },
-    "./icons/iconTrello": {
-      "types": "./dist/icons/iconTrello.d.ts",
-      "default": "./dist/icons/iconTrello.js"
-    },
-    "./icons/iconTrendingDown": {
-      "types": "./dist/icons/iconTrendingDown.d.ts",
-      "default": "./dist/icons/iconTrendingDown.js"
-    },
-    "./icons/iconTrendingUp": {
-      "types": "./dist/icons/iconTrendingUp.d.ts",
-      "default": "./dist/icons/iconTrendingUp.js"
-    },
-    "./icons/iconTriangle": {
-      "types": "./dist/icons/iconTriangle.d.ts",
-      "default": "./dist/icons/iconTriangle.js"
-    },
-    "./icons/iconTruck": {
-      "types": "./dist/icons/iconTruck.d.ts",
-      "default": "./dist/icons/iconTruck.js"
-    },
-    "./icons/iconTv": {
-      "types": "./dist/icons/iconTv.d.ts",
-      "default": "./dist/icons/iconTv.js"
-    },
-    "./icons/iconTwitch": {
-      "types": "./dist/icons/iconTwitch.d.ts",
-      "default": "./dist/icons/iconTwitch.js"
-    },
-    "./icons/iconTwitter": {
-      "types": "./dist/icons/iconTwitter.d.ts",
-      "default": "./dist/icons/iconTwitter.js"
-    },
-    "./icons/iconType": {
-      "types": "./dist/icons/iconType.d.ts",
-      "default": "./dist/icons/iconType.js"
-    },
-    "./icons/iconUmbrella": {
-      "types": "./dist/icons/iconUmbrella.d.ts",
-      "default": "./dist/icons/iconUmbrella.js"
-    },
-    "./icons/iconUnderline": {
-      "types": "./dist/icons/iconUnderline.d.ts",
-      "default": "./dist/icons/iconUnderline.js"
-    },
-    "./icons/iconUnlock": {
-      "types": "./dist/icons/iconUnlock.d.ts",
-      "default": "./dist/icons/iconUnlock.js"
-    },
-    "./icons/iconUpload": {
-      "types": "./dist/icons/iconUpload.d.ts",
-      "default": "./dist/icons/iconUpload.js"
-    },
-    "./icons/iconUploadCloud": {
-      "types": "./dist/icons/iconUploadCloud.d.ts",
-      "default": "./dist/icons/iconUploadCloud.js"
-    },
-    "./icons/iconUser": {
-      "types": "./dist/icons/iconUser.d.ts",
-      "default": "./dist/icons/iconUser.js"
-    },
-    "./icons/iconUserCheck": {
-      "types": "./dist/icons/iconUserCheck.d.ts",
-      "default": "./dist/icons/iconUserCheck.js"
-    },
-    "./icons/iconUserMinus": {
-      "types": "./dist/icons/iconUserMinus.d.ts",
-      "default": "./dist/icons/iconUserMinus.js"
-    },
-    "./icons/iconUserPlus": {
-      "types": "./dist/icons/iconUserPlus.d.ts",
-      "default": "./dist/icons/iconUserPlus.js"
-    },
-    "./icons/iconUserX": {
-      "types": "./dist/icons/iconUserX.d.ts",
-      "default": "./dist/icons/iconUserX.js"
-    },
-    "./icons/iconUsers": {
-      "types": "./dist/icons/iconUsers.d.ts",
-      "default": "./dist/icons/iconUsers.js"
-    },
-    "./icons/iconVideo": {
-      "types": "./dist/icons/iconVideo.d.ts",
-      "default": "./dist/icons/iconVideo.js"
-    },
-    "./icons/iconVideoOff": {
-      "types": "./dist/icons/iconVideoOff.d.ts",
-      "default": "./dist/icons/iconVideoOff.js"
-    },
-    "./icons/iconVoicemail": {
-      "types": "./dist/icons/iconVoicemail.d.ts",
-      "default": "./dist/icons/iconVoicemail.js"
-    },
-    "./icons/iconVolume": {
-      "types": "./dist/icons/iconVolume.d.ts",
-      "default": "./dist/icons/iconVolume.js"
-    },
-    "./icons/iconVolume1": {
-      "types": "./dist/icons/iconVolume1.d.ts",
-      "default": "./dist/icons/iconVolume1.js"
-    },
-    "./icons/iconVolume2": {
-      "types": "./dist/icons/iconVolume2.d.ts",
-      "default": "./dist/icons/iconVolume2.js"
-    },
-    "./icons/iconVolumeX": {
-      "types": "./dist/icons/iconVolumeX.d.ts",
-      "default": "./dist/icons/iconVolumeX.js"
-    },
-    "./icons/iconWatch": {
-      "types": "./dist/icons/iconWatch.d.ts",
-      "default": "./dist/icons/iconWatch.js"
-    },
-    "./icons/iconWifi": {
-      "types": "./dist/icons/iconWifi.d.ts",
-      "default": "./dist/icons/iconWifi.js"
-    },
-    "./icons/iconWifiOff": {
-      "types": "./dist/icons/iconWifiOff.d.ts",
-      "default": "./dist/icons/iconWifiOff.js"
-    },
-    "./icons/iconWind": {
-      "types": "./dist/icons/iconWind.d.ts",
-      "default": "./dist/icons/iconWind.js"
-    },
-    "./icons/iconX": {
-      "types": "./dist/icons/iconX.d.ts",
-      "default": "./dist/icons/iconX.js"
-    },
-    "./icons/iconXCircle": {
-      "types": "./dist/icons/iconXCircle.d.ts",
-      "default": "./dist/icons/iconXCircle.js"
-    },
-    "./icons/iconXOctagon": {
-      "types": "./dist/icons/iconXOctagon.d.ts",
-      "default": "./dist/icons/iconXOctagon.js"
-    },
-    "./icons/iconXSquare": {
-      "types": "./dist/icons/iconXSquare.d.ts",
-      "default": "./dist/icons/iconXSquare.js"
-    },
-    "./icons/iconYoutube": {
-      "types": "./dist/icons/iconYoutube.d.ts",
-      "default": "./dist/icons/iconYoutube.js"
-    },
-    "./icons/iconZap": {
-      "types": "./dist/icons/iconZap.d.ts",
-      "default": "./dist/icons/iconZap.js"
-    },
-    "./icons/iconZapOff": {
-      "types": "./dist/icons/iconZapOff.d.ts",
-      "default": "./dist/icons/iconZapOff.js"
-    },
-    "./icons/iconZoomIn": {
-      "types": "./dist/icons/iconZoomIn.d.ts",
-      "default": "./dist/icons/iconZoomIn.js"
-    },
-    "./icons/iconZoomOut": {
-      "types": "./dist/icons/iconZoomOut.d.ts",
-      "default": "./dist/icons/iconZoomOut.js"
-    },
-    "./ui/A.Context": {
-      "types": "./dist/ui/A.Context.d.ts",
-      "default": "./dist/ui/A.Context.jsx"
-    },
-    "./ui/A": {
-      "types": "./dist/ui/A.d.ts",
-      "default": "./dist/ui/A.jsx"
-    },
-    "./ui/Accordion.RadioGroup": {
-      "types": "./dist/ui/Accordion.RadioGroup.d.ts",
-      "default": "./dist/ui/Accordion.RadioGroup.jsx"
-    },
-    "./ui/Accordion": {
-      "types": "./dist/ui/Accordion.d.ts",
-      "default": "./dist/ui/Accordion.jsx"
-    },
-    "./ui/Autocomplete": {
-      "types": "./dist/ui/Autocomplete.d.ts",
-      "default": "./dist/ui/Autocomplete.jsx"
-    },
-    "./ui/Avatar": {
-      "types": "./dist/ui/Avatar.d.ts",
-      "default": "./dist/ui/Avatar.jsx"
-    },
-    "./ui/Bar.Section": {
-      "types": "./dist/ui/Bar.Section.d.ts",
-      "default": "./dist/ui/Bar.Section.jsx"
-    },
-    "./ui/Bar": {
-      "types": "./dist/ui/Bar.d.ts",
-      "default": "./dist/ui/Bar.jsx"
-    },
-    "./ui/Breadcrumbs": {
-      "types": "./dist/ui/Breadcrumbs.d.ts",
-      "default": "./dist/ui/Breadcrumbs.jsx"
-    },
-    "./ui/Button.Group": {
-      "types": "./dist/ui/Button.Group.d.ts",
-      "default": "./dist/ui/Button.Group.jsx"
-    },
-    "./ui/Button": {
-      "types": "./dist/ui/Button.d.ts",
-      "default": "./dist/ui/Button.jsx"
-    },
-    "./ui/Calendar.Body": {
-      "types": "./dist/ui/Calendar.Body.d.ts",
-      "default": "./dist/ui/Calendar.Body.jsx"
-    },
-    "./ui/Calendar.Container": {
-      "types": "./dist/ui/Calendar.Container.d.ts",
-      "default": "./dist/ui/Calendar.Container.jsx"
-    },
-    "./ui/Calendar.Date": {
-      "types": "./dist/ui/Calendar.Date.d.ts",
-      "default": "./dist/ui/Calendar.Date.jsx"
-    },
-    "./ui/Calendar.DateItem": {
-      "types": "./dist/ui/Calendar.DateItem.d.ts",
-      "default": "./dist/ui/Calendar.DateItem.jsx"
-    },
-    "./ui/Calendar.Header": {
-      "types": "./dist/ui/Calendar.Header.d.ts",
-      "default": "./dist/ui/Calendar.Header.jsx"
-    },
-    "./ui/Calendar.Navbar": {
-      "types": "./dist/ui/Calendar.Navbar.d.ts",
-      "default": "./dist/ui/Calendar.Navbar.jsx"
-    },
-    "./ui/Calendar": {
-      "types": "./dist/ui/Calendar.d.ts",
-      "default": "./dist/ui/Calendar.jsx"
-    },
-    "./ui/Card.Body": {
-      "types": "./dist/ui/Card.Body.d.ts",
-      "default": "./dist/ui/Card.Body.jsx"
-    },
-    "./ui/Card.Footer": {
-      "types": "./dist/ui/Card.Footer.d.ts",
-      "default": "./dist/ui/Card.Footer.jsx"
-    },
-    "./ui/Card.Header": {
-      "types": "./dist/ui/Card.Header.d.ts",
-      "default": "./dist/ui/Card.Header.jsx"
-    },
-    "./ui/Card.Image": {
-      "types": "./dist/ui/Card.Image.d.ts",
-      "default": "./dist/ui/Card.Image.jsx"
-    },
-    "./ui/Card": {
-      "types": "./dist/ui/Card.d.ts",
-      "default": "./dist/ui/Card.jsx"
-    },
-    "./ui/Carousel.Button": {
-      "types": "./dist/ui/Carousel.Button.d.ts",
-      "default": "./dist/ui/Carousel.Button.jsx"
-    },
-    "./ui/Carousel": {
-      "types": "./dist/ui/Carousel.d.ts",
-      "default": "./dist/ui/Carousel.jsx"
-    },
-    "./ui/Checkbox": {
-      "types": "./dist/ui/Checkbox.d.ts",
-      "default": "./dist/ui/Checkbox.jsx"
-    },
-    "./ui/CheckboxButton": {
-      "types": "./dist/ui/CheckboxButton.d.ts",
-      "default": "./dist/ui/CheckboxButton.jsx"
-    },
-    "./ui/Chip": {
-      "types": "./dist/ui/Chip.d.ts",
-      "default": "./dist/ui/Chip.jsx"
-    },
-    "./ui/Code": {
-      "types": "./dist/ui/Code.d.ts",
-      "default": "./dist/ui/Code.jsx"
-    },
-    "./ui/Column.Row": {
-      "types": "./dist/ui/Column.Row.d.ts",
-      "default": "./dist/ui/Column.Row.jsx"
-    },
-    "./ui/Column": {
-      "types": "./dist/ui/Column.d.ts",
-      "default": "./dist/ui/Column.jsx"
-    },
-    "./ui/Divider": {
-      "types": "./dist/ui/Divider.d.ts",
-      "default": "./dist/ui/Divider.jsx"
-    },
-    "./ui/Dropdown": {
-      "types": "./dist/ui/Dropdown.d.ts",
-      "default": "./dist/ui/Dropdown.jsx"
-    },
-    "./ui/Empty.Action": {
-      "types": "./dist/ui/Empty.Action.d.ts",
-      "default": "./dist/ui/Empty.Action.jsx"
-    },
-    "./ui/Empty.Header": {
-      "types": "./dist/ui/Empty.Header.d.ts",
-      "default": "./dist/ui/Empty.Header.jsx"
-    },
-    "./ui/Empty.Icon": {
-      "types": "./dist/ui/Empty.Icon.d.ts",
-      "default": "./dist/ui/Empty.Icon.jsx"
-    },
-    "./ui/Empty": {
-      "types": "./dist/ui/Empty.d.ts",
-      "default": "./dist/ui/Empty.jsx"
-    },
-    "./ui/Figure.Caption": {
-      "types": "./dist/ui/Figure.Caption.d.ts",
-      "default": "./dist/ui/Figure.Caption.jsx"
-    },
-    "./ui/Figure": {
-      "types": "./dist/ui/Figure.d.ts",
-      "default": "./dist/ui/Figure.jsx"
-    },
-    "./ui/Form.Context": {
-      "types": "./dist/ui/Form.Context.d.ts",
-      "default": "./dist/ui/Form.Context.jsx"
-    },
-    "./ui/Form.Group.Context": {
-      "types": "./dist/ui/Form.Group.Context.d.ts",
-      "default": "./dist/ui/Form.Group.Context.jsx"
-    },
-    "./ui/Form.Group": {
-      "types": "./dist/ui/Form.Group.d.ts",
-      "default": "./dist/ui/Form.Group.jsx"
-    },
-    "./ui/Form": {
-      "types": "./dist/ui/Form.d.ts",
-      "default": "./dist/ui/Form.jsx"
-    },
-    "./ui/Hero": {
-      "types": "./dist/ui/Hero.d.ts",
-      "default": "./dist/ui/Hero.jsx"
-    },
-    "./ui/Icon": {
-      "types": "./dist/ui/Icon.d.ts",
-      "default": "./dist/ui/Icon.jsx"
-    },
-    "./ui/Img": {
-      "types": "./dist/ui/Img.d.ts",
-      "default": "./dist/ui/Img.jsx"
-    },
-    "./ui/ImgWithPlaceholder": {
-      "types": "./dist/ui/ImgWithPlaceholder.d.ts",
-      "default": "./dist/ui/ImgWithPlaceholder.jsx"
-    },
-    "./ui/Input.Group.Addon": {
-      "types": "./dist/ui/Input.Group.Addon.d.ts",
-      "default": "./dist/ui/Input.Group.Addon.jsx"
-    },
-    "./ui/Input.Group": {
-      "types": "./dist/ui/Input.Group.d.ts",
-      "default": "./dist/ui/Input.Group.jsx"
-    },
-    "./ui/Input": {
-      "types": "./dist/ui/Input.d.ts",
-      "default": "./dist/ui/Input.jsx"
-    },
-    "./ui/Label": {
-      "types": "./dist/ui/Label.d.ts",
-      "default": "./dist/ui/Label.jsx"
-    },
-    "./ui/LoadingPlaceholder": {
-      "types": "./dist/ui/LoadingPlaceholder.d.ts",
-      "default": "./dist/ui/LoadingPlaceholder.jsx"
-    },
-    "./ui/Menu.Item": {
-      "types": "./dist/ui/Menu.Item.d.ts",
-      "default": "./dist/ui/Menu.Item.jsx"
-    },
-    "./ui/Menu": {
-      "types": "./dist/ui/Menu.d.ts",
-      "default": "./dist/ui/Menu.jsx"
-    },
-    "./ui/Modal.Body": {
-      "types": "./dist/ui/Modal.Body.d.ts",
-      "default": "./dist/ui/Modal.Body.jsx"
-    },
-    "./ui/Modal.Context": {
-      "types": "./dist/ui/Modal.Context.d.ts",
-      "default": "./dist/ui/Modal.Context.jsx"
-    },
-    "./ui/Modal.Footer": {
-      "types": "./dist/ui/Modal.Footer.d.ts",
-      "default": "./dist/ui/Modal.Footer.jsx"
-    },
-    "./ui/Modal.Header": {
-      "types": "./dist/ui/Modal.Header.d.ts",
-      "default": "./dist/ui/Modal.Header.jsx"
-    },
-    "./ui/Modal.Portal": {
-      "types": "./dist/ui/Modal.Portal.d.ts",
-      "default": "./dist/ui/Modal.Portal.jsx"
-    },
-    "./ui/Modal.Store": {
-      "types": "./dist/ui/Modal.Store.d.ts",
-      "default": "./dist/ui/Modal.Store.jsx"
-    },
-    "./ui/Modal": {
-      "types": "./dist/ui/Modal.d.ts",
-      "default": "./dist/ui/Modal.jsx"
-    },
-    "./ui/Nav.Item": {
-      "types": "./dist/ui/Nav.Item.d.ts",
-      "default": "./dist/ui/Nav.Item.jsx"
-    },
-    "./ui/Nav": {
-      "types": "./dist/ui/Nav.d.ts",
-      "default": "./dist/ui/Nav.jsx"
-    },
-    "./ui/Navbar.Brand": {
-      "types": "./dist/ui/Navbar.Brand.d.ts",
-      "default": "./dist/ui/Navbar.Brand.jsx"
-    },
-    "./ui/Navbar.Burger": {
-      "types": "./dist/ui/Navbar.Burger.d.ts",
-      "default": "./dist/ui/Navbar.Burger.jsx"
-    },
-    "./ui/Navbar.Context": {
-      "types": "./dist/ui/Navbar.Context.d.ts",
-      "default": "./dist/ui/Navbar.Context.jsx"
-    },
-    "./ui/Navbar.Dropdown": {
-      "types": "./dist/ui/Navbar.Dropdown.d.ts",
-      "default": "./dist/ui/Navbar.Dropdown.jsx"
-    },
-    "./ui/Navbar.Section": {
-      "types": "./dist/ui/Navbar.Section.d.ts",
-      "default": "./dist/ui/Navbar.Section.jsx"
-    },
-    "./ui/Navbar": {
-      "types": "./dist/ui/Navbar.d.ts",
-      "default": "./dist/ui/Navbar.jsx"
-    },
-    "./ui/OffCanvas.Content": {
-      "types": "./dist/ui/OffCanvas.Content.d.ts",
-      "default": "./dist/ui/OffCanvas.Content.jsx"
-    },
-    "./ui/OffCanvas.Sidebar": {
-      "types": "./dist/ui/OffCanvas.Sidebar.d.ts",
-      "default": "./dist/ui/OffCanvas.Sidebar.jsx"
-    },
-    "./ui/OffCanvas": {
-      "types": "./dist/ui/OffCanvas.d.ts",
-      "default": "./dist/ui/OffCanvas.jsx"
-    },
-    "./ui/Pagination.Item": {
-      "types": "./dist/ui/Pagination.Item.d.ts",
-      "default": "./dist/ui/Pagination.Item.jsx"
-    },
-    "./ui/Pagination": {
-      "types": "./dist/ui/Pagination.d.ts",
-      "default": "./dist/ui/Pagination.jsx"
-    },
-    "./ui/Panel.Body": {
-      "types": "./dist/ui/Panel.Body.d.ts",
-      "default": "./dist/ui/Panel.Body.jsx"
-    },
-    "./ui/Panel.Footer": {
-      "types": "./dist/ui/Panel.Footer.d.ts",
-      "default": "./dist/ui/Panel.Footer.jsx"
-    },
-    "./ui/Panel.Header": {
-      "types": "./dist/ui/Panel.Header.d.ts",
-      "default": "./dist/ui/Panel.Header.jsx"
-    },
-    "./ui/Panel.Nav": {
-      "types": "./dist/ui/Panel.Nav.d.ts",
-      "default": "./dist/ui/Panel.Nav.jsx"
-    },
-    "./ui/Panel": {
-      "types": "./dist/ui/Panel.d.ts",
-      "default": "./dist/ui/Panel.jsx"
-    },
-    "./ui/Popover": {
-      "types": "./dist/ui/Popover.d.ts",
-      "default": "./dist/ui/Popover.jsx"
-    },
-    "./ui/Progress.Global": {
-      "types": "./dist/ui/Progress.Global.d.ts",
-      "default": "./dist/ui/Progress.Global.jsx"
-    },
-    "./ui/Progress": {
-      "types": "./dist/ui/Progress.d.ts",
-      "default": "./dist/ui/Progress.jsx"
-    },
-    "./ui/Radio": {
-      "types": "./dist/ui/Radio.d.ts",
-      "default": "./dist/ui/Radio.jsx"
-    },
-    "./ui/Section": {
-      "types": "./dist/ui/Section.d.ts",
-      "default": "./dist/ui/Section.jsx"
-    },
-    "./ui/Select": {
-      "types": "./dist/ui/Select.d.ts",
-      "default": "./dist/ui/Select.jsx"
-    },
-    "./ui/Slider": {
-      "types": "./dist/ui/Slider.d.ts",
-      "default": "./dist/ui/Slider.jsx"
-    },
-    "./ui/Steps.Item": {
-      "types": "./dist/ui/Steps.Item.d.ts",
-      "default": "./dist/ui/Steps.Item.jsx"
-    },
-    "./ui/Steps": {
-      "types": "./dist/ui/Steps.d.ts",
-      "default": "./dist/ui/Steps.jsx"
-    },
-    "./ui/Switch": {
-      "types": "./dist/ui/Switch.d.ts",
-      "default": "./dist/ui/Switch.jsx"
-    },
-    "./ui/Table.Helpers": {
-      "types": "./dist/ui/Table.Helpers.d.ts",
-      "default": "./dist/ui/Table.Helpers.jsx"
-    },
-    "./ui/Table.Row": {
-      "types": "./dist/ui/Table.Row.d.ts",
-      "default": "./dist/ui/Table.Row.jsx"
-    },
-    "./ui/Table": {
-      "types": "./dist/ui/Table.d.ts",
-      "default": "./dist/ui/Table.jsx"
-    },
-    "./ui/Tabs.Item": {
-      "types": "./dist/ui/Tabs.Item.d.ts",
-      "default": "./dist/ui/Tabs.Item.jsx"
-    },
-    "./ui/Tabs.RadioGroup": {
-      "types": "./dist/ui/Tabs.RadioGroup.d.ts",
-      "default": "./dist/ui/Tabs.RadioGroup.jsx"
-    },
-    "./ui/Tabs": {
-      "types": "./dist/ui/Tabs.d.ts",
-      "default": "./dist/ui/Tabs.jsx"
-    },
-    "./ui/Tile.Action": {
-      "types": "./dist/ui/Tile.Action.d.ts",
-      "default": "./dist/ui/Tile.Action.jsx"
-    },
-    "./ui/Tile.Body": {
-      "types": "./dist/ui/Tile.Body.d.ts",
-      "default": "./dist/ui/Tile.Body.jsx"
-    },
-    "./ui/Tile.Icon": {
-      "types": "./dist/ui/Tile.Icon.d.ts",
-      "default": "./dist/ui/Tile.Icon.jsx"
-    },
-    "./ui/Tile.Subtitle": {
-      "types": "./dist/ui/Tile.Subtitle.d.ts",
-      "default": "./dist/ui/Tile.Subtitle.jsx"
-    },
-    "./ui/Tile.Title": {
-      "types": "./dist/ui/Tile.Title.d.ts",
-      "default": "./dist/ui/Tile.Title.jsx"
-    },
-    "./ui/Tile": {
-      "types": "./dist/ui/Tile.d.ts",
-      "default": "./dist/ui/Tile.jsx"
-    },
-    "./ui/Timeline.Item": {
-      "types": "./dist/ui/Timeline.Item.d.ts",
-      "default": "./dist/ui/Timeline.Item.jsx"
-    },
-    "./ui/Timeline": {
-      "types": "./dist/ui/Timeline.d.ts",
-      "default": "./dist/ui/Timeline.jsx"
-    },
-    "./ui/Toast": {
-      "types": "./dist/ui/Toast.d.ts",
-      "default": "./dist/ui/Toast.jsx"
-    },
-    "./ui/Toaster.Store": {
-      "types": "./dist/ui/Toaster.Store.d.ts",
-      "default": "./dist/ui/Toaster.Store.jsx"
-    },
-    "./ui/Toaster": {
-      "types": "./dist/ui/Toaster.d.ts",
-      "default": "./dist/ui/Toaster.jsx"
-    },
-    "./util/FeatherIconProvider": {
-      "types": "./dist/util/FeatherIconProvider.d.ts",
-      "default": "./dist/util/FeatherIconProvider.jsx"
-    },
-    "./util/SpectreIconProvider": {
-      "types": "./dist/util/SpectreIconProvider.d.ts",
-      "default": "./dist/util/SpectreIconProvider.jsx"
-    },
-    "./util/badge": {
-      "types": "./dist/util/badge.d.ts",
-      "default": "./dist/util/badge.js"
-    },
-    "./util/childrenArray": {
-      "types": "./dist/util/childrenArray.d.ts",
-      "default": "./dist/util/childrenArray.js"
-    },
-    "./util/classnames": {
-      "types": "./dist/util/classnames.d.ts",
-      "default": "./dist/util/classnames.js"
-    },
-    "./util/colorScheme": {
-      "types": "./dist/util/colorScheme.d.ts",
-      "default": "./dist/util/colorScheme.js"
-    },
-    "./util/colors": {
-      "types": "./dist/util/colors.d.ts",
-      "default": "./dist/util/colors.js"
-    },
-    "./util/createHTMLMemoHook": {
-      "types": "./dist/util/createHTMLMemoHook.d.ts",
-      "default": "./dist/util/createHTMLMemoHook.js"
-    },
-    "./util/getThemeValue": {
-      "types": "./dist/util/getThemeValue.d.ts",
-      "default": "./dist/util/getThemeValue.js"
-    },
-    "./util/loading": {
-      "types": "./dist/util/loading.d.ts",
-      "default": "./dist/util/loading.js"
-    },
-    "./util/position": {
-      "types": "./dist/util/position.d.ts",
-      "default": "./dist/util/position.js"
-    },
-    "./util/readFile": {
-      "types": "./dist/util/readFile.d.ts",
-      "default": "./dist/util/readFile.js"
-    },
-    "./util/shapes": {
-      "types": "./dist/util/shapes.d.ts",
-      "default": "./dist/util/shapes.js"
-    },
-    "./util/text": {
-      "types": "./dist/util/text.d.ts",
-      "default": "./dist/util/text.js"
-    },
-    "./util/theming": {
-      "types": "./dist/util/theming.d.ts",
-      "default": "./dist/util/theming.js"
+    "./util/useBreakpoints": {
+      "import": {
+        "types": "./dist/util/useBreakpoints.d.ts",
+        "node": "./dist/util/useBreakpoints.server.js",
+        "default": "./dist/util/useBreakpoints.js"
+      }
     },
     "./util/tooltip": {
-      "types": "./dist/util/tooltip.d.ts",
-      "default": "./dist/util/tooltip.js"
+      "import": {
+        "types": "./dist/util/tooltip.d.ts",
+        "node": "./dist/util/tooltip.server.js",
+        "default": "./dist/util/tooltip.js"
+      }
     },
-    "./util/useBreakpoints": {
-      "types": "./dist/util/useBreakpoints.d.ts",
-      "default": "./dist/util/useBreakpoints.js"
+    "./util/theming": {
+      "import": {
+        "types": "./dist/util/theming.d.ts",
+        "node": "./dist/util/theming.server.js",
+        "default": "./dist/util/theming.js"
+      }
+    },
+    "./util/text": {
+      "import": {
+        "types": "./dist/util/text.d.ts",
+        "node": "./dist/util/text.server.js",
+        "default": "./dist/util/text.js"
+      }
+    },
+    "./util/shapes": {
+      "import": {
+        "types": "./dist/util/shapes.d.ts",
+        "node": "./dist/util/shapes.server.js",
+        "default": "./dist/util/shapes.js"
+      }
+    },
+    "./util/readFile": {
+      "import": {
+        "types": "./dist/util/readFile.d.ts",
+        "node": "./dist/util/readFile.server.js",
+        "default": "./dist/util/readFile.js"
+      }
+    },
+    "./util/position": {
+      "import": {
+        "types": "./dist/util/position.d.ts",
+        "node": "./dist/util/position.server.js",
+        "default": "./dist/util/position.js"
+      }
+    },
+    "./util/loading": {
+      "import": {
+        "types": "./dist/util/loading.d.ts",
+        "node": "./dist/util/loading.server.js",
+        "default": "./dist/util/loading.js"
+      }
+    },
+    "./util/getThemeValue": {
+      "import": {
+        "types": "./dist/util/getThemeValue.d.ts",
+        "node": "./dist/util/getThemeValue.server.js",
+        "default": "./dist/util/getThemeValue.js"
+      }
+    },
+    "./util/createHTMLMemoHook": {
+      "import": {
+        "types": "./dist/util/createHTMLMemoHook.d.ts",
+        "node": "./dist/util/createHTMLMemoHook.server.js",
+        "default": "./dist/util/createHTMLMemoHook.js"
+      }
+    },
+    "./util/colors": {
+      "import": {
+        "types": "./dist/util/colors.d.ts",
+        "node": "./dist/util/colors.server.js",
+        "default": "./dist/util/colors.js"
+      }
+    },
+    "./util/colorScheme": {
+      "import": {
+        "types": "./dist/util/colorScheme.d.ts",
+        "node": "./dist/util/colorScheme.server.js",
+        "default": "./dist/util/colorScheme.js"
+      }
+    },
+    "./util/classnames": {
+      "import": {
+        "types": "./dist/util/classnames.d.ts",
+        "node": "./dist/util/classnames.server.js",
+        "default": "./dist/util/classnames.js"
+      }
+    },
+    "./util/childrenArray": {
+      "import": {
+        "types": "./dist/util/childrenArray.d.ts",
+        "node": "./dist/util/childrenArray.server.js",
+        "default": "./dist/util/childrenArray.js"
+      }
+    },
+    "./util/badge": {
+      "import": {
+        "types": "./dist/util/badge.d.ts",
+        "node": "./dist/util/badge.server.js",
+        "default": "./dist/util/badge.js"
+      }
+    },
+    "./util/SpectreIconProvider": {
+      "import": {
+        "types": "./dist/util/SpectreIconProvider.d.ts",
+        "node": "./dist/util/SpectreIconProvider.server.js",
+        "default": "./dist/util/SpectreIconProvider.js"
+      }
+    },
+    "./util/FeatherIconProvider": {
+      "import": {
+        "types": "./dist/util/FeatherIconProvider.d.ts",
+        "node": "./dist/util/FeatherIconProvider.server.js",
+        "default": "./dist/util/FeatherIconProvider.js"
+      }
+    },
+    "./ui/Toaster.Store": {
+      "import": {
+        "types": "./dist/ui/Toaster.Store.d.ts",
+        "node": "./dist/ui/Toaster.Store.server.js",
+        "default": "./dist/ui/Toaster.Store.js"
+      }
+    },
+    "./ui/Toaster": {
+      "import": {
+        "types": "./dist/ui/Toaster.d.ts",
+        "node": "./dist/ui/Toaster.server.js",
+        "default": "./dist/ui/Toaster.js"
+      }
+    },
+    "./ui/Toast": {
+      "import": {
+        "types": "./dist/ui/Toast.d.ts",
+        "node": "./dist/ui/Toast.server.js",
+        "default": "./dist/ui/Toast.js"
+      }
+    },
+    "./ui/Timeline.Item": {
+      "import": {
+        "types": "./dist/ui/Timeline.Item.d.ts",
+        "node": "./dist/ui/Timeline.Item.server.js",
+        "default": "./dist/ui/Timeline.Item.js"
+      }
+    },
+    "./ui/Timeline": {
+      "import": {
+        "types": "./dist/ui/Timeline.d.ts",
+        "node": "./dist/ui/Timeline.server.js",
+        "default": "./dist/ui/Timeline.js"
+      }
+    },
+    "./ui/Tile.Title": {
+      "import": {
+        "types": "./dist/ui/Tile.Title.d.ts",
+        "node": "./dist/ui/Tile.Title.server.js",
+        "default": "./dist/ui/Tile.Title.js"
+      }
+    },
+    "./ui/Tile.Subtitle": {
+      "import": {
+        "types": "./dist/ui/Tile.Subtitle.d.ts",
+        "node": "./dist/ui/Tile.Subtitle.server.js",
+        "default": "./dist/ui/Tile.Subtitle.js"
+      }
+    },
+    "./ui/Tile.Icon": {
+      "import": {
+        "types": "./dist/ui/Tile.Icon.d.ts",
+        "node": "./dist/ui/Tile.Icon.server.js",
+        "default": "./dist/ui/Tile.Icon.js"
+      }
+    },
+    "./ui/Tile.Body": {
+      "import": {
+        "types": "./dist/ui/Tile.Body.d.ts",
+        "node": "./dist/ui/Tile.Body.server.js",
+        "default": "./dist/ui/Tile.Body.js"
+      }
+    },
+    "./ui/Tile.Action": {
+      "import": {
+        "types": "./dist/ui/Tile.Action.d.ts",
+        "node": "./dist/ui/Tile.Action.server.js",
+        "default": "./dist/ui/Tile.Action.js"
+      }
+    },
+    "./ui/Tile": {
+      "import": {
+        "types": "./dist/ui/Tile.d.ts",
+        "node": "./dist/ui/Tile.server.js",
+        "default": "./dist/ui/Tile.js"
+      }
+    },
+    "./ui/Tabs.RadioGroup": {
+      "import": {
+        "types": "./dist/ui/Tabs.RadioGroup.d.ts",
+        "node": "./dist/ui/Tabs.RadioGroup.server.js",
+        "default": "./dist/ui/Tabs.RadioGroup.js"
+      }
+    },
+    "./ui/Tabs.Item": {
+      "import": {
+        "types": "./dist/ui/Tabs.Item.d.ts",
+        "node": "./dist/ui/Tabs.Item.server.js",
+        "default": "./dist/ui/Tabs.Item.js"
+      }
+    },
+    "./ui/Tabs": {
+      "import": {
+        "types": "./dist/ui/Tabs.d.ts",
+        "node": "./dist/ui/Tabs.server.js",
+        "default": "./dist/ui/Tabs.js"
+      }
+    },
+    "./ui/Table.Row": {
+      "import": {
+        "types": "./dist/ui/Table.Row.d.ts",
+        "node": "./dist/ui/Table.Row.server.js",
+        "default": "./dist/ui/Table.Row.js"
+      }
+    },
+    "./ui/Table.Helpers": {
+      "import": {
+        "types": "./dist/ui/Table.Helpers.d.ts",
+        "node": "./dist/ui/Table.Helpers.server.js",
+        "default": "./dist/ui/Table.Helpers.js"
+      }
+    },
+    "./ui/Table": {
+      "import": {
+        "types": "./dist/ui/Table.d.ts",
+        "node": "./dist/ui/Table.server.js",
+        "default": "./dist/ui/Table.js"
+      }
+    },
+    "./ui/Switch": {
+      "import": {
+        "types": "./dist/ui/Switch.d.ts",
+        "node": "./dist/ui/Switch.server.js",
+        "default": "./dist/ui/Switch.js"
+      }
+    },
+    "./ui/Steps.Item": {
+      "import": {
+        "types": "./dist/ui/Steps.Item.d.ts",
+        "node": "./dist/ui/Steps.Item.server.js",
+        "default": "./dist/ui/Steps.Item.js"
+      }
+    },
+    "./ui/Steps": {
+      "import": {
+        "types": "./dist/ui/Steps.d.ts",
+        "node": "./dist/ui/Steps.server.js",
+        "default": "./dist/ui/Steps.js"
+      }
+    },
+    "./ui/Slider": {
+      "import": {
+        "types": "./dist/ui/Slider.d.ts",
+        "node": "./dist/ui/Slider.server.js",
+        "default": "./dist/ui/Slider.js"
+      }
+    },
+    "./ui/Select": {
+      "import": {
+        "types": "./dist/ui/Select.d.ts",
+        "node": "./dist/ui/Select.server.js",
+        "default": "./dist/ui/Select.js"
+      }
+    },
+    "./ui/Section": {
+      "import": {
+        "types": "./dist/ui/Section.d.ts",
+        "node": "./dist/ui/Section.server.js",
+        "default": "./dist/ui/Section.js"
+      }
+    },
+    "./ui/Radio": {
+      "import": {
+        "types": "./dist/ui/Radio.d.ts",
+        "node": "./dist/ui/Radio.server.js",
+        "default": "./dist/ui/Radio.js"
+      }
+    },
+    "./ui/Progress.Global": {
+      "import": {
+        "types": "./dist/ui/Progress.Global.d.ts",
+        "node": "./dist/ui/Progress.Global.server.js",
+        "default": "./dist/ui/Progress.Global.js"
+      }
+    },
+    "./ui/Progress": {
+      "import": {
+        "types": "./dist/ui/Progress.d.ts",
+        "node": "./dist/ui/Progress.server.js",
+        "default": "./dist/ui/Progress.js"
+      }
+    },
+    "./ui/Popover": {
+      "import": {
+        "types": "./dist/ui/Popover.d.ts",
+        "node": "./dist/ui/Popover.server.js",
+        "default": "./dist/ui/Popover.js"
+      }
+    },
+    "./ui/Panel.Nav": {
+      "import": {
+        "types": "./dist/ui/Panel.Nav.d.ts",
+        "node": "./dist/ui/Panel.Nav.server.js",
+        "default": "./dist/ui/Panel.Nav.js"
+      }
+    },
+    "./ui/Panel.Header": {
+      "import": {
+        "types": "./dist/ui/Panel.Header.d.ts",
+        "node": "./dist/ui/Panel.Header.server.js",
+        "default": "./dist/ui/Panel.Header.js"
+      }
+    },
+    "./ui/Panel.Footer": {
+      "import": {
+        "types": "./dist/ui/Panel.Footer.d.ts",
+        "node": "./dist/ui/Panel.Footer.server.js",
+        "default": "./dist/ui/Panel.Footer.js"
+      }
+    },
+    "./ui/Panel.Body": {
+      "import": {
+        "types": "./dist/ui/Panel.Body.d.ts",
+        "node": "./dist/ui/Panel.Body.server.js",
+        "default": "./dist/ui/Panel.Body.js"
+      }
+    },
+    "./ui/Panel": {
+      "import": {
+        "types": "./dist/ui/Panel.d.ts",
+        "node": "./dist/ui/Panel.server.js",
+        "default": "./dist/ui/Panel.js"
+      }
+    },
+    "./ui/Pagination.Item": {
+      "import": {
+        "types": "./dist/ui/Pagination.Item.d.ts",
+        "node": "./dist/ui/Pagination.Item.server.js",
+        "default": "./dist/ui/Pagination.Item.js"
+      }
+    },
+    "./ui/Pagination": {
+      "import": {
+        "types": "./dist/ui/Pagination.d.ts",
+        "node": "./dist/ui/Pagination.server.js",
+        "default": "./dist/ui/Pagination.js"
+      }
+    },
+    "./ui/OffCanvas.Sidebar": {
+      "import": {
+        "types": "./dist/ui/OffCanvas.Sidebar.d.ts",
+        "node": "./dist/ui/OffCanvas.Sidebar.server.js",
+        "default": "./dist/ui/OffCanvas.Sidebar.js"
+      }
+    },
+    "./ui/OffCanvas.Content": {
+      "import": {
+        "types": "./dist/ui/OffCanvas.Content.d.ts",
+        "node": "./dist/ui/OffCanvas.Content.server.js",
+        "default": "./dist/ui/OffCanvas.Content.js"
+      }
+    },
+    "./ui/OffCanvas": {
+      "import": {
+        "types": "./dist/ui/OffCanvas.d.ts",
+        "node": "./dist/ui/OffCanvas.server.js",
+        "default": "./dist/ui/OffCanvas.js"
+      }
+    },
+    "./ui/Navbar.Section": {
+      "import": {
+        "types": "./dist/ui/Navbar.Section.d.ts",
+        "node": "./dist/ui/Navbar.Section.server.js",
+        "default": "./dist/ui/Navbar.Section.js"
+      }
+    },
+    "./ui/Navbar.Dropdown": {
+      "import": {
+        "types": "./dist/ui/Navbar.Dropdown.d.ts",
+        "node": "./dist/ui/Navbar.Dropdown.server.js",
+        "default": "./dist/ui/Navbar.Dropdown.js"
+      }
+    },
+    "./ui/Navbar.Context": {
+      "import": {
+        "types": "./dist/ui/Navbar.Context.d.ts",
+        "node": "./dist/ui/Navbar.Context.server.js",
+        "default": "./dist/ui/Navbar.Context.js"
+      }
+    },
+    "./ui/Navbar.Burger": {
+      "import": {
+        "types": "./dist/ui/Navbar.Burger.d.ts",
+        "node": "./dist/ui/Navbar.Burger.server.js",
+        "default": "./dist/ui/Navbar.Burger.js"
+      }
+    },
+    "./ui/Navbar.Brand": {
+      "import": {
+        "types": "./dist/ui/Navbar.Brand.d.ts",
+        "node": "./dist/ui/Navbar.Brand.server.js",
+        "default": "./dist/ui/Navbar.Brand.js"
+      }
+    },
+    "./ui/Navbar": {
+      "import": {
+        "types": "./dist/ui/Navbar.d.ts",
+        "node": "./dist/ui/Navbar.server.js",
+        "default": "./dist/ui/Navbar.js"
+      }
+    },
+    "./ui/Nav.Item": {
+      "import": {
+        "types": "./dist/ui/Nav.Item.d.ts",
+        "node": "./dist/ui/Nav.Item.server.js",
+        "default": "./dist/ui/Nav.Item.js"
+      }
+    },
+    "./ui/Nav": {
+      "import": {
+        "types": "./dist/ui/Nav.d.ts",
+        "node": "./dist/ui/Nav.server.js",
+        "default": "./dist/ui/Nav.js"
+      }
+    },
+    "./ui/Modal.Store": {
+      "import": {
+        "types": "./dist/ui/Modal.Store.d.ts",
+        "node": "./dist/ui/Modal.Store.server.js",
+        "default": "./dist/ui/Modal.Store.js"
+      }
+    },
+    "./ui/Modal.Portal": {
+      "import": {
+        "types": "./dist/ui/Modal.Portal.d.ts",
+        "node": "./dist/ui/Modal.Portal.server.js",
+        "default": "./dist/ui/Modal.Portal.js"
+      }
+    },
+    "./ui/Modal.Header": {
+      "import": {
+        "types": "./dist/ui/Modal.Header.d.ts",
+        "node": "./dist/ui/Modal.Header.server.js",
+        "default": "./dist/ui/Modal.Header.js"
+      }
+    },
+    "./ui/Modal.Footer": {
+      "import": {
+        "types": "./dist/ui/Modal.Footer.d.ts",
+        "node": "./dist/ui/Modal.Footer.server.js",
+        "default": "./dist/ui/Modal.Footer.js"
+      }
+    },
+    "./ui/Modal.Context": {
+      "import": {
+        "types": "./dist/ui/Modal.Context.d.ts",
+        "node": "./dist/ui/Modal.Context.server.js",
+        "default": "./dist/ui/Modal.Context.js"
+      }
+    },
+    "./ui/Modal.Body": {
+      "import": {
+        "types": "./dist/ui/Modal.Body.d.ts",
+        "node": "./dist/ui/Modal.Body.server.js",
+        "default": "./dist/ui/Modal.Body.js"
+      }
+    },
+    "./ui/Modal": {
+      "import": {
+        "types": "./dist/ui/Modal.d.ts",
+        "node": "./dist/ui/Modal.server.js",
+        "default": "./dist/ui/Modal.js"
+      }
+    },
+    "./ui/Menu.Item": {
+      "import": {
+        "types": "./dist/ui/Menu.Item.d.ts",
+        "node": "./dist/ui/Menu.Item.server.js",
+        "default": "./dist/ui/Menu.Item.js"
+      }
+    },
+    "./ui/Menu": {
+      "import": {
+        "types": "./dist/ui/Menu.d.ts",
+        "node": "./dist/ui/Menu.server.js",
+        "default": "./dist/ui/Menu.js"
+      }
+    },
+    "./ui/LoadingPlaceholder": {
+      "import": {
+        "types": "./dist/ui/LoadingPlaceholder.d.ts",
+        "node": "./dist/ui/LoadingPlaceholder.server.js",
+        "default": "./dist/ui/LoadingPlaceholder.js"
+      }
+    },
+    "./ui/Label": {
+      "import": {
+        "types": "./dist/ui/Label.d.ts",
+        "node": "./dist/ui/Label.server.js",
+        "default": "./dist/ui/Label.js"
+      }
+    },
+    "./ui/Input.Group.Addon": {
+      "import": {
+        "types": "./dist/ui/Input.Group.Addon.d.ts",
+        "node": "./dist/ui/Input.Group.Addon.server.js",
+        "default": "./dist/ui/Input.Group.Addon.js"
+      }
+    },
+    "./ui/Input.Group": {
+      "import": {
+        "types": "./dist/ui/Input.Group.d.ts",
+        "node": "./dist/ui/Input.Group.server.js",
+        "default": "./dist/ui/Input.Group.js"
+      }
+    },
+    "./ui/Input": {
+      "import": {
+        "types": "./dist/ui/Input.d.ts",
+        "node": "./dist/ui/Input.server.js",
+        "default": "./dist/ui/Input.js"
+      }
+    },
+    "./ui/ImgWithPlaceholder": {
+      "import": {
+        "types": "./dist/ui/ImgWithPlaceholder.d.ts",
+        "node": "./dist/ui/ImgWithPlaceholder.server.js",
+        "default": "./dist/ui/ImgWithPlaceholder.js"
+      }
+    },
+    "./ui/Img": {
+      "import": {
+        "types": "./dist/ui/Img.d.ts",
+        "node": "./dist/ui/Img.server.js",
+        "default": "./dist/ui/Img.js"
+      }
+    },
+    "./ui/Icon": {
+      "import": {
+        "types": "./dist/ui/Icon.d.ts",
+        "node": "./dist/ui/Icon.server.js",
+        "default": "./dist/ui/Icon.js"
+      }
+    },
+    "./ui/Hero": {
+      "import": {
+        "types": "./dist/ui/Hero.d.ts",
+        "node": "./dist/ui/Hero.server.js",
+        "default": "./dist/ui/Hero.js"
+      }
+    },
+    "./ui/Form.Group.Context": {
+      "import": {
+        "types": "./dist/ui/Form.Group.Context.d.ts",
+        "node": "./dist/ui/Form.Group.Context.server.js",
+        "default": "./dist/ui/Form.Group.Context.js"
+      }
+    },
+    "./ui/Form.Group": {
+      "import": {
+        "types": "./dist/ui/Form.Group.d.ts",
+        "node": "./dist/ui/Form.Group.server.js",
+        "default": "./dist/ui/Form.Group.js"
+      }
+    },
+    "./ui/Form.Context": {
+      "import": {
+        "types": "./dist/ui/Form.Context.d.ts",
+        "node": "./dist/ui/Form.Context.server.js",
+        "default": "./dist/ui/Form.Context.js"
+      }
+    },
+    "./ui/Form": {
+      "import": {
+        "types": "./dist/ui/Form.d.ts",
+        "node": "./dist/ui/Form.server.js",
+        "default": "./dist/ui/Form.js"
+      }
+    },
+    "./ui/Figure.Caption": {
+      "import": {
+        "types": "./dist/ui/Figure.Caption.d.ts",
+        "node": "./dist/ui/Figure.Caption.server.js",
+        "default": "./dist/ui/Figure.Caption.js"
+      }
+    },
+    "./ui/Figure": {
+      "import": {
+        "types": "./dist/ui/Figure.d.ts",
+        "node": "./dist/ui/Figure.server.js",
+        "default": "./dist/ui/Figure.js"
+      }
+    },
+    "./ui/Empty.Icon": {
+      "import": {
+        "types": "./dist/ui/Empty.Icon.d.ts",
+        "node": "./dist/ui/Empty.Icon.server.js",
+        "default": "./dist/ui/Empty.Icon.js"
+      }
+    },
+    "./ui/Empty.Header": {
+      "import": {
+        "types": "./dist/ui/Empty.Header.d.ts",
+        "node": "./dist/ui/Empty.Header.server.js",
+        "default": "./dist/ui/Empty.Header.js"
+      }
+    },
+    "./ui/Empty.Action": {
+      "import": {
+        "types": "./dist/ui/Empty.Action.d.ts",
+        "node": "./dist/ui/Empty.Action.server.js",
+        "default": "./dist/ui/Empty.Action.js"
+      }
+    },
+    "./ui/Empty": {
+      "import": {
+        "types": "./dist/ui/Empty.d.ts",
+        "node": "./dist/ui/Empty.server.js",
+        "default": "./dist/ui/Empty.js"
+      }
+    },
+    "./ui/Dropdown": {
+      "import": {
+        "types": "./dist/ui/Dropdown.d.ts",
+        "node": "./dist/ui/Dropdown.server.js",
+        "default": "./dist/ui/Dropdown.js"
+      }
+    },
+    "./ui/Divider": {
+      "import": {
+        "types": "./dist/ui/Divider.d.ts",
+        "node": "./dist/ui/Divider.server.js",
+        "default": "./dist/ui/Divider.js"
+      }
+    },
+    "./ui/Column.Row": {
+      "import": {
+        "types": "./dist/ui/Column.Row.d.ts",
+        "node": "./dist/ui/Column.Row.server.js",
+        "default": "./dist/ui/Column.Row.js"
+      }
+    },
+    "./ui/Column": {
+      "import": {
+        "types": "./dist/ui/Column.d.ts",
+        "node": "./dist/ui/Column.server.js",
+        "default": "./dist/ui/Column.js"
+      }
+    },
+    "./ui/Code": {
+      "import": {
+        "types": "./dist/ui/Code.d.ts",
+        "node": "./dist/ui/Code.server.js",
+        "default": "./dist/ui/Code.js"
+      }
+    },
+    "./ui/Chip": {
+      "import": {
+        "types": "./dist/ui/Chip.d.ts",
+        "node": "./dist/ui/Chip.server.js",
+        "default": "./dist/ui/Chip.js"
+      }
+    },
+    "./ui/CheckboxButton": {
+      "import": {
+        "types": "./dist/ui/CheckboxButton.d.ts",
+        "node": "./dist/ui/CheckboxButton.server.js",
+        "default": "./dist/ui/CheckboxButton.js"
+      }
+    },
+    "./ui/Checkbox": {
+      "import": {
+        "types": "./dist/ui/Checkbox.d.ts",
+        "node": "./dist/ui/Checkbox.server.js",
+        "default": "./dist/ui/Checkbox.js"
+      }
+    },
+    "./ui/Carousel.Button": {
+      "import": {
+        "types": "./dist/ui/Carousel.Button.d.ts",
+        "node": "./dist/ui/Carousel.Button.server.js",
+        "default": "./dist/ui/Carousel.Button.js"
+      }
+    },
+    "./ui/Carousel": {
+      "import": {
+        "types": "./dist/ui/Carousel.d.ts",
+        "node": "./dist/ui/Carousel.server.js",
+        "default": "./dist/ui/Carousel.js"
+      }
+    },
+    "./ui/Card.Image": {
+      "import": {
+        "types": "./dist/ui/Card.Image.d.ts",
+        "node": "./dist/ui/Card.Image.server.js",
+        "default": "./dist/ui/Card.Image.js"
+      }
+    },
+    "./ui/Card.Header": {
+      "import": {
+        "types": "./dist/ui/Card.Header.d.ts",
+        "node": "./dist/ui/Card.Header.server.js",
+        "default": "./dist/ui/Card.Header.js"
+      }
+    },
+    "./ui/Card.Footer": {
+      "import": {
+        "types": "./dist/ui/Card.Footer.d.ts",
+        "node": "./dist/ui/Card.Footer.server.js",
+        "default": "./dist/ui/Card.Footer.js"
+      }
+    },
+    "./ui/Card.Body": {
+      "import": {
+        "types": "./dist/ui/Card.Body.d.ts",
+        "node": "./dist/ui/Card.Body.server.js",
+        "default": "./dist/ui/Card.Body.js"
+      }
+    },
+    "./ui/Card": {
+      "import": {
+        "types": "./dist/ui/Card.d.ts",
+        "node": "./dist/ui/Card.server.js",
+        "default": "./dist/ui/Card.js"
+      }
+    },
+    "./ui/Calendar.Navbar": {
+      "import": {
+        "types": "./dist/ui/Calendar.Navbar.d.ts",
+        "node": "./dist/ui/Calendar.Navbar.server.js",
+        "default": "./dist/ui/Calendar.Navbar.js"
+      }
+    },
+    "./ui/Calendar.Header": {
+      "import": {
+        "types": "./dist/ui/Calendar.Header.d.ts",
+        "node": "./dist/ui/Calendar.Header.server.js",
+        "default": "./dist/ui/Calendar.Header.js"
+      }
+    },
+    "./ui/Calendar.DateItem": {
+      "import": {
+        "types": "./dist/ui/Calendar.DateItem.d.ts",
+        "node": "./dist/ui/Calendar.DateItem.server.js",
+        "default": "./dist/ui/Calendar.DateItem.js"
+      }
+    },
+    "./ui/Calendar.Date": {
+      "import": {
+        "types": "./dist/ui/Calendar.Date.d.ts",
+        "node": "./dist/ui/Calendar.Date.server.js",
+        "default": "./dist/ui/Calendar.Date.js"
+      }
+    },
+    "./ui/Calendar.Container": {
+      "import": {
+        "types": "./dist/ui/Calendar.Container.d.ts",
+        "node": "./dist/ui/Calendar.Container.server.js",
+        "default": "./dist/ui/Calendar.Container.js"
+      }
+    },
+    "./ui/Calendar.Body": {
+      "import": {
+        "types": "./dist/ui/Calendar.Body.d.ts",
+        "node": "./dist/ui/Calendar.Body.server.js",
+        "default": "./dist/ui/Calendar.Body.js"
+      }
+    },
+    "./ui/Calendar": {
+      "import": {
+        "types": "./dist/ui/Calendar.d.ts",
+        "node": "./dist/ui/Calendar.server.js",
+        "default": "./dist/ui/Calendar.js"
+      }
+    },
+    "./ui/Button.Group": {
+      "import": {
+        "types": "./dist/ui/Button.Group.d.ts",
+        "node": "./dist/ui/Button.Group.server.js",
+        "default": "./dist/ui/Button.Group.js"
+      }
+    },
+    "./ui/Button": {
+      "import": {
+        "types": "./dist/ui/Button.d.ts",
+        "node": "./dist/ui/Button.server.js",
+        "default": "./dist/ui/Button.js"
+      }
+    },
+    "./ui/Breadcrumbs": {
+      "import": {
+        "types": "./dist/ui/Breadcrumbs.d.ts",
+        "node": "./dist/ui/Breadcrumbs.server.js",
+        "default": "./dist/ui/Breadcrumbs.js"
+      }
+    },
+    "./ui/Bar.Section": {
+      "import": {
+        "types": "./dist/ui/Bar.Section.d.ts",
+        "node": "./dist/ui/Bar.Section.server.js",
+        "default": "./dist/ui/Bar.Section.js"
+      }
+    },
+    "./ui/Bar": {
+      "import": {
+        "types": "./dist/ui/Bar.d.ts",
+        "node": "./dist/ui/Bar.server.js",
+        "default": "./dist/ui/Bar.js"
+      }
+    },
+    "./ui/Avatar": {
+      "import": {
+        "types": "./dist/ui/Avatar.d.ts",
+        "node": "./dist/ui/Avatar.server.js",
+        "default": "./dist/ui/Avatar.js"
+      }
+    },
+    "./ui/Autocomplete": {
+      "import": {
+        "types": "./dist/ui/Autocomplete.d.ts",
+        "node": "./dist/ui/Autocomplete.server.js",
+        "default": "./dist/ui/Autocomplete.js"
+      }
+    },
+    "./ui/Accordion.RadioGroup": {
+      "import": {
+        "types": "./dist/ui/Accordion.RadioGroup.d.ts",
+        "node": "./dist/ui/Accordion.RadioGroup.server.js",
+        "default": "./dist/ui/Accordion.RadioGroup.js"
+      }
+    },
+    "./ui/Accordion": {
+      "import": {
+        "types": "./dist/ui/Accordion.d.ts",
+        "node": "./dist/ui/Accordion.server.js",
+        "default": "./dist/ui/Accordion.js"
+      }
+    },
+    "./ui/A.Context": {
+      "import": {
+        "types": "./dist/ui/A.Context.d.ts",
+        "node": "./dist/ui/A.Context.server.js",
+        "default": "./dist/ui/A.Context.js"
+      }
+    },
+    "./ui/A": {
+      "import": {
+        "types": "./dist/ui/A.d.ts",
+        "node": "./dist/ui/A.server.js",
+        "default": "./dist/ui/A.js"
+      }
+    },
+    "./icons/iconZoomOut": {
+      "import": {
+        "types": "./dist/icons/iconZoomOut.d.ts",
+        "node": "./dist/icons/iconZoomOut.server.js",
+        "default": "./dist/icons/iconZoomOut.js"
+      }
+    },
+    "./icons/iconZoomIn": {
+      "import": {
+        "types": "./dist/icons/iconZoomIn.d.ts",
+        "node": "./dist/icons/iconZoomIn.server.js",
+        "default": "./dist/icons/iconZoomIn.js"
+      }
+    },
+    "./icons/iconZap": {
+      "import": {
+        "types": "./dist/icons/iconZap.d.ts",
+        "node": "./dist/icons/iconZap.server.js",
+        "default": "./dist/icons/iconZap.js"
+      }
+    },
+    "./icons/iconZapOff": {
+      "import": {
+        "types": "./dist/icons/iconZapOff.d.ts",
+        "node": "./dist/icons/iconZapOff.server.js",
+        "default": "./dist/icons/iconZapOff.js"
+      }
+    },
+    "./icons/iconYoutube": {
+      "import": {
+        "types": "./dist/icons/iconYoutube.d.ts",
+        "node": "./dist/icons/iconYoutube.server.js",
+        "default": "./dist/icons/iconYoutube.js"
+      }
+    },
+    "./icons/iconXSquare": {
+      "import": {
+        "types": "./dist/icons/iconXSquare.d.ts",
+        "node": "./dist/icons/iconXSquare.server.js",
+        "default": "./dist/icons/iconXSquare.js"
+      }
+    },
+    "./icons/iconXOctagon": {
+      "import": {
+        "types": "./dist/icons/iconXOctagon.d.ts",
+        "node": "./dist/icons/iconXOctagon.server.js",
+        "default": "./dist/icons/iconXOctagon.js"
+      }
+    },
+    "./icons/iconXCircle": {
+      "import": {
+        "types": "./dist/icons/iconXCircle.d.ts",
+        "node": "./dist/icons/iconXCircle.server.js",
+        "default": "./dist/icons/iconXCircle.js"
+      }
+    },
+    "./icons/iconX": {
+      "import": {
+        "types": "./dist/icons/iconX.d.ts",
+        "node": "./dist/icons/iconX.server.js",
+        "default": "./dist/icons/iconX.js"
+      }
+    },
+    "./icons/iconWind": {
+      "import": {
+        "types": "./dist/icons/iconWind.d.ts",
+        "node": "./dist/icons/iconWind.server.js",
+        "default": "./dist/icons/iconWind.js"
+      }
+    },
+    "./icons/iconWifiOff": {
+      "import": {
+        "types": "./dist/icons/iconWifiOff.d.ts",
+        "node": "./dist/icons/iconWifiOff.server.js",
+        "default": "./dist/icons/iconWifiOff.js"
+      }
+    },
+    "./icons/iconWifi": {
+      "import": {
+        "types": "./dist/icons/iconWifi.d.ts",
+        "node": "./dist/icons/iconWifi.server.js",
+        "default": "./dist/icons/iconWifi.js"
+      }
+    },
+    "./icons/iconWatch": {
+      "import": {
+        "types": "./dist/icons/iconWatch.d.ts",
+        "node": "./dist/icons/iconWatch.server.js",
+        "default": "./dist/icons/iconWatch.js"
+      }
+    },
+    "./icons/iconVolumeX": {
+      "import": {
+        "types": "./dist/icons/iconVolumeX.d.ts",
+        "node": "./dist/icons/iconVolumeX.server.js",
+        "default": "./dist/icons/iconVolumeX.js"
+      }
+    },
+    "./icons/iconVolume2": {
+      "import": {
+        "types": "./dist/icons/iconVolume2.d.ts",
+        "node": "./dist/icons/iconVolume2.server.js",
+        "default": "./dist/icons/iconVolume2.js"
+      }
+    },
+    "./icons/iconVolume1": {
+      "import": {
+        "types": "./dist/icons/iconVolume1.d.ts",
+        "node": "./dist/icons/iconVolume1.server.js",
+        "default": "./dist/icons/iconVolume1.js"
+      }
+    },
+    "./icons/iconVolume": {
+      "import": {
+        "types": "./dist/icons/iconVolume.d.ts",
+        "node": "./dist/icons/iconVolume.server.js",
+        "default": "./dist/icons/iconVolume.js"
+      }
+    },
+    "./icons/iconVoicemail": {
+      "import": {
+        "types": "./dist/icons/iconVoicemail.d.ts",
+        "node": "./dist/icons/iconVoicemail.server.js",
+        "default": "./dist/icons/iconVoicemail.js"
+      }
+    },
+    "./icons/iconVideoOff": {
+      "import": {
+        "types": "./dist/icons/iconVideoOff.d.ts",
+        "node": "./dist/icons/iconVideoOff.server.js",
+        "default": "./dist/icons/iconVideoOff.js"
+      }
+    },
+    "./icons/iconVideo": {
+      "import": {
+        "types": "./dist/icons/iconVideo.d.ts",
+        "node": "./dist/icons/iconVideo.server.js",
+        "default": "./dist/icons/iconVideo.js"
+      }
+    },
+    "./icons/iconUsers": {
+      "import": {
+        "types": "./dist/icons/iconUsers.d.ts",
+        "node": "./dist/icons/iconUsers.server.js",
+        "default": "./dist/icons/iconUsers.js"
+      }
+    },
+    "./icons/iconUserX": {
+      "import": {
+        "types": "./dist/icons/iconUserX.d.ts",
+        "node": "./dist/icons/iconUserX.server.js",
+        "default": "./dist/icons/iconUserX.js"
+      }
+    },
+    "./icons/iconUserPlus": {
+      "import": {
+        "types": "./dist/icons/iconUserPlus.d.ts",
+        "node": "./dist/icons/iconUserPlus.server.js",
+        "default": "./dist/icons/iconUserPlus.js"
+      }
+    },
+    "./icons/iconUserMinus": {
+      "import": {
+        "types": "./dist/icons/iconUserMinus.d.ts",
+        "node": "./dist/icons/iconUserMinus.server.js",
+        "default": "./dist/icons/iconUserMinus.js"
+      }
+    },
+    "./icons/iconUserCheck": {
+      "import": {
+        "types": "./dist/icons/iconUserCheck.d.ts",
+        "node": "./dist/icons/iconUserCheck.server.js",
+        "default": "./dist/icons/iconUserCheck.js"
+      }
+    },
+    "./icons/iconUser": {
+      "import": {
+        "types": "./dist/icons/iconUser.d.ts",
+        "node": "./dist/icons/iconUser.server.js",
+        "default": "./dist/icons/iconUser.js"
+      }
+    },
+    "./icons/iconUploadCloud": {
+      "import": {
+        "types": "./dist/icons/iconUploadCloud.d.ts",
+        "node": "./dist/icons/iconUploadCloud.server.js",
+        "default": "./dist/icons/iconUploadCloud.js"
+      }
+    },
+    "./icons/iconUpload": {
+      "import": {
+        "types": "./dist/icons/iconUpload.d.ts",
+        "node": "./dist/icons/iconUpload.server.js",
+        "default": "./dist/icons/iconUpload.js"
+      }
+    },
+    "./icons/iconUnlock": {
+      "import": {
+        "types": "./dist/icons/iconUnlock.d.ts",
+        "node": "./dist/icons/iconUnlock.server.js",
+        "default": "./dist/icons/iconUnlock.js"
+      }
+    },
+    "./icons/iconUnderline": {
+      "import": {
+        "types": "./dist/icons/iconUnderline.d.ts",
+        "node": "./dist/icons/iconUnderline.server.js",
+        "default": "./dist/icons/iconUnderline.js"
+      }
+    },
+    "./icons/iconUmbrella": {
+      "import": {
+        "types": "./dist/icons/iconUmbrella.d.ts",
+        "node": "./dist/icons/iconUmbrella.server.js",
+        "default": "./dist/icons/iconUmbrella.js"
+      }
+    },
+    "./icons/iconType": {
+      "import": {
+        "types": "./dist/icons/iconType.d.ts",
+        "node": "./dist/icons/iconType.server.js",
+        "default": "./dist/icons/iconType.js"
+      }
+    },
+    "./icons/iconTwitter": {
+      "import": {
+        "types": "./dist/icons/iconTwitter.d.ts",
+        "node": "./dist/icons/iconTwitter.server.js",
+        "default": "./dist/icons/iconTwitter.js"
+      }
+    },
+    "./icons/iconTwitch": {
+      "import": {
+        "types": "./dist/icons/iconTwitch.d.ts",
+        "node": "./dist/icons/iconTwitch.server.js",
+        "default": "./dist/icons/iconTwitch.js"
+      }
+    },
+    "./icons/iconTv": {
+      "import": {
+        "types": "./dist/icons/iconTv.d.ts",
+        "node": "./dist/icons/iconTv.server.js",
+        "default": "./dist/icons/iconTv.js"
+      }
+    },
+    "./icons/iconTruck": {
+      "import": {
+        "types": "./dist/icons/iconTruck.d.ts",
+        "node": "./dist/icons/iconTruck.server.js",
+        "default": "./dist/icons/iconTruck.js"
+      }
+    },
+    "./icons/iconTriangle": {
+      "import": {
+        "types": "./dist/icons/iconTriangle.d.ts",
+        "node": "./dist/icons/iconTriangle.server.js",
+        "default": "./dist/icons/iconTriangle.js"
+      }
+    },
+    "./icons/iconTrendingUp": {
+      "import": {
+        "types": "./dist/icons/iconTrendingUp.d.ts",
+        "node": "./dist/icons/iconTrendingUp.server.js",
+        "default": "./dist/icons/iconTrendingUp.js"
+      }
+    },
+    "./icons/iconTrendingDown": {
+      "import": {
+        "types": "./dist/icons/iconTrendingDown.d.ts",
+        "node": "./dist/icons/iconTrendingDown.server.js",
+        "default": "./dist/icons/iconTrendingDown.js"
+      }
+    },
+    "./icons/iconTrello": {
+      "import": {
+        "types": "./dist/icons/iconTrello.d.ts",
+        "node": "./dist/icons/iconTrello.server.js",
+        "default": "./dist/icons/iconTrello.js"
+      }
+    },
+    "./icons/iconTrash2": {
+      "import": {
+        "types": "./dist/icons/iconTrash2.d.ts",
+        "node": "./dist/icons/iconTrash2.server.js",
+        "default": "./dist/icons/iconTrash2.js"
+      }
+    },
+    "./icons/iconTrash": {
+      "import": {
+        "types": "./dist/icons/iconTrash.d.ts",
+        "node": "./dist/icons/iconTrash.server.js",
+        "default": "./dist/icons/iconTrash.js"
+      }
+    },
+    "./icons/iconTool": {
+      "import": {
+        "types": "./dist/icons/iconTool.d.ts",
+        "node": "./dist/icons/iconTool.server.js",
+        "default": "./dist/icons/iconTool.js"
+      }
+    },
+    "./icons/iconToggleRight": {
+      "import": {
+        "types": "./dist/icons/iconToggleRight.d.ts",
+        "node": "./dist/icons/iconToggleRight.server.js",
+        "default": "./dist/icons/iconToggleRight.js"
+      }
+    },
+    "./icons/iconToggleLeft": {
+      "import": {
+        "types": "./dist/icons/iconToggleLeft.d.ts",
+        "node": "./dist/icons/iconToggleLeft.server.js",
+        "default": "./dist/icons/iconToggleLeft.js"
+      }
+    },
+    "./icons/iconThumbsUp": {
+      "import": {
+        "types": "./dist/icons/iconThumbsUp.d.ts",
+        "node": "./dist/icons/iconThumbsUp.server.js",
+        "default": "./dist/icons/iconThumbsUp.js"
+      }
+    },
+    "./icons/iconThumbsDown": {
+      "import": {
+        "types": "./dist/icons/iconThumbsDown.d.ts",
+        "node": "./dist/icons/iconThumbsDown.server.js",
+        "default": "./dist/icons/iconThumbsDown.js"
+      }
+    },
+    "./icons/iconThermometer": {
+      "import": {
+        "types": "./dist/icons/iconThermometer.d.ts",
+        "node": "./dist/icons/iconThermometer.server.js",
+        "default": "./dist/icons/iconThermometer.js"
+      }
+    },
+    "./icons/iconTerminal": {
+      "import": {
+        "types": "./dist/icons/iconTerminal.d.ts",
+        "node": "./dist/icons/iconTerminal.server.js",
+        "default": "./dist/icons/iconTerminal.js"
+      }
+    },
+    "./icons/iconTarget": {
+      "import": {
+        "types": "./dist/icons/iconTarget.d.ts",
+        "node": "./dist/icons/iconTarget.server.js",
+        "default": "./dist/icons/iconTarget.js"
+      }
+    },
+    "./icons/iconTag": {
+      "import": {
+        "types": "./dist/icons/iconTag.d.ts",
+        "node": "./dist/icons/iconTag.server.js",
+        "default": "./dist/icons/iconTag.js"
+      }
+    },
+    "./icons/iconTablet": {
+      "import": {
+        "types": "./dist/icons/iconTablet.d.ts",
+        "node": "./dist/icons/iconTablet.server.js",
+        "default": "./dist/icons/iconTablet.js"
+      }
+    },
+    "./icons/iconTable": {
+      "import": {
+        "types": "./dist/icons/iconTable.d.ts",
+        "node": "./dist/icons/iconTable.server.js",
+        "default": "./dist/icons/iconTable.js"
+      }
+    },
+    "./icons/iconSunset": {
+      "import": {
+        "types": "./dist/icons/iconSunset.d.ts",
+        "node": "./dist/icons/iconSunset.server.js",
+        "default": "./dist/icons/iconSunset.js"
+      }
+    },
+    "./icons/iconSunrise": {
+      "import": {
+        "types": "./dist/icons/iconSunrise.d.ts",
+        "node": "./dist/icons/iconSunrise.server.js",
+        "default": "./dist/icons/iconSunrise.js"
+      }
+    },
+    "./icons/iconSun": {
+      "import": {
+        "types": "./dist/icons/iconSun.d.ts",
+        "node": "./dist/icons/iconSun.server.js",
+        "default": "./dist/icons/iconSun.js"
+      }
+    },
+    "./icons/iconStopCircle": {
+      "import": {
+        "types": "./dist/icons/iconStopCircle.d.ts",
+        "node": "./dist/icons/iconStopCircle.server.js",
+        "default": "./dist/icons/iconStopCircle.js"
+      }
+    },
+    "./icons/iconStar": {
+      "import": {
+        "types": "./dist/icons/iconStar.d.ts",
+        "node": "./dist/icons/iconStar.server.js",
+        "default": "./dist/icons/iconStar.js"
+      }
+    },
+    "./icons/iconSquare": {
+      "import": {
+        "types": "./dist/icons/iconSquare.d.ts",
+        "node": "./dist/icons/iconSquare.server.js",
+        "default": "./dist/icons/iconSquare.js"
+      }
+    },
+    "./icons/iconSpeaker": {
+      "import": {
+        "types": "./dist/icons/iconSpeaker.d.ts",
+        "node": "./dist/icons/iconSpeaker.server.js",
+        "default": "./dist/icons/iconSpeaker.js"
+      }
+    },
+    "./icons/iconSmile": {
+      "import": {
+        "types": "./dist/icons/iconSmile.d.ts",
+        "node": "./dist/icons/iconSmile.server.js",
+        "default": "./dist/icons/iconSmile.js"
+      }
+    },
+    "./icons/iconSmartphone": {
+      "import": {
+        "types": "./dist/icons/iconSmartphone.d.ts",
+        "node": "./dist/icons/iconSmartphone.server.js",
+        "default": "./dist/icons/iconSmartphone.js"
+      }
+    },
+    "./icons/iconSliders": {
+      "import": {
+        "types": "./dist/icons/iconSliders.d.ts",
+        "node": "./dist/icons/iconSliders.server.js",
+        "default": "./dist/icons/iconSliders.js"
+      }
+    },
+    "./icons/iconSlash": {
+      "import": {
+        "types": "./dist/icons/iconSlash.d.ts",
+        "node": "./dist/icons/iconSlash.server.js",
+        "default": "./dist/icons/iconSlash.js"
+      }
+    },
+    "./icons/iconSlack": {
+      "import": {
+        "types": "./dist/icons/iconSlack.d.ts",
+        "node": "./dist/icons/iconSlack.server.js",
+        "default": "./dist/icons/iconSlack.js"
+      }
+    },
+    "./icons/iconSkipForward": {
+      "import": {
+        "types": "./dist/icons/iconSkipForward.d.ts",
+        "node": "./dist/icons/iconSkipForward.server.js",
+        "default": "./dist/icons/iconSkipForward.js"
+      }
+    },
+    "./icons/iconSkipBack": {
+      "import": {
+        "types": "./dist/icons/iconSkipBack.d.ts",
+        "node": "./dist/icons/iconSkipBack.server.js",
+        "default": "./dist/icons/iconSkipBack.js"
+      }
+    },
+    "./icons/iconSidebar": {
+      "import": {
+        "types": "./dist/icons/iconSidebar.d.ts",
+        "node": "./dist/icons/iconSidebar.server.js",
+        "default": "./dist/icons/iconSidebar.js"
+      }
+    },
+    "./icons/iconShuffle": {
+      "import": {
+        "types": "./dist/icons/iconShuffle.d.ts",
+        "node": "./dist/icons/iconShuffle.server.js",
+        "default": "./dist/icons/iconShuffle.js"
+      }
+    },
+    "./icons/iconShoppingCart": {
+      "import": {
+        "types": "./dist/icons/iconShoppingCart.d.ts",
+        "node": "./dist/icons/iconShoppingCart.server.js",
+        "default": "./dist/icons/iconShoppingCart.js"
+      }
+    },
+    "./icons/iconShoppingBag": {
+      "import": {
+        "types": "./dist/icons/iconShoppingBag.d.ts",
+        "node": "./dist/icons/iconShoppingBag.server.js",
+        "default": "./dist/icons/iconShoppingBag.js"
+      }
+    },
+    "./icons/iconShieldOff": {
+      "import": {
+        "types": "./dist/icons/iconShieldOff.d.ts",
+        "node": "./dist/icons/iconShieldOff.server.js",
+        "default": "./dist/icons/iconShieldOff.js"
+      }
+    },
+    "./icons/iconShield": {
+      "import": {
+        "types": "./dist/icons/iconShield.d.ts",
+        "node": "./dist/icons/iconShield.server.js",
+        "default": "./dist/icons/iconShield.js"
+      }
+    },
+    "./icons/iconShare2": {
+      "import": {
+        "types": "./dist/icons/iconShare2.d.ts",
+        "node": "./dist/icons/iconShare2.server.js",
+        "default": "./dist/icons/iconShare2.js"
+      }
+    },
+    "./icons/iconShare": {
+      "import": {
+        "types": "./dist/icons/iconShare.d.ts",
+        "node": "./dist/icons/iconShare.server.js",
+        "default": "./dist/icons/iconShare.js"
+      }
+    },
+    "./icons/iconSettings": {
+      "import": {
+        "types": "./dist/icons/iconSettings.d.ts",
+        "node": "./dist/icons/iconSettings.server.js",
+        "default": "./dist/icons/iconSettings.js"
+      }
+    },
+    "./icons/iconServer": {
+      "import": {
+        "types": "./dist/icons/iconServer.d.ts",
+        "node": "./dist/icons/iconServer.server.js",
+        "default": "./dist/icons/iconServer.js"
+      }
+    },
+    "./icons/iconSend": {
+      "import": {
+        "types": "./dist/icons/iconSend.d.ts",
+        "node": "./dist/icons/iconSend.server.js",
+        "default": "./dist/icons/iconSend.js"
+      }
+    },
+    "./icons/iconSearch": {
+      "import": {
+        "types": "./dist/icons/iconSearch.d.ts",
+        "node": "./dist/icons/iconSearch.server.js",
+        "default": "./dist/icons/iconSearch.js"
+      }
+    },
+    "./icons/iconScissors": {
+      "import": {
+        "types": "./dist/icons/iconScissors.d.ts",
+        "node": "./dist/icons/iconScissors.server.js",
+        "default": "./dist/icons/iconScissors.js"
+      }
+    },
+    "./icons/iconSave": {
+      "import": {
+        "types": "./dist/icons/iconSave.d.ts",
+        "node": "./dist/icons/iconSave.server.js",
+        "default": "./dist/icons/iconSave.js"
+      }
+    },
+    "./icons/iconRss": {
+      "import": {
+        "types": "./dist/icons/iconRss.d.ts",
+        "node": "./dist/icons/iconRss.server.js",
+        "default": "./dist/icons/iconRss.js"
+      }
+    },
+    "./icons/iconRotateCw": {
+      "import": {
+        "types": "./dist/icons/iconRotateCw.d.ts",
+        "node": "./dist/icons/iconRotateCw.server.js",
+        "default": "./dist/icons/iconRotateCw.js"
+      }
+    },
+    "./icons/iconRotateCcw": {
+      "import": {
+        "types": "./dist/icons/iconRotateCcw.d.ts",
+        "node": "./dist/icons/iconRotateCcw.server.js",
+        "default": "./dist/icons/iconRotateCcw.js"
+      }
+    },
+    "./icons/iconRewind": {
+      "import": {
+        "types": "./dist/icons/iconRewind.d.ts",
+        "node": "./dist/icons/iconRewind.server.js",
+        "default": "./dist/icons/iconRewind.js"
+      }
+    },
+    "./icons/iconRepeat": {
+      "import": {
+        "types": "./dist/icons/iconRepeat.d.ts",
+        "node": "./dist/icons/iconRepeat.server.js",
+        "default": "./dist/icons/iconRepeat.js"
+      }
+    },
+    "./icons/iconRefreshCw": {
+      "import": {
+        "types": "./dist/icons/iconRefreshCw.d.ts",
+        "node": "./dist/icons/iconRefreshCw.server.js",
+        "default": "./dist/icons/iconRefreshCw.js"
+      }
+    },
+    "./icons/iconRefreshCcw": {
+      "import": {
+        "types": "./dist/icons/iconRefreshCcw.d.ts",
+        "node": "./dist/icons/iconRefreshCcw.server.js",
+        "default": "./dist/icons/iconRefreshCcw.js"
+      }
+    },
+    "./icons/iconRadio": {
+      "import": {
+        "types": "./dist/icons/iconRadio.d.ts",
+        "node": "./dist/icons/iconRadio.server.js",
+        "default": "./dist/icons/iconRadio.js"
+      }
+    },
+    "./icons/iconPrinter": {
+      "import": {
+        "types": "./dist/icons/iconPrinter.d.ts",
+        "node": "./dist/icons/iconPrinter.server.js",
+        "default": "./dist/icons/iconPrinter.js"
+      }
+    },
+    "./icons/iconPower": {
+      "import": {
+        "types": "./dist/icons/iconPower.d.ts",
+        "node": "./dist/icons/iconPower.server.js",
+        "default": "./dist/icons/iconPower.js"
+      }
+    },
+    "./icons/iconPocket": {
+      "import": {
+        "types": "./dist/icons/iconPocket.d.ts",
+        "node": "./dist/icons/iconPocket.server.js",
+        "default": "./dist/icons/iconPocket.js"
+      }
+    },
+    "./icons/iconPlusSquare": {
+      "import": {
+        "types": "./dist/icons/iconPlusSquare.d.ts",
+        "node": "./dist/icons/iconPlusSquare.server.js",
+        "default": "./dist/icons/iconPlusSquare.js"
+      }
+    },
+    "./icons/iconPlusCircle": {
+      "import": {
+        "types": "./dist/icons/iconPlusCircle.d.ts",
+        "node": "./dist/icons/iconPlusCircle.server.js",
+        "default": "./dist/icons/iconPlusCircle.js"
+      }
+    },
+    "./icons/iconPlus": {
+      "import": {
+        "types": "./dist/icons/iconPlus.d.ts",
+        "node": "./dist/icons/iconPlus.server.js",
+        "default": "./dist/icons/iconPlus.js"
+      }
+    },
+    "./icons/iconPlayCircle": {
+      "import": {
+        "types": "./dist/icons/iconPlayCircle.d.ts",
+        "node": "./dist/icons/iconPlayCircle.server.js",
+        "default": "./dist/icons/iconPlayCircle.js"
+      }
+    },
+    "./icons/iconPlay": {
+      "import": {
+        "types": "./dist/icons/iconPlay.d.ts",
+        "node": "./dist/icons/iconPlay.server.js",
+        "default": "./dist/icons/iconPlay.js"
+      }
+    },
+    "./icons/iconPieChart": {
+      "import": {
+        "types": "./dist/icons/iconPieChart.d.ts",
+        "node": "./dist/icons/iconPieChart.server.js",
+        "default": "./dist/icons/iconPieChart.js"
+      }
+    },
+    "./icons/iconPhoneOutgoing": {
+      "import": {
+        "types": "./dist/icons/iconPhoneOutgoing.d.ts",
+        "node": "./dist/icons/iconPhoneOutgoing.server.js",
+        "default": "./dist/icons/iconPhoneOutgoing.js"
+      }
+    },
+    "./icons/iconPhoneOff": {
+      "import": {
+        "types": "./dist/icons/iconPhoneOff.d.ts",
+        "node": "./dist/icons/iconPhoneOff.server.js",
+        "default": "./dist/icons/iconPhoneOff.js"
+      }
+    },
+    "./icons/iconPhoneMissed": {
+      "import": {
+        "types": "./dist/icons/iconPhoneMissed.d.ts",
+        "node": "./dist/icons/iconPhoneMissed.server.js",
+        "default": "./dist/icons/iconPhoneMissed.js"
+      }
+    },
+    "./icons/iconPhoneIncoming": {
+      "import": {
+        "types": "./dist/icons/iconPhoneIncoming.d.ts",
+        "node": "./dist/icons/iconPhoneIncoming.server.js",
+        "default": "./dist/icons/iconPhoneIncoming.js"
+      }
+    },
+    "./icons/iconPhoneForwarded": {
+      "import": {
+        "types": "./dist/icons/iconPhoneForwarded.d.ts",
+        "node": "./dist/icons/iconPhoneForwarded.server.js",
+        "default": "./dist/icons/iconPhoneForwarded.js"
+      }
+    },
+    "./icons/iconPhoneCall": {
+      "import": {
+        "types": "./dist/icons/iconPhoneCall.d.ts",
+        "node": "./dist/icons/iconPhoneCall.server.js",
+        "default": "./dist/icons/iconPhoneCall.js"
+      }
+    },
+    "./icons/iconPhone": {
+      "import": {
+        "types": "./dist/icons/iconPhone.d.ts",
+        "node": "./dist/icons/iconPhone.server.js",
+        "default": "./dist/icons/iconPhone.js"
+      }
+    },
+    "./icons/iconPercent": {
+      "import": {
+        "types": "./dist/icons/iconPercent.d.ts",
+        "node": "./dist/icons/iconPercent.server.js",
+        "default": "./dist/icons/iconPercent.js"
+      }
+    },
+    "./icons/iconPenTool": {
+      "import": {
+        "types": "./dist/icons/iconPenTool.d.ts",
+        "node": "./dist/icons/iconPenTool.server.js",
+        "default": "./dist/icons/iconPenTool.js"
+      }
+    },
+    "./icons/iconPause": {
+      "import": {
+        "types": "./dist/icons/iconPause.d.ts",
+        "node": "./dist/icons/iconPause.server.js",
+        "default": "./dist/icons/iconPause.js"
+      }
+    },
+    "./icons/iconPauseCircle": {
+      "import": {
+        "types": "./dist/icons/iconPauseCircle.d.ts",
+        "node": "./dist/icons/iconPauseCircle.server.js",
+        "default": "./dist/icons/iconPauseCircle.js"
+      }
+    },
+    "./icons/iconPaperclip": {
+      "import": {
+        "types": "./dist/icons/iconPaperclip.d.ts",
+        "node": "./dist/icons/iconPaperclip.server.js",
+        "default": "./dist/icons/iconPaperclip.js"
+      }
+    },
+    "./icons/iconPackage": {
+      "import": {
+        "types": "./dist/icons/iconPackage.d.ts",
+        "node": "./dist/icons/iconPackage.server.js",
+        "default": "./dist/icons/iconPackage.js"
+      }
+    },
+    "./icons/iconOctagon": {
+      "import": {
+        "types": "./dist/icons/iconOctagon.d.ts",
+        "node": "./dist/icons/iconOctagon.server.js",
+        "default": "./dist/icons/iconOctagon.js"
+      }
+    },
+    "./icons/iconNavigation2": {
+      "import": {
+        "types": "./dist/icons/iconNavigation2.d.ts",
+        "node": "./dist/icons/iconNavigation2.server.js",
+        "default": "./dist/icons/iconNavigation2.js"
+      }
+    },
+    "./icons/iconNavigation": {
+      "import": {
+        "types": "./dist/icons/iconNavigation.d.ts",
+        "node": "./dist/icons/iconNavigation.server.js",
+        "default": "./dist/icons/iconNavigation.js"
+      }
+    },
+    "./icons/iconMusic": {
+      "import": {
+        "types": "./dist/icons/iconMusic.d.ts",
+        "node": "./dist/icons/iconMusic.server.js",
+        "default": "./dist/icons/iconMusic.js"
+      }
+    },
+    "./icons/iconMove": {
+      "import": {
+        "types": "./dist/icons/iconMove.d.ts",
+        "node": "./dist/icons/iconMove.server.js",
+        "default": "./dist/icons/iconMove.js"
+      }
+    },
+    "./icons/iconMousePointer": {
+      "import": {
+        "types": "./dist/icons/iconMousePointer.d.ts",
+        "node": "./dist/icons/iconMousePointer.server.js",
+        "default": "./dist/icons/iconMousePointer.js"
+      }
+    },
+    "./icons/iconMoreVertical": {
+      "import": {
+        "types": "./dist/icons/iconMoreVertical.d.ts",
+        "node": "./dist/icons/iconMoreVertical.server.js",
+        "default": "./dist/icons/iconMoreVertical.js"
+      }
+    },
+    "./icons/iconMoreHorizontal": {
+      "import": {
+        "types": "./dist/icons/iconMoreHorizontal.d.ts",
+        "node": "./dist/icons/iconMoreHorizontal.server.js",
+        "default": "./dist/icons/iconMoreHorizontal.js"
+      }
+    },
+    "./icons/iconMoon": {
+      "import": {
+        "types": "./dist/icons/iconMoon.d.ts",
+        "node": "./dist/icons/iconMoon.server.js",
+        "default": "./dist/icons/iconMoon.js"
+      }
+    },
+    "./icons/iconMonitor": {
+      "import": {
+        "types": "./dist/icons/iconMonitor.d.ts",
+        "node": "./dist/icons/iconMonitor.server.js",
+        "default": "./dist/icons/iconMonitor.js"
+      }
+    },
+    "./icons/iconMinusSquare": {
+      "import": {
+        "types": "./dist/icons/iconMinusSquare.d.ts",
+        "node": "./dist/icons/iconMinusSquare.server.js",
+        "default": "./dist/icons/iconMinusSquare.js"
+      }
+    },
+    "./icons/iconMinusCircle": {
+      "import": {
+        "types": "./dist/icons/iconMinusCircle.d.ts",
+        "node": "./dist/icons/iconMinusCircle.server.js",
+        "default": "./dist/icons/iconMinusCircle.js"
+      }
+    },
+    "./icons/iconMinus": {
+      "import": {
+        "types": "./dist/icons/iconMinus.d.ts",
+        "node": "./dist/icons/iconMinus.server.js",
+        "default": "./dist/icons/iconMinus.js"
+      }
+    },
+    "./icons/iconMinimize2": {
+      "import": {
+        "types": "./dist/icons/iconMinimize2.d.ts",
+        "node": "./dist/icons/iconMinimize2.server.js",
+        "default": "./dist/icons/iconMinimize2.js"
+      }
+    },
+    "./icons/iconMinimize": {
+      "import": {
+        "types": "./dist/icons/iconMinimize.d.ts",
+        "node": "./dist/icons/iconMinimize.server.js",
+        "default": "./dist/icons/iconMinimize.js"
+      }
+    },
+    "./icons/iconMicOff": {
+      "import": {
+        "types": "./dist/icons/iconMicOff.d.ts",
+        "node": "./dist/icons/iconMicOff.server.js",
+        "default": "./dist/icons/iconMicOff.js"
+      }
+    },
+    "./icons/iconMic": {
+      "import": {
+        "types": "./dist/icons/iconMic.d.ts",
+        "node": "./dist/icons/iconMic.server.js",
+        "default": "./dist/icons/iconMic.js"
+      }
+    },
+    "./icons/iconMessageSquare": {
+      "import": {
+        "types": "./dist/icons/iconMessageSquare.d.ts",
+        "node": "./dist/icons/iconMessageSquare.server.js",
+        "default": "./dist/icons/iconMessageSquare.js"
+      }
+    },
+    "./icons/iconMessageCircle": {
+      "import": {
+        "types": "./dist/icons/iconMessageCircle.d.ts",
+        "node": "./dist/icons/iconMessageCircle.server.js",
+        "default": "./dist/icons/iconMessageCircle.js"
+      }
+    },
+    "./icons/iconMenu": {
+      "import": {
+        "types": "./dist/icons/iconMenu.d.ts",
+        "node": "./dist/icons/iconMenu.server.js",
+        "default": "./dist/icons/iconMenu.js"
+      }
+    },
+    "./icons/iconMeh": {
+      "import": {
+        "types": "./dist/icons/iconMeh.d.ts",
+        "node": "./dist/icons/iconMeh.server.js",
+        "default": "./dist/icons/iconMeh.js"
+      }
+    },
+    "./icons/iconMaximize2": {
+      "import": {
+        "types": "./dist/icons/iconMaximize2.d.ts",
+        "node": "./dist/icons/iconMaximize2.server.js",
+        "default": "./dist/icons/iconMaximize2.js"
+      }
+    },
+    "./icons/iconMaximize": {
+      "import": {
+        "types": "./dist/icons/iconMaximize.d.ts",
+        "node": "./dist/icons/iconMaximize.server.js",
+        "default": "./dist/icons/iconMaximize.js"
+      }
+    },
+    "./icons/iconMapPin": {
+      "import": {
+        "types": "./dist/icons/iconMapPin.d.ts",
+        "node": "./dist/icons/iconMapPin.server.js",
+        "default": "./dist/icons/iconMapPin.js"
+      }
+    },
+    "./icons/iconMap": {
+      "import": {
+        "types": "./dist/icons/iconMap.d.ts",
+        "node": "./dist/icons/iconMap.server.js",
+        "default": "./dist/icons/iconMap.js"
+      }
+    },
+    "./icons/iconMail": {
+      "import": {
+        "types": "./dist/icons/iconMail.d.ts",
+        "node": "./dist/icons/iconMail.server.js",
+        "default": "./dist/icons/iconMail.js"
+      }
+    },
+    "./icons/iconLogOut": {
+      "import": {
+        "types": "./dist/icons/iconLogOut.d.ts",
+        "node": "./dist/icons/iconLogOut.server.js",
+        "default": "./dist/icons/iconLogOut.js"
+      }
+    },
+    "./icons/iconLogIn": {
+      "import": {
+        "types": "./dist/icons/iconLogIn.d.ts",
+        "node": "./dist/icons/iconLogIn.server.js",
+        "default": "./dist/icons/iconLogIn.js"
+      }
+    },
+    "./icons/iconLock": {
+      "import": {
+        "types": "./dist/icons/iconLock.d.ts",
+        "node": "./dist/icons/iconLock.server.js",
+        "default": "./dist/icons/iconLock.js"
+      }
+    },
+    "./icons/iconLoader": {
+      "import": {
+        "types": "./dist/icons/iconLoader.d.ts",
+        "node": "./dist/icons/iconLoader.server.js",
+        "default": "./dist/icons/iconLoader.js"
+      }
+    },
+    "./icons/iconList": {
+      "import": {
+        "types": "./dist/icons/iconList.d.ts",
+        "node": "./dist/icons/iconList.server.js",
+        "default": "./dist/icons/iconList.js"
+      }
+    },
+    "./icons/iconLinkedin": {
+      "import": {
+        "types": "./dist/icons/iconLinkedin.d.ts",
+        "node": "./dist/icons/iconLinkedin.server.js",
+        "default": "./dist/icons/iconLinkedin.js"
+      }
+    },
+    "./icons/iconLink2": {
+      "import": {
+        "types": "./dist/icons/iconLink2.d.ts",
+        "node": "./dist/icons/iconLink2.server.js",
+        "default": "./dist/icons/iconLink2.js"
+      }
+    },
+    "./icons/iconLink": {
+      "import": {
+        "types": "./dist/icons/iconLink.d.ts",
+        "node": "./dist/icons/iconLink.server.js",
+        "default": "./dist/icons/iconLink.js"
+      }
+    },
+    "./icons/iconLifeBuoy": {
+      "import": {
+        "types": "./dist/icons/iconLifeBuoy.d.ts",
+        "node": "./dist/icons/iconLifeBuoy.server.js",
+        "default": "./dist/icons/iconLifeBuoy.js"
+      }
+    },
+    "./icons/iconLayout": {
+      "import": {
+        "types": "./dist/icons/iconLayout.d.ts",
+        "node": "./dist/icons/iconLayout.server.js",
+        "default": "./dist/icons/iconLayout.js"
+      }
+    },
+    "./icons/iconLayers": {
+      "import": {
+        "types": "./dist/icons/iconLayers.d.ts",
+        "node": "./dist/icons/iconLayers.server.js",
+        "default": "./dist/icons/iconLayers.js"
+      }
+    },
+    "./icons/iconKey": {
+      "import": {
+        "types": "./dist/icons/iconKey.d.ts",
+        "node": "./dist/icons/iconKey.server.js",
+        "default": "./dist/icons/iconKey.js"
+      }
+    },
+    "./icons/iconItalic": {
+      "import": {
+        "types": "./dist/icons/iconItalic.d.ts",
+        "node": "./dist/icons/iconItalic.server.js",
+        "default": "./dist/icons/iconItalic.js"
+      }
+    },
+    "./icons/iconInstagram": {
+      "import": {
+        "types": "./dist/icons/iconInstagram.d.ts",
+        "node": "./dist/icons/iconInstagram.server.js",
+        "default": "./dist/icons/iconInstagram.js"
+      }
+    },
+    "./icons/iconInfo": {
+      "import": {
+        "types": "./dist/icons/iconInfo.d.ts",
+        "node": "./dist/icons/iconInfo.server.js",
+        "default": "./dist/icons/iconInfo.js"
+      }
+    },
+    "./icons/iconInbox": {
+      "import": {
+        "types": "./dist/icons/iconInbox.d.ts",
+        "node": "./dist/icons/iconInbox.server.js",
+        "default": "./dist/icons/iconInbox.js"
+      }
+    },
+    "./icons/iconImage": {
+      "import": {
+        "types": "./dist/icons/iconImage.d.ts",
+        "node": "./dist/icons/iconImage.server.js",
+        "default": "./dist/icons/iconImage.js"
+      }
+    },
+    "./icons/iconHome": {
+      "import": {
+        "types": "./dist/icons/iconHome.d.ts",
+        "node": "./dist/icons/iconHome.server.js",
+        "default": "./dist/icons/iconHome.js"
+      }
+    },
+    "./icons/iconHexagon": {
+      "import": {
+        "types": "./dist/icons/iconHexagon.d.ts",
+        "node": "./dist/icons/iconHexagon.server.js",
+        "default": "./dist/icons/iconHexagon.js"
+      }
+    },
+    "./icons/iconHelpCircle": {
+      "import": {
+        "types": "./dist/icons/iconHelpCircle.d.ts",
+        "node": "./dist/icons/iconHelpCircle.server.js",
+        "default": "./dist/icons/iconHelpCircle.js"
+      }
+    },
+    "./icons/iconHeart": {
+      "import": {
+        "types": "./dist/icons/iconHeart.d.ts",
+        "node": "./dist/icons/iconHeart.server.js",
+        "default": "./dist/icons/iconHeart.js"
+      }
+    },
+    "./icons/iconHeadphones": {
+      "import": {
+        "types": "./dist/icons/iconHeadphones.d.ts",
+        "node": "./dist/icons/iconHeadphones.server.js",
+        "default": "./dist/icons/iconHeadphones.js"
+      }
+    },
+    "./icons/iconHash": {
+      "import": {
+        "types": "./dist/icons/iconHash.d.ts",
+        "node": "./dist/icons/iconHash.server.js",
+        "default": "./dist/icons/iconHash.js"
+      }
+    },
+    "./icons/iconHardDrive": {
+      "import": {
+        "types": "./dist/icons/iconHardDrive.d.ts",
+        "node": "./dist/icons/iconHardDrive.server.js",
+        "default": "./dist/icons/iconHardDrive.js"
+      }
+    },
+    "./icons/iconGrid": {
+      "import": {
+        "types": "./dist/icons/iconGrid.d.ts",
+        "node": "./dist/icons/iconGrid.server.js",
+        "default": "./dist/icons/iconGrid.js"
+      }
+    },
+    "./icons/iconGlobe": {
+      "import": {
+        "types": "./dist/icons/iconGlobe.d.ts",
+        "node": "./dist/icons/iconGlobe.server.js",
+        "default": "./dist/icons/iconGlobe.js"
+      }
+    },
+    "./icons/iconGitlab": {
+      "import": {
+        "types": "./dist/icons/iconGitlab.d.ts",
+        "node": "./dist/icons/iconGitlab.server.js",
+        "default": "./dist/icons/iconGitlab.js"
+      }
+    },
+    "./icons/iconGithub": {
+      "import": {
+        "types": "./dist/icons/iconGithub.d.ts",
+        "node": "./dist/icons/iconGithub.server.js",
+        "default": "./dist/icons/iconGithub.js"
+      }
+    },
+    "./icons/iconGitPullRequest": {
+      "import": {
+        "types": "./dist/icons/iconGitPullRequest.d.ts",
+        "node": "./dist/icons/iconGitPullRequest.server.js",
+        "default": "./dist/icons/iconGitPullRequest.js"
+      }
+    },
+    "./icons/iconGitMerge": {
+      "import": {
+        "types": "./dist/icons/iconGitMerge.d.ts",
+        "node": "./dist/icons/iconGitMerge.server.js",
+        "default": "./dist/icons/iconGitMerge.js"
+      }
+    },
+    "./icons/iconGitCommit": {
+      "import": {
+        "types": "./dist/icons/iconGitCommit.d.ts",
+        "node": "./dist/icons/iconGitCommit.server.js",
+        "default": "./dist/icons/iconGitCommit.js"
+      }
+    },
+    "./icons/iconGitBranch": {
+      "import": {
+        "types": "./dist/icons/iconGitBranch.d.ts",
+        "node": "./dist/icons/iconGitBranch.server.js",
+        "default": "./dist/icons/iconGitBranch.js"
+      }
+    },
+    "./icons/iconGift": {
+      "import": {
+        "types": "./dist/icons/iconGift.d.ts",
+        "node": "./dist/icons/iconGift.server.js",
+        "default": "./dist/icons/iconGift.js"
+      }
+    },
+    "./icons/iconFrown": {
+      "import": {
+        "types": "./dist/icons/iconFrown.d.ts",
+        "node": "./dist/icons/iconFrown.server.js",
+        "default": "./dist/icons/iconFrown.js"
+      }
+    },
+    "./icons/iconFramer": {
+      "import": {
+        "types": "./dist/icons/iconFramer.d.ts",
+        "node": "./dist/icons/iconFramer.server.js",
+        "default": "./dist/icons/iconFramer.js"
+      }
+    },
+    "./icons/iconFolderPlus": {
+      "import": {
+        "types": "./dist/icons/iconFolderPlus.d.ts",
+        "node": "./dist/icons/iconFolderPlus.server.js",
+        "default": "./dist/icons/iconFolderPlus.js"
+      }
+    },
+    "./icons/iconFolderMinus": {
+      "import": {
+        "types": "./dist/icons/iconFolderMinus.d.ts",
+        "node": "./dist/icons/iconFolderMinus.server.js",
+        "default": "./dist/icons/iconFolderMinus.js"
+      }
+    },
+    "./icons/iconFolder": {
+      "import": {
+        "types": "./dist/icons/iconFolder.d.ts",
+        "node": "./dist/icons/iconFolder.server.js",
+        "default": "./dist/icons/iconFolder.js"
+      }
+    },
+    "./icons/iconFlag": {
+      "import": {
+        "types": "./dist/icons/iconFlag.d.ts",
+        "node": "./dist/icons/iconFlag.server.js",
+        "default": "./dist/icons/iconFlag.js"
+      }
+    },
+    "./icons/iconFilter": {
+      "import": {
+        "types": "./dist/icons/iconFilter.d.ts",
+        "node": "./dist/icons/iconFilter.server.js",
+        "default": "./dist/icons/iconFilter.js"
+      }
+    },
+    "./icons/iconFilm": {
+      "import": {
+        "types": "./dist/icons/iconFilm.d.ts",
+        "node": "./dist/icons/iconFilm.server.js",
+        "default": "./dist/icons/iconFilm.js"
+      }
+    },
+    "./icons/iconFileText": {
+      "import": {
+        "types": "./dist/icons/iconFileText.d.ts",
+        "node": "./dist/icons/iconFileText.server.js",
+        "default": "./dist/icons/iconFileText.js"
+      }
+    },
+    "./icons/iconFilePlus": {
+      "import": {
+        "types": "./dist/icons/iconFilePlus.d.ts",
+        "node": "./dist/icons/iconFilePlus.server.js",
+        "default": "./dist/icons/iconFilePlus.js"
+      }
+    },
+    "./icons/iconFileMinus": {
+      "import": {
+        "types": "./dist/icons/iconFileMinus.d.ts",
+        "node": "./dist/icons/iconFileMinus.server.js",
+        "default": "./dist/icons/iconFileMinus.js"
+      }
+    },
+    "./icons/iconFile": {
+      "import": {
+        "types": "./dist/icons/iconFile.d.ts",
+        "node": "./dist/icons/iconFile.server.js",
+        "default": "./dist/icons/iconFile.js"
+      }
+    },
+    "./icons/iconFigma": {
+      "import": {
+        "types": "./dist/icons/iconFigma.d.ts",
+        "node": "./dist/icons/iconFigma.server.js",
+        "default": "./dist/icons/iconFigma.js"
+      }
+    },
+    "./icons/iconFeather": {
+      "import": {
+        "types": "./dist/icons/iconFeather.d.ts",
+        "node": "./dist/icons/iconFeather.server.js",
+        "default": "./dist/icons/iconFeather.js"
+      }
+    },
+    "./icons/iconFastForward": {
+      "import": {
+        "types": "./dist/icons/iconFastForward.d.ts",
+        "node": "./dist/icons/iconFastForward.server.js",
+        "default": "./dist/icons/iconFastForward.js"
+      }
+    },
+    "./icons/iconFacebook": {
+      "import": {
+        "types": "./dist/icons/iconFacebook.d.ts",
+        "node": "./dist/icons/iconFacebook.server.js",
+        "default": "./dist/icons/iconFacebook.js"
+      }
+    },
+    "./icons/iconEyeOff": {
+      "import": {
+        "types": "./dist/icons/iconEyeOff.d.ts",
+        "node": "./dist/icons/iconEyeOff.server.js",
+        "default": "./dist/icons/iconEyeOff.js"
+      }
+    },
+    "./icons/iconEye": {
+      "import": {
+        "types": "./dist/icons/iconEye.d.ts",
+        "node": "./dist/icons/iconEye.server.js",
+        "default": "./dist/icons/iconEye.js"
+      }
+    },
+    "./icons/iconExternalLink": {
+      "import": {
+        "types": "./dist/icons/iconExternalLink.d.ts",
+        "node": "./dist/icons/iconExternalLink.server.js",
+        "default": "./dist/icons/iconExternalLink.js"
+      }
+    },
+    "./icons/iconEdit2": {
+      "import": {
+        "types": "./dist/icons/iconEdit2.d.ts",
+        "node": "./dist/icons/iconEdit2.server.js",
+        "default": "./dist/icons/iconEdit2.js"
+      }
+    },
+    "./icons/iconEdit": {
+      "import": {
+        "types": "./dist/icons/iconEdit.d.ts",
+        "node": "./dist/icons/iconEdit.server.js",
+        "default": "./dist/icons/iconEdit.js"
+      }
+    },
+    "./icons/iconEdit3": {
+      "import": {
+        "types": "./dist/icons/iconEdit3.d.ts",
+        "node": "./dist/icons/iconEdit3.server.js",
+        "default": "./dist/icons/iconEdit3.js"
+      }
+    },
+    "./icons/iconDroplet": {
+      "import": {
+        "types": "./dist/icons/iconDroplet.d.ts",
+        "node": "./dist/icons/iconDroplet.server.js",
+        "default": "./dist/icons/iconDroplet.js"
+      }
+    },
+    "./icons/iconDribbble": {
+      "import": {
+        "types": "./dist/icons/iconDribbble.d.ts",
+        "node": "./dist/icons/iconDribbble.server.js",
+        "default": "./dist/icons/iconDribbble.js"
+      }
+    },
+    "./icons/iconDownloadCloud": {
+      "import": {
+        "types": "./dist/icons/iconDownloadCloud.d.ts",
+        "node": "./dist/icons/iconDownloadCloud.server.js",
+        "default": "./dist/icons/iconDownloadCloud.js"
+      }
+    },
+    "./icons/iconDownload": {
+      "import": {
+        "types": "./dist/icons/iconDownload.d.ts",
+        "node": "./dist/icons/iconDownload.server.js",
+        "default": "./dist/icons/iconDownload.js"
+      }
+    },
+    "./icons/iconDollarSign": {
+      "import": {
+        "types": "./dist/icons/iconDollarSign.d.ts",
+        "node": "./dist/icons/iconDollarSign.server.js",
+        "default": "./dist/icons/iconDollarSign.js"
+      }
+    },
+    "./icons/iconDivideSquare": {
+      "import": {
+        "types": "./dist/icons/iconDivideSquare.d.ts",
+        "node": "./dist/icons/iconDivideSquare.server.js",
+        "default": "./dist/icons/iconDivideSquare.js"
+      }
+    },
+    "./icons/iconDivideCircle": {
+      "import": {
+        "types": "./dist/icons/iconDivideCircle.d.ts",
+        "node": "./dist/icons/iconDivideCircle.server.js",
+        "default": "./dist/icons/iconDivideCircle.js"
+      }
+    },
+    "./icons/iconDivide": {
+      "import": {
+        "types": "./dist/icons/iconDivide.d.ts",
+        "node": "./dist/icons/iconDivide.server.js",
+        "default": "./dist/icons/iconDivide.js"
+      }
+    },
+    "./icons/iconDisc": {
+      "import": {
+        "types": "./dist/icons/iconDisc.d.ts",
+        "node": "./dist/icons/iconDisc.server.js",
+        "default": "./dist/icons/iconDisc.js"
+      }
+    },
+    "./icons/iconDelete": {
+      "import": {
+        "types": "./dist/icons/iconDelete.d.ts",
+        "node": "./dist/icons/iconDelete.server.js",
+        "default": "./dist/icons/iconDelete.js"
+      }
+    },
+    "./icons/iconDatabase": {
+      "import": {
+        "types": "./dist/icons/iconDatabase.d.ts",
+        "node": "./dist/icons/iconDatabase.server.js",
+        "default": "./dist/icons/iconDatabase.js"
+      }
+    },
+    "./icons/iconCrosshair": {
+      "import": {
+        "types": "./dist/icons/iconCrosshair.d.ts",
+        "node": "./dist/icons/iconCrosshair.server.js",
+        "default": "./dist/icons/iconCrosshair.js"
+      }
+    },
+    "./icons/iconCrop": {
+      "import": {
+        "types": "./dist/icons/iconCrop.d.ts",
+        "node": "./dist/icons/iconCrop.server.js",
+        "default": "./dist/icons/iconCrop.js"
+      }
+    },
+    "./icons/iconCreditCard": {
+      "import": {
+        "types": "./dist/icons/iconCreditCard.d.ts",
+        "node": "./dist/icons/iconCreditCard.server.js",
+        "default": "./dist/icons/iconCreditCard.js"
+      }
+    },
+    "./icons/iconCpu": {
+      "import": {
+        "types": "./dist/icons/iconCpu.d.ts",
+        "node": "./dist/icons/iconCpu.server.js",
+        "default": "./dist/icons/iconCpu.js"
+      }
+    },
+    "./icons/iconCornerUpRight": {
+      "import": {
+        "types": "./dist/icons/iconCornerUpRight.d.ts",
+        "node": "./dist/icons/iconCornerUpRight.server.js",
+        "default": "./dist/icons/iconCornerUpRight.js"
+      }
+    },
+    "./icons/iconCornerUpLeft": {
+      "import": {
+        "types": "./dist/icons/iconCornerUpLeft.d.ts",
+        "node": "./dist/icons/iconCornerUpLeft.server.js",
+        "default": "./dist/icons/iconCornerUpLeft.js"
+      }
+    },
+    "./icons/iconCornerRightDown": {
+      "import": {
+        "types": "./dist/icons/iconCornerRightDown.d.ts",
+        "node": "./dist/icons/iconCornerRightDown.server.js",
+        "default": "./dist/icons/iconCornerRightDown.js"
+      }
+    },
+    "./icons/iconCornerRightUp": {
+      "import": {
+        "types": "./dist/icons/iconCornerRightUp.d.ts",
+        "node": "./dist/icons/iconCornerRightUp.server.js",
+        "default": "./dist/icons/iconCornerRightUp.js"
+      }
+    },
+    "./icons/iconCornerLeftUp": {
+      "import": {
+        "types": "./dist/icons/iconCornerLeftUp.d.ts",
+        "node": "./dist/icons/iconCornerLeftUp.server.js",
+        "default": "./dist/icons/iconCornerLeftUp.js"
+      }
+    },
+    "./icons/iconCornerLeftDown": {
+      "import": {
+        "types": "./dist/icons/iconCornerLeftDown.d.ts",
+        "node": "./dist/icons/iconCornerLeftDown.server.js",
+        "default": "./dist/icons/iconCornerLeftDown.js"
+      }
+    },
+    "./icons/iconCornerDownRight": {
+      "import": {
+        "types": "./dist/icons/iconCornerDownRight.d.ts",
+        "node": "./dist/icons/iconCornerDownRight.server.js",
+        "default": "./dist/icons/iconCornerDownRight.js"
+      }
+    },
+    "./icons/iconCornerDownLeft": {
+      "import": {
+        "types": "./dist/icons/iconCornerDownLeft.d.ts",
+        "node": "./dist/icons/iconCornerDownLeft.server.js",
+        "default": "./dist/icons/iconCornerDownLeft.js"
+      }
+    },
+    "./icons/iconCopy": {
+      "import": {
+        "types": "./dist/icons/iconCopy.d.ts",
+        "node": "./dist/icons/iconCopy.server.js",
+        "default": "./dist/icons/iconCopy.js"
+      }
+    },
+    "./icons/iconCompass": {
+      "import": {
+        "types": "./dist/icons/iconCompass.d.ts",
+        "node": "./dist/icons/iconCompass.server.js",
+        "default": "./dist/icons/iconCompass.js"
+      }
+    },
+    "./icons/iconCommand": {
+      "import": {
+        "types": "./dist/icons/iconCommand.d.ts",
+        "node": "./dist/icons/iconCommand.server.js",
+        "default": "./dist/icons/iconCommand.js"
+      }
+    },
+    "./icons/iconColumns": {
+      "import": {
+        "types": "./dist/icons/iconColumns.d.ts",
+        "node": "./dist/icons/iconColumns.server.js",
+        "default": "./dist/icons/iconColumns.js"
+      }
+    },
+    "./icons/iconCoffee": {
+      "import": {
+        "types": "./dist/icons/iconCoffee.d.ts",
+        "node": "./dist/icons/iconCoffee.server.js",
+        "default": "./dist/icons/iconCoffee.js"
+      }
+    },
+    "./icons/iconCodesandbox": {
+      "import": {
+        "types": "./dist/icons/iconCodesandbox.d.ts",
+        "node": "./dist/icons/iconCodesandbox.server.js",
+        "default": "./dist/icons/iconCodesandbox.js"
+      }
+    },
+    "./icons/iconCodepen": {
+      "import": {
+        "types": "./dist/icons/iconCodepen.d.ts",
+        "node": "./dist/icons/iconCodepen.server.js",
+        "default": "./dist/icons/iconCodepen.js"
+      }
+    },
+    "./icons/iconCode": {
+      "import": {
+        "types": "./dist/icons/iconCode.d.ts",
+        "node": "./dist/icons/iconCode.server.js",
+        "default": "./dist/icons/iconCode.js"
+      }
+    },
+    "./icons/iconCloudSnow": {
+      "import": {
+        "types": "./dist/icons/iconCloudSnow.d.ts",
+        "node": "./dist/icons/iconCloudSnow.server.js",
+        "default": "./dist/icons/iconCloudSnow.js"
+      }
+    },
+    "./icons/iconCloudRain": {
+      "import": {
+        "types": "./dist/icons/iconCloudRain.d.ts",
+        "node": "./dist/icons/iconCloudRain.server.js",
+        "default": "./dist/icons/iconCloudRain.js"
+      }
+    },
+    "./icons/iconCloudOff": {
+      "import": {
+        "types": "./dist/icons/iconCloudOff.d.ts",
+        "node": "./dist/icons/iconCloudOff.server.js",
+        "default": "./dist/icons/iconCloudOff.js"
+      }
+    },
+    "./icons/iconCloudLightning": {
+      "import": {
+        "types": "./dist/icons/iconCloudLightning.d.ts",
+        "node": "./dist/icons/iconCloudLightning.server.js",
+        "default": "./dist/icons/iconCloudLightning.js"
+      }
+    },
+    "./icons/iconCloudDrizzle": {
+      "import": {
+        "types": "./dist/icons/iconCloudDrizzle.d.ts",
+        "node": "./dist/icons/iconCloudDrizzle.server.js",
+        "default": "./dist/icons/iconCloudDrizzle.js"
+      }
+    },
+    "./icons/iconCloud": {
+      "import": {
+        "types": "./dist/icons/iconCloud.d.ts",
+        "node": "./dist/icons/iconCloud.server.js",
+        "default": "./dist/icons/iconCloud.js"
+      }
+    },
+    "./icons/iconClock": {
+      "import": {
+        "types": "./dist/icons/iconClock.d.ts",
+        "node": "./dist/icons/iconClock.server.js",
+        "default": "./dist/icons/iconClock.js"
+      }
+    },
+    "./icons/iconClipboard": {
+      "import": {
+        "types": "./dist/icons/iconClipboard.d.ts",
+        "node": "./dist/icons/iconClipboard.server.js",
+        "default": "./dist/icons/iconClipboard.js"
+      }
+    },
+    "./icons/iconCircle": {
+      "import": {
+        "types": "./dist/icons/iconCircle.d.ts",
+        "node": "./dist/icons/iconCircle.server.js",
+        "default": "./dist/icons/iconCircle.js"
+      }
+    },
+    "./icons/iconChrome": {
+      "import": {
+        "types": "./dist/icons/iconChrome.d.ts",
+        "node": "./dist/icons/iconChrome.server.js",
+        "default": "./dist/icons/iconChrome.js"
+      }
+    },
+    "./icons/iconChevronsRight": {
+      "import": {
+        "types": "./dist/icons/iconChevronsRight.d.ts",
+        "node": "./dist/icons/iconChevronsRight.server.js",
+        "default": "./dist/icons/iconChevronsRight.js"
+      }
+    },
+    "./icons/iconChevronsUp": {
+      "import": {
+        "types": "./dist/icons/iconChevronsUp.d.ts",
+        "node": "./dist/icons/iconChevronsUp.server.js",
+        "default": "./dist/icons/iconChevronsUp.js"
+      }
+    },
+    "./icons/iconChevronsLeft": {
+      "import": {
+        "types": "./dist/icons/iconChevronsLeft.d.ts",
+        "node": "./dist/icons/iconChevronsLeft.server.js",
+        "default": "./dist/icons/iconChevronsLeft.js"
+      }
+    },
+    "./icons/iconChevronsDown": {
+      "import": {
+        "types": "./dist/icons/iconChevronsDown.d.ts",
+        "node": "./dist/icons/iconChevronsDown.server.js",
+        "default": "./dist/icons/iconChevronsDown.js"
+      }
+    },
+    "./icons/iconChevronUp": {
+      "import": {
+        "types": "./dist/icons/iconChevronUp.d.ts",
+        "node": "./dist/icons/iconChevronUp.server.js",
+        "default": "./dist/icons/iconChevronUp.js"
+      }
+    },
+    "./icons/iconChevronRight": {
+      "import": {
+        "types": "./dist/icons/iconChevronRight.d.ts",
+        "node": "./dist/icons/iconChevronRight.server.js",
+        "default": "./dist/icons/iconChevronRight.js"
+      }
+    },
+    "./icons/iconChevronLeft": {
+      "import": {
+        "types": "./dist/icons/iconChevronLeft.d.ts",
+        "node": "./dist/icons/iconChevronLeft.server.js",
+        "default": "./dist/icons/iconChevronLeft.js"
+      }
+    },
+    "./icons/iconChevronDown": {
+      "import": {
+        "types": "./dist/icons/iconChevronDown.d.ts",
+        "node": "./dist/icons/iconChevronDown.server.js",
+        "default": "./dist/icons/iconChevronDown.js"
+      }
+    },
+    "./icons/iconCheckSquare": {
+      "import": {
+        "types": "./dist/icons/iconCheckSquare.d.ts",
+        "node": "./dist/icons/iconCheckSquare.server.js",
+        "default": "./dist/icons/iconCheckSquare.js"
+      }
+    },
+    "./icons/iconCheckCircle": {
+      "import": {
+        "types": "./dist/icons/iconCheckCircle.d.ts",
+        "node": "./dist/icons/iconCheckCircle.server.js",
+        "default": "./dist/icons/iconCheckCircle.js"
+      }
+    },
+    "./icons/iconCheck": {
+      "import": {
+        "types": "./dist/icons/iconCheck.d.ts",
+        "node": "./dist/icons/iconCheck.server.js",
+        "default": "./dist/icons/iconCheck.js"
+      }
+    },
+    "./icons/iconCast": {
+      "import": {
+        "types": "./dist/icons/iconCast.d.ts",
+        "node": "./dist/icons/iconCast.server.js",
+        "default": "./dist/icons/iconCast.js"
+      }
+    },
+    "./icons/iconCameraOff": {
+      "import": {
+        "types": "./dist/icons/iconCameraOff.d.ts",
+        "node": "./dist/icons/iconCameraOff.server.js",
+        "default": "./dist/icons/iconCameraOff.js"
+      }
+    },
+    "./icons/iconCamera": {
+      "import": {
+        "types": "./dist/icons/iconCamera.d.ts",
+        "node": "./dist/icons/iconCamera.server.js",
+        "default": "./dist/icons/iconCamera.js"
+      }
+    },
+    "./icons/iconCalendar": {
+      "import": {
+        "types": "./dist/icons/iconCalendar.d.ts",
+        "node": "./dist/icons/iconCalendar.server.js",
+        "default": "./dist/icons/iconCalendar.js"
+      }
+    },
+    "./icons/iconBriefcase": {
+      "import": {
+        "types": "./dist/icons/iconBriefcase.d.ts",
+        "node": "./dist/icons/iconBriefcase.server.js",
+        "default": "./dist/icons/iconBriefcase.js"
+      }
+    },
+    "./icons/iconBox": {
+      "import": {
+        "types": "./dist/icons/iconBox.d.ts",
+        "node": "./dist/icons/iconBox.server.js",
+        "default": "./dist/icons/iconBox.js"
+      }
+    },
+    "./icons/iconBookmark": {
+      "import": {
+        "types": "./dist/icons/iconBookmark.d.ts",
+        "node": "./dist/icons/iconBookmark.server.js",
+        "default": "./dist/icons/iconBookmark.js"
+      }
+    },
+    "./icons/iconBookOpen": {
+      "import": {
+        "types": "./dist/icons/iconBookOpen.d.ts",
+        "node": "./dist/icons/iconBookOpen.server.js",
+        "default": "./dist/icons/iconBookOpen.js"
+      }
+    },
+    "./icons/iconBook": {
+      "import": {
+        "types": "./dist/icons/iconBook.d.ts",
+        "node": "./dist/icons/iconBook.server.js",
+        "default": "./dist/icons/iconBook.js"
+      }
+    },
+    "./icons/iconBold": {
+      "import": {
+        "types": "./dist/icons/iconBold.d.ts",
+        "node": "./dist/icons/iconBold.server.js",
+        "default": "./dist/icons/iconBold.js"
+      }
+    },
+    "./icons/iconBluetooth": {
+      "import": {
+        "types": "./dist/icons/iconBluetooth.d.ts",
+        "node": "./dist/icons/iconBluetooth.server.js",
+        "default": "./dist/icons/iconBluetooth.js"
+      }
+    },
+    "./icons/iconBellOff": {
+      "import": {
+        "types": "./dist/icons/iconBellOff.d.ts",
+        "node": "./dist/icons/iconBellOff.server.js",
+        "default": "./dist/icons/iconBellOff.js"
+      }
+    },
+    "./icons/iconBell": {
+      "import": {
+        "types": "./dist/icons/iconBell.d.ts",
+        "node": "./dist/icons/iconBell.server.js",
+        "default": "./dist/icons/iconBell.js"
+      }
+    },
+    "./icons/iconBatteryCharging": {
+      "import": {
+        "types": "./dist/icons/iconBatteryCharging.d.ts",
+        "node": "./dist/icons/iconBatteryCharging.server.js",
+        "default": "./dist/icons/iconBatteryCharging.js"
+      }
+    },
+    "./icons/iconBattery": {
+      "import": {
+        "types": "./dist/icons/iconBattery.d.ts",
+        "node": "./dist/icons/iconBattery.server.js",
+        "default": "./dist/icons/iconBattery.js"
+      }
+    },
+    "./icons/iconBarChart2": {
+      "import": {
+        "types": "./dist/icons/iconBarChart2.d.ts",
+        "node": "./dist/icons/iconBarChart2.server.js",
+        "default": "./dist/icons/iconBarChart2.js"
+      }
+    },
+    "./icons/iconBarChart": {
+      "import": {
+        "types": "./dist/icons/iconBarChart.d.ts",
+        "node": "./dist/icons/iconBarChart.server.js",
+        "default": "./dist/icons/iconBarChart.js"
+      }
+    },
+    "./icons/iconAward": {
+      "import": {
+        "types": "./dist/icons/iconAward.d.ts",
+        "node": "./dist/icons/iconAward.server.js",
+        "default": "./dist/icons/iconAward.js"
+      }
+    },
+    "./icons/iconAtSign": {
+      "import": {
+        "types": "./dist/icons/iconAtSign.d.ts",
+        "node": "./dist/icons/iconAtSign.server.js",
+        "default": "./dist/icons/iconAtSign.js"
+      }
+    },
+    "./icons/iconArrowUpRight": {
+      "import": {
+        "types": "./dist/icons/iconArrowUpRight.d.ts",
+        "node": "./dist/icons/iconArrowUpRight.server.js",
+        "default": "./dist/icons/iconArrowUpRight.js"
+      }
+    },
+    "./icons/iconArrowUpLeft": {
+      "import": {
+        "types": "./dist/icons/iconArrowUpLeft.d.ts",
+        "node": "./dist/icons/iconArrowUpLeft.server.js",
+        "default": "./dist/icons/iconArrowUpLeft.js"
+      }
+    },
+    "./icons/iconArrowUpCircle": {
+      "import": {
+        "types": "./dist/icons/iconArrowUpCircle.d.ts",
+        "node": "./dist/icons/iconArrowUpCircle.server.js",
+        "default": "./dist/icons/iconArrowUpCircle.js"
+      }
+    },
+    "./icons/iconArrowUp": {
+      "import": {
+        "types": "./dist/icons/iconArrowUp.d.ts",
+        "node": "./dist/icons/iconArrowUp.server.js",
+        "default": "./dist/icons/iconArrowUp.js"
+      }
+    },
+    "./icons/iconArrowRightCircle": {
+      "import": {
+        "types": "./dist/icons/iconArrowRightCircle.d.ts",
+        "node": "./dist/icons/iconArrowRightCircle.server.js",
+        "default": "./dist/icons/iconArrowRightCircle.js"
+      }
+    },
+    "./icons/iconArrowRight": {
+      "import": {
+        "types": "./dist/icons/iconArrowRight.d.ts",
+        "node": "./dist/icons/iconArrowRight.server.js",
+        "default": "./dist/icons/iconArrowRight.js"
+      }
+    },
+    "./icons/iconArrowLeftCircle": {
+      "import": {
+        "types": "./dist/icons/iconArrowLeftCircle.d.ts",
+        "node": "./dist/icons/iconArrowLeftCircle.server.js",
+        "default": "./dist/icons/iconArrowLeftCircle.js"
+      }
+    },
+    "./icons/iconArrowLeft": {
+      "import": {
+        "types": "./dist/icons/iconArrowLeft.d.ts",
+        "node": "./dist/icons/iconArrowLeft.server.js",
+        "default": "./dist/icons/iconArrowLeft.js"
+      }
+    },
+    "./icons/iconArrowDownRight": {
+      "import": {
+        "types": "./dist/icons/iconArrowDownRight.d.ts",
+        "node": "./dist/icons/iconArrowDownRight.server.js",
+        "default": "./dist/icons/iconArrowDownRight.js"
+      }
+    },
+    "./icons/iconArrowDownLeft": {
+      "import": {
+        "types": "./dist/icons/iconArrowDownLeft.d.ts",
+        "node": "./dist/icons/iconArrowDownLeft.server.js",
+        "default": "./dist/icons/iconArrowDownLeft.js"
+      }
+    },
+    "./icons/iconArrowDownCircle": {
+      "import": {
+        "types": "./dist/icons/iconArrowDownCircle.d.ts",
+        "node": "./dist/icons/iconArrowDownCircle.server.js",
+        "default": "./dist/icons/iconArrowDownCircle.js"
+      }
+    },
+    "./icons/iconArrowDown": {
+      "import": {
+        "types": "./dist/icons/iconArrowDown.d.ts",
+        "node": "./dist/icons/iconArrowDown.server.js",
+        "default": "./dist/icons/iconArrowDown.js"
+      }
+    },
+    "./icons/iconArchive": {
+      "import": {
+        "types": "./dist/icons/iconArchive.d.ts",
+        "node": "./dist/icons/iconArchive.server.js",
+        "default": "./dist/icons/iconArchive.js"
+      }
+    },
+    "./icons/iconAperture": {
+      "import": {
+        "types": "./dist/icons/iconAperture.d.ts",
+        "node": "./dist/icons/iconAperture.server.js",
+        "default": "./dist/icons/iconAperture.js"
+      }
+    },
+    "./icons/iconAnchor": {
+      "import": {
+        "types": "./dist/icons/iconAnchor.d.ts",
+        "node": "./dist/icons/iconAnchor.server.js",
+        "default": "./dist/icons/iconAnchor.js"
+      }
+    },
+    "./icons/iconAlignRight": {
+      "import": {
+        "types": "./dist/icons/iconAlignRight.d.ts",
+        "node": "./dist/icons/iconAlignRight.server.js",
+        "default": "./dist/icons/iconAlignRight.js"
+      }
+    },
+    "./icons/iconAlignLeft": {
+      "import": {
+        "types": "./dist/icons/iconAlignLeft.d.ts",
+        "node": "./dist/icons/iconAlignLeft.server.js",
+        "default": "./dist/icons/iconAlignLeft.js"
+      }
+    },
+    "./icons/iconAlignJustify": {
+      "import": {
+        "types": "./dist/icons/iconAlignJustify.d.ts",
+        "node": "./dist/icons/iconAlignJustify.server.js",
+        "default": "./dist/icons/iconAlignJustify.js"
+      }
+    },
+    "./icons/iconAlignCenter": {
+      "import": {
+        "types": "./dist/icons/iconAlignCenter.d.ts",
+        "node": "./dist/icons/iconAlignCenter.server.js",
+        "default": "./dist/icons/iconAlignCenter.js"
+      }
+    },
+    "./icons/iconAlertTriangle": {
+      "import": {
+        "types": "./dist/icons/iconAlertTriangle.d.ts",
+        "node": "./dist/icons/iconAlertTriangle.server.js",
+        "default": "./dist/icons/iconAlertTriangle.js"
+      }
+    },
+    "./icons/iconAlertOctagon": {
+      "import": {
+        "types": "./dist/icons/iconAlertOctagon.d.ts",
+        "node": "./dist/icons/iconAlertOctagon.server.js",
+        "default": "./dist/icons/iconAlertOctagon.js"
+      }
+    },
+    "./icons/iconAlertCircle": {
+      "import": {
+        "types": "./dist/icons/iconAlertCircle.d.ts",
+        "node": "./dist/icons/iconAlertCircle.server.js",
+        "default": "./dist/icons/iconAlertCircle.js"
+      }
+    },
+    "./icons/iconAirplay": {
+      "import": {
+        "types": "./dist/icons/iconAirplay.d.ts",
+        "node": "./dist/icons/iconAirplay.server.js",
+        "default": "./dist/icons/iconAirplay.js"
+      }
+    },
+    "./icons/iconActivity": {
+      "import": {
+        "types": "./dist/icons/iconActivity.d.ts",
+        "node": "./dist/icons/iconActivity.server.js",
+        "default": "./dist/icons/iconActivity.js"
+      }
     }
-  },
-  "eslintConfig": {
-    "extends": [
-      "plugin:storybook/recommended"
-    ]
   }
 }

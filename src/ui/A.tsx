@@ -1,5 +1,5 @@
 import { combineProps } from "@solid-primitives/props"
-import { ComponentProps, createMemo, createRenderEffect, splitProps } from "solid-js"
+import { ComponentProps, Show, createMemo, createRenderEffect, splitProps } from "solid-js"
 import { createStore } from "solid-js/store"
 import { classnames } from "../util/classnames"
 import { AnchorContext, Location } from "./A.Context"
@@ -239,7 +239,9 @@ function A_(props: Props) {
 
   return (
     <a {..._props}>
-      {fml.children ?? props.href}
+      <Show when={fml.children} fallback={props.href}>
+        {fml.children}
+      </Show>
     </a>
   )
 }
