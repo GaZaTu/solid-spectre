@@ -36,7 +36,7 @@ html .has-error .form-select:focus,
 html .form-input.is-error:focus,
 html .form-select.is-error:focus,
 html .form-autocomplete .form-autocomplete-input.is-focused,
-html .has-error .form-autocomplete .form-autocomplete-input.is-focused
+html .has-error .form-autocomplete .form-autocomplete-input.is-focused,
 html .input-group-addon {
   border-radius: unset;
   box-shadow: 2px 2px 0px 0px gray;
