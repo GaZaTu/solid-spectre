@@ -1,0 +1,12 @@
+html {
+  --body-bg--rgb-triplet: 255, 255, 255;
+  --body-bg-monochrome--rgb-triplet: 230, 230, 230;
+  --body-fg--rgb-triplet: 6, 6, 6;
+  --body-fg-monochrome--rgb-triplet: 32, 32, 32;
+
+  --link--rgb-triplet: 87, 85, 217;
+  --link-monochrome--rgb-triplet: 48, 46, 205;
+
+  --gray--rgb-triplet: 48, 55, 66;
+  --gray-text--rgb-triplet: 250, 250, 250;
+}

@@ -1,7 +1,7 @@
 // css
 import "./Accordion.css"
 // js
-import { ComponentProps, JSX, splitProps } from "solid-js"
+import { ComponentProps, JSX, Show, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { float, marginR } from "../util/position"
@@ -35,10 +35,11 @@ function Accordion_(props: Props & ComponentProps<"details">) {
   return (
     <details {..._props}>
       <summary class="accordion-header" style={{ "cursor": "pointer" }}>
-        {props.headerIcon && (
-          <Icon src={props.open ? Icon.Context.iconArrowDown : Icon.Context.iconArrowUp} classList={{ ...marginR(1), ...float(props.headerIconFloatRight ? "right" : undefined) }} />
-        )}
-        {props.header}
+        <Show when={props.headerIcon}>
+          <Icon src={Icon.Context.iconArrowDown} class={`accordion-icon-open ${marginR(1)} ${float(props.headerIconFloatRight ? "right" : undefined)}`} />
+          <Icon src={Icon.Context.iconArrowUp} class={`accordion-icon-closed ${marginR(1)} ${float(props.headerIconFloatRight ? "right" : undefined)}`} />
+        </Show>
+        <span>{props.header}</span>
       </summary>
       <div class="accordion-body">
         {fml.children}

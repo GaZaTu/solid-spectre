@@ -1,24 +1,29 @@
-/*
-@include text-color-variant(".text-primary", $primary);
+.bg-primary {
+  background-color: var(--primary) !important;
+  color: var(--primary-text) !important;
+}
 
-@include text-color-variant(".text-secondary", $secondary);
+.bg-secondary {
+  background-color: var(--secondary) !important;
+  color: var(--secondary-text) !important;
+}
 
-@include text-color-variant(".text-success", $success);
+.bg-success {
+  background-color: var(--success) !important;
+  color: var(--success-text) !important;
+}
 
-@include text-color-variant(".text-warning", $warning);
+.bg-warning {
+  background-color: var(--warning) !important;
+  color: var(--warning-text) !important;
+}
 
-@include text-color-variant(".text-failure", $failure);
+.bg-failure {
+  background-color: var(--failure) !important;
+  color: var(--failure-text) !important;
+}
 
-@include text-color-variant(".text-gray", $gray);
-
-@include bg-color-variant(".bg-primary", $primary);
-
-@include bg-color-variant(".bg-secondary", $secondary);
-
-@include bg-color-variant(".bg-success", $success);
-
-@include bg-color-variant(".bg-warning", $warning);
-
-@include bg-color-variant(".bg-failure", $failure);
-
-@include bg-color-variant(".bg-gray", $gray); */
+.bg-gray {
+  background-color: var(--gray) !important;
+  color: var(--gray-text) !important;
+}

@@ -1,7 +1,7 @@
 // css
 import "./Avatar.css"
 // js
-import { ComponentProps, splitProps } from "solid-js"
+import { ComponentProps, Show, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize2 } from "../util/theming"
@@ -33,16 +33,16 @@ function Avatar_(props: Props & ComponentProps<"figure">) {
 
   return (
     <figure {..._props} data-initials={props.initials}>
-      {fml.children}
-      {props.imageSrc && (
+      <span>{fml.children}</span>
+      <Show when={props.imageSrc}>
         <img src={props.imageSrc} alt={props.imageAlt} />
-      )}
-      {props.iconImageSrc && (
+      </Show>
+      <Show when={props.iconImageSrc}>
         <img class="avatar-icon" src={props.imageSrc} alt={props.iconImageSrc} />
-      )}
-      {props.presence && (
+      </Show>
+      <Show when={props.presence}>
         <i class={`avatar-presence ${props.presence}`} />
-      )}
+      </Show>
     </figure>
   )
 }

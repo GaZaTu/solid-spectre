@@ -32,6 +32,11 @@
   fill: var(--feather-fill, none);
 }
 
+.input-group-addon>.spectre-icon>svg {
+  width: var(--feather-size, 20px);
+  height: var(--feather-size, 20px);
+}
+
 .has-icon-left,
 .has-icon-right {
   display: flex;

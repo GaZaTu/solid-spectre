@@ -1,6 +1,6 @@
 {
   "name": "@gazatu/solid-spectre",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Solid.js components styled with Spectre.css",
   "license": "MIT",
   "author": "GaZaTu",
@@ -704,18 +704,18 @@
         "default": "./dist/ui/Dropdown.js"
       }
     },
-    "./ui/Divider": {
-      "import": {
-        "types": "./dist/ui/Divider.d.ts",
-        "node": "./dist/ui/Divider.server.js",
-        "default": "./dist/ui/Divider.js"
-      }
-    },
     "./ui/Column.Row": {
       "import": {
         "types": "./dist/ui/Column.Row.d.ts",
         "node": "./dist/ui/Column.Row.server.js",
         "default": "./dist/ui/Column.Row.js"
+      }
+    },
+    "./ui/Divider": {
+      "import": {
+        "types": "./dist/ui/Divider.d.ts",
+        "node": "./dist/ui/Divider.server.js",
+        "default": "./dist/ui/Divider.js"
       }
     },
     "./ui/Column": {
@@ -942,18 +942,18 @@
         "default": "./dist/icons/iconZoomIn.js"
       }
     },
-    "./icons/iconZap": {
-      "import": {
-        "types": "./dist/icons/iconZap.d.ts",
-        "node": "./dist/icons/iconZap.server.js",
-        "default": "./dist/icons/iconZap.js"
-      }
-    },
     "./icons/iconZapOff": {
       "import": {
         "types": "./dist/icons/iconZapOff.d.ts",
         "node": "./dist/icons/iconZapOff.server.js",
         "default": "./dist/icons/iconZapOff.js"
+      }
+    },
+    "./icons/iconZap": {
+      "import": {
+        "types": "./dist/icons/iconZap.d.ts",
+        "node": "./dist/icons/iconZap.server.js",
+        "default": "./dist/icons/iconZap.js"
       }
     },
     "./icons/iconYoutube": {
@@ -1677,18 +1677,18 @@
         "default": "./dist/icons/iconPenTool.js"
       }
     },
-    "./icons/iconPause": {
-      "import": {
-        "types": "./dist/icons/iconPause.d.ts",
-        "node": "./dist/icons/iconPause.server.js",
-        "default": "./dist/icons/iconPause.js"
-      }
-    },
     "./icons/iconPauseCircle": {
       "import": {
         "types": "./dist/icons/iconPauseCircle.d.ts",
         "node": "./dist/icons/iconPauseCircle.server.js",
         "default": "./dist/icons/iconPauseCircle.js"
+      }
+    },
+    "./icons/iconPause": {
+      "import": {
+        "types": "./dist/icons/iconPause.d.ts",
+        "node": "./dist/icons/iconPause.server.js",
+        "default": "./dist/icons/iconPause.js"
       }
     },
     "./icons/iconPaperclip": {
@@ -2251,6 +2251,13 @@
         "default": "./dist/icons/iconExternalLink.js"
       }
     },
+    "./icons/iconEdit3": {
+      "import": {
+        "types": "./dist/icons/iconEdit3.d.ts",
+        "node": "./dist/icons/iconEdit3.server.js",
+        "default": "./dist/icons/iconEdit3.js"
+      }
+    },
     "./icons/iconEdit2": {
       "import": {
         "types": "./dist/icons/iconEdit2.d.ts",
@@ -2263,13 +2270,6 @@
         "types": "./dist/icons/iconEdit.d.ts",
         "node": "./dist/icons/iconEdit.server.js",
         "default": "./dist/icons/iconEdit.js"
-      }
-    },
-    "./icons/iconEdit3": {
-      "import": {
-        "types": "./dist/icons/iconEdit3.d.ts",
-        "node": "./dist/icons/iconEdit3.server.js",
-        "default": "./dist/icons/iconEdit3.js"
       }
     },
     "./icons/iconDroplet": {
@@ -2391,18 +2391,18 @@
         "default": "./dist/icons/iconCornerUpLeft.js"
       }
     },
-    "./icons/iconCornerRightDown": {
-      "import": {
-        "types": "./dist/icons/iconCornerRightDown.d.ts",
-        "node": "./dist/icons/iconCornerRightDown.server.js",
-        "default": "./dist/icons/iconCornerRightDown.js"
-      }
-    },
     "./icons/iconCornerRightUp": {
       "import": {
         "types": "./dist/icons/iconCornerRightUp.d.ts",
         "node": "./dist/icons/iconCornerRightUp.server.js",
         "default": "./dist/icons/iconCornerRightUp.js"
+      }
+    },
+    "./icons/iconCornerRightDown": {
+      "import": {
+        "types": "./dist/icons/iconCornerRightDown.d.ts",
+        "node": "./dist/icons/iconCornerRightDown.server.js",
+        "default": "./dist/icons/iconCornerRightDown.js"
       }
     },
     "./icons/iconCornerLeftUp": {
@@ -2559,18 +2559,18 @@
         "default": "./dist/icons/iconChrome.js"
       }
     },
-    "./icons/iconChevronsRight": {
-      "import": {
-        "types": "./dist/icons/iconChevronsRight.d.ts",
-        "node": "./dist/icons/iconChevronsRight.server.js",
-        "default": "./dist/icons/iconChevronsRight.js"
-      }
-    },
     "./icons/iconChevronsUp": {
       "import": {
         "types": "./dist/icons/iconChevronsUp.d.ts",
         "node": "./dist/icons/iconChevronsUp.server.js",
         "default": "./dist/icons/iconChevronsUp.js"
+      }
+    },
+    "./icons/iconChevronsRight": {
+      "import": {
+        "types": "./dist/icons/iconChevronsRight.d.ts",
+        "node": "./dist/icons/iconChevronsRight.server.js",
+        "default": "./dist/icons/iconChevronsRight.js"
       }
     },
     "./icons/iconChevronsLeft": {
@@ -2685,18 +2685,18 @@
         "default": "./dist/icons/iconBookmark.js"
       }
     },
-    "./icons/iconBookOpen": {
-      "import": {
-        "types": "./dist/icons/iconBookOpen.d.ts",
-        "node": "./dist/icons/iconBookOpen.server.js",
-        "default": "./dist/icons/iconBookOpen.js"
-      }
-    },
     "./icons/iconBook": {
       "import": {
         "types": "./dist/icons/iconBook.d.ts",
         "node": "./dist/icons/iconBook.server.js",
         "default": "./dist/icons/iconBook.js"
+      }
+    },
+    "./icons/iconBookOpen": {
+      "import": {
+        "types": "./dist/icons/iconBookOpen.d.ts",
+        "node": "./dist/icons/iconBookOpen.server.js",
+        "default": "./dist/icons/iconBookOpen.js"
       }
     },
     "./icons/iconBold": {

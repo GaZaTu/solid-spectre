@@ -8,6 +8,14 @@
   max-height: 50rem;
 }
 
+.accordion:not([open]) .accordion-icon-open {
+  display: none;
+}
+
+.accordion[open] .accordion-icon-closed {
+  display: none;
+}
+
 .accordion .accordion-header {
   display: block;
   padding: var(--unit-1) var(--unit-2);
