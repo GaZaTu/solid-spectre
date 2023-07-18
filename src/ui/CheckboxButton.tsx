@@ -90,7 +90,10 @@ function CheckboxButton_(props: Props & ComponentProps<typeof Button>) {
   })
 
   return (
-    <Button type="button" color={props.useColor ? (checked() ? "primary" : "gray") : "transparent"} action={!label()} circle={!label()} {...__props} onclick={handleClick}>
+    <Button type="button" color={props.useColor ? (checked() ? "primary" : "gray") : "transparent"} action={!label()} circle={!label()} {...__props} onclick={handleClick}
+      role="checkbox"
+      aria-checked={props.indeterminate ? "mixed" : props.checked}
+    >
       <Show when={!props.useColor}>
         <Show when={props.indeterminate} fallback={
           <Show when={(checked() && !props.reversed) || (!checked() && props.reversed)} fallback={

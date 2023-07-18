@@ -30,7 +30,7 @@ function Divider_(props: Props & ComponentProps<"div">) {
   const [_props] = createProps(props)
 
   return (
-    <div {..._props} data-content={props.label}>
+    <div {..._props} data-content={props.label} role="separator">
       {fml.children}
     </div>
   )

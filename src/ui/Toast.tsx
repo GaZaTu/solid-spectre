@@ -26,7 +26,7 @@ function Toast_(props: Props & ComponentProps<"div">) {
   const [_props] = createProps(props)
 
   return (
-    <div {..._props}>
+    <div role="alert" {..._props}>
       {fml.children}
     </div>
   )

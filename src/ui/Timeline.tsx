@@ -19,14 +19,14 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Timeline_(props: Props & ComponentProps<"div">) {
+function Timeline_(props: Props & ComponentProps<"section">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
   return (
-    <div {..._props}>
+    <section role="feed" {..._props}>
       {fml.children}
-    </div>
+    </section>
   )
 }
 

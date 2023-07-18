@@ -1,18 +1,14 @@
 // css
 import "./Accordion.css"
 // js
-import { ComponentProps, JSX, Show, splitProps } from "solid-js"
+import { ComponentProps, Show, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
-import { float, marginR } from "../util/position"
+import { AccordionItem } from "./Accordion.Item"
 import { AccordionRadioGroup } from "./Accordion.RadioGroup"
-import { Icon } from "./Icon"
 
 type Props = {
-  header?: JSX.Element
-  headerIcon?: boolean
-  headerIconFloatRight?: boolean
-  // isDefault?: boolean
+  multiple?: boolean
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -25,30 +21,23 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function Accordion_(props: Props & ComponentProps<"details">) {
+function Accordion_(props: Props & ComponentProps<"div">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
-  // const radioGroup = useContext(AccordionRadioGroup)
-  // TODO: isDefault
-
   return (
-    <details {..._props}>
-      <summary class="accordion-header" style={{ "cursor": "pointer" }}>
-        <Show when={props.headerIcon}>
-          <Icon src={Icon.Context.iconArrowDown} class={`accordion-icon-open ${marginR(1)} ${float(props.headerIconFloatRight ? "right" : undefined)}`} />
-          <Icon src={Icon.Context.iconArrowUp} class={`accordion-icon-closed ${marginR(1)} ${float(props.headerIconFloatRight ? "right" : undefined)}`} />
-        </Show>
-        <span>{props.header}</span>
-      </summary>
-      <div class="accordion-body">
-        {fml.children}
-      </div>
-    </details>
+    <div {..._props}>
+      <Show when={!props.multiple} fallback={fml.children}>
+        <AccordionRadioGroup.Provider>
+          {fml.children}
+        </AccordionRadioGroup.Provider>
+      </Show>
+    </div>
   )
 }
 
 export const Accordion = Object.assign(Accordion_, {
   createProps,
+  Item: AccordionItem,
   RadioGroup: AccordionRadioGroup,
 })

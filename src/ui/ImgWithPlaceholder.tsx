@@ -29,27 +29,55 @@ function ImgWithPlaceholder_(_props: Props & ComponentProps<typeof Img>) {
     return null
   }
 
-  createEffect(async () => {
-    const {
-      src,
-      useFetch,
-    } = fml
-
-    if (!src || !visible() || loaded()) {
-      return
+  createEffect<{ src: string | undefined, cancelled: boolean }>(prevEffect => {
+    const effect = {
+      src: fml.src,
+      cancelled: false,
     }
 
-    if (!useFetch) {
-      setSrc(src)
-      return
+    if (prevEffect) {
+      if (prevEffect.src === effect.src) {
+        return prevEffect
+      }
+
+      prevEffect.cancelled = true
     }
 
-    const response = await fetch(src)
-    const blob = await response.blob()
-    const url = await readFile(blob, { how: "readAsDataURL" })
+    setLoading(true)
+    setLoaded(false)
 
-    setSrc(url)
-    setLoading(false)
+    if (!fml.src || (!visible() && !prevEffect?.cancelled)) {
+      return effect
+    }
+
+    if (!fml.useFetch) {
+      setSrc(fml.src)
+      setLoading(false)
+      setLoaded(true)
+      return effect
+    }
+
+    void (async () => {
+      const response = await fetch(fml.src!)
+      if (effect.cancelled) {
+        return
+      }
+
+      const blob = await response.blob()
+      if (effect.cancelled) {
+        return
+      }
+
+      const url = await readFile(blob, { how: "readAsDataURL" })
+      if (effect.cancelled) {
+        return
+      }
+
+      setSrc(url)
+      setLoading(false)
+    })()
+
+    return effect
   })
 
   const onload = () => {

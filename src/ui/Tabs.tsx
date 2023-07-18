@@ -25,7 +25,7 @@ function Steps_(props: Props & ComponentProps<"ul">) {
   const [_props] = createProps(props)
 
   return (
-    <ul {..._props}>
+    <ul {..._props} role="tablist">
       {fml.children}
     </ul>
   )

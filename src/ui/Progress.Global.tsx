@@ -25,10 +25,33 @@ const createGlobalProgressStateEffect = (getVisible: Accessor<boolean>) => {
   })
 }
 
+async function loadWithGlobalProgress<T>(promise: Promise<T> | (() => Promise<T>)) {
+  setGlobalProgressState({
+    value: 0,
+    max: undefined,
+    visible: true,
+  })
+
+  try {
+    if (!(promise instanceof Promise)) {
+      promise = promise()
+    }
+
+    return await promise
+  } finally {
+    setGlobalProgressState({
+      value: undefined,
+      max: undefined,
+      visible: false,
+    })
+  }
+}
+
 export {
   createGlobalProgressStateEffect,
   globalProgressState,
   setGlobalProgressState,
+  loadWithGlobalProgress,
 }
 
 function GlobalProgress_() {

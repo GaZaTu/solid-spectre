@@ -30,7 +30,7 @@ function TabsItem_(props: Props & ComponentProps<"li">) {
   // TODO: isDefault
 
   return (
-    <li {..._props}>
+    <li {..._props} role="tab" aria-selected="false" aria-controls="">
       {fml.children}
     </li>
   )

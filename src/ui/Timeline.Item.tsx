@@ -20,12 +20,12 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function TimelineItem_(props: Props & ComponentProps<"div">) {
+function TimelineItem_(props: Props & ComponentProps<"article">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
   return (
-    <div {..._props}>
+    <article {..._props}>
       <div class="timeline-left">
         <A class="timeline-icon" href={_props.id ? `#${_props.id}` : undefined}>
           <Show when={_props.icon} fallback={""}>
@@ -36,7 +36,7 @@ function TimelineItem_(props: Props & ComponentProps<"div">) {
       <div class="timeline-content">
         {fml.children}
       </div>
-    </div>
+    </article>
   )
 }
 

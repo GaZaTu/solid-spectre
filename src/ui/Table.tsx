@@ -102,7 +102,7 @@ function Table_(props: Props & ComponentProps<"div">) {
 
   return (
     <div class={`table-container ${tableProps.sticky ? "sticky" : ""}`} {...containerProps}>
-      <Column.Row class="table-toolbar">
+      <Column.Row class="table-toolbar" role="toolbar">
         <Column xxl={4} md={6} sm={12} class={`${marginY(2)}`}>
           <Input value={__.context?.actions.getState().globalFilter ?? ""} oninput={ev => setGlobalFilter(ev.currentTarget.value)} iconSrcLeft={Icon.Context.iconSearch} placeholder="Search..." />
         </Column>

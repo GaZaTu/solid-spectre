@@ -30,7 +30,7 @@ function MenuItem_(props: Props & ComponentProps<"li">) {
   const [_props] = createProps(props)
 
   return (
-    <li {..._props}>
+    <li role="menuitem" {..._props}>
       {fml.children}
       {props.badge && (
         <span class="menu-badge">{props.badge}</span>

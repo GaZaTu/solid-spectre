@@ -138,7 +138,7 @@ function Input_(props: Props & ComponentProps<"input">) {
       <Show when={_props.multiline === "expandable"} fallback={
         <textarea value={value()} oninput={handleInput} onblur={handleBlur} placeholder={formGroup.labelAsString() ?? _props.placeholder} {..._props as {}} />
       }>
-        <div innerText={value()} oninput={handleInput} onblur={handleBlur} contenteditable {..._props as {}} />
+        <div role="textbox" contenteditable innerText={value()} oninput={handleInput} onblur={handleBlur} aria-multiline aria-placeholder={formGroup.labelAsString() ?? _props.placeholder} aria-readonly={_props.readonly} aria-required={_props.required} {..._props as {}} />
       </Show>
     </Show>
   )

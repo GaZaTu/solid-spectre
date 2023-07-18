@@ -26,13 +26,14 @@ function ModalHeader_(props: Props & ComponentProps<"section">) {
   const [_props] = createProps(props)
 
   const {
+    id,
     oncloseHref,
     onclose,
   } = useContext(ModalContext)
 
   return (
-    <section {..._props}>
-      <Button.A clear class={`${float("right")}`} href={oncloseHref()} onclick={onclose()} />
+    <section {..._props} id={`${id()}-label`}>
+      <Button.A clear class={`${float("right")}`} href={oncloseHref()} onclick={onclose()} aria-label="Dismiss" />
       {fml.children}
     </section>
   )

@@ -171,9 +171,9 @@ function ToastWithAnimation_(props: ToastWithAnimationProps & ComponentProps<typ
   })
 
   return (
-    <Toast {...toastProps}>
+    <Toast {...toastProps} role={localProps.timeout ? "alert" : "alertdialog"}>
       <Show when={localProps.closable}>
-        <Button clear style={{ float: "right" }} onclick={dispose} />
+        <Button clear style={{ float: "right" }} onclick={dispose} aria-label="Dismiss" />
       </Show>
 
       <Show when={(typeof localProps.children === "string")} fallback={localProps.children}>

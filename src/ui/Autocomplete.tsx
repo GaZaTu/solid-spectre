@@ -1,5 +1,5 @@
 import { createOptions as _createOptions, createSelect } from "@gazatu/solid-select"
-import { ComponentProps, For, JSX, JSXElement, Show, createEffect, createMemo, createRenderEffect, createSignal, mergeProps, on, splitProps, useContext } from "solid-js"
+import { ComponentProps, For, JSX, JSXElement, Show, createEffect, createMemo, createRenderEffect, createSignal, createUniqueId, mergeProps, on, splitProps, useContext } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { A } from "./A"
@@ -209,6 +209,8 @@ function Autocomplete_<V, O>(props: Props<V, O> & Omit<ComponentProps<"div">, "o
     )
   }
 
+  const menuId = createUniqueId()
+
   return (
     <div {...containerProps} ref={select.containerRef}>
       <div class={`form-autocomplete-input form-input ${selectProps.disabled ? "disabled" : ""} ${focused() ? "is-focused" : ""}`}>
@@ -224,15 +226,21 @@ function Autocomplete_<V, O>(props: Props<V, O> & Omit<ComponentProps<"div">, "o
           </Show>
         </Show>
 
-        <Input {...inputProps} type="text" ref={select.inputRef} value={select.inputValue} loading={selectProps.loading} placeholder={!select.hasValue ? (inputProps.placeholder || formGroup.labelAsString()) : ""} />
+        <Input {...inputProps} type="text" ref={select.inputRef} value={select.inputValue} loading={selectProps.loading} placeholder={!select.hasValue ? (inputProps.placeholder || formGroup.labelAsString()) : ""}
+          role="combobox"
+          aria-controls={menuId}
+          aria-autocomplete="list"
+          aria-expanded={select.isOpen && !select.disabled}
+          aria-activedescendant={`${menuId}-${options()?.findIndex((o: any) => select.isOptionFocused(o))}`}
+        />
       </div>
 
       <Show when={select.isOpen && !select.disabled}>
-        <Menu ref={select.listRef} style={{ "max-height": "33vh", "overflow-y": "auto" }}>
+        <Menu ref={select.listRef} id={menuId} style={{ "max-height": "33vh", "overflow-y": "auto" }} role="listbox">
           <Show when={!selectProps.loading} fallback={<Menu.Item>Loading...</Menu.Item>}>
             <For each={options()} fallback={<Menu.Item>Nothing here</Menu.Item>}>
-              {option => (
-                <Option focused={select.isOptionFocused(option)} disabled={select.isOptionDisabled(option)} onclick={() => select.pickOption(option)}>
+              {(option, index) => (
+                <Option id={`${menuId}-${index()}`} focused={select.isOptionFocused(option)} disabled={select.isOptionDisabled(option)} onclick={() => select.pickOption(option)}>
                   {selectProps.format?.(option, "option")}
                 </Option>
               )}
@@ -255,7 +263,9 @@ type OptionProps = {
   children?: JSX.Element
 }
 
-const Option = (props: OptionProps) => {
+const Option = (props: OptionProps & ComponentProps<typeof Menu.Item>) => {
+  const [fml] = splitProps(props, ["children"])
+
   const scrollIntoViewOnFocus = (element: HTMLElement) => {
     createEffect(() => {
       if (props.focused) {
@@ -265,9 +275,9 @@ const Option = (props: OptionProps) => {
   }
 
   return (
-    <Menu.Item ref={scrollIntoViewOnFocus} focused={props.focused} disabled={props.disabled} onclick={props.onclick}>
+    <Menu.Item {...props} ref={scrollIntoViewOnFocus} role="option">
       <A href="#">
-        {props.children}
+        {fml.children}
       </A>
     </Menu.Item>
   )

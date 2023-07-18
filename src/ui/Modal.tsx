@@ -1,7 +1,7 @@
 // css
 import "./Modal.css"
 // js
-import { ComponentProps, splitProps } from "solid-js"
+import { ComponentProps, createUniqueId, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { ThemeSize } from "../util/theming"
@@ -36,14 +36,17 @@ function Modal_(props: Props & ComponentProps<"div">) {
   const [_props] = createProps(props)
   const [outerProps, innerProps] = splitProps(_props, ["class"])
 
+  const defaultId = createUniqueId()
+
   const context = {
+    id: () => props.id ?? defaultId,
     active: () => !!props.active,
     onclose: () => props.onclose,
     oncloseHref: () => props.oncloseHref,
   }
 
   return (
-    <div {...outerProps}>
+    <div {...outerProps} id={context.id()} role="dialog" aria-labelledby={`${context.id()}-label`}>
       <A class="modal-overlay" href={props.oncloseHref} onclick={props.onclose} />
       <div class="modal-container" {...innerProps}>
         <ModalContext.Provider value={context}>

@@ -26,7 +26,7 @@ function Menu_(props: Props & ComponentProps<"ul">) {
   const [_props] = createProps(props)
 
   return (
-    <ul {..._props}>
+    <ul role="menu" {..._props}>
       {fml.children}
     </ul>
   )

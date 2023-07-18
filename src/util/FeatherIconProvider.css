@@ -26,15 +26,14 @@
 .spectre-icon>svg {
   display: inline-block;
   vertical-align: middle;
-  width: var(--feather-size, 22px);
-  height: var(--feather-size, 22px);
+  width: var(--feather-size, 1rem);
+  height: var(--feather-size, 1rem);
   stroke-width: var(--feather-weight, 2px);
   fill: var(--feather-fill, none);
 }
 
 .input-group-addon>.spectre-icon>svg {
-  width: var(--feather-size, 20px);
-  height: var(--feather-size, 20px);
+  --feather-size: 0.9rem;
 }
 
 .has-icon-left,
@@ -56,7 +55,7 @@
   top: 15%;
   width: var(--control-icon-size);
   z-index: var(--zindex-0)1;
-  --feather-size: 18px;
+  --feather-size: 0.9rem;
 }
 
 .has-icon-left .spectre-icon:not(.is-right) {
