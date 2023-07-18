@@ -39,7 +39,8 @@ for (const { dir, js, jsx, dts, svr } of entries) {
     // reeeeee
     const content = (await readFile(dtsTarget, { encoding: "utf-8" }))
       .replace(/^(import .+ from ['"])(.*)\/index.js/gm, "$1$2")
-      .replace(/^(import .+ from ['"])(..\/..\/(icons|ui|util))/gm, "$1../$3")
+      .replace(/^(import .+ from ['"])(\.\.\/)/gm, "$1./")
+      .replace(/^(import .+ from ['"])(\.\/\.\.\/)/gm, "$1../")
     await writeFile(dtsTarget, content)
   }
 

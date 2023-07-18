@@ -1,6 +1,6 @@
 {
   "name": "@gazatu/solid-spectre",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Solid.js components styled with Spectre.css",
   "license": "MIT",
   "author": "GaZaTu",
@@ -704,18 +704,18 @@
         "default": "./dist/ui/Dropdown.js"
       }
     },
-    "./ui/Column.Row": {
-      "import": {
-        "types": "./dist/ui/Column.Row.d.ts",
-        "node": "./dist/ui/Column.Row.server.js",
-        "default": "./dist/ui/Column.Row.js"
-      }
-    },
     "./ui/Divider": {
       "import": {
         "types": "./dist/ui/Divider.d.ts",
         "node": "./dist/ui/Divider.server.js",
         "default": "./dist/ui/Divider.js"
+      }
+    },
+    "./ui/Column.Row": {
+      "import": {
+        "types": "./dist/ui/Column.Row.d.ts",
+        "node": "./dist/ui/Column.Row.server.js",
+        "default": "./dist/ui/Column.Row.js"
       }
     },
     "./ui/Column": {
@@ -1873,18 +1873,18 @@
         "default": "./dist/icons/iconMapPin.js"
       }
     },
-    "./icons/iconMap": {
-      "import": {
-        "types": "./dist/icons/iconMap.d.ts",
-        "node": "./dist/icons/iconMap.server.js",
-        "default": "./dist/icons/iconMap.js"
-      }
-    },
     "./icons/iconMail": {
       "import": {
         "types": "./dist/icons/iconMail.d.ts",
         "node": "./dist/icons/iconMail.server.js",
         "default": "./dist/icons/iconMail.js"
+      }
+    },
+    "./icons/iconMap": {
+      "import": {
+        "types": "./dist/icons/iconMap.d.ts",
+        "node": "./dist/icons/iconMap.server.js",
+        "default": "./dist/icons/iconMap.js"
       }
     },
     "./icons/iconLogOut": {
@@ -2685,18 +2685,18 @@
         "default": "./dist/icons/iconBookmark.js"
       }
     },
-    "./icons/iconBook": {
-      "import": {
-        "types": "./dist/icons/iconBook.d.ts",
-        "node": "./dist/icons/iconBook.server.js",
-        "default": "./dist/icons/iconBook.js"
-      }
-    },
     "./icons/iconBookOpen": {
       "import": {
         "types": "./dist/icons/iconBookOpen.d.ts",
         "node": "./dist/icons/iconBookOpen.server.js",
         "default": "./dist/icons/iconBookOpen.js"
+      }
+    },
+    "./icons/iconBook": {
+      "import": {
+        "types": "./dist/icons/iconBook.d.ts",
+        "node": "./dist/icons/iconBook.server.js",
+        "default": "./dist/icons/iconBook.js"
       }
     },
     "./icons/iconBold": {
