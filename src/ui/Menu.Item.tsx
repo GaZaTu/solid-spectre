@@ -1,7 +1,7 @@
 // css
 import "./Menu.css"
 // js
-import { ComponentProps, JSX, splitProps } from "solid-js"
+import { ComponentProps, JSX, Show, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
@@ -32,9 +32,9 @@ function MenuItem_(props: Props & ComponentProps<"li">) {
   return (
     <li role="menuitem" {..._props}>
       {fml.children}
-      {props.badge && (
+      <Show when={props.badge}>
         <span class="menu-badge">{props.badge}</span>
-      )}
+      </Show>
     </li>
   )
 }

@@ -1,13 +1,14 @@
 // css
 import "./Tile.css"
 // js
-import { ComponentProps, splitProps } from "solid-js"
+import { ComponentProps, Show, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { Icon } from "./Icon"
 
 type Props = {
   iconSrc?: ComponentProps<typeof Icon>["src"]
+  iconSize?: ComponentProps<typeof Icon>["size"]
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -26,11 +27,11 @@ function TileIcon_(props: Props & ComponentProps<"section">) {
 
   return (
     <section {..._props}>
-      {props.iconSrc && (
+      <Show when={props.iconSrc}>
         <div class="tile-icon-box">
-          <Icon src={props.iconSrc} />
+          <Icon src={props.iconSrc} size={props.iconSize} />
         </div>
-      )}
+      </Show>
       {fml.children}
     </section>
   )

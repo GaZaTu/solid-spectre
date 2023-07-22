@@ -1,7 +1,7 @@
 // css
 import "./Empty.css"
 // js
-import { ComponentProps, splitProps } from "solid-js"
+import { ComponentProps, Show, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { Icon } from "./Icon"
@@ -27,9 +27,9 @@ function EmptyIcon_(props: Props & ComponentProps<"section">) {
 
   return (
     <section {..._props}>
-      {props.iconSrc && (
+      <Show when={props.iconSrc}>
         <Icon src={props.iconSrc} size={props.iconSize ?? "3x"} />
-      )}
+      </Show>
       {fml.children}
     </section>
   )

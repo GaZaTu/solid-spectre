@@ -1,7 +1,7 @@
 // css
 import "./Card.css"
 // js
-import { ComponentProps, splitProps } from "solid-js"
+import { ComponentProps, Show, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { Img } from "./Img"
@@ -27,9 +27,9 @@ function CardImage_(props: Props & ComponentProps<"section">) {
 
   return (
     <section {..._props}>
-      {props.src && (
+      <Show when={props.src}>
         <Img src={props.src} alt={props.alt} responsive />
-      )}
+      </Show>
       {fml.children}
     </section>
   )

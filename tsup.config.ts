@@ -1,6 +1,6 @@
 import { copyFile, mkdir } from "fs/promises"
 import { glob } from "glob"
-import { defineConfig } from "./tsup-preset-solid"
+import { defineConfig } from "tsup-preset-solid"
 
 const entries = (await glob("src/**/*.{tsx,ts}"))
   .filter(f => !f.includes("storybook"))

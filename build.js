@@ -19,6 +19,7 @@ const entries = (await glob("dist/**/index.js"))
     dts: f.replace(".js", ".d.ts"),
     svr: f.replace("/index.js", "/server.js"),
   }))
+  .sort((a, b) => a.dir.localeCompare(b.dir))
 
 for (const { dir, js, jsx, dts, svr } of entries) {
   const exportName = dir.replace("dist/", "./")
@@ -38,6 +39,7 @@ for (const { dir, js, jsx, dts, svr } of entries) {
 
     // reeeeee
     const content = (await readFile(dtsTarget, { encoding: "utf-8" }))
+      .replace(/^(import ['"].*\/index\.js['"];?)$/gm, "")
       .replace(/^(import .+ from ['"])(.*)\/index.js/gm, "$1$2")
       .replace(/^(import .+ from ['"])(\.\.\/)/gm, "$1./")
       .replace(/^(import .+ from ['"])(\.\/\.\.\/)/gm, "$1../")
