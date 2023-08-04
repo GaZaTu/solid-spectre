@@ -2833,6 +2833,13 @@
         "default": "./dist/ui/Toaster.Store.js"
       }
     },
+    "./ui/Video": {
+      "import": {
+        "types": "./dist/ui/Video.d.ts",
+        "node": "./dist/ui/Video.server.js",
+        "default": "./dist/ui/Video.js"
+      }
+    },
     "./util/badge": {
       "import": {
         "types": "./dist/util/badge.d.ts",
