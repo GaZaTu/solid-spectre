@@ -21,6 +21,9 @@
   margin: var(--unit-2) 0;
   width: 100%;
   text-align: center;
+}
+
+.divider:not(.divider-fullwidth) {
   margin-left: var(--layout-spacing-md);
   margin-right: var(--layout-spacing-md);
 }

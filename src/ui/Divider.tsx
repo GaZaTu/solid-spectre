@@ -9,6 +9,7 @@ import { text } from "../util/text"
 type Props = {
   vertical?: boolean
   textCenter?: boolean
+  fullwidth?: boolean
 
   label?: string
 }
@@ -19,6 +20,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
       return classnames({
         "divider": !props.vertical,
         "divider-vert": props.vertical,
+        "divider-fullwidth": props.fullwidth,
         ...text(props.textCenter ? "center" : undefined),
       })
     },
