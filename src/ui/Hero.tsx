@@ -4,8 +4,10 @@ import "./Hero.css"
 import { ComponentProps, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { ThemeSize } from "../util/theming"
 
 type Props = {
+  size?: ThemeSize
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -13,6 +15,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
     get class() {
       return classnames({
         "hero": true,
+        [`hero-${props.size}`]: !!props.size,
       })
     },
   }

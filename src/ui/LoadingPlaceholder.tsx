@@ -7,11 +7,11 @@ import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 
 type Props = {
   inline?: boolean
+  absolute?: boolean
+  responsive?: boolean
 
   width?: string | number
   height?: string | number
-
-  style2?: ComponentProps<"div">["style"]
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -20,20 +20,26 @@ const createProps = createHTMLMemoHook((props: Props) => {
       return classnames({
         "loading-placeholder": true,
         "inline": props.inline,
+        "absolute": props.absolute,
+        "responsive": props.responsive,
       })
     },
   }
 })
 
 function LoadingPlaceholder_(props: Props & ComponentProps<"div">) {
-  const [fml] = splitProps(props, ["children"])
+  const [fml] = splitProps(props, ["children", "style"])
   const [_props] = createProps(props)
 
   return (
     <div {..._props} style={{
-      ...(props.style2 as any),
-      width: (typeof props.width === "number") ? `${props.width}px` : props.width,
-      height: (typeof props.height === "number") ? `${props.height}px` : props.height,
+      ...(props.style as {}),
+      ...(props.width ? {
+        width: (typeof props.width === "number") ? `${props.width}px` : props.width,
+      } : {}),
+      ...(props.height ? {
+        height: (typeof props.height === "number") ? `${props.height}px` : props.height,
+      } : {}),
     }}>
       <div class="loading-placeholder-gradient">
         {fml.children}

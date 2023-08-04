@@ -1,5 +1,5 @@
 import { existsSync } from "fs"
-import { copyFile, readFile, rename, rm, writeFile } from "fs/promises"
+import { copyFile, mkdir, readFile, rename, rm, writeFile } from "fs/promises"
 import { glob } from "glob"
 import { basename, dirname } from "path"
 import { $ } from "zx"
@@ -81,6 +81,11 @@ for (const { dir, js, jsx, dts, svr } of entries) {
       // ignore
     }
   }
+}
+
+await mkdir("dist/css", { recursive: true })
+for (const f of await glob("src/css/*.css")) {
+  await copyFile(f, f.replace("src/", "dist/"))
 }
 
 await writeFile("package.json", `${JSON.stringify(packageJson, undefined, "  ")}\n`, { encoding: "utf-8" })

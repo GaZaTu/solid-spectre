@@ -1,4 +1,3 @@
-import { copyFile, mkdir } from "fs/promises"
 import { glob } from "glob"
 import { defineConfig } from "tsup-preset-solid"
 
@@ -22,12 +21,6 @@ export default defineConfig(entries, {
       ...options,
       bundle: false,
       splitting: false,
-      onSuccess: async () => {
-        await mkdir("dist/css", { recursive: true })
-        for (const f of await glob("src/css/*.css")) {
-          await copyFile(f, f.replace("src/", "dist/"))
-        }
-      },
     }
   },
 })

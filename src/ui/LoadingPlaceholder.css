@@ -18,6 +18,16 @@
   display: inline-block;
 }
 
+.loading-placeholder.absolute {
+  position: absolute;
+}
+
+.loading-placeholder.responsive {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
 .loading-placeholder-gradient {
   animation-duration: 1.25s;
   animation-fill-mode: forwards;

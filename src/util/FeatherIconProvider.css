@@ -2,7 +2,7 @@
 .btn .spectre-icon>svg,
 .toast .spectre-icon>svg,
 .menu .spectre-icon>svg {
-  vertical-align: -28%;
+  vertical-align: -22%;
 }
 
 .accordion .spectre-icon:first-child:not(:last-child),
@@ -20,14 +20,14 @@
 }
 
 .btn-lg .spectre-icon>svg {
-  vertical-align: -18%;
+  vertical-align: -11%;
 }
 
 .spectre-icon>svg {
   display: inline-block;
   vertical-align: middle;
-  width: var(--feather-size, 1rem);
-  height: var(--feather-size, 1rem);
+  width: var(--feather-size, 1.1rem);
+  height: var(--feather-size, 1.1rem);
   stroke-width: var(--feather-weight, 2px);
   fill: var(--feather-fill, none);
 }
@@ -55,7 +55,7 @@
   top: 15%;
   width: var(--control-icon-size);
   z-index: var(--zindex-0)1;
-  --feather-size: 0.9rem;
+  --feather-size: 0.85rem;
 }
 
 .has-icon-left .spectre-icon:not(.is-right) {

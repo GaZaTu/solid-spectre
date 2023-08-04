@@ -4,9 +4,7 @@ import "./Popover.css"
 import { ComponentProps, JSX, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
-import { CardBody } from "./Card.Body"
-import { CardFooter } from "./Card.Footer"
-import { CardImage } from "./Card.Image"
+import { Card } from "./Card"
 
 type Props = {
   direction?: "bottom" | "top" | "left" | "right"
@@ -41,8 +39,5 @@ function Popover_(props: Props & ComponentProps<"div">) {
 
 export const Popover = Object.assign(Popover_, {
   createProps,
-  Body: CardBody,
-  Footer: CardFooter,
-  Header: CardFooter,
-  Image: CardImage,
+  Card,
 })

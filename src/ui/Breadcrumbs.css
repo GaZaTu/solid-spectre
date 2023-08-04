@@ -11,12 +11,12 @@
   padding: var(--unit-1) 0;
 }
 
-.breadcrumbs .breadcrumb-item:not(:last-child) {
-  margin-right: var(--unit-1);
+.breadcrumbs .breadcrumb-item a {
+  color: var(--gray);
 }
 
-.breadcrumbs .breadcrumb-item:not(:last-child) a {
-  color: var(--gray);
+.breadcrumbs .breadcrumb-item:not(:last-child) {
+  margin-right: var(--unit-1);
 }
 
 .breadcrumbs .breadcrumb-item:not(:first-child)::before {

@@ -1,6 +1,6 @@
 {
   "name": "@gazatu/solid-spectre",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Solid.js components styled with Spectre.css",
   "license": "MIT",
   "author": "GaZaTu",
@@ -2406,13 +2406,6 @@
         "default": "./dist/ui/Img.js"
       }
     },
-    "./ui/ImgWithPlaceholder": {
-      "import": {
-        "types": "./dist/ui/ImgWithPlaceholder.d.ts",
-        "node": "./dist/ui/ImgWithPlaceholder.server.js",
-        "default": "./dist/ui/ImgWithPlaceholder.js"
-      }
-    },
     "./ui/Input": {
       "import": {
         "types": "./dist/ui/Input.d.ts",
@@ -2446,6 +2439,13 @@
         "types": "./dist/ui/LoadingPlaceholder.d.ts",
         "node": "./dist/ui/LoadingPlaceholder.server.js",
         "default": "./dist/ui/LoadingPlaceholder.js"
+      }
+    },
+    "./ui/LoadingPlaceholder.Img": {
+      "import": {
+        "types": "./dist/ui/LoadingPlaceholder.Img.d.ts",
+        "node": "./dist/ui/LoadingPlaceholder.Img.server.js",
+        "default": "./dist/ui/LoadingPlaceholder.Img.js"
       }
     },
     "./ui/Menu": {

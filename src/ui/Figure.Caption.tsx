@@ -1,5 +1,5 @@
 // css
-import "./Img.css"
+import "./Figure.css"
 // js
 import { ComponentProps, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"

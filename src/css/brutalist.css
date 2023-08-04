@@ -14,7 +14,6 @@ html .menu {
   border: var(--border-width-md) solid gray;
 }
 
-
 html .navbar .menu {
   border: unset;
 }
@@ -50,6 +49,22 @@ html .form-autocomplete .form-input:not(.form-autocomplete-input):focus {
 html .form-switch>.form-icon,
 html .form-switch>.form-icon:before {
   border-radius: unset;
+}
+
+html .navbar.navbar-responsive {
+  border-bottom: 1px solid gray;
+}
+
+html .navbar.navbar-responsive .navbar-section>.btn-link,
+html .navbar.navbar-responsive .navbar-section .column>.btn-link,
+html .navbar.navbar-responsive .navbar-section .dropdown>.btn-link {
+  margin-top: 1px;
+}
+
+html .modal-container {
+  border-radius: unset;
+  box-shadow: 2px 2px 0px 0px gray;
+  border: 1px solid gray;
 }
 
 @media (max-width: 840px) {

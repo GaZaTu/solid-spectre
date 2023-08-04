@@ -66,6 +66,7 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  border-bottom: 2px solid transparent;
 }
 
 .navbar .navbar-section>.btn-link:hover,
@@ -78,7 +79,7 @@
 .navbar .navbar-section>.btn-link.active,
 .navbar .navbar-section .column>.btn-link.active,
 .navbar .navbar-section .dropdown>.btn-link.active {
-  border-bottom: 1px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
   color: var(--body-fg);
 }
 

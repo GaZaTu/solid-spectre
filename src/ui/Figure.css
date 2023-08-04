@@ -1,0 +1,8 @@
+.figure {
+  margin: 0 0 var(--layout-spacing-md) 0;
+}
+
+.figure .figure-caption {
+  color: var(--body-fg-monochrome);
+  margin-top: var(--layout-spacing-md);
+}
