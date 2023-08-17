@@ -1,5 +1,5 @@
 import { combineProps } from "@solid-primitives/props"
-import { ComponentProps, Show, createMemo, createRenderEffect, splitProps } from "solid-js"
+import { ComponentProps, Show, createEffect, createMemo, createRenderEffect, splitProps } from "solid-js"
 import { createStore } from "solid-js/store"
 import { classnames } from "../util/classnames"
 import { AnchorContext, Location } from "./A.Context"
@@ -51,6 +51,21 @@ const scrollHistory = {
     }
 
     window.scrollTo({ top, behavior })
+  },
+  createRestoreEffect: (key: string | number | "byIndex" | "byPath" | "byHref", condition: () => void) => {
+    createEffect(prev => {
+      void condition()
+
+      if (prev) {
+        return {}
+      }
+
+      setTimeout(() => {
+        A.scrollHistory.restore(key, { behavior: "smooth" })
+      }, 100)
+
+      return {}
+    })
   },
 }
 

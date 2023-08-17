@@ -61,7 +61,8 @@ html .navbar.navbar-responsive .navbar-section .dropdown>.btn-link {
   margin-top: 1px;
 }
 
-html .modal-container {
+html .modal-container,
+html .card {
   border-radius: unset;
   box-shadow: 2px 2px 0px 0px gray;
   border: 1px solid gray;
