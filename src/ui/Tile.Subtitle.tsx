@@ -18,14 +18,14 @@ const createProps = createHTMLMemoHook((props: Props) => {
   }
 })
 
-function TileSubtitle_(props: Props & ComponentProps<"p">) {
+function TileSubtitle_(props: Props & ComponentProps<"small">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
   return (
-    <p {..._props}>
+    <small {..._props}>
       {fml.children}
-    </p>
+    </small>
   )
 }
 

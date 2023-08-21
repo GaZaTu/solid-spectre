@@ -101,18 +101,22 @@ function Input_(props: Props & ComponentProps<"input">) {
       return
     }
 
-    let value: string | null = (() => {
+    let value: string | number | null = (() => {
       if (ev.currentTarget instanceof HTMLDivElement) {
         return ev.currentTarget.innerText
       } else {
-        return ev.currentTarget.value
+        if (_props.type === "number") {
+          return (ev.currentTarget as HTMLInputElement).valueAsNumber
+        } else {
+          return ev.currentTarget.value
+        }
       }
     })()
     if (value === "" && _props.ifEmpty !== undefined) {
       value = _props.ifEmpty
     }
 
-    (_props.onTextChange)?.(value)
+    (_props.onTextChange)?.(String(value))
 
     form.setValue(_props.name, value)
   }
