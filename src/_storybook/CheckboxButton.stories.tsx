@@ -33,7 +33,7 @@ const meta = {
     useColor: false,
   },
 } satisfies Meta<typeof CheckboxButton>
-4
+
 export default meta
 type Story = StoryObj<typeof meta>
 

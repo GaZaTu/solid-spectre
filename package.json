@@ -1,6 +1,6 @@
 {
   "name": "@gazatu/solid-spectre",
-  "version": "1.4.3",
+  "version": "1.5.0",
   "description": "Solid.js components styled with Spectre.css",
   "license": "MIT",
   "author": "GaZaTu",
@@ -2686,6 +2686,13 @@
         "default": "./dist/ui/Select.js"
       }
     },
+    "./ui/Select2": {
+      "import": {
+        "types": "./dist/ui/Select2.d.ts",
+        "node": "./dist/ui/Select2.server.js",
+        "default": "./dist/ui/Select2.js"
+      }
+    },
     "./ui/Slider": {
       "import": {
         "types": "./dist/ui/Slider.d.ts",
@@ -2742,11 +2749,32 @@
         "default": "./dist/ui/Tabs.js"
       }
     },
+    "./ui/Tabs.Body": {
+      "import": {
+        "types": "./dist/ui/Tabs.Body.d.ts",
+        "node": "./dist/ui/Tabs.Body.server.js",
+        "default": "./dist/ui/Tabs.Body.js"
+      }
+    },
     "./ui/Tabs.Item": {
       "import": {
         "types": "./dist/ui/Tabs.Item.d.ts",
         "node": "./dist/ui/Tabs.Item.server.js",
         "default": "./dist/ui/Tabs.Item.js"
+      }
+    },
+    "./ui/Tabs.List": {
+      "import": {
+        "types": "./dist/ui/Tabs.List.d.ts",
+        "node": "./dist/ui/Tabs.List.server.js",
+        "default": "./dist/ui/Tabs.List.js"
+      }
+    },
+    "./ui/Tabs.Panel": {
+      "import": {
+        "types": "./dist/ui/Tabs.Panel.d.ts",
+        "node": "./dist/ui/Tabs.Panel.server.js",
+        "default": "./dist/ui/Tabs.Panel.js"
       }
     },
     "./ui/Tabs.RadioGroup": {

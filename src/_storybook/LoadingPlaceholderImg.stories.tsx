@@ -20,7 +20,7 @@ const meta = {
     src: "",
   },
 } satisfies Meta<typeof LoadingPlaceholderImg>
-4
+
 export default meta
 type Story = StoryObj<typeof meta>
 

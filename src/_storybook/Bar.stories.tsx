@@ -22,7 +22,7 @@ const meta = {
     slider: false,
   },
 } satisfies Meta<typeof Bar>
-4
+
 export default meta
 type Story = StoryObj<typeof meta>
 

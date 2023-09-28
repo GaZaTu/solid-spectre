@@ -1,28 +1,16 @@
 import type { Meta, StoryObj } from "storybook-solidjs"
-import { Code } from "../ui/Code"
+import { Select } from "../ui/Select"
 
 // More on how to set up stories at: https://storybook.js.org/docs/7.0/solid/writing-stories/introduction
 const meta = {
-  title: "Example/Code",
-  component: Code,
+  title: "Example/Select",
+  component: Select,
   tags: ["autodocs"],
   argTypes: {
-    children: {
-      type: "string",
-    },
-    snippet: {
-      type: "boolean",
-    },
-    lang: {
-      type: "string",
-    },
   },
   args: {
-    children: "Test",
-    snippet: false,
-    lang: "md",
   },
-} satisfies Meta<typeof Code>
+} satisfies Meta<typeof Select>
 
 export default meta
 type Story = StoryObj<typeof meta>

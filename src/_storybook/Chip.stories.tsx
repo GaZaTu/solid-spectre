@@ -19,7 +19,7 @@ const meta = {
     active: false,
   },
 } satisfies Meta<typeof Chip>
-4
+
 export default meta
 type Story = StoryObj<typeof meta>
 

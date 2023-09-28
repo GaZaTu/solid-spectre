@@ -9,6 +9,7 @@ import { InputGroupAddon } from "./Input.Group.Addon"
 
 type Props = {
   size?: ThemeSize
+  inline?: boolean
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -17,6 +18,7 @@ const createProps = createHTMLMemoHook((props: Props) => {
       return classnames({
         "input-group": true,
         [`input-group-${props.size}`]: !!props.size,
+        "input-inline": props.inline,
       })
     },
   }

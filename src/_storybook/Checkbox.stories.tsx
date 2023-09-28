@@ -29,7 +29,7 @@ const meta = {
     indeterminate: false,
   },
 } satisfies Meta<typeof Checkbox>
-4
+
 export default meta
 type Story = StoryObj<typeof meta>
 

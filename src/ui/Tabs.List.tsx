@@ -1,40 +1,36 @@
 // css
-import "../css/input-select.css"
-import "./Select.css"
+import "./Tabs.css"
 // js
 import { ComponentProps, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
-import { ThemeSize } from "../util/theming"
 
 type Props = {
-  size?: ThemeSize
-  hasError?: boolean
+  block?: boolean
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
   return {
     get class() {
       return classnames({
-        "form-select": true,
-        [`select-${props.size}`]: !!props.size,
-        "is-error": props.hasError,
+        "tabs": true,
+        "tabs-block": props.block,
       })
     },
   }
 })
 
-function Select_(props: Props & ComponentProps<"select">) {
+function TabsList_(props: Props & ComponentProps<"ul">) {
   const [fml] = splitProps(props, ["children"])
   const [_props] = createProps(props)
 
   return (
-    <select {..._props}>
+    <ul {..._props} role="tablist">
       {fml.children}
-    </select>
+    </ul>
   )
 }
 
-export const Select = Object.assign(Select_, {
+export const TabsList = Object.assign(TabsList_, {
   createProps,
 })
