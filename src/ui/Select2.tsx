@@ -22,11 +22,15 @@ function Select2_(props: Props & ComponentProps<"input">) {
 
   const state = {
     inputRef: undefined as HTMLInputElement | undefined,
-    closeMenu: () => undefined as void,
+    closeMenu: undefined as (() => void) | undefined,
   }
 
   const onfocus: ComponentProps<"input">["onfocus"] = event => {
     void (_props.onfocus as any)?.(event)
+
+    if (state.closeMenu) {
+      return
+    }
 
     ModalPortal.push(props => {
       state.closeMenu = props.resolve
@@ -54,7 +58,8 @@ function Select2_(props: Props & ComponentProps<"input">) {
   const onblur: ComponentProps<"input">["onblur"] = event => {
     void (_props.onblur as any)?.(event)
 
-    state.closeMenu()
+    state.closeMenu?.()
+    state.closeMenu = undefined
   }
 
   return (
