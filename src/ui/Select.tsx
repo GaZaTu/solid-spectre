@@ -10,10 +10,17 @@ import { ThemeSize } from "../util/theming"
 type Props = {
   size?: ThemeSize
   hasError?: boolean
+
+  id?: string
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
+  const generatedId = Math.random().toString(36).substr(2, 10)
+
   return {
+    get id() {
+      return props.id ?? generatedId
+    },
     get class() {
       return classnames({
         "form-select": true,

@@ -22,10 +22,22 @@ export const Basic: Story = {
   args: {},
   render: args => {
     const [value, setValue] = createSignal<string>()
+    const select = Select2.createOptionProps({
+      get options() {
+        return ["option1", "option2", "option3", "option4", "option5", "option6", "option7", "option8", "option9"]
+      },
+      keyofOption: o => o,
+      renderOption: o => o,
+      stringifyOption: o => o,
+      onselect: setValue,
+      get selected() {
+        return value()
+      },
+    })
 
     return (
       <div style={{ "height": "500px" }}>
-        <Select2 options={["option1", "option2", "option3", "option4", "option5", "option6", "option7", "option8", "option9"]} renderOption={o => o} stringifyOption={o => o} selected={value()} onselect={setValue} />
+        <Select2 {...select} />
 
         <ModalPortal />
       </div>
