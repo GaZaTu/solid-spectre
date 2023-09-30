@@ -20,7 +20,9 @@ type OptionProps<T> = {
   onselect?: (option: T) => unknown
 }
 
-type Props = Parameters<typeof Select.createProps>[0] & OptionProps<any>
+type Props = Parameters<typeof Select.createProps>[0] & OptionProps<any> & {
+  menuWidth?: string
+}
 
 function Select2_(props: Props & Omit<ComponentProps<"input">, "onselect" | "onSelect">) {
   const [fml, __props] = splitProps(props, ["onselect"])
@@ -89,12 +91,22 @@ function Select2_(props: Props & Omit<ComponentProps<"input">, "onselect" | "onS
 
       const input = state.inputRef!
 
+      const maxHeight = 250
+
+      const openAbove = (() => {
+        const bodyRect = document.body.getBoundingClientRect()
+        const inputRect = input.getBoundingClientRect()
+
+        return (inputRect.bottom + maxHeight) > bodyRect.height
+      })()
+
       const left = input.offsetLeft
       const top = input.offsetTop + input.offsetHeight
       const width = input.offsetWidth
+      const bottom = (input.offsetParent?.clientHeight ?? 0) - input.offsetTop
 
       return (
-        <Menu id={menuId} style={{ "position": "absolute", "left": `${left}px`, "top": `${top}px`, "width": `${width}px`, "max-height": "10rem", "overflow-y": "auto" }} role="listbox">
+        <Menu id={menuId} style={{ "position": "absolute", "left": `${left}px`, ...(openAbove ? { "bottom": `${bottom}px` } : { "top": `${top}px` }), "width": _props.menuWidth ? _props.menuWidth : `${width}px`, "max-height": `${maxHeight}px`, "overflow-y": "auto" }} role="listbox">
           <For each={_props.options}>
             {(option, index) => (
               <Menu.Item id={`${menuId}-${index()}`} onmousedown={() => handleSelect(option)} active={_props.keyofOption(option) === _props.keyofOption(selected())} focused={index() === focusedOptionIndex()} role="option">
