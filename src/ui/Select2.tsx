@@ -13,9 +13,9 @@ import { Select } from "./Select"
 
 type OptionProps<T> = {
   options: T[]
-  stringifyOption: (option: T) => string
+  stringifyOption: (option: T | undefined) => string
   renderOption: (option: T) => JSX.Element
-  keyofOption: (option: T) => any
+  keyofOption: (option: T | undefined) => any
   selected?: T
   onselect?: (option: T) => unknown
 }
@@ -163,7 +163,7 @@ function Select2_(props: Props & Omit<ComponentProps<"input">, "onselect" | "onS
   }
 
   return (
-    <input {..._props} ref={e => state.inputRef = e} value={selected() ? _props.stringifyOption(selected()) : ""} onfocus={handleFocus} onblur={handleBlur} onkeydown={handleKeyDown} readonly role="combobox"
+    <input {..._props} ref={e => state.inputRef = e} value={_props.stringifyOption(selected())} onfocus={handleFocus} onblur={handleBlur} onkeydown={handleKeyDown} readonly role="combobox"
       aria-controls={menuId}
       aria-autocomplete="list"
       aria-expanded={!!state.closeMenu}
