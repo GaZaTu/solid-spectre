@@ -1,7 +1,7 @@
 // css
 import "./Tabs.css"
 // js
-import { ComponentProps, splitProps } from "solid-js"
+import { ComponentProps, Show, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { TabsPanel } from "./Tabs.Panel"
@@ -11,6 +11,7 @@ import { TabsBody } from "./Tabs.Body"
 
 type Props = {
   block?: boolean
+  bottomNav?: boolean
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -30,11 +31,17 @@ function Tabs_(props: Props & ComponentProps<"div">) {
   return (
     <div {..._props}>
       <TabsRadioGroup.Provider>
+        <Show when={props.bottomNav}>
+          <TabsBody />
+        </Show>
+
         <TabsList block={props.block}>
           {fml.children}
         </TabsList>
 
-        <TabsBody />
+        <Show when={!props.bottomNav}>
+          <TabsBody />
+        </Show>
       </TabsRadioGroup.Provider>
     </div>
   )

@@ -40,6 +40,7 @@
 .has-icon-right {
   display: flex;
   position: relative;
+  flex-grow: 1;
 }
 
 .has-icon-left.form-inline,

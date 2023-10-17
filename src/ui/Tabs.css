@@ -7,6 +7,15 @@
   margin: var(--unit-1) 0 calc(var(--unit-1) - var(--border-width-md)) 0;
 }
 
+.tabs-container > .tabs:first-child {
+  border-bottom: var(--border-width-md) solid lightgray;
+}
+
+.tabs-container > .tabs:not(:first-child) {
+  border-bottom: unset;
+  border-top: var(--border-width-md) solid lightgray;
+}
+
 .tabs .tabs-item {
   margin-top: 0;
 }
@@ -20,6 +29,15 @@
   text-decoration: none;
 }
 
+.tabs-container > .tabs:first-child .tabs-item a {
+  border-bottom: var(--border-width-lg) solid transparent;
+}
+
+.tabs-container > .tabs:not(:first-child) .tabs-item a {
+  border-bottom: unset;
+  border-top: var(--border-width-lg) solid transparent;
+}
+
 .tabs .tabs-item a:focus,
 .tabs .tabs-item a:hover {
   color: var(--link);
@@ -27,8 +45,7 @@
 
 .tabs .tabs-item.active a,
 .tabs .tabs-item a.active {
-  border-bottom-color: var(--primary);
-  color: var(--link);
+  border-color: var(--primary) !important;
 }
 
 .tabs .tabs-item.tabs-action {

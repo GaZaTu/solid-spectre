@@ -15,9 +15,13 @@ const meta = {
     block: {
       type: "boolean",
     },
+    bottomNav: {
+      type: "boolean",
+    },
   },
   args: {
     block: false,
+    bottomNav: false,
   },
 } satisfies Meta<typeof Tabs>
 
