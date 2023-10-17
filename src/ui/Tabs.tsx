@@ -12,6 +12,7 @@ import { TabsBody } from "./Tabs.Body"
 type Props = {
   block?: boolean
   bottomNav?: boolean
+  useSearchParam?: boolean | string
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -30,7 +31,7 @@ function Tabs_(props: Props & ComponentProps<"div">) {
 
   return (
     <div {..._props}>
-      <TabsRadioGroup.Provider>
+      <TabsRadioGroup.Provider useSearchParam={props.useSearchParam}>
         <Show when={props.bottomNav}>
           <TabsBody />
         </Show>

@@ -69,6 +69,29 @@ const scrollHistory = {
   },
 }
 
+function createSearchParamSignal<T extends string | number | boolean | null | undefined>(key: string, Constructor: (value?: string) => T) {
+  switch (Constructor as any) {
+    case Number:
+    case Boolean:
+      Constructor = v => Number(v ?? "0") as any
+      break
+    case String:
+      Constructor = v => String(v ?? "") as any
+      break
+  }
+
+  const [searchParams, setSearchParams] = A.Context.useSearchParams()
+
+  const param = createMemo(() => {
+    return Constructor(searchParams[key])
+  })
+  const setParam = (value: T | undefined | null) => {
+    setSearchParams({ ...searchParams, [key]: value }, { replace: true })
+  }
+
+  return [param, setParam] as const
+}
+
 type Props = ComponentProps<"a"> & {
   delta?: number
   url?: URL
@@ -264,6 +287,7 @@ function A_(props: Props) {
 export const A = Object.assign(A_, {
   createProps,
   scrollHistory,
+  createSearchParamSignal,
   Context: AnchorContext,
 })
 

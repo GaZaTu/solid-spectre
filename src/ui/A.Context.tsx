@@ -1,6 +1,12 @@
-export declare type Params = Record<string, string>
+export type Params = Record<string, string>
 
-export declare type SetParams = Record<string, string | number | boolean | null | undefined>
+export type SetParams = Record<string, string | number | boolean | null | undefined>
+
+export type UseSearchParams = () => [Params, (params: SetParams, options?: Partial<NavigateOptions<unknown>> | undefined) => void]
+
+const useSearchParams: UseSearchParams = () => {
+  return [{}, () => undefined]
+}
 
 export interface Path {
   pathname: string
@@ -43,6 +49,7 @@ const useNavigate: UseNavigate = () => {
 }
 
 export const AnchorContext = {
+  useSearchParams,
   useLocation,
   useNavigate,
   activeClass: "active",

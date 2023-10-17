@@ -1,4 +1,5 @@
 import { createContext, createSignal, JSX } from "solid-js"
+import { A } from "./A"
 
 const TabsRadioGroup_ = createContext({
   exists: () => false as boolean,
@@ -14,10 +15,11 @@ const _Provider = TabsRadioGroup_.Provider
 
 type ProviderProps = {
   children?: JSX.Element
+  useSearchParam?: boolean | string
 }
 
 const Provider = (props: ProviderProps) => {
-  const [activeId, setActiveId] = createSignal<string>()
+  const [activeId, setActiveId] = props.useSearchParam ? A.createSearchParamSignal((typeof props.useSearchParam === "string") ? props.useSearchParam : "tab", String) : createSignal<string>()
   const [bodyNode, setBodyNode] = createSignal<Node>()
 
   const context = {
