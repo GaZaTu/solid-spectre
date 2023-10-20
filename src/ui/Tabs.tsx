@@ -12,7 +12,7 @@ import { TabsRadioGroup } from "./Tabs.RadioGroup"
 type Props = {
   block?: boolean
   bottomNav?: boolean
-  activeId?: Accessor<string | undefined>
+  activeId?: Accessor<string | null | undefined>
   setActiveId?: Setter<string>
 }
 
