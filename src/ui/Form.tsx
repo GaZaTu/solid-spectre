@@ -1,20 +1,26 @@
 // css
 import "./Form.css"
 // js
+import { FormConfigWithTransformFn, UnknownHelpers, UnknownStores, Paths } from "@felte/core"
 import { createForm } from "@felte/solid"
 import { ComponentProps, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { FormContext } from "./Form.Context"
 import { FormGroup } from "./Form.Group"
+import { Form as FormData } from "@felte/solid/dist/esm/create-form"
 
 type Obj = Record<string, any>
 
-type FormConfig<Data extends Obj = Obj, Ext extends Obj = Obj> = NonNullable<Parameters<typeof createForm<Data, Ext>>[0]> & {
+type FelteConfig<Data extends Obj = Obj, Ext extends Obj = Obj> = NonNullable<FormConfigWithTransformFn<Data> & Ext> & {
   isRequired?: (name?: string) => boolean
 }
 
-const createContext = <Data extends Obj = Obj, Ext extends Obj = Obj>(config: FormConfig<Data, Ext>) => {
+type FelteContext<Data extends Obj = Obj> = FormData<Data> & UnknownHelpers<Data, Paths<Data>> & UnknownStores<Data> & {
+  isRequired?: (name?: string) => boolean
+}
+
+const createContext = <Data extends Obj = Obj, Ext extends Obj = Obj>(config: FelteConfig<Data, Ext>): FelteContext => {
   const {
     isRequired,
     ...formConfig
@@ -27,7 +33,7 @@ const createContext = <Data extends Obj = Obj, Ext extends Obj = Obj>(config: Fo
 
 type Props = {
   horizontal?: boolean
-  context?: ReturnType<typeof createContext>
+  context?: FelteContext<any>
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -52,10 +58,10 @@ function Form_(props: Props & ComponentProps<"form">) {
 
   const form: ComponentProps<typeof FormContext.Provider>["value"] = {
     getValue: (name) => {
-      return _props.context?.data(name)
+      return (_props.context as any)?.data(name)
     },
     getError: (name) => {
-      return _props.context?.errors(name)?.[0]
+      return (_props.context as any)?.errors(name)?.[0]
     },
     setValue: (name, value) => {
       _props.context?.setFields(name, value)

@@ -112,7 +112,7 @@ function Input_(props: Props & ComponentProps<"input">) {
         }
       }
     })()
-    if (value === "" && _props.ifEmpty !== undefined) {
+    if ((value === "" || (typeof value === "number" && isNaN(value))) && _props.ifEmpty !== undefined) {
       value = _props.ifEmpty
     }
 
