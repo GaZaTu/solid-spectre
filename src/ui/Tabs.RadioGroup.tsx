@@ -2,7 +2,7 @@ import { Accessor, createContext, createSignal, JSX, Setter } from "solid-js"
 
 const TabsRadioGroup_ = createContext({
   exists: () => false as boolean,
-  activeId: () => undefined as string | undefined,
+  activeId: () => undefined as string | null | undefined,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   setActiveId: (id: string | undefined) => {},
   bodyNode: () => undefined as Node | undefined,
@@ -14,8 +14,8 @@ const _Provider = TabsRadioGroup_.Provider
 
 type ProviderProps = {
   children?: JSX.Element
-  activeId?: Accessor<string | undefined>
-  setActiveId?: Setter<string | undefined>
+  activeId?: Accessor<string | null | undefined>
+  setActiveId?: Setter<string>
 }
 
 const Provider = (props: ProviderProps) => {

@@ -13,7 +13,7 @@ type Props = {
   block?: boolean
   bottomNav?: boolean
   activeId?: Accessor<string | undefined>
-  setActiveId?: Setter<string | undefined>
+  setActiveId?: Setter<string>
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
