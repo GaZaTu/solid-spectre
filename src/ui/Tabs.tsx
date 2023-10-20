@@ -1,18 +1,19 @@
 // css
 import "./Tabs.css"
 // js
-import { ComponentProps, Show, splitProps } from "solid-js"
+import { Accessor, ComponentProps, Setter, Show, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
+import { TabsBody } from "./Tabs.Body"
+import { TabsList } from "./Tabs.List"
 import { TabsPanel } from "./Tabs.Panel"
 import { TabsRadioGroup } from "./Tabs.RadioGroup"
-import { TabsList } from "./Tabs.List"
-import { TabsBody } from "./Tabs.Body"
 
 type Props = {
   block?: boolean
   bottomNav?: boolean
-  useSearchParam?: boolean | string
+  activeId?: Accessor<string | undefined>
+  setActiveId?: Setter<string | undefined>
 }
 
 const createProps = createHTMLMemoHook((props: Props) => {
@@ -31,7 +32,7 @@ function Tabs_(props: Props & ComponentProps<"div">) {
 
   return (
     <div {..._props}>
-      <TabsRadioGroup.Provider useSearchParam={props.useSearchParam}>
+      <TabsRadioGroup.Provider activeId={props.activeId} setActiveId={props.setActiveId}>
         <Show when={props.bottomNav}>
           <TabsBody />
         </Show>
