@@ -1,22 +1,32 @@
 // css
 import "./Form.css"
 // js
-import { FormConfigWithTransformFn, UnknownHelpers, UnknownStores, Paths } from "@felte/core"
+import { CreateSubmitHandlerConfig, FormConfigWithTransformFn, Paths, UnknownHelpers, UnknownStores } from "@felte/core"
 import { createForm } from "@felte/solid"
 import { ComponentProps, splitProps } from "solid-js"
 import { classnames } from "../util/classnames"
 import { createHTMLMemoHook } from "../util/createHTMLMemoHook"
 import { FormContext } from "./Form.Context"
 import { FormGroup } from "./Form.Group"
-import { Form as FormData } from "@felte/solid/dist/esm/create-form"
 
 type Obj = Record<string, any>
+
+type FormProps<Data extends Obj> = {
+  /** Action function to be used with the `use` directive on your `form` elements. */
+  form: (node: HTMLFormElement) => {
+    destroy: () => void
+  }
+  /** Function to handle submit to be passed to the on:submit event. Not necessary if using the `form` action. */
+  handleSubmit: (e?: Event) => void
+  /** Function that creates a submit handler. If a function is passed as first argument it overrides the default `onSubmit` function set in the `createForm` config object. */
+  createSubmitHandler: (altConfig?: CreateSubmitHandlerConfig<Data>) => (e?: Event) => void
+}
 
 type FelteConfig<Data extends Obj = Obj, Ext extends Obj = Obj> = NonNullable<FormConfigWithTransformFn<Data> & Ext> & {
   isRequired?: (name?: string) => boolean
 }
 
-type FelteContext<Data extends Obj = Obj> = FormData<Data> & UnknownHelpers<Data, Paths<Data>> & UnknownStores<Data> & {
+type FelteContext<Data extends Obj = Obj> = FormProps<Data> & UnknownHelpers<Data, Paths<Data>> & UnknownStores<Data> & {
   isRequired?: (name?: string) => boolean
 }
 
